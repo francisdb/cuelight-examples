@@ -13,10 +13,7 @@ switchable scenes on a 128x32 DMD.
 | `graveyard` | Video mode: parallax scrolling, sprite-sheet runner that jumps, falls and dies |
 | `alphanum` | 2x16 alphanumeric segment display |
 
-Everything the show uses is in cuelight `main` except segment displays
-(the `alphanum` scene), which are still in progress: until they land the
-show fails to load with `unknown variant segments`. Remove that scene to
-play the other five.
+Everything the show uses is in cuelight `main`.
 
 ## Running
 
@@ -64,7 +61,7 @@ Engine / show format:
 - [x] **Sprite sheets** (cuelight #13): `sheet: { cell, columns }` on an image plus an animatable/bindable `frame` property (floored, clamped).
 - [x] **Timeline `delay`, `repeat`, `on_end`** (cuelight #14): a start offset that a `loop` does not repeat, a (fractional) play count, and a trigger fired at the end (restart the video mode after a fall).
 - [x] **Output modes** (cuelight #7): show or scene `output: { "mode": "gray4", "tint": ... }` or `"rgb"` (FlexDMD `RenderMode` plus `DotMatrix.color`).
-- [ ] **Segment displays** (in progress): `type: "segments"`, `style: "alpha14"`, `digits`, `text`.
+- [x] **Segment displays** (cuelight #17): `type: "digits"` rows with a `segments` display (`alpha14`).
 - [x] **Pixel-perfect scaling** (cuelight #16): show-level `output: { "scaling": "pixel_perfect" }`, nearest-neighbor whole-number scaling of the canvas; scenes only override the output fields they set.
 
 Host / player:
@@ -88,7 +85,7 @@ Host / player:
 | `MoveTo(x, y, duration)` | x/y keys |
 | `Sequence(Wait, Repeat(...))` | `delay` + `loop` |
 | `RenderMode`, `DotMatrix.color` | scene `output` |
-| second FlexDMD in `SEG_2x16Alpha` mode | `segments` layers |
+| second FlexDMD in `SEG_2x16Alpha` mode | `digits` layers with a `segments` display |
 | `label.Font = ...` on the active player | mapped `font` binding |
 | `label.Text = FormatNumber(...)` | `text` binding, `thousands` format |
 | `CreateGraveyardVideoMode()` after fall/die | `on_end: "graveyard"` |

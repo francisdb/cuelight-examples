@@ -602,22 +602,20 @@
       "layers": [
         {
           "name": "row_1",
-          "type": "segments",
-          "style": "alpha14",
+          "type": "digits",
           "digits": 16,
-          "text": "     FLEXDMD",
           "size": [128, 16],
-          "fill": "#FF5820"
+          "text": "     FLEXDMD",
+          "display": { "segments": { "style": "alpha14", "fill": "#FF5820", "unlit": "#1F0B04" } }
         },
         {
           "name": "row_2",
-          "type": "segments",
-          "style": "alpha14",
+          "type": "digits",
           "digits": 16,
-          "text": "",
           "size": [128, 16],
           "y": 16,
-          "fill": "#FF5820"
+          "text": "",
+          "display": { "segments": { "style": "alpha14", "fill": "#FF5820", "unlit": "#1F0B04" } }
         }
       ]
     }
