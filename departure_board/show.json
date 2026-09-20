@@ -1,0 +1,578 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "departure_board",
+  "size": [1208, 552],
+  "background": "#050607",
+  "variables": {
+    "clock": "00.00",
+    "time_1": "", "dest_1": "", "flight_1": "", "gate_1": "", "status_1": "",
+    "time_2": "", "dest_2": "", "flight_2": "", "gate_2": "", "status_2": "",
+    "time_3": "", "dest_3": "", "flight_3": "", "gate_3": "", "status_3": "",
+    "time_4": "", "dest_4": "", "flight_4": "", "gate_4": "", "status_4": "",
+    "time_5": "", "dest_5": "", "flight_5": "", "gate_5": "", "status_5": "",
+    "time_6": "", "dest_6": "", "flight_6": "", "gate_6": "", "status_6": ""
+  },
+  "layers": [
+    {"name": "panel", "type": "shape", "shape": {"rect": [20, 20, 1168, 512]}, "fill": "#0B0D10"},
+    {
+      "name": "title", "type": "digits", "digits": 10, "size": [360, 54], "x": 60, "y": 44, "text": "DEPARTURES",
+      "display": {"segments": {"style": "alpha14", "fill": "#DDE3EA"}}
+    },
+    {
+      "name": "clock", "type": "digits", "digits": 4, "size": [144, 54], "x": 1004, "y": 44, "text": "00.00",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+      "bindings": [
+        {"property": "text", "variable": "clock"}
+      ]
+    },
+    {
+      "name": "head_time", "type": "digits", "digits": 4, "size": [52, 18], "x": 60, "y": 118, "text": "TIME",
+      "display": {"segments": {"style": "alpha14", "fill": "#7A8594"}}
+    },
+    {
+      "name": "head_dest", "type": "digits", "digits": 11, "size": [143, 18], "x": 202, "y": 118, "text": "DESTINATION",
+      "display": {"segments": {"style": "alpha14", "fill": "#7A8594"}}
+    },
+    {
+      "name": "head_flight", "type": "digits", "digits": 6, "size": [78, 18], "x": 604, "y": 118, "text": "FLIGHT",
+      "display": {"segments": {"style": "alpha14", "fill": "#7A8594"}}
+    },
+    {
+      "name": "head_gate", "type": "digits", "digits": 4, "size": [52, 18], "x": 798, "y": 118, "text": "GATE",
+      "display": {"segments": {"style": "alpha14", "fill": "#7A8594"}}
+    },
+    {
+      "name": "head_status", "type": "digits", "digits": 6, "size": [78, 18], "x": 914, "y": 118, "text": "STATUS",
+      "display": {"segments": {"style": "alpha14", "fill": "#7A8594"}}
+    },
+    {
+      "name": "row_1", "type": "group", "y": 150,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_1"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_1"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_1"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_1"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_1"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_1", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_1"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_1", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_1"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_1", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_1"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "row_2", "type": "group", "y": 212,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_2"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_2"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_2"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_2"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_2"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_2", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_2"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_2", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_2"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_2", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_2"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "row_3", "type": "group", "y": 274,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_3"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_3"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_3"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_3"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_3"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_3", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_3"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_3", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_3"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_3", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_3"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "row_4", "type": "group", "y": 336,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_4"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_4"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_4"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_4"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_4"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_4", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_4"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_4", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_4"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_4", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_4"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "row_5", "type": "group", "y": 398,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_5"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_5"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_5"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_5"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_5"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_5", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_5"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_5", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_5"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_5", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_5"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "row_6", "type": "group", "y": 460,
+      "timelines": [
+        {"name": "refresh", "trigger": ["refresh", "row_6"], "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0.1}, {"t": 0.12, "v": 0.1}, {"t": 0.3, "v": 1}]}]}
+      ],
+      "children": [
+        {
+          "name": "time", "type": "digits", "digits": 4, "size": [104, 40], "x": 60, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "time_6"}
+          ]
+        },
+        {
+          "name": "dest", "type": "digits", "digits": 14, "size": [364, 40], "x": 202, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "dest_6"}
+          ]
+        },
+        {
+          "name": "flight", "type": "digits", "digits": 6, "size": [156, 40], "x": 604, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "flight_6"}
+          ]
+        },
+        {
+          "name": "gate", "type": "digits", "digits": 3, "size": [78, 40], "x": 798, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}},
+          "bindings": [
+            {"property": "text", "variable": "gate_6"}
+          ]
+        },
+        {
+          "name": "status_unlit", "type": "digits", "digits": 9, "size": [234, 40], "x": 914, "text": "",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#1E1704"}}
+        },
+        {
+          "name": "status_amber", "type": "group", "x": 914,
+          "bindings": [
+            {"property": "opacity", "variable": "status_6", "map": {"BOARDING": 0, "DELAYED": 0, "CANCELLED": 0}, "default": 1}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+              "bindings": [
+                {"property": "text", "variable": "status_6"}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_green", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_6", "map": {"BOARDING": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#3DDC84"}},
+              "bindings": [
+                {"property": "text", "variable": "status_6"}
+              ],
+              "timelines": [
+                {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.0, "v": 0.15}]}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status_red", "type": "group", "x": 914, "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "status_6", "map": {"DELAYED": 1, "CANCELLED": 1}, "default": 0}
+          ],
+          "children": [
+            {
+              "name": "text", "type": "digits", "digits": 9, "size": [234, 40], "text": "",
+              "display": {"segments": {"style": "alpha14", "fill": "#FF4D4D"}},
+              "bindings": [
+                {"property": "text", "variable": "status_6"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
