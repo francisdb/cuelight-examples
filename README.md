@@ -9,6 +9,7 @@ folder you can play directly with the cuelight player.
 | Show | Description |
 | --- | --- |
 | [pinball_dmd](pinball_dmd/) | A pinball dot-matrix display: score layouts, a color scene, a video mode and a segment display |
+| [space_crawl](space_crawl/) | A film-style opening crawl: star field, receding logo and text shrinking towards a vanishing point |
 
 Every show folder has its own README describing what it shows, how to run
 it, and where its assets come from.

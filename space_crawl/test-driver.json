@@ -1,0 +1,11 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "trigger": "crawl"
+    },
+    {
+      "wait": 68.7
+    }
+  ]
+}

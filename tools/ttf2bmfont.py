@@ -2,8 +2,10 @@
 """Rasterize a pixel TrueType font into an AngelCode BMFont (text .fnt + PNG).
 
 cuelight reads bitmap fonts only, so the shows here commit the generated
-files. Glyphs are rendered without antialiasing: pick the pixel size the
-font was drawn for, or the result will be uneven. Every glyph keeps a
+files. Glyphs are rendered without antialiasing unless asked: for a pixel
+font pick the pixel size it was drawn for, or the result will be uneven.
+An outline font wants --antialias and a size at least as large as it will
+be shown, since cuelight scales the glyph pixels. Every glyph keeps a
 transparent margin (--padding) in the atlas: cuelight draws a font style's
 border into it, so it has to be at least as wide as the widest border.
 
@@ -18,7 +20,6 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 CHARS = [chr(c) for c in range(32, 127)]
-ATLAS_WIDTH = 128
 
 
 def main():
@@ -27,9 +28,13 @@ def main():
     parser.add_argument("size", type=int, help="pixel size to rasterize at")
     parser.add_argument("out", type=Path, help="output path without extension")
     parser.add_argument("--padding", type=int, default=1, help="transparent margin around each glyph")
+    parser.add_argument("--antialias", action="store_true", help="keep smooth glyph edges")
+    parser.add_argument("--weight", type=int, help="weight axis value of a variable font")
     args = parser.parse_args()
 
     font = ImageFont.truetype(str(args.ttf), args.size)
+    if args.weight is not None:
+        font.set_variation_by_axes([args.weight])
     ascent, descent = font.getmetrics()
     cell = (args.size * 3, ascent + descent + args.size)
 
@@ -40,7 +45,7 @@ def main():
     for char in CHARS:
         image = Image.new("L", cell, 0)
         draw = ImageDraw.Draw(image)
-        draw.fontmode = "1"
+        draw.fontmode = "L" if args.antialias else "1"
         draw.text(origin, char, font=font, fill=255)
         box = image.getbbox()
         advance = round(font.getlength(char))
@@ -59,11 +64,14 @@ def main():
 
     # Shelf packing; a glyph's rectangle includes its padding.
     pad = args.padding
+    atlas_width = 128
+    while atlas_width < 6 * args.size:
+        atlas_width *= 2
     x = y = shelf = 0
     placed = []
     for char, image, xoffset, yoffset, advance in glyphs:
         width, height = (image.width + 2 * pad, image.height + 2 * pad) if image else (0, 0)
-        if x + width > ATLAS_WIDTH:
+        if x + width > atlas_width:
             x, y, shelf = 0, y + shelf, 0
         placed.append((char, image, x, y, width, height, xoffset - pad, yoffset - top - pad, advance))
         x += width
@@ -72,19 +80,22 @@ def main():
     while atlas_height < y + shelf:
         atlas_height *= 2
 
-    atlas = Image.new("RGBA", (ATLAS_WIDTH, atlas_height), (255, 255, 255, 0))
+    atlas = Image.new("RGBA", (atlas_width, atlas_height), (255, 255, 255, 0))
     for _, image, x, y, *_ in placed:
         if image:
             white = Image.new("RGBA", image.size, (255, 255, 255, 255))
-            atlas.paste(white, (x + pad, y + pad), image.point(lambda v: 255 if v > 127 else 0))
+            atlas.paste(white, (x + pad, y + pad), image)
     page = args.out.with_suffix(".png")
     atlas.save(page, optimize=True)
 
+    # A variable font reports the style of its default instance.
     family, style = font.getname()
+    if args.weight is not None:
+        style = f"wght {args.weight}"
     lines = [
         f'info face="{family} {style}" size={args.size} bold=0 italic=0 charset="" unicode=1 '
-        f"stretchH=100 smooth=0 aa=0 padding={pad},{pad},{pad},{pad} spacing=0,0 outline=0",
-        f"common lineHeight={line_height} base={base} scaleW={ATLAS_WIDTH} scaleH={atlas_height} "
+        f"stretchH=100 smooth={int(args.antialias)} aa={int(args.antialias)} padding={pad},{pad},{pad},{pad} spacing=0,0 outline=0",
+        f"common lineHeight={line_height} base={base} scaleW={atlas_width} scaleH={atlas_height} "
         "pages=1 packed=0 alphaChnl=0 redChnl=4 greenChnl=4 blueChnl=4",
         f'page id=0 file="{page.name}"',
         f"chars count={len(placed)}",
