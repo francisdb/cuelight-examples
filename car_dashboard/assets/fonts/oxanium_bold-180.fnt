@@ -1,0 +1,19 @@
+info face="Oxanium wght 700" size=180 bold=0 italic=0 charset="" unicode=1 stretchH=100 smooth=1 aa=1 padding=1,1,1,1 spacing=0,0 outline=0
+common lineHeight=124 base=124 scaleW=2048 scaleH=128 pages=1 packed=0 alphaChnl=0 redChnl=4 greenChnl=4 blueChnl=4
+page id=0 file="oxanium_bold-180.png"
+chars count=15
+char id=45 x=0 y=0 width=57 height=24 xoffset=6 yoffset=57 xadvance=68 page=0 chnl=15
+char id=48 x=57 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=49 x=145 y=0 width=81 height=126 xoffset=13 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=50 x=226 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=51 x=314 y=0 width=86 height=126 xoffset=10 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=52 x=400 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=53 x=488 y=0 width=90 height=126 xoffset=6 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=54 x=578 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=55 x=666 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=56 x=754 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=57 x=842 y=0 width=88 height=126 xoffset=8 yoffset=-1 xadvance=104 page=0 chnl=15
+char id=68 x=930 y=0 width=101 height=126 xoffset=13 yoffset=-1 xadvance=124 page=0 chnl=15
+char id=78 x=1031 y=0 width=107 height=126 xoffset=13 yoffset=-1 xadvance=133 page=0 chnl=15
+char id=80 x=1138 y=0 width=94 height=126 xoffset=13 yoffset=-1 xadvance=115 page=0 chnl=15
+char id=82 x=1232 y=0 width=98 height=126 xoffset=13 yoffset=-1 xadvance=117 page=0 chnl=15
