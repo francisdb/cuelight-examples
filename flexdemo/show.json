@@ -3,7 +3,7 @@
   "name": "flexdemo",
   "size": [128, 32],
   "background": "#000000",
-  "pixel_perfect": true,
+  "output": { "scaling": "pixel_perfect" },
   "fonts": {
     "tiny_white": { "file": "teeny_tiny_pixls-5", "color": "#FFFFFF" },
     "tiny_gray64": { "file": "teeny_tiny_pixls-5", "color": "#404040" },
