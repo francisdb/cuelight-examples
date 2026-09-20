@@ -173,7 +173,7 @@
           "name": "content",
           "type": "group",
           "x": 47,
-          "clip": [81, 32],
+          "clip": { "rect": [0, 0, 81, 32] },
           "children": [
             {
               "name": "title",

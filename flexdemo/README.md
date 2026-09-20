@@ -60,7 +60,7 @@ Engine / show format:
 - [x] **Text bindings** (`feat/text`): `{ "property": "text", "variable": ..., "format": "thousands" }` (FlexDMD script uses `FormatNumber`).
 - [x] **Anchor** (`feat/anchor`): optional `anchor` (`top_left`, `top`, `top_right`, `left`, `center`, `right`, `bottom_left`, `bottom`, `bottom_right`) places that point of the layer's box at x/y (FlexDMD `SetAlignedPosition`). Also replaces the beacon show's counter-animation workaround.
 - [x] **Mapped bindings** (`feat/mapped-bindings`, on top of `feat/text`): `map` + `default` pick a value by variable, used to swap the active player's font.
-- [x] **Group clipping** (`feat/group-clip`): `clip: [w, h]` on a group.
+- [x] **Group clipping** (`feat/group-clip`): `clip: { "rect": [x, y, w, h] }` on a group.
 - [x] **Sprite sheets** (`feat/sprite-sheets`): `sheet: { cell, columns }` on an image plus an animatable/bindable `frame` property (floored, clamped).
 - [x] **Timeline `delay`, `repeat`, `on_end`** (`feat/timeline-playback`): a start offset that a `loop` does not repeat, a (fractional) play count, and a trigger fired at the end (restart the video mode after a fall).
 - [x] **Output modes** (`feat/output-modes`, on top of `feat/scenes`): show or scene `output: { "mode": "gray4", "tint": ... }` or `"rgb"` (FlexDMD `RenderMode` plus `DotMatrix.color`).
