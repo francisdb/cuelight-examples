@@ -9,6 +9,7 @@ folder you can play directly with the cuelight player.
 | Show | Description |
 | --- | --- |
 | [car_dashboard](car_dashboard/) | A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals |
+| [departure_board](departure_board/) | An airport departure board made of segment displays, with no assets at all: text variables, mapped status colors, refresh triggers |
 
 Every show folder has its own README describing what it shows, how to run
 it, and where its assets come from.
