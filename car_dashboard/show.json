@@ -5,14 +5,16 @@
   "size": [1280, 480],
   "background": "#0B0E13",
   "fonts": {
-    "speed": { "file": "oxanium_bold-180", "color": "#F2F6FA" },
-    "speed_sport": { "file": "oxanium_bold-180", "color": "#FF5A3C" },
-    "gear": { "file": "oxanium_bold-180", "color": "#FFC857" },
-    "label": { "file": "oxanium_semibold-32", "color": "#C9D3E0" },
-    "label_dim": { "file": "oxanium_semibold-32", "color": "#6B7686" },
-    "label_red": { "file": "oxanium_semibold-32", "color": "#FF4D4D" },
-    "label_amber": { "file": "oxanium_semibold-32", "color": "#FFB020" },
-    "label_blue": { "file": "oxanium_semibold-32", "color": "#4DA3FF" }
+    "speed": { "file": "Oxanium-Bold", "size": 180, "color": "#F2F6FA" },
+    "speed_sport": { "file": "Oxanium-Bold", "size": 180, "color": "#FF5A3C" },
+    "gear": { "file": "Oxanium-Bold", "size": 144, "color": "#FFC857" },
+    "heading_dim": { "file": "Oxanium-SemiBold", "size": 32, "color": "#6B7686" },
+    "heading_red": { "file": "Oxanium-SemiBold", "size": 32, "color": "#FF4D4D" },
+    "label": { "file": "Oxanium-SemiBold", "size": 24, "color": "#C9D3E0" },
+    "label_dim": { "file": "Oxanium-SemiBold", "size": 24, "color": "#6B7686" },
+    "label_red": { "file": "Oxanium-SemiBold", "size": 24, "color": "#FF4D4D" },
+    "label_amber": { "file": "Oxanium-SemiBold", "size": 24, "color": "#FFB020" },
+    "label_blue": { "file": "Oxanium-SemiBold", "size": 24, "color": "#4DA3FF" }
   },
   "variables": {
     "speed": 0,
@@ -79,14 +81,14 @@
       "x": 140,
       "y": 80,
       "children": [
-        { "name": "n1", "type": "text", "font": "label_dim", "text": "1", "x": 125, "anchor": "top", "scale": 0.75 },
-        { "name": "n2", "type": "text", "font": "label_dim", "text": "2", "x": 250, "anchor": "top", "scale": 0.75 },
-        { "name": "n3", "type": "text", "font": "label_dim", "text": "3", "x": 375, "anchor": "top", "scale": 0.75 },
-        { "name": "n4", "type": "text", "font": "label_dim", "text": "4", "x": 500, "anchor": "top", "scale": 0.75 },
-        { "name": "n5", "type": "text", "font": "label_dim", "text": "5", "x": 625, "anchor": "top", "scale": 0.75 },
-        { "name": "n6", "type": "text", "font": "label_dim", "text": "6", "x": 750, "anchor": "top", "scale": 0.75 },
-        { "name": "n7", "type": "text", "font": "label_red", "text": "7", "x": 875, "anchor": "top", "scale": 0.75 },
-        { "name": "unit", "type": "text", "font": "label_dim", "text": "x1000", "x": 1000, "anchor": "top_right", "scale": 0.75 }
+        { "name": "n1", "type": "text", "font": "label_dim", "text": "1", "x": 125, "anchor": "top" },
+        { "name": "n2", "type": "text", "font": "label_dim", "text": "2", "x": 250, "anchor": "top" },
+        { "name": "n3", "type": "text", "font": "label_dim", "text": "3", "x": 375, "anchor": "top" },
+        { "name": "n4", "type": "text", "font": "label_dim", "text": "4", "x": 500, "anchor": "top" },
+        { "name": "n5", "type": "text", "font": "label_dim", "text": "5", "x": 625, "anchor": "top" },
+        { "name": "n6", "type": "text", "font": "label_dim", "text": "6", "x": 750, "anchor": "top" },
+        { "name": "n7", "type": "text", "font": "label_red", "text": "7", "x": 875, "anchor": "top" },
+        { "name": "unit", "type": "text", "font": "label_dim", "text": "x1000", "x": 1000, "anchor": "top_right" }
       ]
     },
     {
@@ -146,6 +148,7 @@
       "name": "signal_left",
       "type": "image",
       "image": "arrow_left",
+      "size": [72, 56],
       "x": 70,
       "y": 54,
       "anchor": "center",
@@ -172,6 +175,7 @@
       "name": "signal_right",
       "type": "image",
       "image": "arrow_right",
+      "size": [72, 56],
       "x": 1210,
       "y": 54,
       "anchor": "center",
@@ -194,16 +198,15 @@
         }
       ]
     },
-    { "name": "gear_label", "type": "text", "font": "label_dim", "text": "GEAR", "x": 250, "y": 186, "anchor": "bottom" },
+    { "name": "gear_label", "type": "text", "font": "heading_dim", "text": "GEAR", "x": 250, "y": 200, "anchor": "bottom" },
     {
       "name": "gear",
       "type": "text",
       "font": "gear",
       "text": "N",
       "x": 250,
-      "y": 270,
+      "y": 296,
       "anchor": "center",
-      "scale": 0.8,
       "bindings": [
         {
           "property": "text",
@@ -216,10 +219,10 @@
     {
       "name": "mode",
       "type": "text",
-      "font": "label_red",
+      "font": "heading_red",
       "text": "SPORT",
       "x": 250,
-      "y": 350,
+      "y": 362,
       "anchor": "top",
       "opacity": 0,
       "bindings": [{ "property": "opacity", "variable": "mode", "map": { "sport": 1 }, "default": 0 }]
@@ -230,21 +233,21 @@
       "font": "speed",
       "text": "0",
       "x": 780,
-      "y": 270,
+      "y": 300,
       "anchor": "right",
       "bindings": [
         { "property": "text", "variable": "speed" },
         { "property": "font", "variable": "mode", "map": { "sport": "speed_sport" }, "default": "speed" }
       ]
     },
-    { "name": "speed_unit", "type": "text", "font": "label_dim", "text": "km/h", "x": 796, "y": 332, "anchor": "bottom_left" },
+    { "name": "speed_unit", "type": "text", "font": "heading_dim", "text": "km/h", "x": 796, "y": 346, "anchor": "bottom_left" },
     {
       "name": "fuel",
       "type": "group",
       "x": 960,
       "y": 196,
       "children": [
-        { "name": "label", "type": "text", "font": "label_dim", "text": "FUEL", "scale": 0.75 },
+        { "name": "label", "type": "text", "font": "label_dim", "text": "FUEL" },
         {
           "name": "range",
           "type": "text",
@@ -252,10 +255,9 @@
           "text": "0",
           "x": 182,
           "anchor": "top_right",
-          "scale": 0.75,
           "bindings": [{ "property": "text", "variable": "range" }]
         },
-        { "name": "range_unit", "type": "text", "font": "label_dim", "text": "km", "x": 188, "scale": 0.75 },
+        { "name": "range_unit", "type": "text", "font": "label_dim", "text": "km", "x": 188 },
         {
           "name": "bar",
           "type": "group",
@@ -281,7 +283,7 @@
       "x": 960,
       "y": 282,
       "children": [
-        { "name": "label", "type": "text", "font": "label_dim", "text": "TEMP", "scale": 0.75 },
+        { "name": "label", "type": "text", "font": "label_dim", "text": "TEMP" },
         {
           "name": "value",
           "type": "text",
@@ -289,10 +291,9 @@
           "text": "50",
           "x": 182,
           "anchor": "top_right",
-          "scale": 0.75,
           "bindings": [{ "property": "text", "variable": "temp" }]
         },
-        { "name": "value_unit", "type": "text", "font": "label_dim", "text": "C", "x": 188, "scale": 0.75 },
+        { "name": "value_unit", "type": "text", "font": "label_dim", "text": "C", "x": 188 },
         {
           "name": "bar",
           "type": "group",
@@ -323,8 +324,8 @@
         { "name": "test", "trigger": "ignition", "tracks": [{ "property": "opacity", "keys": [{ "t": 0.0, "v": 1 }, { "t": 2.0, "v": 1 }] }] }
       ],
       "children": [
-        { "name": "light", "type": "shape", "shape": { "circle": [0, 0, 9] }, "fill": "#FF4D4D" },
-        { "name": "label", "type": "text", "font": "label_red", "text": "OIL", "x": 18, "anchor": "left", "scale": 0.75 }
+        { "name": "light", "type": "shape", "shape": { "circle": [0, -3, 9] }, "fill": "#FF4D4D" },
+        { "name": "label", "type": "text", "font": "label_red", "text": "OIL", "x": 18, "anchor": "left" }
       ]
     },
     {
@@ -338,8 +339,8 @@
         { "name": "test", "trigger": "ignition", "tracks": [{ "property": "opacity", "keys": [{ "t": 0.0, "v": 1 }, { "t": 2.0, "v": 1 }] }] }
       ],
       "children": [
-        { "name": "light", "type": "shape", "shape": { "circle": [0, 0, 9] }, "fill": "#FF4D4D" },
-        { "name": "label", "type": "text", "font": "label_red", "text": "BATT", "x": 18, "anchor": "left", "scale": 0.75 }
+        { "name": "light", "type": "shape", "shape": { "circle": [0, -3, 9] }, "fill": "#FF4D4D" },
+        { "name": "label", "type": "text", "font": "label_red", "text": "BATT", "x": 18, "anchor": "left" }
       ]
     },
     {
@@ -353,8 +354,8 @@
         { "name": "test", "trigger": "ignition", "tracks": [{ "property": "opacity", "keys": [{ "t": 0.0, "v": 1 }, { "t": 2.0, "v": 1 }] }] }
       ],
       "children": [
-        { "name": "light", "type": "shape", "shape": { "circle": [0, 0, 9] }, "fill": "#FFB020" },
-        { "name": "label", "type": "text", "font": "label_amber", "text": "CHECK", "x": 18, "anchor": "left", "scale": 0.75 }
+        { "name": "light", "type": "shape", "shape": { "circle": [0, -3, 9] }, "fill": "#FFB020" },
+        { "name": "label", "type": "text", "font": "label_amber", "text": "CHECK", "x": 18, "anchor": "left" }
       ]
     },
     {
@@ -368,8 +369,8 @@
         { "name": "test", "trigger": "ignition", "tracks": [{ "property": "opacity", "keys": [{ "t": 0.0, "v": 1 }, { "t": 2.0, "v": 1 }] }] }
       ],
       "children": [
-        { "name": "light", "type": "shape", "shape": { "circle": [0, 0, 9] }, "fill": "#FFB020" },
-        { "name": "label", "type": "text", "font": "label_amber", "text": "FUEL", "x": 18, "anchor": "left", "scale": 0.75 }
+        { "name": "light", "type": "shape", "shape": { "circle": [0, -3, 9] }, "fill": "#FFB020" },
+        { "name": "label", "type": "text", "font": "label_amber", "text": "FUEL", "x": 18, "anchor": "left" }
       ]
     },
     {
@@ -383,11 +384,11 @@
         { "name": "test", "trigger": "ignition", "tracks": [{ "property": "opacity", "keys": [{ "t": 0.0, "v": 1 }, { "t": 2.0, "v": 1 }] }] }
       ],
       "children": [
-        { "name": "light", "type": "shape", "shape": { "circle": [0, 0, 9] }, "fill": "#4DA3FF" },
-        { "name": "label", "type": "text", "font": "label_blue", "text": "BEAM", "x": 18, "anchor": "left", "scale": 0.75 }
+        { "name": "light", "type": "shape", "shape": { "circle": [0, -3, 9] }, "fill": "#4DA3FF" },
+        { "name": "label", "type": "text", "font": "label_blue", "text": "BEAM", "x": 18, "anchor": "left" }
       ]
     },
-    { "name": "odo_label", "type": "text", "font": "label_dim", "text": "ODO", "x": 140, "y": 430, "anchor": "left", "scale": 0.75 },
+    { "name": "odo_label", "type": "text", "font": "label_dim", "text": "ODO", "x": 140, "y": 430, "anchor": "left" },
     {
       "name": "odo",
       "type": "text",
@@ -396,10 +397,9 @@
       "x": 196,
       "y": 430,
       "anchor": "left",
-      "scale": 0.75,
       "bindings": [{ "property": "text", "variable": "odo", "format": "thousands" }]
     },
-    { "name": "trip_label", "type": "text", "font": "label_dim", "text": "TRIP", "x": 1030, "y": 430, "anchor": "left", "scale": 0.75 },
+    { "name": "trip_label", "type": "text", "font": "label_dim", "text": "TRIP", "x": 1030, "y": 430, "anchor": "left" },
     {
       "name": "trip",
       "type": "text",
@@ -408,7 +408,6 @@
       "x": 1140,
       "y": 430,
       "anchor": "right",
-      "scale": 0.75,
       "bindings": [{ "property": "text", "variable": "trip" }]
     }
   ]

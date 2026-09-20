@@ -2,7 +2,9 @@
 """Draw car_dashboard's turn signal arrows: arrow_left.png and arrow_right.png.
 
 cuelight shapes are rects and circles, and images are not tinted, so the
-arrows are small green images.
+arrows are green images. They are drawn four times larger than the 72x56
+they are shown at, so that they stay sharp when the player scales the
+show up to a large window.
 
     tools/car_dashboard_arrows.py car_dashboard/assets
 
@@ -14,9 +16,9 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageOps
 
-WIDTH, HEIGHT = 72, 56
+WIDTH, HEIGHT = 288, 224
 GREEN = (61, 220, 132)
-SUPERSAMPLE = 8
+SUPERSAMPLE = 4
 
 
 def main():

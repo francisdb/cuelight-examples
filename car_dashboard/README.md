@@ -15,7 +15,9 @@ that looks like. No scenes, and apart from two arrows only shapes and text.
 | Ignition | the `ignition` trigger plays timelines that sweep the rev bar and light every lamp; a running timeline overrides a binding and hands the property back when it ends |
 | Turn signals, hazard | each arrow image has one blink timeline with `repeat` and a list of triggers, `["turn_left", "hazard"]`; the arrows are dim when off, like the lamps |
 
-Everything the show uses is in cuelight `main`.
+Everything the show uses is in cuelight `main`, including outline fonts:
+the text is drawn from the TrueType outlines and the player renders at
+window resolution, so the cluster stays sharp at any size.
 
 ## Running
 
@@ -41,8 +43,8 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `arrow_left.png`, `arrow_right.png` | Made for this show, drawn by [`tools/car_dashboard_arrows.py`](../tools/car_dashboard_arrows.py) | MIT, as this repository |
-| `fonts/oxanium_bold-180.*`, `fonts/oxanium_semibold-32.*` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, `Oxanium[wght].ttf` from [Google Fonts](https://github.com/google/fonts/tree/8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5/ofl/oxanium) rasterized antialiased with [`tools/ttf2bmfont.py`](../tools/ttf2bmfont.py): weight 700 at 180px with `--chars "0123456789NRPD-"`, weight 600 at 32px, both with `--tabular` so numbers keep their width | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
+| `arrow_left.png`, `arrow_right.png` | Made for this show, drawn by [`tools/car_dashboard_arrows.py`](../tools/car_dashboard_arrows.py) at four times the size they are shown at | MIT, as this repository |
+| `fonts/Oxanium-Bold.ttf`, `fonts/Oxanium-SemiBold.ttf` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, the unmodified static files from [`fonts/ttf`](https://github.com/sevmeyer/oxanium/tree/a8f39e0c71186190027a093e9001459410192d1e/fonts/ttf). Its digits all have the same width, so numbers keep their place while they change | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
 
 ## What would make it better
 
