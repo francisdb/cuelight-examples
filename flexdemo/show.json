@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
   "name": "flexdemo",
   "size": [128, 32],
   "background": "#000000",
