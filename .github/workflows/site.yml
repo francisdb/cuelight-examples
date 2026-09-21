@@ -9,9 +9,11 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
+# A newer push replaces a pull request's run, but never stops a run on main:
+# that would cancel a deploy halfway. Runs on main queue up instead.
 concurrency:
   group: site-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -62,11 +64,7 @@ jobs:
       # build checks.
       - uses: lycheeverse/lychee-action@v2
         with:
-          # the site's own address does not answer before the first deploy
-          args: >-
-            --no-progress
-            --exclude '^https://francisdb\.github\.io/cuelight-examples'
-            './**/*.md' 'site/*.html'
+          args: --no-progress './**/*.md' 'site/*.html'
           fail: true
         env:
           GITHUB_TOKEN: ${{ github.token }}
