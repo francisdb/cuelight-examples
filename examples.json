@@ -5,7 +5,8 @@
       "description": "Complete shows, each playing a scripted demo.",
       "examples": [
         { "path": "car_dashboard", "title": "Car dashboard", "description": "A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals.", "thumbnail_at": 8 },
-        { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 }
+        { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 },
+        { "path": "pinball_dmd", "title": "Pinball DMD", "description": "A 128x32 dot-matrix display with six scenes: score layouts, a jackpot in full color, a night drive video mode and a segment display.", "thumbnail_at": 30.3 }
       ]
     },
     {
