@@ -23,11 +23,15 @@
       in the browser, fire its triggers and read its source.</p>
     <input id="filter" type="search" placeholder="Filter examples" aria-label="Filter examples">
   </div>
+  <p class="notice" id="no-webgpu" hidden>This browser does not offer WebGPU, which the player needs, so the examples
+    will show as still frames with their source. Chrome, Edge and Safari have it; in Firefox it is not on for every
+    platform yet (<code>dom.webgpu.enabled</code> in <code>about:config</code>).</p>
   <div id="gallery"></div>
   <p id="empty" hidden>No example matches.</p>
   <footer>The player runs on WebGPU. Thumbnails are frames of the same shows, rendered offscreen.</footer>
 </main>
 <script type="module">
+document.getElementById("no-webgpu").hidden = Boolean(navigator.gpu);
 const catalog = await (await fetch("examples.json")).json();
 const gallery = document.getElementById("gallery");
 const element = (tag, props = {}, ...children) => {
