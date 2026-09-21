@@ -34,6 +34,7 @@ jobs:
           workspaces: |
             cuelight
             cuelight-examples/tools/thumbnails
+      # Also: no missing or unused assets, no driver step the show ignores.
       - name: Every show loads without warnings
         run: cargo run --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --no-default-features -- --check
       - name: Install wasm-bindgen, the version cuelight locks
@@ -50,6 +51,53 @@ jobs:
       - uses: actions/upload-pages-artifact@v4
         with:
           path: cuelight-examples/_site
+
+  links:
+    name: links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      # Relative links as files, the others online. The cards and source
+      # links of the site are made from examples.json, whose paths the
+      # build checks.
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          # the site's own address does not answer before the first deploy
+          args: >-
+            --no-progress
+            --exclude '^https://francisdb\.github\.io/cuelight-examples'
+            './**/*.md' 'site/*.html'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+  lint:
+    name: lint the tools
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: cuelight-examples
+      - uses: actions/checkout@v7
+        with:
+          repository: francisdb/cuelight
+          path: cuelight
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: cuelight-examples/tools/thumbnails
+      - name: rustfmt
+        run: cargo fmt --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --check
+      - name: clippy
+        run: cargo clippy --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml -- -D warnings
+      - name: clippy (check only, as the build job uses it)
+        run: cargo clippy --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --no-default-features -- -D warnings
+      - name: shellcheck
+        run: shellcheck cuelight-examples/site/build.sh
+      - name: python scripts compile
+        run: python3 -m py_compile cuelight-examples/tools/*.py
 
   deploy:
     name: deploy to GitHub Pages
