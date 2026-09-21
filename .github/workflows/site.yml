@@ -48,7 +48,7 @@ jobs:
           # a smaller player; nothing else shares this build
           CARGO_PROFILE_RELEASE_LTO: "true"
           CARGO_PROFILE_RELEASE_CODEGEN_UNITS: "1"
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: cuelight-examples/_site
 
