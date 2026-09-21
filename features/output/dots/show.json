@@ -1,0 +1,101 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "output_dots",
+  "size": [128, 32],
+  "background": "#000000",
+  "output": {"scaling": "pixel_perfect"},
+  "layers": [
+    {"name": "ramp_1", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#000000", "x": 4, "y": 2},
+    {"name": "ramp_2", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#111111", "x": 9, "y": 2},
+    {"name": "ramp_3", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#222222", "x": 14, "y": 2},
+    {"name": "ramp_4", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#333333", "x": 19, "y": 2},
+    {"name": "ramp_5", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#444444", "x": 24, "y": 2},
+    {"name": "ramp_6", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#555555", "x": 29, "y": 2},
+    {"name": "ramp_7", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#666666", "x": 34, "y": 2},
+    {"name": "ramp_8", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#777777", "x": 39, "y": 2},
+    {"name": "ramp_9", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#888888", "x": 44, "y": 2},
+    {"name": "ramp_10", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#999999", "x": 49, "y": 2},
+    {"name": "ramp_11", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#AAAAAA", "x": 54, "y": 2},
+    {"name": "ramp_12", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#BBBBBB", "x": 59, "y": 2},
+    {"name": "ramp_13", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#CCCCCC", "x": 64, "y": 2},
+    {"name": "ramp_14", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#DDDDDD", "x": 69, "y": 2},
+    {"name": "ramp_15", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#EEEEEE", "x": 74, "y": 2},
+    {"name": "ramp_16", "type": "shape", "shape": {"rect": [0, 0, 5, 6]}, "fill": "#FFFFFF", "x": 79, "y": 2},
+    {"name": "bar_1", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#FF0000", "x": 4, "y": 10},
+    {"name": "bar_2", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#00FF00", "x": 14, "y": 10},
+    {"name": "bar_3", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#0000FF", "x": 24, "y": 10},
+    {"name": "bar_4", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#FFFF00", "x": 34, "y": 10},
+    {"name": "bar_5", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#00FFFF", "x": 44, "y": 10},
+    {"name": "bar_6", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#FF00FF", "x": 54, "y": 10},
+    {"name": "bar_7", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#FFFFFF", "x": 64, "y": 10},
+    {"name": "bar_8", "type": "shape", "shape": {"rect": [0, 0, 9, 6]}, "fill": "#808080", "x": 74, "y": 10},
+    {"name": "ground", "type": "shape", "shape": {"rect": [0, 0, 128, 1]}, "fill": "#3A4350", "y": 18},
+    {"name": "sun", "type": "shape", "shape": {"circle": [0, 0, 7]}, "fill": "#FFB000", "x": 110, "y": 9},
+    {
+      "name": "ball", "type": "shape", "shape": {"circle": [0, 0, 2]}, "fill": "#4ADE80", "x": 94, "y": 26,
+      "timelines": [
+        {
+          "name": "roll", "autoplay": true, "loop": true,
+          "tracks": [{"property": "x", "keys": [{"t": 0, "v": 94}, {"t": 2, "v": 124}, {"t": 4, "v": 94}]}]
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "plain", "trigger": "plain",
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 9, "size": [54, 9], "x": 4, "y": 21, "text": "NO PASSES",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "round", "trigger": "round", "output": {"passes": [{"dots": {}}]},
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 4, "size": [24, 9], "x": 4, "y": 21, "text": "DOTS",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "square", "trigger": "square", "output": {"passes": [{"dots": {"shape": "square"}}]},
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 12, "size": [72, 9], "x": 4, "y": 21, "text": "SHAPE SQUARE",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "small", "trigger": "small", "output": {"passes": [{"dots": {"size": 0.5}}]},
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 11, "size": [66, 9], "x": 4, "y": 21, "text": "SIZE 50 PCT",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "unlit", "trigger": "unlit", "output": {"passes": [{"dots": {"unlit": "#1C1C1C"}}]},
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 5, "size": [30, 9], "x": 4, "y": 21, "text": "UNLIT",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "glow", "trigger": "glow", "output": {"passes": [{"dots": {"unlit": "#1C1C1C", "glow": 0.5}}]},
+      "layers": [
+        {
+          "name": "caption", "type": "digits", "digits": 14, "size": [84, 9], "x": 4, "y": 21, "text": "UNLIT AND GLOW",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    }
+  ]
+}

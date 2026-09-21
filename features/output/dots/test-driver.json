@@ -1,0 +1,17 @@
+{
+  "loop": true,
+  "steps": [
+    { "trigger": "plain" },
+    { "wait": 2.5 },
+    { "trigger": "round" },
+    { "wait": 2.5 },
+    { "trigger": "square" },
+    { "wait": 2.5 },
+    { "trigger": "small" },
+    { "wait": 2.5 },
+    { "trigger": "unlit" },
+    { "wait": 2.5 },
+    { "trigger": "glow" },
+    { "wait": 2.5 }
+  ]
+}

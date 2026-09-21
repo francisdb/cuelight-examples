@@ -7,6 +7,12 @@ the way a monochrome DMD shows them: orange, and red for `williams`, since
 the tint is the scene's. The jackpot and the video mode switch the output
 to `rgb`.
 
+The pixels are shown as dots: a `dots` pass in the show's `output`, with a
+`glow`. The monochrome scenes list their own, which adds an `unlit` color
+in their tint's hue, so that the dots that are off still show as on a
+plasma panel. Passes are applied where the frame is shown, at three
+surface pixels per dot or more; in a smaller window the frame is plain.
+
 | Scene | What it shows | How it works |
 | --- | --- | --- |
 | `welcome` | Title and a two-line info text | text layers centered in a `size` box, in two bitmap fonts |
