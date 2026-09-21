@@ -7,13 +7,19 @@ badge.png is a star on a disc, coin.png a sprite sheet of a coin turning
 once in eight 64x64 cells, four per row. Both are drawn at four times
 their size and scaled down, which is all the antialiasing they get.
 
+reel.png is a score reel for features/bindings/transitions: 160 cells of
+48x64, ten per row, sixteen per digit, so frame 16 * d shows the digit d
+and the fifteen after it show it rolling on to the next one. The window
+looks at a drum: digits are squashed and darker towards its top and bottom. The digits are set
+in the Oxanium of features/text/outline_font.
+
 Needs Pillow.
 """
 
 import math
 from pathlib import Path
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 SS = 4  # supersampling factor
@@ -62,10 +68,48 @@ def coin_sheet(cell=64, frames=8, columns=4):
     return sheet
 
 
+def reel(cell=(48, 64), steps=16, half_angle=55):
+    """The window shows a drum, not a flat strip: a row `y` from the middle
+    is at the angle asin(y / radius) and shows what is `radius * angle`
+    along the strip, so digits are squashed towards the top and the bottom
+    and a little more than one digit's height is in view."""
+    width, height = cell
+    w, h = width * SS, height * SS
+    font = ImageFont.truetype(str(ROOT / "features/text/outline_font/assets/fonts/Oxanium-Bold.ttf"), 50 * SS)
+    # One tall strip: 9, then 0 to 9, then 0 and 1, a digit every `h`.
+    strip = Image.new("RGBA", (w, h * 13), "#F2EEE0")
+    draw = ImageDraw.Draw(strip)
+    for i in range(13):
+        draw.text((w / 2, (i + 0.5) * h), str((i - 1) % 10), font=font, fill="#15171C", anchor="mm")
+
+    radius = h / 2 / math.sin(math.radians(half_angle))
+    along = lambda y: radius * math.asin(max(-1.0, min(1.0, (y - h / 2) / radius)))
+    bands = 64
+    shade = Image.new("RGBA", cell, (0, 0, 0, 0))
+    for y in range(height):  # the drum turns away from the light as well
+        facing = math.cos(math.asin((y + 0.5 - height / 2) / (radius / SS)))
+        ImageDraw.Draw(shade).line([(0, y), (width, y)], fill=(0, 0, 0, int(235 * (1 - facing**1.4))))
+
+    sheet = Image.new("RGBA", (width * 10, height * steps), (0, 0, 0, 0))
+    for frame in range(10 * steps):
+        center = (frame / steps + 1.5) * h
+        mesh = []
+        for band in range(bands):
+            y0, y1 = band * h / bands, (band + 1) * h / bands
+            s0, s1 = center + along(y0), center + along(y1)
+            mesh.append(((0, round(y0), w, round(y1)), (0, s0, 0, s1, w, s1, w, s0)))
+        window = strip.transform((w, h), Image.MESH, mesh, Image.BILINEAR).resize(cell, Image.LANCZOS)
+        window.alpha_composite(shade)
+        sheet.paste(window, (frame % 10 * width, frame // 10 * height))
+    # Cream to black takes few colors: a palette keeps the file small.
+    return sheet.convert("RGB").quantize(128, dither=Image.Dither.NONE)
+
+
 def main():
     for path, image in [
         ("features/images/image/assets/badge.png", badge()),
         ("features/images/sprite_sheet/assets/coin.png", coin_sheet()),
+        ("features/bindings/transitions/assets/reel.png", reel()),
     ]:
         out = ROOT / path
         out.parent.mkdir(parents=True, exist_ok=True)

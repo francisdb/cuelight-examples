@@ -43,7 +43,8 @@
         { "path": "features/bindings/scale_offset", "title": "Scale and offset", "description": "One variable drives x, y, scale and opacity, each through its own scale and offset.", "thumbnail_at": 1.4 },
         { "path": "features/bindings/text_format", "title": "Text and format", "description": "Numbers, booleans and text bound to a display: plain, with thousands separators, scaled first.", "thumbnail_at": 0.5 },
         { "path": "features/bindings/map_default", "title": "Map and default", "description": "A state variable looked up in a map: lamps, a status text, and what happens to unlisted values.", "thumbnail_at": 3.5 },
-        { "path": "features/bindings/font", "title": "Font binding", "description": "The font style of a text layer mapped from a variable: highlighting the active player's score.", "thumbnail_at": 3.2 }
+        { "path": "features/bindings/font", "title": "Font binding", "description": "The font style of a text layer mapped from a variable: highlighting the active player's score.", "thumbnail_at": 3.2 },
+        { "path": "features/bindings/transitions", "title": "Transitions", "description": "Bindings that ease to a new value instead of jumping: bars, a smoothed slow feed, a counting score, a fading lamp, and step and offset: a bar that goes 10 pixels past and back, a reel kicked on digit by digit.", "thumbnail_at": 2.2 }
       ]
     },
     {
