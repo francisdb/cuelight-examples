@@ -49,9 +49,15 @@ python3 -m http.server -d _site
 `site/build.sh` compiles the cuelight web player from the cuelight checkout
 next to this repository; its header lists what it needs. Thumbnails are
 committed because CI has no GPU to render them. The
-[Site workflow](.github/workflows/site.yml) checks that every show loads
-without warnings, builds the site against cuelight `main` and deploys it
-to GitHub Pages on every push to `main`.
+[Site workflow](.github/workflows/site.yml) checks every show (it loads
+without warnings, its assets are all there and all used, its driver only
+fires triggers and sets variables the show has), checks the links of the
+READMEs and pages, builds the site against cuelight `main` and deploys it
+to GitHub Pages on every push to `main`. The show checks run locally with
+
+```sh
+cargo run --manifest-path tools/thumbnails/Cargo.toml --no-default-features -- --check
+```
 
 ## Licenses
 
