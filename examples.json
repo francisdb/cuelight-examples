@@ -6,7 +6,7 @@
       "examples": [
         { "path": "car_dashboard", "title": "Car dashboard", "description": "A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals.", "thumbnail_at": 8 },
         { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 },
-        { "path": "pinball_dmd", "title": "Pinball DMD", "description": "A 128x32 dot-matrix display with six scenes: score layouts, a jackpot in full color, a night drive video mode and a segment display.", "thumbnail_at": 30.3 }
+        { "path": "pinball_dmd", "title": "Pinball DMD", "description": "A 128x32 dot-matrix display of glowing dots with six scenes: score layouts, a jackpot in full color, a night drive video mode and a segment display.", "thumbnail_at": 30.3 }
       ]
     },
     {
@@ -70,7 +70,8 @@
       "description": "How the finished frame reaches the display.",
       "examples": [
         { "path": "features/output/modes", "title": "Output modes", "description": "The same colors as rgb, gray4 and gray2 with a tint, the way a monochrome DMD shows them.", "thumbnail_at": 3 },
-        { "path": "features/output/scaling", "title": "Scaling", "description": "A 128x32 canvas brought up to the page in whole pixel_perfect blocks, or smooth.", "thumbnail_at": 1 }
+        { "path": "features/output/scaling", "title": "Scaling", "description": "A 128x32 canvas brought up to the page in whole pixel_perfect blocks, or smooth.", "thumbnail_at": 1 },
+        { "path": "features/output/dots", "title": "Dots", "description": "The dot matrix look, a pass on the shown frame: round or square dots, their size, a color for dots that are off, and a glow.", "thumbnail_at": 13.5 }
       ]
     },
     {

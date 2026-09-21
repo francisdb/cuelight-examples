@@ -7,7 +7,9 @@
 //! Every show is loaded like the player does, its driver script is played
 //! for the entry's `thumbnail_at` seconds (2 by default) and the frame is
 //! written to `site/thumbnails/<path>.png`, brought to roughly 640 pixels
-//! wide by a whole factor. A show fails the run when it does not load or
+//! wide by a whole factor. A `dots` pass of the show's output is drawn into
+//! the thumbnail, since the offscreen renderer leaves passes to whoever
+//! shows the frame. A show fails the run when it does not load or
 //! loads with warnings, when a layer names an image or font that is not in
 //! its assets (the engine would skip the layer silently), when an asset is
 //! not used by any layer, or when its driver script fires a trigger or sets
@@ -17,6 +19,8 @@
 
 #[cfg(feature = "render")]
 use cuelight::render::{Renderer, RgbaFrame};
+#[cfg(feature = "render")]
+use cuelight::{DotShape, Dots, Pass};
 use cuelight::{Engine, Layer, LayerKind};
 use cuelight_loader::{Driver, DriverPlayer, Step};
 use std::collections::BTreeSet;
@@ -100,7 +104,16 @@ fn run(check_only: bool) -> Result<(), Box<dyn std::error::Error>> {
                 }
                 engine.advance_frame(1.0 / FPS);
             }
-            let frame = resize(renderer.render_to_rgba(&engine)?);
+            let frame = renderer.render_to_rgba(&engine)?;
+            let up = TARGET_WIDTH / frame.width;
+            let pass = engine.passes().into_iter().find_map(|pass| match pass {
+                Pass::Dots(dots) if up >= 3 => Some(dots),
+                _ => None,
+            });
+            let frame = match pass {
+                Some(pass) => dots(&frame, up, &pass),
+                None => resize(frame),
+            };
             let out = root.join("site/thumbnails").join(format!("{path}.png"));
             std::fs::create_dir_all(out.parent().expect("has a parent"))?;
             frame.write_png(&out)?;
@@ -227,4 +240,60 @@ fn resize(frame: RgbaFrame) -> RgbaFrame {
     } else {
         frame
     }
+}
+
+/// The dot matrix look of a `dots` pass, the way the presenter shows it:
+/// every canvas pixel a dot of `up` pixels on black, never darker than the
+/// unlit color, with a smoothly scaled copy of the frame screened on top as
+/// the glow.
+#[cfg(feature = "render")]
+fn dots(frame: &RgbaFrame, up: u32, dots: &Dots) -> RgbaFrame {
+    let (width, height) = (frame.width * up, frame.height * up);
+    let unlit = dots.unlit.as_deref().and_then(rgb).unwrap_or([0; 3]);
+    let texel = |x: u32, y: u32, c: usize| {
+        f64::from(frame.pixels[((y * frame.width + x) * 4) as usize + c])
+    };
+    // Where an output pixel lies between the canvas pixels around it.
+    let between = |at: u32, size: u32| {
+        let u = ((f64::from(at) + 0.5) / f64::from(up) - 0.5).clamp(0.0, f64::from(size - 1));
+        (
+            u.floor() as u32,
+            (u.floor() as u32 + 1).min(size - 1),
+            u.fract(),
+        )
+    };
+    let mut pixels = Vec::with_capacity((width * height * 4) as usize);
+    for y in 0..height {
+        for x in 0..width {
+            // Distance from the dot's center, in pixel pitches.
+            let offset = |at: u32| (f64::from(at % up) + 0.5) / f64::from(up) - 0.5;
+            let distance = match dots.shape {
+                DotShape::Square => offset(x).abs().max(offset(y).abs()),
+                _ => offset(x).hypot(offset(y)),
+            };
+            let cover = ((dots.size / 2.0 - distance) * f64::from(up) + 0.5).clamp(0.0, 1.0);
+            let ((x0, x1, fx), (y0, y1, fy)) = (between(x, frame.width), between(y, frame.height));
+            for (c, unlit) in unlit.iter().enumerate() {
+                let dot = texel(x / up, y / up, c).max(f64::from(*unlit)) / 255.0 * cover;
+                let top = texel(x0, y0, c) * (1.0 - fx) + texel(x1, y0, c) * fx;
+                let bottom = texel(x0, y1, c) * (1.0 - fx) + texel(x1, y1, c) * fx;
+                let glow = (top * (1.0 - fy) + bottom * fy) / 255.0 * dots.glow;
+                pixels.push(((dot + glow * (1.0 - dot)) * 255.0).round() as u8);
+            }
+            pixels.push(255);
+        }
+    }
+    RgbaFrame {
+        width,
+        height,
+        pixels,
+    }
+}
+
+/// `#RRGGBB` as bytes.
+#[cfg(feature = "render")]
+fn rgb(color: &str) -> Option<[u8; 3]> {
+    let hex = color.strip_prefix('#').filter(|hex| hex.len() == 6)?;
+    let value = u32::from_str_radix(hex, 16).ok()?;
+    Some([(value >> 16) as u8, (value >> 8) as u8, value as u8])
 }

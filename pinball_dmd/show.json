@@ -4,7 +4,7 @@
   "name": "pinball_dmd",
   "size": [128, 32],
   "background": "#000000",
-  "output": { "scaling": "pixel_perfect" },
+  "output": { "scaling": "pixel_perfect", "passes": [{ "dots": { "size": 0.8, "glow": 0.3 } }] },
   "fonts": {
     "tiny_white": { "file": "tiny5-8", "color": "#FFFFFF" },
     "tiny_gray64": { "file": "tiny5-8", "color": "#404040" },
@@ -40,7 +40,7 @@
     {
       "name": "welcome",
       "trigger": "welcome",
-      "output": { "mode": "gray4", "tint": "#FF5820" },
+      "output": { "mode": "gray4", "tint": "#FF5820", "passes": [{ "dots": { "size": 0.8, "unlit": "#1A0904", "glow": 0.3 } }] },
       "layers": [
         {
           "name": "title",
@@ -62,7 +62,7 @@
     {
       "name": "stern",
       "trigger": "stern",
-      "output": { "mode": "gray4", "tint": "#FF5820" },
+      "output": { "mode": "gray4", "tint": "#FF5820", "passes": [{ "dots": { "size": 0.8, "unlit": "#1A0904", "glow": 0.3 } }] },
       "layers": [
         {
           "name": "score_1",
@@ -205,7 +205,7 @@
     {
       "name": "williams",
       "trigger": "williams",
-      "output": { "mode": "gray4", "tint": "#FF1408" },
+      "output": { "mode": "gray4", "tint": "#FF1408", "passes": [{ "dots": { "size": 0.8, "unlit": "#1A0201", "glow": 0.3 } }] },
       "layers": [
         {
           "name": "score_1",
