@@ -1,3 +1,5 @@
 __pycache__/
 target/
 _site/
+# follows the cuelight checkout it builds against
+tools/thumbnails/Cargo.lock
