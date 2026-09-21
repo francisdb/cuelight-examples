@@ -1,0 +1,82 @@
+{
+  "categories": [
+    {
+      "name": "Shows",
+      "description": "Complete shows, each playing a scripted demo.",
+      "examples": [
+        { "path": "car_dashboard", "title": "Car dashboard", "description": "A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals.", "thumbnail_at": 8 },
+        { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 }
+      ]
+    },
+    {
+      "name": "Layers",
+      "description": "The layer tree: what is painted, where, and in which order.",
+      "examples": [
+        { "path": "features/layers/shapes", "title": "Shapes", "description": "Rectangles and circles, painted in order, in the layer's local space, with translucent fills." },
+        { "path": "features/layers/opacity", "title": "Opacity", "description": "Opacity multiplies down the tree: a fading group takes its children along." },
+        { "path": "features/layers/scale_anchor", "title": "Scale and anchor", "description": "The anchor decides which point of a layer stays at its x/y while it scales." },
+        { "path": "features/layers/group_clip", "title": "Group clip", "description": "A group with a rect or circle clip is a window onto its children.", "thumbnail_at": 3 }
+      ]
+    },
+    {
+      "name": "Images",
+      "description": "PNG files from the show's assets folder.",
+      "examples": [
+        { "path": "features/images/image", "title": "Image", "description": "An image at its natural size, sized into the canvas, anchored, scaled, faded and moved.", "thumbnail_at": 1 },
+        { "path": "features/images/sprite_sheet", "title": "Sprite sheet", "description": "One image as a grid of cells; the frame property picks the cell, from a timeline, a binding or the base value.", "thumbnail_at": 0.9 }
+      ]
+    },
+    {
+      "name": "Text",
+      "description": "Three ways to put characters on the canvas.",
+      "examples": [
+        { "path": "features/text/bitmap_font", "title": "Bitmap font", "description": "BMFont pixel fonts on a small canvas: color, border, alignment in a box, multiple lines.", "thumbnail_at": 3.2 },
+        { "path": "features/text/outline_font", "title": "Outline font", "description": "A TrueType font at any size from one file: styles, borders, alignment, and a scale that stays sharp.", "thumbnail_at": 1.5 },
+        { "path": "features/text/digits", "title": "Digit rows", "description": "Segment displays without any asset: alpha14 and numeric7, unlit segments, justification, the dot.", "thumbnail_at": 3.2 }
+      ]
+    },
+    {
+      "name": "Bindings",
+      "description": "Properties wired to the variables the host sets.",
+      "examples": [
+        { "path": "features/bindings/scale_offset", "title": "Scale and offset", "description": "One variable drives x, y, scale and opacity, each through its own scale and offset.", "thumbnail_at": 1.4 },
+        { "path": "features/bindings/text_format", "title": "Text and format", "description": "Numbers, booleans and text bound to a display: plain, with thousands separators, scaled first.", "thumbnail_at": 0.5 },
+        { "path": "features/bindings/map_default", "title": "Map and default", "description": "A state variable looked up in a map: lamps, a status text, and what happens to unlisted values.", "thumbnail_at": 3.5 },
+        { "path": "features/bindings/font", "title": "Font binding", "description": "The font style of a text layer mapped from a variable: highlighting the active player's score.", "thumbnail_at": 3.2 }
+      ]
+    },
+    {
+      "name": "Timelines",
+      "description": "Keyframed animations started by triggers.",
+      "examples": [
+        { "path": "features/timelines/easing", "title": "Easing", "description": "The eight easings side by side on the same two keys.", "thumbnail_at": 1.5 },
+        { "path": "features/timelines/delay_repeat_loop", "title": "Delay, repeat, loop", "description": "The same timeline played once, delayed, three times, two and a half times, and forever.", "thumbnail_at": 2.6 },
+        { "path": "features/timelines/on_end", "title": "on_end", "description": "Timelines that fire the next one's trigger when they end: a chase that runs without a host.", "thumbnail_at": 1.05 },
+        { "path": "features/timelines/trigger_lists", "title": "Trigger lists", "description": "A timeline listening to several triggers: turn signals that also blink together as hazard lights.", "thumbnail_at": 7.1 },
+        { "path": "features/timelines/precedence", "title": "Precedence", "description": "A running timeline beats a binding, a binding beats the base value.", "thumbnail_at": 2.2 }
+      ]
+    },
+    {
+      "name": "Scenes",
+      "description": "Switchable views on top of the show's own layers.",
+      "examples": [
+        { "path": "features/scenes/scenes", "title": "Scenes", "description": "Attract, game and game over: one scene at a time, each restarting its timelines when entered.", "thumbnail_at": 6 }
+      ]
+    },
+    {
+      "name": "Output",
+      "description": "How the finished frame reaches the display.",
+      "examples": [
+        { "path": "features/output/modes", "title": "Output modes", "description": "The same colors as rgb, gray4 and gray2 with a tint, the way a monochrome DMD shows them.", "thumbnail_at": 3 },
+        { "path": "features/output/scaling", "title": "Scaling", "description": "A 128x32 canvas brought up to the page in whole pixel_perfect blocks, or smooth.", "thumbnail_at": 1 }
+      ]
+    },
+    {
+      "name": "Events",
+      "description": "What the show tells its host.",
+      "examples": [
+        { "path": "features/events/show_events", "title": "Show events", "description": "Triggers the show fires itself come back to the host as events; watch the log.", "thumbnail_at": 3.9 }
+      ]
+    }
+  ]
+}

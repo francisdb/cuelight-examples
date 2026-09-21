@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cuelight examples</title>
+<meta name="description" content="Example shows for cuelight, playing live in the browser.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="top"><div class="inner">
+  <a class="brand" href="./">cue<span>light</span> examples</a>
+  <nav>
+    <a href="https://github.com/francisdb/cuelight">cuelight</a>
+    <a href="https://github.com/francisdb/cuelight/blob/main/docs/show-format.md">show format</a>
+    <a href="https://github.com/francisdb/cuelight-examples">source</a>
+  </nav>
+</div></header>
+<main>
+  <div class="intro">
+    <p>Shows for <a href="https://github.com/francisdb/cuelight">cuelight</a>, the embeddable engine for
+      trigger- and variable-driven displays. Every example is a JSON document; pick one to see it play
+      in the browser, fire its triggers and read its source.</p>
+    <input id="filter" type="search" placeholder="Filter examples" aria-label="Filter examples">
+  </div>
+  <div id="gallery"></div>
+  <p id="empty" hidden>No example matches.</p>
+  <footer>The player runs on WebGPU. Thumbnails are frames of the same shows, rendered offscreen.</footer>
+</main>
+<script type="module">
+const catalog = await (await fetch("examples.json")).json();
+const gallery = document.getElementById("gallery");
+const element = (tag, props = {}, ...children) => {
+  const node = Object.assign(document.createElement(tag), props);
+  node.append(...children);
+  return node;
+};
+
+for (const category of catalog.categories) {
+  const cards = element("div", { className: "cards" });
+  for (const example of category.examples) {
+    const card = element("a", { className: "card", href: `example.html?show=${example.path}` },
+      element("div", { className: "thumb" },
+        element("img", { src: `thumbnails/${example.path}.png`, alt: "", loading: "lazy" })),
+      element("div", { className: "body" },
+        element("h3", {}, example.title),
+        element("p", {}, example.description)));
+    card.dataset.search = `${example.title} ${example.description} ${example.path} ${category.name}`.toLowerCase();
+    cards.append(card);
+  }
+  gallery.append(element("section", { className: "category", id: category.name.toLowerCase() },
+    element("h2", {}, category.name), element("p", {}, category.description), cards));
+}
+
+const filter = document.getElementById("filter");
+filter.oninput = () => {
+  const words = filter.value.toLowerCase().split(/\s+/).filter(Boolean);
+  let shown = 0;
+  for (const section of gallery.children) {
+    let any = false;
+    for (const card of section.querySelectorAll(".card")) {
+      card.hidden = !words.every((word) => card.dataset.search.includes(word));
+      any ||= !card.hidden;
+    }
+    section.hidden = !any;
+    shown += any;
+  }
+  document.getElementById("empty").hidden = shown > 0;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "precedence",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"level": 25},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 10, "size": [140, 20], "x": 24, "y": 18, "text": "PRECEDENCE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_level", "type": "digits", "digits": 5, "size": [55, 16], "x": 440, "y": 20, "text": "LEVEL",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "level", "type": "digits", "digits": 3, "size": [66, 32], "x": 512, "y": 12, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "numeric7", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "level"}]
+    },
+    {
+      "name": "base_label", "type": "digits", "digits": 15, "size": [150, 14], "x": 24, "y": 80, "text": "BASE VALUE ONLY",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "base_rail", "type": "shape", "shape": {"rect": [0, 0, 400, 2]}, "fill": "#232A34", "x": 120, "y": 109},
+    {"name": "base", "type": "shape", "shape": {"circle": [0, 0, 12]}, "fill": "#8B96A5", "x": 120, "y": 110},
+    {
+      "name": "bound_label", "type": "digits", "digits": 28, "size": [280, 14], "x": 24, "y": 160, "text": "A BINDING OVERRIDES THE BASE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "bound_rail", "type": "shape", "shape": {"rect": [0, 0, 400, 2]}, "fill": "#232A34", "x": 120, "y": 189},
+    {
+      "name": "bound", "type": "shape", "shape": {"circle": [0, 0, 12]}, "fill": "#3EC9F0", "x": 120, "y": 190,
+      "bindings": [{"property": "x", "variable": "level", "scale": 4, "offset": 120}]
+    },
+    {
+      "name": "animated_label", "type": "digits", "digits": 40, "size": [400, 14], "x": 24, "y": 240,
+      "text": "A RUNNING TIMELINE OVERRIDES THE BINDING", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "animated_rail", "type": "shape", "shape": {"rect": [0, 0, 400, 2]}, "fill": "#232A34", "x": 120, "y": 269},
+    {
+      "name": "animated", "type": "shape", "shape": {"circle": [0, 0, 12]}, "fill": "#FFB000", "x": 120, "y": 270,
+      "bindings": [{"property": "x", "variable": "level", "scale": 4, "offset": 120}],
+      "timelines": [
+        {
+          "name": "sweep", "trigger": "sweep",
+          "tracks": [
+            {
+              "property": "x",
+              "keys": [{"t": 0, "v": 120}, {"t": 1, "v": 520, "ease": "cubic_in_out"}, {"t": 2, "v": 120, "ease": "cubic_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_when_sweep_ends_x_falls", "type": "digits", "digits": 53, "size": [424, 12], "x": 24, "y": 316,
+      "text": "WHEN 'SWEEP' ENDS, X FALLS BACK TO THE BINDING AT ONCE", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

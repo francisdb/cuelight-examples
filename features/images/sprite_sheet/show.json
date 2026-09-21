@@ -1,0 +1,72 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "sprite_sheet",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"frame": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 12, "size": [168, 20], "x": 24, "y": 18, "text": "SPRITE SHEET",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "sheet_back", "type": "shape", "shape": {"rect": [0, 0, 256, 128]}, "fill": "#161B22", "x": 40, "y": 70},
+    {"name": "whole_sheet", "type": "image", "image": "coin", "x": 40, "y": 70},
+    {
+      "name": "label_the_image_8_cells_of_64", "type": "digits", "digits": 26, "size": [260, 14], "x": 40, "y": 210,
+      "text": "THE IMAGE, 8 CELLS OF 64 64", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "spinning", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [128, 128], "x": 340, "y": 70,
+      "timelines": [{"name": "spin", "autoplay": true, "loop": true, "tracks": [{"property": "frame", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 8}]}]}]
+    },
+    {
+      "name": "label_timeline", "type": "digits", "digits": 8, "size": [80, 14], "x": 352, "y": 210, "text": "TIMELINE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "stepped", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [128, 128], "x": 490, "y": 70,
+      "bindings": [{"property": "frame", "variable": "frame"}]
+    },
+    {
+      "name": "label_binding", "type": "digits", "digits": 7, "size": [70, 14], "x": 510, "y": 210, "text": "BINDING",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "cell_0", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 40, "y": 262,
+      "frame": 0
+    },
+    {
+      "name": "cell_1", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 110, "y": 262,
+      "frame": 1
+    },
+    {
+      "name": "cell_2", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 180, "y": 262,
+      "frame": 2
+    },
+    {
+      "name": "cell_3", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 250, "y": 262,
+      "frame": 3
+    },
+    {
+      "name": "cell_4", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 320, "y": 262,
+      "frame": 4
+    },
+    {
+      "name": "cell_5", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 390, "y": 262,
+      "frame": 5
+    },
+    {
+      "name": "cell_6", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 460, "y": 262,
+      "frame": 6
+    },
+    {
+      "name": "cell_7", "type": "image", "image": "coin", "sheet": {"cell": [64, 64], "columns": 4}, "size": [56, 56], "x": 530, "y": 262,
+      "frame": 7
+    },
+    {
+      "name": "label_base_frame_0_to_7", "type": "digits", "digits": 17, "size": [170, 14], "x": 40, "y": 330, "text": "BASE FRAME 0 TO 7",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

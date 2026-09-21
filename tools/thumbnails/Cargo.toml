@@ -1,0 +1,23 @@
+# Renders the gallery thumbnails of the website, and doubles as a check
+# that every show in examples.json loads without errors or warnings.
+# It builds against a cuelight checkout next to this repository.
+[package]
+name = "cuelight-thumbnails"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+cuelight = { path = "../../../cuelight/crates/cuelight", default-features = false, features = ["outline-fonts"] }
+cuelight-loader = { path = "../../../cuelight/crates/cuelight-loader" }
+serde_json = "1"
+
+[features]
+default = ["render"]
+# Without it only `--check` works, and the renderer is not even built:
+# what CI uses.
+render = ["cuelight/render"]
+
+[profile.dev]
+# vello/wgpu are unusably slow fully unoptimized
+opt-level = 1

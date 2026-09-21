@@ -1,0 +1,8 @@
+{
+  "loop": true,
+  "steps": [
+    { "wait": 0.5 },
+    { "trigger": "arm" },
+    { "wait": 5 }
+  ]
+}

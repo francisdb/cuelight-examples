@@ -1,0 +1,13 @@
+{
+  "loop": true,
+  "steps": [
+    { "trigger": "rgb" },
+    { "wait": 2.5 },
+    { "trigger": "gray4" },
+    { "wait": 2.5 },
+    { "trigger": "gray2" },
+    { "wait": 2.5 },
+    { "trigger": "green" },
+    { "wait": 2.5 }
+  ]
+}

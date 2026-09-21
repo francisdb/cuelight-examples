@@ -1,0 +1,23 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "score": 0 } },
+    { "wait": 1 },
+    { "set": { "score": 12500 } },
+    { "wait": 0.5 },
+    { "set": { "score": 25000 } },
+    { "wait": 0.5 },
+    { "set": { "score": 37500 } },
+    { "wait": 0.5 },
+    { "set": { "score": 50000 } },
+    { "wait": 0.5 },
+    { "set": { "score": 62500 } },
+    { "wait": 0.5 },
+    { "set": { "score": 75000 } },
+    { "wait": 0.5 },
+    { "set": { "score": 87500 } },
+    { "wait": 0.5 },
+    { "set": { "score": 100000 } },
+    { "wait": 0.5 }
+  ]
+}

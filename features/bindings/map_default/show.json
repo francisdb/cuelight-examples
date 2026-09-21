@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "map_default",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"state": "idle"},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 15, "size": [210, 20], "x": 24, "y": 18, "text": "MAP AND DEFAULT",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_idle", "type": "shape", "shape": {"circle": [0, 0, 36]}, "fill": "#4ADE80", "x": 140, "y": 120, "opacity": 0.12,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"idle": 1}, "default": 0.12}]
+    },
+    {
+      "name": "label_idle", "type": "digits", "digits": 4, "size": [40, 14], "x": 120, "y": 170, "text": "IDLE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_running", "type": "shape", "shape": {"circle": [0, 0, 36]}, "fill": "#3EC9F0", "x": 320, "y": 120, "opacity": 0.12,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"running": 1}, "default": 0.12}]
+    },
+    {
+      "name": "label_running", "type": "digits", "digits": 7, "size": [70, 14], "x": 285, "y": 170, "text": "RUNNING",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_error", "type": "shape", "shape": {"circle": [0, 0, 36]}, "fill": "#FF5A5A", "x": 500, "y": 120, "opacity": 0.12,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"error": 1}, "default": 0.12}]
+    },
+    {
+      "name": "label_error", "type": "digits", "digits": 5, "size": [50, 14], "x": 475, "y": 170, "text": "ERROR",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "pointer", "type": "shape", "shape": {"rect": [-30, 0, 60, 6]}, "fill": "#E6EDF3", "x": 40, "y": 196,
+      "bindings": [{"property": "x", "variable": "state", "map": {"idle": 140, "running": 320, "error": 500}}]
+    },
+    {
+      "name": "label_x_mapped_without_default", "type": "digits", "digits": 64, "size": [512, 12], "x": 24, "y": 214,
+      "text": "X MAPPED WITHOUT DEFAULT, AN UNLISTED STATE LEAVES IT AT ITS BASE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "status", "type": "digits", "digits": 9, "size": [270, 44], "x": 24, "y": 250, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "state", "map": {"idle": "STANDBY", "running": "RUNNING", "error": "FAULT"}, "default": "UNKNOWN"}]
+    },
+    {
+      "name": "label_state", "type": "digits", "digits": 7, "size": [77, 16], "x": 330, "y": 250, "text": "STATE =",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "state", "type": "digits", "digits": 9, "size": [126, 20], "x": 330, "y": 274, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}, "bindings": [{"property": "text", "variable": "state"}]
+    },
+    {
+      "name": "label_text_mapped_default_unkn", "type": "digits", "digits": 29, "size": [232, 12], "x": 24, "y": 306,
+      "text": "TEXT MAPPED, DEFAULT 'UNKNOWN'", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

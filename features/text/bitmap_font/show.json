@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "bitmap_font",
+  "size": [256, 144],
+  "background": "#0E1116",
+  "output": {"scaling": "pixel_perfect"},
+  "variables": {"score": 0},
+  "fonts": {
+    "title": {"file": "silkscreen_bold-16", "color": "#FFB000", "border": {"color": "#7A2E00", "width": 2}},
+    "body": {"file": "silkscreen-8", "color": "#E6EDF3"},
+    "score": {"file": "silkscreen-8", "color": "#4ADE80", "border": {"color": "#0B3D1E", "width": 1}},
+    "small": {"file": "tiny5-8", "color": "#8B96A5"}
+  },
+  "layers": [
+    {"name": "title", "type": "text", "text": "BITMAP FONT", "font": "title", "x": 8, "y": 8},
+    {"name": "note", "type": "text", "text": "Pixel for pixel from the font page,\nnever resampled.", "font": "small", "x": 9, "y": 30},
+    {"name": "box_center", "type": "shape", "shape": {"rect": [0, 0, 116, 36]}, "fill": "#161B22", "x": 8, "y": 52},
+    {"name": "centered", "type": "text", "text": "align\ncenter", "font": "body", "x": 8, "y": 52, "size": [116, 36]},
+    {"name": "box_corner", "type": "shape", "shape": {"rect": [0, 0, 116, 36]}, "fill": "#161B22", "x": 132, "y": 52},
+    {
+      "name": "cornered", "type": "text", "text": "bottom\nright", "font": "body", "x": 132, "y": 52, "size": [116, 36],
+      "align": "bottom_right"
+    },
+    {"name": "score_label", "type": "text", "text": "color multiplies, border surrounds", "font": "small", "x": 9, "y": 98},
+    {
+      "name": "score", "type": "text", "text": "0", "font": "score", "x": 8, "y": 110,
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+    },
+    {"name": "white", "type": "text", "text": "white keeps the font's own", "font": "small", "x": 9, "y": 130}
+  ]
+}

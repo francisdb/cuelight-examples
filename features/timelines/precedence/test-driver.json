@@ -1,0 +1,15 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "level": 25 } },
+    { "wait": 1.5 },
+    { "trigger": "sweep" },
+    { "wait": 3 },
+    { "set": { "level": 80 } },
+    { "wait": 1.5 },
+    { "trigger": "sweep" },
+    { "wait": 1 },
+    { "set": { "level": 50 } },
+    { "wait": 2.5 }
+  ]
+}

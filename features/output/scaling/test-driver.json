@@ -1,0 +1,9 @@
+{
+  "loop": true,
+  "steps": [
+    { "trigger": "pixel_perfect" },
+    { "wait": 3 },
+    { "trigger": "smooth" },
+    { "wait": 3 }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "digits",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"score": 0, "clock": "12.30"},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 6, "size": [84, 20], "x": 24, "y": 18, "text": "DIGITS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "alpha14", "type": "digits", "digits": 12, "size": [360, 44], "x": 24, "y": 60, "text": "HELLO WORLD",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}}
+    },
+    {
+      "name": "label_alpha14_with_unlit_segme", "type": "digits", "digits": 27, "size": [270, 14], "x": 24, "y": 112,
+      "text": "ALPHA14 WITH UNLIT SEGMENTS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "score", "type": "digits", "digits": 9, "size": [342, 56], "x": 24, "y": 146, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5A5A", "unlit": "#2A0C0C"}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+    },
+    {
+      "name": "label_numeric7_justify_right_1", "type": "digits", "digits": 40, "size": [400, 14], "x": 24, "y": 210,
+      "text": "NUMERIC7, JUSTIFY RIGHT, 1,000 USES THE DOT", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "clock", "type": "digits", "digits": 4, "size": [152, 56], "x": 452, "y": 146, "text": "12.30",
+      "display": {"segments": {"style": "numeric7", "fill": "#4ADE80", "unlit": "#0B2A16"}},
+      "bindings": [{"property": "text", "variable": "clock"}]
+    },
+    {
+      "name": "label_12_30_in_4_cells", "type": "digits", "digits": 15, "size": [150, 14], "x": 452, "y": 210, "text": "12.30 IN 4 CELLS",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "cut_right", "type": "digits", "digits": 5, "size": [110, 32], "x": 24, "y": 252, "text": "OVERFLOW",
+      "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0", "unlit": "#0A2530"}}
+    },
+    {
+      "name": "cut_left", "type": "digits", "digits": 5, "size": [110, 32], "x": 164, "y": 252, "text": "OVERFLOW", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0", "unlit": "#0A2530"}}
+    },
+    {
+      "name": "label_overflow_in_5_cells", "type": "digits", "digits": 21, "size": [210, 14], "x": 24, "y": 292,
+      "text": "'OVERFLOW' IN 5 CELLS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "signs", "type": "digits", "digits": 15, "size": [225, 22], "x": 380, "y": 256, "text": "- + * / \\ = _ '",
+      "display": {"segments": {"style": "alpha14", "fill": "#A78BFA"}}
+    },
+    {
+      "name": "label_the_signs_alpha14_has", "type": "digits", "digits": 21, "size": [210, 14], "x": 380, "y": 292,
+      "text": "THE SIGNS ALPHA14 HAS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

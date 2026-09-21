@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "text_format",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"score": 1234567, "meters": 1500, "ready": false, "player": "ALICE"},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 13, "size": [182, 20], "x": 24, "y": 18, "text": "TEXT BINDINGS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "plain_caption", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": 72, "text": "NUMBER, PLAIN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "plain", "type": "digits", "digits": 12, "size": [300, 36], "x": 300, "y": 64, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "score"}]
+    },
+    {
+      "name": "thousands_caption", "type": "digits", "digits": 16, "size": [176, 16], "x": 24, "y": 130, "text": "NUMBER, THOUSANDS",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "thousands", "type": "digits", "digits": 12, "size": [300, 36], "x": 300, "y": 122, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+    },
+    {
+      "name": "scaled_caption", "type": "digits", "digits": 13, "size": [143, 16], "x": 24, "y": 188, "text": "METERS / 1000",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "scaled", "type": "digits", "digits": 12, "size": [300, 36], "x": 300, "y": 180, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "meters", "scale": 0.001}]
+    },
+    {
+      "name": "boolean_caption", "type": "digits", "digits": 7, "size": [77, 16], "x": 24, "y": 246, "text": "BOOLEAN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "boolean", "type": "digits", "digits": 12, "size": [300, 36], "x": 300, "y": 238, "text": "", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "ready"}]
+    },
+    {
+      "name": "text_caption", "type": "digits", "digits": 4, "size": [44, 16], "x": 24, "y": 304, "text": "TEXT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "text", "type": "digits", "digits": 12, "size": [300, 36], "x": 300, "y": 296, "text": "", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "player"}]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "loop": true,
+  "steps": [
+    { "wait": 0.5 },
+    { "trigger": "turn_left" },
+    { "wait": 3.2 },
+    { "trigger": "turn_right" },
+    { "wait": 3.2 },
+    { "trigger": "hazard" },
+    { "wait": 3.2 }
+  ]
+}

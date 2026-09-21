@@ -1,0 +1,67 @@
+name: Site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: check shows, build site
+    runs-on: ubuntu-latest
+    steps:
+      # Side by side, the way the tools expect the two repositories.
+      - uses: actions/checkout@v7
+        with:
+          path: cuelight-examples
+      - uses: actions/checkout@v7
+        with:
+          repository: francisdb/cuelight
+          path: cuelight
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: |
+            cuelight
+            cuelight-examples/tools/thumbnails
+      - name: Every show loads without warnings
+        run: cargo run --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --no-default-features -- --check
+      - name: Install wasm-bindgen, the version cuelight locks
+        run: |
+          version=$(grep -A1 '^name = "wasm-bindgen"$' cuelight/Cargo.lock | sed -n 's/^version = "\(.*\)"$/\1/p')
+          curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+          cargo binstall -y "wasm-bindgen-cli@$version"
+      - name: Build the site
+        run: cuelight-examples/site/build.sh
+        env:
+          # a smaller player; nothing else shares this build
+          CARGO_PROFILE_RELEASE_LTO: "true"
+          CARGO_PROFILE_RELEASE_CODEGEN_UNITS: "1"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: cuelight-examples/_site
+
+  deploy:
+    name: deploy to GitHub Pages
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

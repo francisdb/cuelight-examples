@@ -1,0 +1,82 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "image",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 5, "size": [70, 20], "x": 24, "y": 18, "text": "IMAGE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "natural", "type": "image", "image": "badge", "x": 40, "y": 60},
+    {
+      "name": "label_natural_size", "type": "digits", "digits": 12, "size": [120, 14], "x": 40, "y": 196, "text": "NATURAL SIZE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "small", "type": "image", "image": "badge", "x": 230, "y": 92, "size": [64, 64]},
+    {
+      "name": "label_size_64_64", "type": "digits", "digits": 10, "size": [100, 14], "x": 212, "y": 196, "text": "SIZE 64 64",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "stretched", "type": "image", "image": "badge", "x": 380, "y": 76, "size": [220, 96]},
+    {
+      "name": "label_size_220_96", "type": "digits", "digits": 11, "size": [110, 14], "x": 380, "y": 196, "text": "SIZE 220 96",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "pulse", "type": "image", "image": "badge", "x": 104, "y": 280, "size": [80, 80], "anchor": "center",
+      "timelines": [
+        {
+          "name": "pulse", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.6}, {"t": 1, "v": 1.2, "ease": "quad_in_out"}, {"t": 2, "v": 0.6, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_scale", "type": "digits", "digits": 5, "size": [50, 14], "x": 164, "y": 274, "text": "SCALE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "fade", "type": "image", "image": "badge", "x": 330, "y": 280, "size": [80, 80], "anchor": "center",
+      "timelines": [
+        {
+          "name": "fade", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 0.1, "ease": "quad_in_out"}, {"t": 3, "v": 1, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_opacity", "type": "digits", "digits": 7, "size": [70, 14], "x": 380, "y": 274, "text": "OPACITY",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "slide", "type": "image", "image": "badge", "x": 470, "y": 280, "size": [48, 48], "anchor": "center",
+      "timelines": [
+        {
+          "name": "slide", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "x",
+              "keys": [{"t": 0, "v": 470}, {"t": 1.2, "v": 520, "ease": "cubic_in_out"}, {"t": 2.4, "v": 470, "ease": "cubic_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_x", "type": "digits", "digits": 1, "size": [10, 14], "x": 545, "y": 274, "text": "X",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

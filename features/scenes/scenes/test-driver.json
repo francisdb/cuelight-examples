@@ -1,0 +1,28 @@
+{
+  "loop": true,
+  "steps": [
+    { "trigger": "attract" },
+    { "wait": 3.5 },
+    { "set": { "score": 0 } },
+    { "trigger": "start" },
+    { "wait": 1.2 },
+    { "set": { "score": 1250 } },
+    { "wait": 0.4 },
+    { "set": { "score": 2500 } },
+    { "wait": 0.4 },
+    { "set": { "score": 3750 } },
+    { "wait": 0.4 },
+    { "set": { "score": 5000 } },
+    { "wait": 0.4 },
+    { "set": { "score": 6250 } },
+    { "wait": 0.4 },
+    { "set": { "score": 7500 } },
+    { "wait": 0.4 },
+    { "set": { "score": 8750 } },
+    { "wait": 0.4 },
+    { "set": { "score": 10000 } },
+    { "wait": 0.4 },
+    { "trigger": "game_over" },
+    { "wait": 3 }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "delay_repeat_loop",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 17, "size": [238, 20], "x": 24, "y": 18, "text": "DELAY, REPEAT, LOOP",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "once", "type": "group", "y": 80,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 4, "size": [44, 16], "x": 24, "y": -8, "text": "ONCE",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 410, 2]}, "fill": "#232A34", "x": 190, "y": -1},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#E6EDF3", "x": 190,
+          "timelines": [
+            {
+              "name": "run", "trigger": "go",
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 0.8, "v": 600, "ease": "cubic_in_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "delay", "type": "group", "y": 130,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 7, "size": [77, 16], "x": 24, "y": -8, "text": "DELAY 1",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 410, 2]}, "fill": "#232A34", "x": 190, "y": -1},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#3EC9F0", "x": 190,
+          "timelines": [
+            {
+              "name": "run", "trigger": "go", "delay": 1,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 0.8, "v": 600, "ease": "cubic_in_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repeat", "type": "group", "y": 180,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 8, "size": [88, 16], "x": 24, "y": -8, "text": "REPEAT 3",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 410, 2]}, "fill": "#232A34", "x": 190, "y": -1},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FFB000", "x": 190,
+          "timelines": [
+            {
+              "name": "run", "trigger": "go", "repeat": 3,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 0.8, "v": 600, "ease": "cubic_in_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "repeat_partial", "type": "group", "y": 230,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "REPEAT 2 1/2",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 410, 2]}, "fill": "#232A34", "x": 190, "y": -1},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FFB000", "x": 190,
+          "timelines": [
+            {
+              "name": "run", "trigger": "go", "repeat": 2.5,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 0.8, "v": 600, "ease": "cubic_in_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "loop", "type": "group", "y": 280,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 4, "size": [44, 16], "x": 24, "y": -8, "text": "LOOP",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 410, 2]}, "fill": "#232A34", "x": 190, "y": -1},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#4ADE80", "x": 190,
+          "timelines": [
+            {
+              "name": "run", "trigger": "go", "loop": true,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 0.8, "v": 600, "ease": "cubic_in_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_all_start_on_go_a_finish", "type": "digits", "digits": 57, "size": [456, 12], "x": 24, "y": 326,
+      "text": "ALL START ON 'GO', A FINISHED ONE FALLS BACK TO ITS BASE X", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "scale_offset",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"level": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 16, "size": [224, 20], "x": 24, "y": 18, "text": "SCALE AND OFFSET",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_level", "type": "digits", "digits": 5, "size": [55, 16], "x": 440, "y": 20, "text": "LEVEL",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "level", "type": "digits", "digits": 3, "size": [66, 32], "x": 512, "y": 12, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "numeric7", "fill": "#FFB000", "unlit": "#2A1D04"}},
+      "bindings": [{"property": "text", "variable": "level"}]
+    },
+    {"name": "rail", "type": "shape", "shape": {"rect": [0, 0, 400, 2]}, "fill": "#232A34", "x": 120, "y": 89},
+    {
+      "name": "knob", "type": "shape", "shape": {"circle": [0, 0, 12]}, "fill": "#3EC9F0", "x": 120, "y": 90,
+      "bindings": [{"property": "x", "variable": "level", "scale": 4, "offset": 120}]
+    },
+    {
+      "name": "label_x_level_4_120", "type": "digits", "digits": 19, "size": [190, 14], "x": 120, "y": 114, "text": "X = LEVEL * 4 + 120",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "bubble", "type": "shape", "shape": {"circle": [0, 0, 30]}, "fill": "#FFB000", "x": 100, "y": 230,
+      "bindings": [{"property": "scale", "variable": "level", "scale": 0.02}]
+    },
+    {
+      "name": "label_scale", "type": "digits", "digits": 7, "size": [70, 14], "x": 40, "y": 310, "text": "SCALE =",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_level_50", "type": "digits", "digits": 10, "size": [100, 14], "x": 40, "y": 330, "text": "LEVEL / 50",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp", "type": "shape", "shape": {"rect": [0, 0, 100, 100]}, "fill": "#4ADE80", "x": 270, "y": 180,
+      "bindings": [{"property": "opacity", "variable": "level", "scale": 0.01}]
+    },
+    {
+      "name": "label_opacity", "type": "digits", "digits": 9, "size": [90, 14], "x": 250, "y": 310, "text": "OPACITY =",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_level_100", "type": "digits", "digits": 11, "size": [110, 14], "x": 250, "y": 330, "text": "LEVEL / 100",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "shaft", "type": "shape", "shape": {"rect": [0, 0, 2, 120]}, "fill": "#232A34", "x": 529, "y": 160},
+    {
+      "name": "lift", "type": "shape", "shape": {"rect": [0, -6, 60, 12]}, "fill": "#A78BFA", "x": 500, "y": 280,
+      "bindings": [{"property": "y", "variable": "level", "scale": -1.2, "offset": 280}]
+    },
+    {
+      "name": "label_y", "type": "digits", "digits": 3, "size": [30, 14], "x": 440, "y": 310, "text": "Y =",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_level_1_2_280", "type": "digits", "digits": 17, "size": [170, 14], "x": 440, "y": 330, "text": "LEVEL * -1.2 + 280",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}
