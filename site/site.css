@@ -42,9 +42,10 @@ h1 { margin: 2px 0 4px; font-size: 26px; }
 .lead { margin: 0 0 16px; color: var(--muted); max-width: 80ch; }
 .stage { background: #000; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .stage canvas { display: block; width: 100%; }
-.stage .fallback { position: relative; }
-.stage .fallback img { display: block; width: 100%; opacity: 0.35; }
-.stage .fallback p { position: absolute; inset: 0; margin: 0; padding: 16px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--error); }
+.stage .fallback img { display: block; width: 100%; }
+.stage .fallback p { margin: 0; padding: 10px 14px; border-top: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--panel); font-size: 14px; }
+.stage .fallback .error { color: var(--error); }
+.notice { margin: 16px 0 0; padding: 10px 14px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 6px; background: var(--panel); font-size: 14px; }
 .columns { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; margin-top: 16px; align-items: start; }
 @media (max-width: 860px) { .columns { grid-template-columns: minmax(0, 1fr); } }
 .box { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); min-width: 0; }

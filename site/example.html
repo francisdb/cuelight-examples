@@ -158,29 +158,46 @@ setInterval(() => {
 $("driver").onclick = () => (player.driverPlaying ? player.driverPause() : player.driverPlay());
 $("restart").onclick = () => play().catch(fail);
 
-function fail(e) {
-  const message = e?.message ?? String(e);
-  log(message, true);
-  if (player) return;
-  // No player at all (most likely no WebGPU): show the thumbnail instead.
+// No player: show the thumbnail, a still frame of the same show, instead.
+function still(...note) {
   const fallback = document.createElement("div");
   fallback.className = "fallback";
   const image = document.createElement("img");
   image.src = `thumbnails/${example.path}.png`;
   image.alt = "";
-  const note = document.createElement("p");
-  note.textContent = message;
-  fallback.append(image, note);
+  const text = document.createElement("p");
+  text.append(...note);
+  fallback.append(image, text);
   $("stage").replaceChildren(fallback);
 }
 
+function fail(e) {
+  const message = e?.message ?? String(e);
+  log(message, true);
+  if (player) return;
+  const text = document.createElement("span");
+  text.className = "error";
+  text.textContent = message;
+  still(text);
+}
+
+const code = (text) => Object.assign(document.createElement("code"), { textContent: text });
+
 try {
+  // Asked before the player is downloaded: without WebGPU it cannot start.
+  if (!navigator.gpu) {
+    still("This is a still frame: the player needs WebGPU, which this browser does not offer. ",
+      "Chrome, Edge and Safari have it; if Chrome on Linux does not, enable ",
+      code("chrome://flags/#enable-unsafe-webgpu"), ". Firefox does not have it on every platform yet: try ",
+      code("dom.webgpu.enabled"), " in ", code("about:config"), ".");
+    throw new Error("this browser has no WebGPU, which the cuelight player needs");
+  }
   const module = await import("./pkg/cuelight_web.js");
   await module.default();
   CuelightPlayer = module.CuelightPlayer;
   await play();
 } catch (e) {
-  fail(e);
+  if (navigator.gpu) fail(e); else log(e.message, true);
 }
 </script>
 </body>
