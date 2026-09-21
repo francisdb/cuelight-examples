@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cuelight examples</title>
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="top"><div class="inner">
+  <a class="brand" href="./">cue<span>light</span> examples</a>
+  <nav>
+    <a href="https://github.com/francisdb/cuelight">cuelight</a>
+    <a href="https://github.com/francisdb/cuelight/blob/main/docs/show-format.md">show format</a>
+    <a href="https://github.com/francisdb/cuelight-examples">source</a>
+  </nav>
+</div></header>
+<main>
+  <div class="crumbs"><a href="./">Examples</a> / <span id="category"></span></div>
+  <h1 id="title"></h1>
+  <p class="lead" id="description"></p>
+
+  <div class="stage" id="stage"><canvas id="canvas"></canvas></div>
+
+  <div class="columns">
+    <div class="box">
+      <h2>
+        <button class="tab" data-file="show.json" aria-selected="true">show.json</button>
+        <button class="tab" data-file="test-driver.json" id="driver-tab" hidden>test-driver.json</button>
+        <span class="spacer"></span>
+        <a id="github" href="">on GitHub</a>
+      </h2>
+      <pre id="source"></pre>
+    </div>
+    <div>
+      <div class="box">
+        <h2>Triggers</h2>
+        <div class="content controls" id="actions"></div>
+      </div>
+      <div class="box">
+        <h2>Variables</h2>
+        <div class="content variables" id="variables"></div>
+      </div>
+      <div class="box">
+        <h2>Host <span class="spacer"></span><span class="status" id="scene"></span></h2>
+        <div class="content">
+          <div class="controls"><button id="driver" hidden></button><button id="restart">restart</button></div>
+          <p class="status" id="driver-note" hidden>The driver script stands in for a host: it fires the triggers
+            and sets the variables. Pause it to take over.</p>
+        </div>
+      </div>
+      <div class="box">
+        <h2>Events and warnings</h2>
+        <div class="content mono" id="log"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pager"><a id="previous"></a><a id="next"></a></div>
+</main>
+<script type="module">
+const $ = (id) => document.getElementById(id);
+const started = performance.now();
+const log = (text, error) => {
+  const line = document.createElement("div");
+  const time = document.createElement("span");
+  time.className = "time";
+  time.textContent = `${((performance.now() - started) / 1000).toFixed(1).padStart(6)} s  `;
+  line.append(time, text);
+  if (error) line.className = "error";
+  $("log").prepend(line);
+  while ($("log").childElementCount > 200) $("log").lastChild.remove();
+};
+
+// The catalog says what there is; ?show=path picks one.
+const catalog = await (await fetch("examples.json")).json();
+const examples = catalog.categories.flatMap((category) =>
+  category.examples.map((example) => ({ ...example, category: category.name })));
+const wanted = new URLSearchParams(location.search).get("show");
+const index = Math.max(0, examples.findIndex((example) => example.path === wanted));
+const example = examples[index];
+const folder = `shows/${example.path}/`;
+
+document.title = `${example.title} - cuelight examples`;
+$("category").textContent = example.category;
+$("title").textContent = example.title;
+$("description").textContent = example.description;
+$("github").href = `https://github.com/francisdb/cuelight-examples/tree/main/${example.path}`;
+for (const [id, other, text] of [["previous", examples[index - 1], "\u2190 "], ["next", examples[index + 1], " \u2192"]]) {
+  if (!other) continue;
+  $(id).href = `example.html?show=${other.path}`;
+  $(id).textContent = id === "previous" ? text + other.title : other.title + text;
+}
+
+// Source viewer, with just enough highlighting to read JSON.
+const highlight = (json) => json
+  .replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c])
+  .replace(/("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|-?\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/g,
+    (match, string, colon, literal) =>
+      string ? `<span class="${colon ? "j-key" : "j-str"}">${string}</span>${colon ?? ""}`
+        : `<span class="${literal ? "j-lit" : "j-num"}">${match}</span>`);
+const sources = {};
+async function showSource(file) {
+  sources[file] ??= await (await fetch(folder + file)).text();
+  $("source").innerHTML = highlight(sources[file]);
+  for (const tab of document.querySelectorAll(".tab")) tab.setAttribute("aria-selected", tab.dataset.file === file);
+}
+for (const tab of document.querySelectorAll(".tab")) tab.onclick = () => showSource(tab.dataset.file);
+showSource("show.json");
+
+let player;
+let CuelightPlayer;
+
+async function play() {
+  player?.free();
+  player = undefined;
+  for (const id of ["actions", "variables"]) $(id).replaceChildren();
+  player = await CuelightPlayer.create($("canvas"), folder);
+  $("canvas").style.aspectRatio = `${player.width} / ${player.height}`;
+  player.warnings().forEach((warning) => log(warning, true));
+  player.onEvent((event) => log(`event  ${JSON.stringify(event)}`));
+
+  for (const action of player.actions()) {
+    const button = document.createElement("button");
+    button.textContent = action;
+    button.onclick = () => { player.trigger(action); log(`host   trigger ${action}`); };
+    $("actions").append(button);
+  }
+  for (const [name, value] of Object.entries(player.variables())) {
+    const input = document.createElement("input");
+    input.type = typeof value === "boolean" ? "checkbox" : typeof value === "number" ? "number" : "text";
+    input[input.type === "checkbox" ? "checked" : "value"] = value;
+    input.oninput = () => {
+      const next = input.type === "checkbox" ? input.checked : input.type === "number" ? input.valueAsNumber : input.value;
+      if (!Number.isNaN(next)) player.set(name, next);
+    };
+    input.id = `variable-${name}`;
+    input.dataset.variable = name;
+    const label = document.createElement("label");
+    label.htmlFor = input.id;
+    label.textContent = name;
+    $("variables").append(label, input);
+  }
+  $("driver").hidden = $("driver-note").hidden = $("driver-tab").hidden = !player.hasDriver;
+}
+
+// The driver changes variables too: show what the show currently holds.
+setInterval(() => {
+  if (!player) return;
+  $("scene").textContent = player.activeScene ? `scene: ${player.activeScene}` : "";
+  $("driver").textContent = player.driverPlaying ? "pause driver" : "play driver";
+  for (const input of $("variables").querySelectorAll("input")) {
+    if (input === document.activeElement) continue;
+    const value = player.get(input.dataset.variable);
+    if (input.type === "checkbox") input.checked = value; else input.value = value;
+  }
+}, 200);
+
+$("driver").onclick = () => (player.driverPlaying ? player.driverPause() : player.driverPlay());
+$("restart").onclick = () => play().catch(fail);
+
+function fail(e) {
+  const message = e?.message ?? String(e);
+  log(message, true);
+  if (player) return;
+  // No player at all (most likely no WebGPU): show the thumbnail instead.
+  const fallback = document.createElement("div");
+  fallback.className = "fallback";
+  const image = document.createElement("img");
+  image.src = `thumbnails/${example.path}.png`;
+  image.alt = "";
+  const note = document.createElement("p");
+  note.textContent = message;
+  fallback.append(image, note);
+  $("stage").replaceChildren(fallback);
+}
+
+try {
+  const module = await import("./pkg/cuelight_web.js");
+  await module.default();
+  CuelightPlayer = module.CuelightPlayer;
+  await play();
+} catch (e) {
+  fail(e);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "easing",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 6, "size": [84, 20], "x": 24, "y": 18, "text": "EASING",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "linear", "type": "group", "y": 62,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "LINEAR",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#E6EDF3", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "linear"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quad_in", "type": "group", "y": 98,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "QUAD_IN",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#3EC9F0", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "quad_in"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quad_out", "type": "group", "y": 134,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "QUAD_OUT",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#3EC9F0", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "quad_out"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quad_in_out", "type": "group", "y": 170,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "QUAD_IN_OUT",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#3EC9F0", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "quad_in_out"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cubic_in", "type": "group", "y": 206,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "CUBIC_IN",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FFB000", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "cubic_in"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cubic_out", "type": "group", "y": 242,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "CUBIC_OUT",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FFB000", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "cubic_out"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cubic_in_out", "type": "group", "y": 278,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "CUBIC_IN_OUT",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FFB000", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "cubic_in_out"}]}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "step", "type": "group", "y": 314,
+      "children": [
+        {
+          "name": "label", "type": "digits", "digits": 12, "size": [132, 16], "x": 24, "y": -8, "text": "STEP",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {"name": "rail", "type": "shape", "shape": {"rect": [190, -1, 410, 2]}, "fill": "#232A34"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#FF5A5A", "x": 600,
+          "timelines": [
+            {"name": "run", "trigger": "go", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 190}, {"t": 2, "v": 600, "ease": "step"}]}]}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "outline_font",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "fonts": {
+    "size_14": {"file": "Oxanium-Bold", "size": 14, "color": "#8B96A5"}, "size_28": {"file": "Oxanium-Bold", "size": 28, "color": "#E6EDF3"},
+    "size_56": {"file": "Oxanium-Bold", "size": 56, "color": "#E6EDF3"},
+    "size_120": {"file": "Oxanium-Bold", "size": 120, "color": "#3EC9F0"},
+    "bordered": {"file": "Oxanium-Bold", "size": 56, "color": "#FFB000", "border": {"color": "#7A2E00", "width": 4}},
+    "boxed": {"file": "Oxanium-Bold", "size": 26, "color": "#E6EDF3"}, "zoom": {"file": "Oxanium-Bold", "size": 40, "color": "#4ADE80"}
+  },
+  "layers": [
+    {"name": "size_14", "type": "text", "text": "Sharp at any size", "font": "size_14", "x": 24, "y": 22},
+    {"name": "size_28", "type": "text", "text": "Sharp at any size", "font": "size_28", "x": 24, "y": 44},
+    {"name": "size_56", "type": "text", "text": "Sharp at any", "font": "size_56", "x": 24, "y": 80},
+    {"name": "size_120", "type": "text", "text": "size", "font": "size_120", "x": 20, "y": 130},
+    {"name": "bordered", "type": "text", "text": "BORDER", "font": "bordered", "x": 380, "y": 150},
+    {"name": "box", "type": "shape", "shape": {"rect": [0, 0, 236, 96]}, "fill": "#161B22", "x": 380, "y": 240},
+    {
+      "name": "boxed", "type": "text", "text": "aligned right\nline by line", "font": "boxed", "x": 380, "y": 240, "size": [236, 96],
+      "align": "right"
+    },
+    {
+      "name": "zoom", "type": "text", "text": "scale", "font": "zoom", "x": 150, "y": 300, "anchor": "center",
+      "timelines": [
+        {
+          "name": "zoom", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.4}, {"t": 2, "v": 2.2, "ease": "quad_in_out"}, {"t": 4, "v": 0.4, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

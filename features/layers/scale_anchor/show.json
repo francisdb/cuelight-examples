@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "scale_anchor",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 16, "size": [224, 20], "x": 24, "y": 18, "text": "SCALE AND ANCHOR",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "none", "type": "shape", "shape": {"rect": [0, 0, 70, 70]}, "fill": "#3EC9F0", "x": 60, "y": 190,
+      "timelines": [
+        {
+          "name": "pulse", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.5}, {"t": 1.5, "v": 1.5, "ease": "quad_in_out"}, {"t": 3, "v": 0.5, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {"name": "none_origin", "type": "shape", "shape": {"circle": [0, 0, 4]}, "fill": "#E6EDF3", "x": 60, "y": 190},
+    {
+      "name": "label_no_anchor", "type": "digits", "digits": 9, "size": [90, 14], "x": 60, "y": 320, "text": "NO ANCHOR",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "center", "type": "shape", "shape": {"rect": [0, 0, 70, 70]}, "fill": "#FFB000", "x": 250, "y": 190, "anchor": "center",
+      "timelines": [
+        {
+          "name": "pulse", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.5}, {"t": 1.5, "v": 1.5, "ease": "quad_in_out"}, {"t": 3, "v": 0.5, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {"name": "center_origin", "type": "shape", "shape": {"circle": [0, 0, 4]}, "fill": "#E6EDF3", "x": 250, "y": 190},
+    {
+      "name": "label_center", "type": "digits", "digits": 6, "size": [60, 14], "x": 220, "y": 320, "text": "CENTER",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "bottom", "type": "shape", "shape": {"rect": [0, 0, 70, 70]}, "fill": "#4ADE80", "x": 400, "y": 190, "anchor": "bottom",
+      "timelines": [
+        {
+          "name": "pulse", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.5}, {"t": 1.5, "v": 1.5, "ease": "quad_in_out"}, {"t": 3, "v": 0.5, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {"name": "bottom_origin", "type": "shape", "shape": {"circle": [0, 0, 4]}, "fill": "#E6EDF3", "x": 400, "y": 190},
+    {
+      "name": "label_bottom", "type": "digits", "digits": 6, "size": [60, 14], "x": 370, "y": 320, "text": "BOTTOM",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "top_right", "type": "shape", "shape": {"rect": [0, 0, 70, 70]}, "fill": "#A78BFA", "x": 590, "y": 190, "anchor": "top_right",
+      "timelines": [
+        {
+          "name": "pulse", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 0.5}, {"t": 1.5, "v": 1.5, "ease": "quad_in_out"}, {"t": 3, "v": 0.5, "ease": "quad_in_out"}]
+            }
+          ]
+        }
+      ]
+    },
+    {"name": "top_right_origin", "type": "shape", "shape": {"circle": [0, 0, 4]}, "fill": "#E6EDF3", "x": 590, "y": 190},
+    {
+      "name": "label_top_right", "type": "digits", "digits": 9, "size": [90, 14], "x": 491, "y": 320, "text": "TOP_RIGHT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_the_white_dot_is_the_lay", "type": "digits", "digits": 32, "size": [320, 14], "x": 24, "y": 60,
+      "text": "THE WHITE DOT IS THE LAYER'S X Y", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

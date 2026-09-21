@@ -1,0 +1,78 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "group_clip",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 10, "size": [140, 20], "x": 24, "y": 18, "text": "GROUP CLIP",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_rect_clip", "type": "digits", "digits": 9, "size": [90, 14], "x": 40, "y": 64, "text": "RECT CLIP",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "ticker_window", "type": "group", "x": 40, "y": 90, "clip": {"rect": [0, 0, 270, 50]},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 270, 50]}, "fill": "#161B22"},
+        {
+          "name": "ticker", "type": "digits", "digits": 38, "size": [608, 24], "x": 270, "y": 13,
+          "text": "GROUP CLIP - A WINDOW ONTO ITS CONTENT", "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+          "timelines": [
+            {
+              "name": "scroll", "autoplay": true, "loop": true,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 270}, {"t": 8, "v": -608}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ball_window", "type": "group", "x": 40, "y": 170, "clip": {"rect": [0, 0, 270, 150]},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 270, 150]}, "fill": "#161B22"},
+        {
+          "name": "ball", "type": "shape", "shape": {"circle": [0, 0, 60]}, "fill": "#3EC9F0", "y": 30,
+          "timelines": [
+            {
+              "name": "across", "autoplay": true, "loop": true,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 0}, {"t": 3, "v": 270}, {"t": 6, "v": 0}]}]
+            },
+            {
+              "name": "bounce", "autoplay": true, "loop": true,
+              "tracks": [{"property": "y", "keys": [{"t": 0, "v": 30}, {"t": 1, "v": 150, "ease": "quad_in"}, {"t": 2, "v": 30, "ease": "quad_out"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_circle_clip", "type": "digits", "digits": 11, "size": [110, 14], "x": 420, "y": 64, "text": "CIRCLE CLIP",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "porthole", "type": "group", "x": 480, "y": 210, "clip": {"circle": [0, 0, 110]},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [-110, -110, 220, 220]}, "fill": "#12331E"},
+        {
+          "name": "stripes", "type": "group",
+          "timelines": [{"name": "roll", "autoplay": true, "loop": true, "tracks": [{"property": "y", "keys": [{"t": 0, "v": 0}, {"t": 1, "v": 40}]}]}],
+          "children": [
+            {"name": "stripe_1", "type": "shape", "shape": {"rect": [-160, -200, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_2", "type": "shape", "shape": {"rect": [-160, -160, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_3", "type": "shape", "shape": {"rect": [-160, -120, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_4", "type": "shape", "shape": {"rect": [-160, -80, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_5", "type": "shape", "shape": {"rect": [-160, -40, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_6", "type": "shape", "shape": {"rect": [-160, 0, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_7", "type": "shape", "shape": {"rect": [-160, 40, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_8", "type": "shape", "shape": {"rect": [-160, 80, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_9", "type": "shape", "shape": {"rect": [-160, 120, 320, 18]}, "fill": "#4ADE80"},
+            {"name": "stripe_10", "type": "shape", "shape": {"rect": [-160, 160, 320, 18]}, "fill": "#4ADE80"}
+          ]
+        }
+      ]
+    }
+  ]
+}

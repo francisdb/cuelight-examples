@@ -1,0 +1,114 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "scenes",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"score": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 6, "size": [84, 20], "x": 24, "y": 18, "text": "SCENES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "frame_top", "type": "shape", "shape": {"rect": [0, 0, 592, 2]}, "fill": "#232A34", "x": 24, "y": 56},
+    {"name": "frame_bottom", "type": "shape", "shape": {"rect": [0, 0, 592, 2]}, "fill": "#232A34", "x": 24, "y": 320},
+    {
+      "name": "label_the_show_s_own_layers_st", "type": "digits", "digits": 53, "size": [424, 12], "x": 24, "y": 334,
+      "text": "THE SHOW'S OWN LAYERS STAY, ONE SCENE AT A TIME ON TOP", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ],
+  "scenes": [
+    {
+      "name": "attract", "trigger": "attract",
+      "layers": [
+        {
+          "name": "press_start", "type": "digits", "digits": 11, "size": [396, 52], "x": 122, "y": 140, "text": "PRESS START",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+          "timelines": [
+            {
+              "name": "blink", "autoplay": true, "loop": true,
+              "tracks": [
+                {
+                  "property": "opacity",
+                  "keys": [{"t": 0, "v": 1}, {"t": 0.6, "v": 1}, {"t": 0.6, "v": 0.15, "ease": "step"}, {"t": 1.2, "v": 0.15}]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "drifter", "type": "shape", "shape": {"circle": [0, 0, 14]}, "fill": "#3EC9F0", "x": 60, "y": 270,
+          "timelines": [
+            {
+              "name": "drift", "autoplay": true, "loop": true,
+              "tracks": [
+                {
+                  "property": "x",
+                  "keys": [{"t": 0, "v": 60}, {"t": 3, "v": 580, "ease": "quad_in_out"}, {"t": 6, "v": 60, "ease": "quad_in_out"}]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game", "trigger": "start",
+      "layers": [
+        {
+          "name": "score", "type": "digits", "digits": 6, "size": [330, 80], "x": 146, "y": 120, "text": "0", "justify": "right",
+          "display": {"segments": {"style": "numeric7", "fill": "#4ADE80", "unlit": "#0B2A16"}},
+          "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+        },
+        {
+          "name": "ball", "type": "shape", "shape": {"circle": [0, 0, 14]}, "fill": "#E6EDF3", "x": 80, "y": 270,
+          "timelines": [
+            {
+              "name": "across", "autoplay": true, "loop": true,
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 80}, {"t": 1.2, "v": 560}, {"t": 2.4, "v": 80}]}]
+            },
+            {
+              "name": "bounce", "autoplay": true, "loop": true,
+              "tracks": [
+                {
+                  "property": "y",
+                  "keys": [{"t": 0, "v": 270}, {"t": 0.3, "v": 230, "ease": "quad_out"}, {"t": 0.6, "v": 270, "ease": "quad_in"}]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "go", "type": "digits", "digits": 2, "size": [88, 64], "x": 276, "y": 236, "text": "GO",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}, "opacity": 0,
+          "timelines": [
+            {
+              "name": "flash", "trigger": "start",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.8, "v": 1}, {"t": 1.2, "v": 0, "ease": "quad_in"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game_over", "trigger": "game_over",
+      "layers": [
+        {
+          "name": "game_over", "type": "digits", "digits": 9, "size": [342, 56], "x": 146, "y": 140, "text": "GAME OVER",
+          "display": {"segments": {"style": "alpha14", "fill": "#FF5A5A"}},
+          "timelines": [
+            {
+              "name": "drop", "autoplay": true,
+              "tracks": [{"property": "y", "keys": [{"t": 0, "v": -60}, {"t": 0.7, "v": 140, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "final_score", "type": "digits", "digits": 7, "size": [182, 38], "x": 229, "y": 230, "text": "0", "justify": "right",
+          "display": {"segments": {"style": "numeric7", "fill": "#8B96A5"}},
+          "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+        }
+      ]
+    }
+  ]
+}

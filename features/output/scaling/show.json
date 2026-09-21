@@ -1,0 +1,45 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "output_scaling",
+  "size": [128, 32],
+  "background": "#000000",
+  "layers": [
+    {"name": "ground", "type": "shape", "shape": {"rect": [0, 0, 128, 1]}, "fill": "#3A4350", "y": 18},
+    {"name": "sun", "type": "shape", "shape": {"circle": [0, 0, 7]}, "fill": "#FFB000", "x": 110, "y": 9},
+    {"name": "moon", "type": "shape", "shape": {"circle": [0, 0, 4]}, "fill": "#3EC9F0", "x": 90, "y": 11},
+    {
+      "name": "size", "type": "digits", "digits": 8, "size": [64, 12], "x": 4, "y": 3, "text": "128 X 32",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "ball", "type": "shape", "shape": {"circle": [0, 0, 2]}, "fill": "#4ADE80", "x": 90, "y": 26,
+      "timelines": [
+        {
+          "name": "roll", "autoplay": true, "loop": true,
+          "tracks": [{"property": "x", "keys": [{"t": 0, "v": 94}, {"t": 2, "v": 124}, {"t": 4, "v": 94}]}]
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "pixel_perfect", "trigger": "pixel_perfect", "output": {"scaling": "pixel_perfect"},
+      "layers": [
+        {
+          "name": "scaling", "type": "digits", "digits": 13, "size": [78, 9], "x": 4, "y": 21, "text": "PIXEL_PERFECT",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    },
+    {
+      "name": "smooth", "trigger": "smooth", "output": {"scaling": "smooth"},
+      "layers": [
+        {
+          "name": "scaling", "type": "digits", "digits": 6, "size": [36, 9], "x": 4, "y": 21, "text": "SMOOTH",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        }
+      ]
+    }
+  ]
+}

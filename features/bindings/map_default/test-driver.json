@@ -1,0 +1,13 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "state": "idle" } },
+    { "wait": 1.5 },
+    { "set": { "state": "running" } },
+    { "wait": 1.5 },
+    { "set": { "state": "error" } },
+    { "wait": 1.5 },
+    { "set": { "state": "paused" } },
+    { "wait": 1.5 }
+  ]
+}

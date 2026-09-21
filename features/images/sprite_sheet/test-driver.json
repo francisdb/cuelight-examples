@@ -1,0 +1,21 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "frame": 0 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 1 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 2 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 3 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 4 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 5 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 6 } },
+    { "wait": 0.4 },
+    { "set": { "frame": 7 } },
+    { "wait": 0.4 }
+  ]
+}

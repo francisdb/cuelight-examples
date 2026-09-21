@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "shapes",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 6, "size": [84, 20], "x": 24, "y": 18, "text": "SHAPES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "rect", "type": "shape", "shape": {"rect": [0, 0, 170, 110]}, "fill": "#3EC9F0", "x": 60, "y": 80},
+    {"name": "circle", "type": "shape", "shape": {"circle": [0, 0, 70]}, "fill": "#FFB000", "x": 250, "y": 190},
+    {"name": "veil", "type": "shape", "shape": {"rect": [0, 0, 150, 150]}, "fill": "#FF5A5AA0", "x": 270, "y": 100},
+    {
+      "name": "label_painted_in_order", "type": "digits", "digits": 16, "size": [176, 16], "x": 60, "y": 280, "text": "PAINTED IN ORDER",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_rrggbbaa_fills_blend", "type": "digits", "digits": 20, "size": [220, 16], "x": 60, "y": 304,
+      "text": "RRGGBBAA FILLS BLEND", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "local", "type": "shape", "shape": {"rect": [-60, -35, 120, 70]}, "fill": "#A78BFA", "x": 530, "y": 150},
+    {"name": "local_origin", "type": "shape", "shape": {"circle": [0, 0, 5]}, "fill": "#E6EDF3", "x": 530, "y": 150},
+    {
+      "name": "label_rect_60_35_120_70", "type": "digits", "digits": 19, "size": [190, 14], "x": 430, "y": 200,
+      "text": "RECT -60 -35 120 70", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_around_the_layer_x_y", "type": "digits", "digits": 20, "size": [200, 14], "x": 430, "y": 222,
+      "text": "AROUND THE LAYER X Y", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "mover", "type": "shape", "shape": {"circle": [0, 0, 9]}, "fill": "#4ADE80", "x": 60, "y": 340,
+      "timelines": [
+        {
+          "name": "patrol", "autoplay": true, "loop": true,
+          "tracks": [
+            {
+              "property": "x",
+              "keys": [{"t": 0, "v": 60}, {"t": 2, "v": 580, "ease": "cubic_in_out"}, {"t": 4, "v": 60, "ease": "cubic_in_out"}]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

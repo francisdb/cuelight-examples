@@ -1,0 +1,30 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "score_1": 0, "score_2": 0 } },
+    { "set": { "player": 1 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 12500, "score_2": 0 } },
+    { "wait": 1.2 },
+    { "set": { "player": 2 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 12500, "score_2": 17500 } },
+    { "wait": 1.2 },
+    { "set": { "player": 1 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 50000, "score_2": 17500 } },
+    { "wait": 1.2 },
+    { "set": { "player": 2 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 50000, "score_2": 52500 } },
+    { "wait": 1.2 },
+    { "set": { "player": 1 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 112500, "score_2": 52500 } },
+    { "wait": 1.2 },
+    { "set": { "player": 2 } },
+    { "wait": 0.6 },
+    { "set": { "score_1": 112500, "score_2": 105000 } },
+    { "wait": 1.2 }
+  ]
+}

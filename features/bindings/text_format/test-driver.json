@@ -1,0 +1,13 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "score": 1234567, "meters": 1500, "ready": false, "player": "ALICE" } },
+    { "wait": 1.5 },
+    { "set": { "score": 1234568, "meters": 2750, "ready": true, "player": "ALICE" } },
+    { "wait": 1.5 },
+    { "set": { "score": 2000000, "meters": 12000, "ready": true, "player": "BOB" } },
+    { "wait": 1.5 },
+    { "set": { "score": 999, "meters": 500, "ready": false, "player": "BOB" } },
+    { "wait": 1.5 }
+  ]
+}

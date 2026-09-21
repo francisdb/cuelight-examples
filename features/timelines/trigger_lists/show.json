@@ -1,0 +1,51 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "trigger_lists",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 13, "size": [182, 20], "x": 24, "y": 18, "text": "TRIGGER LISTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "left", "type": "shape", "shape": {"circle": [0, 0, 60]}, "fill": "#FFB000", "x": 170, "y": 170, "opacity": 0.1,
+      "timelines": [
+        {
+          "name": "blink", "trigger": ["turn_left", "hazard"], "repeat": 3.5,
+          "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.35, "v": 0.1, "ease": "step"}, {"t": 0.7, "v": 1, "ease": "step"}]}]
+        }
+      ]
+    },
+    {
+      "name": "right", "type": "shape", "shape": {"circle": [0, 0, 60]}, "fill": "#FFB000", "x": 470, "y": 170, "opacity": 0.1,
+      "timelines": [
+        {
+          "name": "blink", "trigger": ["turn_right", "hazard"], "repeat": 3.5,
+          "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.35, "v": 0.1, "ease": "step"}, {"t": 0.7, "v": 1, "ease": "step"}]}]
+        }
+      ]
+    },
+    {
+      "name": "label_turn_left", "type": "digits", "digits": 9, "size": [99, 16], "x": 115, "y": 250, "text": "TURN_LEFT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_or_hazard", "type": "digits", "digits": 9, "size": [99, 16], "x": 115, "y": 274, "text": "OR HAZARD",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_turn_right", "type": "digits", "digits": 10, "size": [110, 16], "x": 415, "y": 250, "text": "TURN_RIGHT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_or_hazard_2", "type": "digits", "digits": 9, "size": [99, 16], "x": 415, "y": 274, "text": "OR HAZARD",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_one_timeline_per_lamp_li", "type": "digits", "digits": 47, "size": [376, 12], "x": 24, "y": 326,
+      "text": "ONE TIMELINE PER LAMP, LISTENING TO TWO TRIGGERS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

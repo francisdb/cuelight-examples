@@ -2,7 +2,8 @@
 
 Example shows for [cuelight](https://github.com/francisdb/cuelight), the
 embeddable engine for trigger- and variable-driven displays. Each show is a
-folder you can play directly with the cuelight player.
+folder you can play directly with the cuelight player, and they all play
+in the browser on the [website](https://francisdb.github.io/cuelight-examples/).
 
 ## Shows
 
@@ -13,6 +14,12 @@ folder you can play directly with the cuelight player.
 
 Every show folder has its own README describing what it shows, how to run
 it, and where its assets come from.
+
+## Feature examples
+
+[`features/`](features/) holds small shows that each demonstrate one thing
+the format can do: layers, images, text, bindings, timelines, scenes,
+output modes, events. They share [one README](features/README.md).
 
 Shows are self-contained: every asset is committed, so only assets whose
 license allows redistribution get in. `tools/` holds the scripts that
@@ -26,6 +33,25 @@ this repository:
 ```sh
 cargo run -p cuelight-player -- ../cuelight-examples/<show>
 ```
+
+## Website
+
+[`examples.json`](examples.json) is the catalog of the website: categories,
+and per show a title, a description and the moment its thumbnail is taken.
+A show that is not listed fails the build.
+
+```sh
+cargo run --manifest-path tools/thumbnails/Cargo.toml   # render site/thumbnails, needs a GPU
+site/build.sh                                           # build _site/
+python3 -m http.server -d _site
+```
+
+`site/build.sh` compiles the cuelight web player from the cuelight checkout
+next to this repository; its header lists what it needs. Thumbnails are
+committed because CI has no GPU to render them. The
+[Site workflow](.github/workflows/site.yml) checks that every show loads
+without warnings, builds the site against cuelight `main` and deploys it
+to GitHub Pages on every push to `main`.
 
 ## Licenses
 

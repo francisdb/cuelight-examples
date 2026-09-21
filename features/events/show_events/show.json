@@ -1,0 +1,58 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "show_events",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 11, "size": [154, 20], "x": 24, "y": 18, "text": "SHOW EVENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_arm", "type": "digits", "digits": 3, "size": [33, 16], "x": 60, "y": 96, "text": "ARM",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "fuse", "type": "group", "x": 120, "y": 90, "clip": {"rect": [0, 0, 400, 28]},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 400, 28]}, "fill": "#161B22"},
+        {
+          "name": "burn", "type": "shape", "shape": {"rect": [0, 0, 400, 28]}, "fill": "#FFB000", "x": -400,
+          "timelines": [
+            {
+              "name": "burn", "trigger": "arm", "on_end": "fire",
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": -400}, {"t": 3, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_fire", "type": "digits", "digits": 4, "size": [44, 16], "x": 60, "y": 196, "text": "FIRE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "blast", "type": "shape", "shape": {"circle": [0, 0, 40]}, "fill": "#FF5A5A", "x": 320, "y": 205, "opacity": 0,
+      "timelines": [
+        {
+          "name": "blast", "trigger": "fire", "on_end": "done",
+          "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 0.2}, {"t": 0.9, "v": 2.4, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_the_host_fires_arm_the_s", "type": "digits", "digits": 60, "size": [480, 12], "x": 24, "y": 300,
+      "text": "THE HOST FIRES 'ARM'. THE SHOW FIRES 'FIRE' AND 'DONE' ITSELF,",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_and_each_of_those_reache", "type": "digits", "digits": 64, "size": [512, 12], "x": 24, "y": 320,
+      "text": "AND EACH OF THOSE REACHES THE HOST AS AN EVENT. SEE THE LOG BELOW",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

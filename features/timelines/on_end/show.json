@@ -1,0 +1,153 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "on_end",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 6, "size": [84, 20], "x": 24, "y": 18, "text": "ON_END",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_1", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#3EC9F0", "x": 70, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_1", "on_end": "lamp_2", "autoplay": true,
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_1", "type": "digits", "digits": 6, "size": [60, 14], "x": 37, "y": 224, "text": "LAMP_1",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_2", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#3EC9F0", "x": 170, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_2", "on_end": "lamp_3",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_2", "type": "digits", "digits": 6, "size": [60, 14], "x": 137, "y": 224, "text": "LAMP_2",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_3", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#3EC9F0", "x": 270, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_3", "on_end": "lamp_4",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_3", "type": "digits", "digits": 6, "size": [60, 14], "x": 237, "y": 224, "text": "LAMP_3",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_4", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#FFB000", "x": 370, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_4", "on_end": "lamp_5",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_4", "type": "digits", "digits": 6, "size": [60, 14], "x": 337, "y": 224, "text": "LAMP_4",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_5", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#FFB000", "x": 470, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_5", "on_end": "lamp_6",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_5", "type": "digits", "digits": 6, "size": [60, 14], "x": 437, "y": 224, "text": "LAMP_5",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_6", "type": "shape", "shape": {"circle": [0, 0, 32]}, "fill": "#FF5A5A", "x": 570, "y": 170, "opacity": 0.12,
+      "timelines": [
+        {
+          "name": "flash", "trigger": "lamp_6", "on_end": "lamp_1",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [{"t": 0, "v": 0.12}, {"t": 0.12, "v": 1, "ease": "quad_out"}, {"t": 0.45, "v": 0.12, "ease": "quad_in"}]
+            },
+            {
+              "property": "scale",
+              "keys": [{"t": 0, "v": 1}, {"t": 0.12, "v": 1.25, "ease": "quad_out"}, {"t": 0.45, "v": 1, "ease": "quad_in"}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_6", "type": "digits", "digits": 6, "size": [60, 14], "x": 537, "y": 224, "text": "LAMP_6",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_each_flash_ends_by_firin", "type": "digits", "digits": 49, "size": [490, 14], "x": 24, "y": 280,
+      "text": "EACH FLASH ENDS BY FIRING THE NEXT LAMP'S TRIGGER", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_the_first_one_is_autopla", "type": "digits", "digits": 50, "size": [500, 14], "x": 24, "y": 304,
+      "text": "THE FIRST ONE IS AUTOPLAY, THE LAST FIRES THE FIRST", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}
