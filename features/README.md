@@ -13,7 +13,7 @@ cargo run -p cuelight-player -- ../cuelight-examples/features/timelines/easing
 | --- | --- |
 | [layers](layers/) | `shapes`, `opacity`, `scale_anchor`, `group_clip`, `paths`, `blend_modes`, `rotation` |
 | [images](images/) | `image`, `sprite_sheet`, `tint` |
-| [text](text/) | `bitmap_font`, `outline_font`, `digits` |
+| [text](text/) | `bitmap_font`, `outline_font`, `digits`, `reels` |
 | [bindings](bindings/) | `scale_offset`, `text_format`, `map_default`, `font`, `transitions`, `visible_threshold_debounce` |
 | [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence` |
 | [scenes](scenes/) | `scenes` |
@@ -45,4 +45,4 @@ is what the website's gallery is built from.
 | `bed.wav`, `coin.wav`, `thunder.wav`, `jingle.wav` | `sound/audio_layers` | synthesized from sines and noise by [`tools/feature_sounds.py`](../tools/feature_sounds.py) | same as this repository |
 | `tiny5-8` bitmap font | `text/bitmap_font` | [Tiny5](https://github.com/Gissio/font_tiny5), rasterized with [`tools/ttf2bmfont.py`](../tools/ttf2bmfont.py) | [OFL 1.1](text/bitmap_font/licenses/Tiny5-OFL.txt), no reserved font name |
 | `silkscreen-8`, `silkscreen_bold-16` bitmap fonts | `text/bitmap_font` | [Silkscreen](https://github.com/googlefonts/silkscreen) from [Google Fonts](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/silkscreen), rasterized with `tools/ttf2bmfont.py` (the bold one at 16 pixels with `--padding 2`) | [OFL 1.1](text/bitmap_font/licenses/Silkscreen-OFL.txt), no reserved font name |
-| `Oxanium-Bold.ttf` | `text/outline_font`, `bindings/font` | [Oxanium](https://github.com/sevmeyer/oxanium) | [OFL 1.1](text/outline_font/licenses/Oxanium-OFL.txt), no reserved font name; each show keeps its own copy of the license |
+| `Oxanium-Bold.ttf` | `text/outline_font`, `bindings/font`, `text/reels` | [Oxanium](https://github.com/sevmeyer/oxanium) | [OFL 1.1](text/outline_font/licenses/Oxanium-OFL.txt), no reserved font name; each show keeps its own copy of the license |

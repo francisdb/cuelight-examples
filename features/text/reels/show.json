@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "reels",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "fonts": {
+    "wheel": {"file": "Oxanium-Bold", "size": 34, "color": "#F2F6FA"},
+    "wheel_small": {"file": "Oxanium-Bold", "size": 22, "color": "#FFB000"},
+    "counter": {"file": "Oxanium-Bold", "size": 34, "color": "#8B96A5"}
+  },
+  "variables": {"score": 0, "wheels": "000000", "word": "", "step": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 9, "size": [126, 20], "x": 24, "y": 18, "text": "REEL ROWS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_score", "type": "digits", "digits": 34, "size": [272, 12], "x": 24, "y": 52,
+      "text": "SCORE WHEELS FORWARD AND STAGGERED", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "score_back", "type": "shape", "shape": {"rect": [24, 70, 276, 56]}, "fill": "#161B22"},
+    {
+      "name": "score", "type": "digits", "digits": 6, "size": [276, 56], "x": 24, "y": 70, "text": "0", "justify": "right",
+      "display": {
+        "reel": {
+          "font": "wheel", "charset": "0123456789", "duration": 0.12, "ease": "quad_in",
+          "direction": "forward", "stagger": 0.03,
+          "offset": [{"t": 0.12, "v": 0}, {"t": 0.18, "v": 0.05}, {"t": 0.26, "v": 0, "ease": "quad_out"}]
+        }
+      },
+      "bindings": [{"property": "text", "variable": "wheels"}]
+    },
+    {
+      "name": "label_counter", "type": "digits", "digits": 34, "size": [272, 12], "x": 336, "y": 52,
+      "text": "THE SAME SCORE AS PLAIN TEXT", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "counter_back", "type": "shape", "shape": {"rect": [336, 70, 276, 56]}, "fill": "#161B22"},
+    {
+      "name": "counter", "type": "text", "text": "0", "font": "counter", "x": 336, "y": 76, "size": [260, 56], "align": "right",
+      "bindings": [{"property": "text", "variable": "score", "transition": {"duration": 0.5, "ease": "cubic_out"}}]
+    },
+    {
+      "name": "label_counter_2", "type": "digits", "digits": 34, "size": [272, 12], "x": 336, "y": 132,
+      "text": "COUNTS THROUGH THE NUMBERS BETWEEN", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_score_2", "type": "digits", "digits": 34, "size": [272, 12], "x": 24, "y": 132,
+      "text": "ONLY THE WHEELS THAT CHANGE TURN", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_word", "type": "digits", "digits": 30, "size": [240, 12], "x": 24, "y": 172,
+      "text": "A RING OF LETTERS AND A BLANK", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "word_back", "type": "shape", "shape": {"rect": [24, 190, 276, 56]}, "fill": "#161B22"},
+    {
+      "name": "word", "type": "digits", "digits": 6, "size": [276, 56], "x": 24, "y": 190, "text": "",
+      "display": {
+        "reel": {
+          "font": "wheel_small", "charset": " ABCDEFGHIJKLMNOPQRSTUVWXYZ", "duration": 0.07,
+          "direction": "forward", "stagger": 0.05
+        }
+      },
+      "bindings": [{"property": "text", "variable": "word"}]
+    },
+    {
+      "name": "label_speed", "type": "digits", "digits": 34, "size": [272, 12], "x": 336, "y": 172,
+      "text": "THE SAME STEP FAST AND SLOW", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "fast_back", "type": "shape", "shape": {"rect": [336, 190, 120, 56]}, "fill": "#161B22"},
+    {
+      "name": "fast", "type": "digits", "digits": 1, "size": [120, 56], "x": 336, "y": 190, "text": "0",
+      "display": {"reel": {"font": "wheel", "duration": 0.08, "direction": "forward"}},
+      "bindings": [{"property": "text", "variable": "step"}]
+    },
+    {
+      "name": "label_fast", "type": "digits", "digits": 10, "size": [100, 12], "x": 346, "y": 252, "text": "80 MS EACH",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "slow_back", "type": "shape", "shape": {"rect": [492, 190, 120, 56]}, "fill": "#161B22"},
+    {
+      "name": "slow", "type": "digits", "digits": 1, "size": [120, 56], "x": 492, "y": 190, "text": "0",
+      "display": {"reel": {"font": "wheel", "duration": 0.4, "direction": "forward"}},
+      "bindings": [{"property": "text", "variable": "step"}]
+    },
+    {
+      "name": "label_slow", "type": "digits", "digits": 11, "size": [110, 12], "x": 497, "y": 252, "text": "400 MS EACH",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_note", "type": "digits", "digits": 58, "size": [464, 12], "x": 24, "y": 286,
+      "text": "EVERY CELL HOLDS A RING OF CHARACTERS AND ROLLS TO THE ONE", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_note_2", "type": "digits", "digits": 58, "size": [464, 12], "x": 24, "y": 304,
+      "text": "THE TEXT ASKS OF IT DRAWN IN A FONT WITH NO ARTWORK", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_note_3", "type": "digits", "digits": 58, "size": [464, 12], "x": 24, "y": 322,
+      "text": "A BLANK IS NOT ON THE RING SO THE HOST PADS WITH ZEROS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_note_4", "type": "digits", "digits": 58, "size": [464, 12], "x": 24, "y": 340,
+      "text": "SEE BINDINGS/TRANSITIONS FOR THE SAME WHEEL FROM ARTWORK", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

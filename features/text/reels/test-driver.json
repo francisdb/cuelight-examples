@@ -1,0 +1,86 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "score": 0,
+        "word": "CUE",
+        "step": 0,
+        "wheels": "000000"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "score": 90,
+        "step": 3,
+        "wheels": "000090"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "score": 99,
+        "word": "LIGHT",
+        "wheels": "000099"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "score": 100,
+        "step": 7,
+        "wheels": "000100"
+      }
+    },
+    {
+      "wait": 2
+    },
+    {
+      "set": {
+        "score": 999,
+        "word": "REELS",
+        "wheels": "000999"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "score": 1000,
+        "wheels": "001000"
+      }
+    },
+    {
+      "wait": 2
+    },
+    {
+      "set": {
+        "score": 123456,
+        "word": "ROLL",
+        "step": 0,
+        "wheels": "123456"
+      }
+    },
+    {
+      "wait": 2.5
+    },
+    {
+      "set": {
+        "score": 0,
+        "word": "CUE",
+        "wheels": "000000"
+      }
+    },
+    {
+      "wait": 2
+    }
+  ]
+}
