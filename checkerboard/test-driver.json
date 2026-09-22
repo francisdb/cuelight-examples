@@ -1,17 +1,11 @@
 {
   "loop": true,
   "steps": [
-    { "set": { "zoom": 1, "depth": 0.35 } },
-    { "wait": 6 },
-    { "set": { "zoom": 1.45 } },
-    { "wait": 7 },
+    { "set": { "depth": 0.35 } },
+    { "wait": 13 },
     { "set": { "depth": 0.7 } },
-    { "wait": 5 },
-    { "set": { "zoom": 0.85 } },
-    { "wait": 7 },
+    { "wait": 11 },
     { "set": { "depth": 0.15 } },
-    { "wait": 6 },
-    { "set": { "zoom": 1.2 } },
-    { "wait": 7 }
+    { "wait": 12 }
   ]
 }

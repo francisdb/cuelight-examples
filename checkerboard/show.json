@@ -8,7 +8,6 @@
   ],
   "background": "#0A0D14",
   "variables": {
-    "zoom": 1,
     "depth": 0.35
   },
   "layers": [
@@ -17,16 +16,6 @@
       "type": "group",
       "x": 480,
       "y": 270,
-      "bindings": [
-        {
-          "property": "scale",
-          "variable": "zoom",
-          "transition": {
-            "duration": 2.5,
-            "ease": "cubic_in_out"
-          }
-        }
-      ],
       "children": [
         {
           "name": "ground",
@@ -130,6 +119,39 @@
           ],
           "blend": "multiply"
         }
+      ],
+      "timelines": [
+        {
+          "name": "zoom",
+          "autoplay": true,
+          "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [
+                {
+                  "t": 0.0,
+                  "v": 1.0
+                },
+                {
+                  "t": 9.7,
+                  "v": 1.45,
+                  "ease": "quad_in_out"
+                },
+                {
+                  "t": 19.3,
+                  "v": 0.85,
+                  "ease": "quad_in_out"
+                },
+                {
+                  "t": 29.0,
+                  "v": 1.0,
+                  "ease": "quad_in_out"
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -145,17 +167,40 @@
       "y": 478,
       "scale_y": 0.46,
       "opacity": 0.5,
-      "bindings": [
+      "rotation": 14,
+      "timelines": [
         {
-          "property": "scale",
-          "variable": "zoom",
-          "transition": {
-            "duration": 2.5,
-            "ease": "cubic_in_out"
-          }
+          "name": "zoom",
+          "autoplay": true,
+          "loop": true,
+          "tracks": [
+            {
+              "property": "scale",
+              "keys": [
+                {
+                  "t": 0.0,
+                  "v": 1.0
+                },
+                {
+                  "t": 9.7,
+                  "v": 1.45,
+                  "ease": "quad_in_out"
+                },
+                {
+                  "t": 19.3,
+                  "v": 0.85,
+                  "ease": "quad_in_out"
+                },
+                {
+                  "t": 29.0,
+                  "v": 1.0,
+                  "ease": "quad_in_out"
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "rotation": 14
+      ]
     },
     {
       "name": "vignette",
