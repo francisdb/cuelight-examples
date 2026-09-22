@@ -1,0 +1,483 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "viewers": 84,
+        "followers": 992,
+        "countdown": 5
+      }
+    },
+    {
+      "trigger": "starting_soon"
+    },
+    {
+      "set": {
+        "countdown": 5
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "countdown": 4
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "countdown": 3
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "countdown": 2
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "countdown": 1
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "trigger": "live"
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "pixel_pete",
+        "alert_detail": "welcome aboard",
+        "followers": 993
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "lt_name": "SOMATIK",
+        "lt_title": "Any% backlog speedrun, day 12"
+      }
+    },
+    {
+      "trigger": "lower_third"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 84
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 89
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 88
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 90
+      }
+    },
+    {
+      "set": {
+        "alert_kind": "sub",
+        "alert_name": "lena_plays",
+        "alert_detail": "Tier 1, 3 months in a row"
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 94
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 92
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 89
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "moss_and_fern",
+        "alert_detail": "thanks for the follow",
+        "followers": 994
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 93
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 94
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 99
+      }
+    },
+    {
+      "set": {
+        "alert_kind": "raid",
+        "alert_name": "gizmo_tv",
+        "alert_detail": "with 128 viewers"
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "set": {
+        "viewers": 227
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 227
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 227
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 231
+      }
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "kattegat_kid",
+        "alert_detail": "welcome to the channel",
+        "followers": 995
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 236
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "late_night_lu",
+        "alert_detail": "glad you are here",
+        "followers": 996
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 241
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "dmd_enjoyer",
+        "alert_detail": "one of us now",
+        "followers": 997
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 245
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "okonomi_yaki",
+        "alert_detail": "thanks for following",
+        "followers": 998
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 248
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "tarmac_tess",
+        "alert_detail": "welcome, take a seat",
+        "followers": 999
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 247
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "alert_kind": "follow",
+        "alert_name": "bram_the_brave",
+        "alert_detail": "welcome in",
+        "followers": 1000
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 247
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 246
+      }
+    },
+    {
+      "set": {
+        "lt_name": "1,000 FOLLOWERS",
+        "lt_title": "thank you all, next stop 1,500"
+      }
+    },
+    {
+      "trigger": "lower_third"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 251
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 254
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 251
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 249
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "trigger": "brb"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 248
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 245
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 246
+      }
+    },
+    {
+      "trigger": "live"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 243
+      }
+    },
+    {
+      "set": {
+        "alert_kind": "sub",
+        "alert_name": "orbital_ollie",
+        "alert_detail": "gifted 5 subs to the chat"
+      }
+    },
+    {
+      "trigger": "alert"
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 244
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 248
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "set": {
+        "viewers": 251
+      }
+    }
+  ]
+}

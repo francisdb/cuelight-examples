@@ -12,6 +12,7 @@ in the browser on the [website](https://francisdb.github.io/cuelight-examples/).
 | [car_dashboard](car_dashboard/) | A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals |
 | [departure_board](departure_board/) | An airport departure board made of segment displays, with no assets at all: text variables, mapped status colors, refresh triggers |
 | [pinball_dmd](pinball_dmd/) | A pinball dot-matrix display: score layouts, a jackpot in full color, a night drive video mode and a segment display |
+| [streamer_overlay](streamer_overlay/) | A live stream overlay: alerts with a chime, a lower third, a follower goal bar, a viewer count, and starting-soon and be-right-back screens |
 
 Every show folder has its own README describing what it shows, how to run
 it, and where its assets come from.
