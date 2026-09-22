@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""Synthesize car_dashboard's turn signal relay: click.wav.
+
+    tools/car_dashboard_sounds.py car_dashboard/assets/sounds
+
+0.7 seconds, 44.1 kHz mono 16-bit: a click at 0 and a softer one at
+0.35 s, the relay pulling in and dropping out, so one play covers one
+blink of the arrows and a repeat of four covers the four blinks.
+"""
+
+import math
+import random
+import struct
+import sys
+import wave
+from pathlib import Path
+
+RATE = 44100
+
+
+def click(t, level):
+    # A damped high tone with a touch of noise: a small relay.
+    if t < 0:
+        return 0.0
+    envelope = math.exp(-t * 220)
+    return level * envelope * (0.7 * math.sin(2 * math.pi * 2400 * t) + 0.3 * random.uniform(-1, 1))
+
+
+def main():
+    random.seed(4)
+    out = Path(sys.argv[1])
+    out.mkdir(parents=True, exist_ok=True)
+    samples = []
+    for n in range(int(RATE * 0.7)):
+        t = n / RATE
+        value = click(t, 0.8) + click(t - 0.35, 0.45)
+        samples.append(struct.pack("<h", int(max(-1.0, min(1.0, value)) * 32767)))
+    with wave.open(str(out / "click.wav"), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(RATE)
+        w.writeframes(b"".join(samples))
+
+
+if __name__ == "__main__":
+    main()
