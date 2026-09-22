@@ -1,17 +1,64 @@
 {
   "loop": true,
   "steps": [
-    { "set": { "state": "ok", "lamp": 0 } },
-    { "wait": 1.2 },
-    { "set": { "lamp": 1 } },
-    { "wait": 1.5 },
-    { "set": { "state": "warn" } },
-    { "wait": 1.5 },
-    { "set": { "state": "fail", "lamp": 0.4 } },
-    { "wait": 1.5 },
-    { "set": { "lamp": 1 } },
-    { "wait": 1.5 },
-    { "set": { "state": "ok", "lamp": 0 } },
-    { "wait": 1.5 }
+    {
+      "set": {
+        "state": "ok",
+        "lamp": 0
+      }
+    },
+    {
+      "wait": 1.2
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "state": "warn"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "state": "fail",
+        "lamp": 0.4
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "state": "off"
+      }
+    },
+    {
+      "wait": 1.2
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "state": "ok",
+        "lamp": 0
+      }
+    },
+    {
+      "wait": 1.5
+    }
   ]
 }

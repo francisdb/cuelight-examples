@@ -31,7 +31,7 @@
       "examples": [
         { "path": "features/images/image", "title": "Image", "description": "An image at its natural size, sized into the canvas, anchored, scaled, faded and moved.", "thumbnail_at": 1 },
         { "path": "features/images/sprite_sheet", "title": "Sprite sheet", "description": "One image as a grid of cells; the frame property picks the cell, from a timeline, a binding or the base value.", "thumbnail_at": 0.9 },
-        { "path": "features/images/tint", "title": "Image tint", "description": "A tint multiplies an image's colors and leaves its transparency alone: one white bulb in four colors, a status light, tinted glows added over dark art, and a speckle multiplied over clean art.", "thumbnail_at": 3.2 }
+        { "path": "features/images/tint", "title": "Image tint", "description": "A tint multiplies an image's colors and leaves its transparency alone: one white bulb in four colors, a status light whose tint is mapped from a variable, tinted glows added over dark art, and a speckle multiplied over clean art.", "thumbnail_at": 3.2 }
       ]
     },
     {
