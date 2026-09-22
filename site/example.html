@@ -44,7 +44,7 @@
       <div class="box">
         <h2>Host <span class="spacer"></span><span class="status" id="scene"></span></h2>
         <div class="content">
-          <div class="controls"><button id="driver" hidden></button><button id="restart">restart</button></div>
+          <div class="controls"><button id="driver" hidden></button><button id="restart">restart</button><button id="sound" hidden></button></div>
           <p class="status" id="driver-note" hidden>The driver script stands in for a host: it fires the triggers
             and sets the variables. Pause it to take over.</p>
         </div>
@@ -143,11 +143,22 @@ async function play() {
   $("driver").hidden = $("driver-note").hidden = $("driver-tab").hidden = !player.hasDriver;
 }
 
+// Browsers keep a page silent until it is clicked or typed into; the
+// player picks that gesture up itself, so on a silent page the button
+// only asks again. Otherwise it mutes and unmutes the show.
+$("sound").onclick = () => {
+  if (player.audioEnabled && !player.audioRunning) { player.resumeAudio(); return; }
+  player.audioEnabled = !player.audioEnabled;
+  log(`host   sound ${player.audioEnabled ? "on" : "off"}`);
+};
+
 // The driver changes variables too: show what the show currently holds.
 setInterval(() => {
   if (!player) return;
   $("scene").textContent = player.activeScene ? `scene: ${player.activeScene}` : "";
   $("driver").textContent = player.driverPlaying ? "pause driver" : "play driver";
+  $("sound").hidden = false;
+  $("sound").textContent = !player.audioEnabled ? "sound on" : player.audioRunning ? "sound off" : "enable sound";
   for (const input of $("variables").querySelectorAll("input")) {
     if (input === document.activeElement) continue;
     const value = player.get(input.dataset.variable);
