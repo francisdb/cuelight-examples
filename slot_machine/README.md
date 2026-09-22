@@ -7,7 +7,7 @@ show only knows how to spin, land and celebrate.
 
 | Part | How it works |
 | --- | --- |
-| The reels | three `digits` rows of one cell each, so every wheel moves on its own. Each is bound to its own variable and carries `cells` artwork, one SVG per character of its ring |
+| The reels | three `digits` rows of one cell each, so every wheel moves on its own. Each is bound to its own variable and carries `cells` artwork, one SVG per character of its ring. All three take the `spin` trigger the host fires for the lever, so a wheel asked for the symbol it already carries still takes its turns instead of standing still |
 | The ring | `charset` is `CLOPGBA7`, one character per symbol: cherry, lemon, orange, plum, grapes, bell, bar, seven. The charset stays the ring's identity, so the host says `reel_2 = B` and the wheel lands on the bell; the artwork only decides what that looks like |
 | Spinning | `turns` of 6, 8 and 10 send each wheel that many times round before it lands, and `step` of `null` makes the whole trip one move, so the symbols fly past and the `quad_out` ease bleeds the speed off the way friction does. An `offset` carries each wheel an eighth of a symbol past its mark while it is still arriving and eases it back, which is the stop lever catching it just short of rest; the keys start before the move ends, so the wheel never stops and then hops |
 | Staggered stops | nothing sequences them: the three wheels simply take 3.5, 4.0 and 4.5 seconds for the same change, so they settle left to right, each a full turn or more after the one before |
@@ -29,19 +29,20 @@ cargo run -p cuelight-player -- ../cuelight-examples/slot_machine
 ```
 
 `test-driver.json` is picked up automatically and plays eight rounds in
-about a minute: two misses, two cherries, a miss, a near miss on
-sevens, three bells, a miss and the jackpot. No line repeats a symbol
-in the same place as the line before it, because a wheel asked for
-what it already shows does not turn at all, and a frozen wheel beside
-two spinning ones looks broken. The rounds are written out by
+about a minute: three misses, two cherries, a miss, three bells, a near
+miss on sevens and the jackpot. Two of those lines repeat a symbol in
+the same place as the line before them, the first round and the jackpot,
+which is the case the `spin` trigger exists for. The rounds are written out by
 [`tools/slot_machine_rounds.py`](../tools/slot_machine_rounds.py) rather
 than drawn at random, so the demo is the same every time. You can also
 play from the player's prompt: `reel_1=7`, `reel_2=7`, `reel_3=7`, then
 `spin` and `win`.
 
-The host owns the game. It takes the bet, fires `spin`, says which symbol
-each reel lands on, waits for the last wheel, then fires `win` or `lose`
-and settles the credits. The show has no idea what pays.
+The host owns the game. It takes the bet, says which symbol each reel
+lands on, fires `spin`, waits for the last wheel, then fires `win` or
+`lose` and settles the credits. Saying where they land and pulling the
+lever in the same breath is one journey per wheel, not two. The show has
+no idea what pays.
 
 ## Where the timings come from
 

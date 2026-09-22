@@ -28,7 +28,7 @@
       "name": "reel_1", "type": "digits", "digits": 1, "size": [200, 300], "x": 140, "y": 140, "text": "C",
       "display": {
         "reel": {
-          "charset": "CLOPGBA7",
+          "charset": "CLOPGBA7", "spin": "spin",
           "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
           "duration": 3.5, "ease": "quad_out", "direction": "forward",
           "step": null, "turns": 6, "window": 3,
@@ -48,7 +48,7 @@
       "name": "reel_2", "type": "digits", "digits": 1, "size": [200, 300], "x": 380, "y": 140, "text": "C",
       "display": {
         "reel": {
-          "charset": "CLOPGBA7",
+          "charset": "CLOPGBA7", "spin": "spin",
           "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
           "duration": 4.0, "ease": "quad_out", "direction": "forward",
           "step": null, "turns": 8, "window": 3,
@@ -68,7 +68,7 @@
       "name": "reel_3", "type": "digits", "digits": 1, "size": [200, 300], "x": 620, "y": 140, "text": "C",
       "display": {
         "reel": {
-          "charset": "CLOPGBA7",
+          "charset": "CLOPGBA7", "spin": "spin",
           "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
           "duration": 4.5, "ease": "quad_out", "direction": "forward",
           "step": null, "turns": 10, "window": 3,

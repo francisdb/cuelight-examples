@@ -27,12 +27,12 @@ PAIR_PAYS = 2  # two cherries on the line
 
 BET = 5
 LAST_REEL_STOPS = 5.0   # the third wheel has settled back onto its stop
-# A wheel only turns when the symbol it is asked for changes, so no line
-# may repeat a symbol in the same place as the line before it, the first
-# line included and the loop back to it: a wheel asked for what it already
-# shows would simply stand there while the other two spin.
+# Lines may repeat a symbol in the same place as the line before: the
+# reels hear the `spin` trigger, so a wheel asked for what it already
+# carries still takes its turns and lands back on it. The first round
+# and the jackpot both do that on purpose.
 START = "CCC"
-ROUNDS = ["LOP", "BLC", "CCB", "OPL", "77A", "BBB", "LAO", "777"]
+ROUNDS = ["CLO", "PGB", "A7L", "CCP", "OLG", "BBB", "77L", "777"]
 
 
 def pays(line):
@@ -44,9 +44,6 @@ def pays(line):
 
 
 def main():
-    for before, after in zip([START] + ROUNDS, ROUNDS + [ROUNDS[0]]):
-        stuck = [i + 1 for i in range(3) if before[i] == after[i]]
-        assert not stuck, f"{before} to {after} leaves wheel {stuck} standing still"
     steps = []
     credits = 250
     steps.append({"set": {"credits": f"{credits:05d}", "bet": BET, "win": "0000",
@@ -55,8 +52,8 @@ def main():
     for line in ROUNDS:
         credits -= BET
         steps.append({"set": {"credits": f"{credits:05d}", "win": "0000"}})
-        steps.append({"trigger": "spin"})
         steps.append({"set": {"reel_1": line[0], "reel_2": line[1], "reel_3": line[2]}})
+        steps.append({"trigger": "spin"})
         steps.append({"wait": LAST_REEL_STOPS + 0.2})
         won = pays(line)
         if won:
