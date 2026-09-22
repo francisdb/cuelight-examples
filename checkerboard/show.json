@@ -1,0 +1,216 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "checkerboard",
+  "size": [
+    960,
+    540
+  ],
+  "background": "#0A0D14",
+  "variables": {
+    "zoom": 1,
+    "depth": 0.35
+  },
+  "layers": [
+    {
+      "name": "board",
+      "type": "group",
+      "x": 480,
+      "y": 270,
+      "bindings": [
+        {
+          "property": "scale",
+          "variable": "zoom",
+          "transition": {
+            "duration": 2.5,
+            "ease": "cubic_in_out"
+          }
+        }
+      ],
+      "children": [
+        {
+          "name": "ground",
+          "type": "vector",
+          "vector": "board",
+          "size": [
+            1700,
+            1700
+          ],
+          "anchor": "center",
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "rotation",
+                  "keys": [
+                    {
+                      "t": 0.0,
+                      "v": 0
+                    },
+                    {
+                      "t": 23.0,
+                      "v": 90
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "breathe",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "scale",
+                  "keys": [
+                    {
+                      "t": 0.0,
+                      "v": 1
+                    },
+                    {
+                      "t": 8.5,
+                      "v": 1.35,
+                      "ease": "quad_in_out"
+                    },
+                    {
+                      "t": 17.0,
+                      "v": 1,
+                      "ease": "quad_in_out"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "over",
+          "type": "vector",
+          "vector": "board",
+          "size": [
+            1700,
+            1700
+          ],
+          "anchor": "center",
+          "scale": 1.55,
+          "opacity": 0.35,
+          "bindings": [
+            {
+              "property": "opacity",
+              "variable": "depth",
+              "transition": {
+                "duration": 2.0
+              }
+            }
+          ],
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "rotation",
+                  "keys": [
+                    {
+                      "t": 0.0,
+                      "v": 90
+                    },
+                    {
+                      "t": 37.0,
+                      "v": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "blend": "multiply"
+        }
+      ]
+    },
+    {
+      "name": "shadow",
+      "type": "vector",
+      "vector": "shadow",
+      "size": [
+        305,
+        360
+      ],
+      "anchor": "bottom",
+      "x": 556,
+      "y": 478,
+      "scale_y": 0.46,
+      "opacity": 0.5,
+      "bindings": [
+        {
+          "property": "scale",
+          "variable": "zoom",
+          "transition": {
+            "duration": 2.5,
+            "ease": "cubic_in_out"
+          }
+        }
+      ],
+      "rotation": 14
+    },
+    {
+      "name": "vignette",
+      "type": "image",
+      "image": "vignette",
+      "size": [
+        960,
+        540
+      ]
+    },
+    {
+      "name": "piece",
+      "type": "group",
+      "x": 480,
+      "y": 300,
+      "children": [
+        {
+          "name": "knight",
+          "type": "vector",
+          "vector": "knight",
+          "size": [
+            305,
+            360
+          ],
+          "anchor": "center",
+          "timelines": [
+            {
+              "name": "float",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "y",
+                  "keys": [
+                    {
+                      "t": 0.0,
+                      "v": 0
+                    },
+                    {
+                      "t": 3.0,
+                      "v": -10,
+                      "ease": "quad_in_out"
+                    },
+                    {
+                      "t": 6.0,
+                      "v": 0,
+                      "ease": "quad_in_out"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
