@@ -1,0 +1,121 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "visible_threshold_debounce",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"lamp": 1, "page": 1, "brightness": 0, "switch": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 28, "size": [392, 20], "x": 24, "y": 18, "text": "VISIBLE, THRESHOLD, DEBOUNCE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_visible", "type": "digits", "digits": 7, "size": [70, 14], "x": 24, "y": 62, "text": "VISIBLE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "insert_off", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#1C2230", "x": 160, "y": 96},
+    {
+      "name": "insert", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FFB000", "x": 160, "y": 96,
+      "bindings": [{"property": "visible", "variable": "lamp"}]
+    },
+    {
+      "name": "label_lamp", "type": "digits", "digits": 12, "size": [96, 12], "x": 112, "y": 126, "text": "LAMP 0 OR 1",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "page_1", "type": "group", "x": 300, "y": 74,
+      "bindings": [{"property": "visible", "variable": "page", "map": {"1": true}, "default": false}],
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 300, 44]}, "fill": "#12331E"},
+        {
+          "name": "text", "type": "digits", "digits": 24, "size": [288, 16], "x": 6, "y": 14, "text": "PAGE ONE: GREEN ON BLACK",
+          "display": {"segments": {"style": "alpha14", "fill": "#4ADE80"}}
+        }
+      ]
+    },
+    {
+      "name": "page_2", "type": "group", "x": 300, "y": 74,
+      "bindings": [{"property": "visible", "variable": "page", "map": {"2": true}, "default": false}],
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 300, 44]}, "fill": "#0F2A3A"},
+        {
+          "name": "text", "type": "digits", "digits": 24, "size": [288, 16], "x": 6, "y": 14, "text": "PAGE TWO: A MAPPED GROUP",
+          "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0"}}
+        }
+      ]
+    },
+    {
+      "name": "label_page", "type": "digits", "digits": 30, "size": [240, 12], "x": 300, "y": 126, "text": "PAGE MAPPED TO TRUE, ELSE FALSE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_threshold", "type": "digits", "digits": 9, "size": [90, 14], "x": 24, "y": 160, "text": "THRESHOLD",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "brightness", "type": "digits", "digits": 3, "size": [36, 16], "x": 24, "y": 184, "text": "0",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "bindings": [{"property": "text", "variable": "brightness"}]
+    },
+    {
+      "name": "dim", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FFB000", "x": 160, "y": 194, "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "brightness"}]
+    },
+    {
+      "name": "label_dim", "type": "digits", "digits": 7, "size": [70, 12], "x": 125, "y": 224, "text": "OPACITY",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "snap", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FFB000", "x": 300, "y": 194, "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "brightness", "threshold": 0.5}]
+    },
+    {
+      "name": "label_snap", "type": "digits", "digits": 13, "size": [130, 12], "x": 235, "y": 224, "text": "THRESHOLD 0.5",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "warm", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FFB000", "x": 440, "y": 194, "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "brightness", "threshold": 0.5, "transition": {"duration": 0.6, "ease": "quad_out"}}]
+    },
+    {
+      "name": "label_warm", "type": "digits", "digits": 14, "size": [140, 12], "x": 370, "y": 224, "text": "AND TRANSITION",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_debounce", "type": "digits", "digits": 8, "size": [80, 14], "x": 24, "y": 258, "text": "DEBOUNCE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "switch", "type": "digits", "digits": 1, "size": [12, 16], "x": 24, "y": 282, "text": "0",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "bindings": [{"property": "text", "variable": "switch"}]
+    },
+    {
+      "name": "raw", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FF5A5A", "x": 160, "y": 292, "opacity": 0.12,
+      "bindings": [{"property": "opacity", "variable": "switch", "scale": 0.88, "offset": 0.12}]
+    },
+    {
+      "name": "label_raw", "type": "digits", "digits": 6, "size": [60, 12], "x": 130, "y": 322, "text": "DIRECT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "steady", "type": "shape", "shape": {"circle": [0, 0, 22]}, "fill": "#FF5A5A", "x": 300, "y": 292, "opacity": 0.12,
+      "bindings": [{"property": "opacity", "variable": "switch", "scale": 0.88, "offset": 0.12, "debounce": 0.1}]
+    },
+    {
+      "name": "label_steady", "type": "digits", "digits": 12, "size": [120, 12], "x": 240, "y": 322, "text": "DEBOUNCE 0.1",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_strobe", "type": "digits", "digits": 22, "size": [176, 12], "x": 440, "y": 280, "text": "A 30 MS STROBE NEVER",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_strobe_2", "type": "digits", "digits": 22, "size": [176, 12], "x": 440, "y": 298, "text": "REACHES THE RIGHT ONE,",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_strobe_3", "type": "digits", "digits": 22, "size": [176, 12], "x": 440, "y": 316, "text": "A HELD CHANGE DOES",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

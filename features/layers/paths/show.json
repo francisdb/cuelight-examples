@@ -1,0 +1,96 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "paths",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"size": 1},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 23, "size": [322, 20], "x": 24, "y": 18, "text": "PATHS, STROKES, VECTORS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "star", "type": "shape", "x": 70, "y": 110, "fill": "#FFB000",
+      "shape": {"path": "M 0 -40 L 12 -12 L 40 -8 L 18 10 L 24 40 L 0 24 L -24 40 L -18 10 L -40 -8 L -12 -12 Z"}
+    },
+    {
+      "name": "label_fill", "type": "digits", "digits": 4, "size": [40, 12], "x": 50, "y": 160, "text": "FILL",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "curve", "type": "shape", "x": 180, "y": 110, "fill": "#00000000", "stroke": {"color": "#3EC9F0", "width": 4},
+      "shape": {"path": "M -45 20 C -30 -40 -10 -40 0 0 Q 15 40 45 -20"}
+    },
+    {
+      "name": "label_stroke", "type": "digits", "digits": 11, "size": [110, 12], "x": 125, "y": 160, "text": "STROKE ONLY",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "arc", "type": "shape", "x": 295, "y": 120, "fill": "#12331E", "stroke": {"color": "#4ADE80", "width": 3},
+      "shape": {"path": "M -38 18 A 38 38 0 0 1 38 18 Z"}
+    },
+    {
+      "name": "label_arc", "type": "digits", "digits": 9, "size": [90, 12], "x": 255, "y": 160, "text": "ARC, BOTH",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "heart_window", "type": "group", "x": 390, "y": 66,
+      "clip": {"path": "M 50 90 C 20 65 0 45 0 28 C 0 12 12 0 27 0 C 38 0 46 6 50 14 C 54 6 62 0 73 0 C 88 0 100 12 100 28 C 100 45 80 65 50 90 Z"},
+      "children": [
+        {
+          "name": "bands", "type": "group", "y": -96,
+          "timelines": [
+            {"name": "scroll", "autoplay": true, "loop": true, "tracks": [{"property": "y", "keys": [{"t": 0, "v": -96}, {"t": 3, "v": 0}]}]}
+          ],
+          "children": [
+            {"name": "band_0", "type": "shape", "shape": {"rect": [0, 0, 100, 12]}, "fill": "#FF5A5A"},
+            {"name": "band_1", "type": "shape", "shape": {"rect": [0, 12, 100, 12]}, "fill": "#FF8A3D"},
+            {"name": "band_2", "type": "shape", "shape": {"rect": [0, 24, 100, 12]}, "fill": "#FFB000"},
+            {"name": "band_3", "type": "shape", "shape": {"rect": [0, 36, 100, 12]}, "fill": "#4ADE80"},
+            {"name": "band_4", "type": "shape", "shape": {"rect": [0, 48, 100, 12]}, "fill": "#3EC9F0"},
+            {"name": "band_5", "type": "shape", "shape": {"rect": [0, 60, 100, 12]}, "fill": "#7C5CFF"},
+            {"name": "band_6", "type": "shape", "shape": {"rect": [0, 72, 100, 12]}, "fill": "#FF5CA8"},
+            {"name": "band_7", "type": "shape", "shape": {"rect": [0, 84, 100, 12]}, "fill": "#FF5A5A"},
+            {"name": "band_8", "type": "shape", "shape": {"rect": [0, 96, 100, 12]}, "fill": "#FF8A3D"},
+            {"name": "band_9", "type": "shape", "shape": {"rect": [0, 108, 100, 12]}, "fill": "#FFB000"},
+            {"name": "band_10", "type": "shape", "shape": {"rect": [0, 120, 100, 12]}, "fill": "#4ADE80"},
+            {"name": "band_11", "type": "shape", "shape": {"rect": [0, 132, 100, 12]}, "fill": "#3EC9F0"},
+            {"name": "band_12", "type": "shape", "shape": {"rect": [0, 144, 100, 12]}, "fill": "#7C5CFF"},
+            {"name": "band_13", "type": "shape", "shape": {"rect": [0, 156, 100, 12]}, "fill": "#FF5CA8"},
+            {"name": "band_14", "type": "shape", "shape": {"rect": [0, 168, 100, 12]}, "fill": "#FF5A5A"},
+            {"name": "band_15", "type": "shape", "shape": {"rect": [0, 180, 100, 12]}, "fill": "#FF8A3D"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_clip", "type": "digits", "digits": 9, "size": [90, 12], "x": 395, "y": 168, "text": "PATH CLIP",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "logo", "type": "vector", "vector": "logo", "x": 40, "y": 200},
+    {
+      "name": "label_natural", "type": "digits", "digits": 16, "size": [160, 12], "x": 24, "y": 296, "text": "VECTOR, OWN SIZE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "logo_sized", "type": "vector", "vector": "logo", "size": [120, 120], "anchor": "center", "x": 280, "y": 246,
+      "timelines": [
+        {"name": "pulse", "trigger": "pulse", "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 1.2, "v": 1, "ease": "elastic_out"}]}]}
+      ]
+    },
+    {
+      "name": "label_sized", "type": "digits", "digits": 24, "size": [240, 12], "x": 160, "y": 316, "text": "SIZED 120, PULSE TRIGGER",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "arrow", "type": "shape", "x": 500, "y": 246, "fill": "#FF5A5A",
+      "shape": {"path": "M -40 -12 H 10 V -30 L 50 0 L 10 30 V 12 H -40 Z"},
+      "bindings": [{"property": "scale", "variable": "size", "transition": {"duration": 0.5, "ease": "cubic_out"}}]
+    },
+    {
+      "name": "label_scale", "type": "digits", "digits": 19, "size": [190, 12], "x": 420, "y": 316, "text": "SCALE BOUND TO SIZE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

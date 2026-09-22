@@ -1,0 +1,171 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "audio_layers",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"volume": 1, "policy": "overlap"},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 12, "size": [168, 20], "x": 24, "y": 18, "text": "AUDIO LAYERS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_bed", "type": "digits", "digits": 26, "size": [260, 14], "x": 24, "y": 56,
+      "text": "BED: AUTOPLAY LOOP IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_volume", "type": "digits", "digits": 26, "size": [260, 12], "x": 24, "y": 74,
+      "text": "GROUP GAIN BOUND TO VOLUME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "volume_bar", "type": "group", "x": 300, "y": 58, "clip": {"rect": [0, 0, 200, 24]},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 200, 24]}, "fill": "#161B22"},
+        {
+          "name": "level", "type": "shape", "shape": {"rect": [0, 0, 200, 24]}, "fill": "#4ADE80", "x": 0,
+          "bindings": [{"property": "x", "variable": "volume", "scale": 200, "offset": -200, "transition": {"duration": 0.4}}]
+        }
+      ]
+    },
+    {
+      "name": "label_hush", "type": "digits", "digits": 10, "size": [100, 12], "x": 516, "y": 64, "text": "HUSH STOPS",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_coin", "type": "digits", "digits": 34, "size": [340, 14], "x": 24, "y": 110,
+      "text": "COIN: ONE TRIGGER, THE POLICY OF", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "policy", "type": "digits", "digits": 7, "size": [84, 16], "x": 370, "y": 109, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "bindings": [{"property": "text", "variable": "policy"}]
+    },
+    {
+      "name": "coin_overlap", "type": "group", "x": 80, "y": 160,
+      "children": [
+        {"name": "sound", "type": "audio", "sound": "coin", "trigger": "coin", "retrigger": "overlap", "voices": 3,
+          "bindings": [{"property": "visible", "variable": "policy", "map": {"overlap": true}, "default": false}]},
+        {
+          "name": "pop", "type": "shape", "shape": {"circle": [0, 0, 18]}, "fill": "#FFB000", "opacity": 0.25,
+          "timelines": [{"name": "pop", "trigger": "coin", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.5}, {"t": 0.3, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.25, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "label", "type": "digits", "digits": 9, "size": [90, 12], "x": -45, "y": 30, "text": "OVERLAP 3",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "active", "type": "shape", "shape": {"rect": [-40, 46, 80, 3]}, "fill": "#FFB000", "opacity": 0,
+          "bindings": [{"property": "opacity", "variable": "policy", "map": {"overlap": 1}, "default": 0}]
+        }
+      ]
+    },
+    {
+      "name": "coin_restart", "type": "group", "x": 220, "y": 160,
+      "children": [
+        {"name": "sound", "type": "audio", "sound": "coin", "trigger": "coin", "retrigger": "restart",
+          "bindings": [{"property": "visible", "variable": "policy", "map": {"restart": true}, "default": false}]},
+        {
+          "name": "pop", "type": "shape", "shape": {"circle": [0, 0, 18]}, "fill": "#3EC9F0", "opacity": 0.25,
+          "timelines": [{"name": "pop", "trigger": "coin", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.5}, {"t": 0.3, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.25, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "label", "type": "digits", "digits": 7, "size": [70, 12], "x": -35, "y": 30, "text": "RESTART",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "active", "type": "shape", "shape": {"rect": [-40, 46, 80, 3]}, "fill": "#FFB000", "opacity": 0,
+          "bindings": [{"property": "opacity", "variable": "policy", "map": {"restart": 1}, "default": 0}]
+        }
+      ]
+    },
+    {
+      "name": "coin_ignore", "type": "group", "x": 360, "y": 160,
+      "children": [
+        {"name": "sound", "type": "audio", "sound": "coin", "trigger": "coin", "retrigger": "ignore",
+          "bindings": [{"property": "visible", "variable": "policy", "map": {"ignore": true}, "default": false}]},
+        {
+          "name": "pop", "type": "shape", "shape": {"circle": [0, 0, 18]}, "fill": "#FF5A5A", "opacity": 0.25,
+          "timelines": [{"name": "pop", "trigger": "coin", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.5}, {"t": 0.3, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.25, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "label", "type": "digits", "digits": 6, "size": [60, 12], "x": -30, "y": 30, "text": "IGNORE",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "active", "type": "shape", "shape": {"rect": [-40, 46, 80, 3]}, "fill": "#FFB000", "opacity": 0,
+          "bindings": [{"property": "opacity", "variable": "policy", "map": {"ignore": 1}, "default": 0}]
+        }
+      ]
+    },
+    {
+      "name": "label_thunder", "type": "digits", "digits": 40, "size": [400, 14], "x": 24, "y": 216,
+      "text": "THUNDER: DELAY 0.5, REPEAT 2, ON_END LIGHTS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "thunder", "type": "audio", "sound": "thunder", "trigger": "strike", "delay": 0.5, "repeat": 2, "on_end": "thunder_done", "gain": 0.9},
+    {
+      "name": "strike_flash", "type": "shape", "shape": {"rect": [0, 0, 60, 24]}, "fill": "#E6EDF3", "x": 440, "y": 212, "opacity": 0.15,
+      "timelines": [{"name": "flash", "trigger": "strike", "tracks": [
+        {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0.15, "ease": "quad_in"}]}
+      ]}]
+    },
+    {
+      "name": "label_strike", "type": "digits", "digits": 6, "size": [60, 12], "x": 440, "y": 240, "text": "STRIKE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "done_lamp", "type": "shape", "shape": {"circle": [0, 0, 14]}, "fill": "#4ADE80", "x": 560, "y": 224, "opacity": 0.12,
+      "timelines": [{"name": "lit", "trigger": "thunder_done", "tracks": [
+        {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 1}, {"t": 2.2, "v": 0.12, "ease": "quad_in"}]}
+      ]}]
+    },
+    {
+      "name": "label_done", "type": "digits", "digits": 4, "size": [40, 12], "x": 540, "y": 240, "text": "DONE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_scenes", "type": "digits", "digits": 58, "size": [580, 12], "x": 24, "y": 286,
+      "text": "SCENES: ATTRACT HAS ITS OWN LOOP. LEAVING A SCENE STOPS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_scenes_2", "type": "digits", "digits": 58, "size": [580, 12], "x": 24, "y": 304,
+      "text": "ITS SOUNDS: THE BED STOPS IN ATTRACT, THE JINGLE IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ],
+  "scenes": [
+    {
+      "name": "game", "trigger": "game",
+      "layers": [
+        {
+          "name": "music", "type": "group", "gain": 1,
+          "bindings": [{"property": "gain", "variable": "volume", "transition": {"duration": 0.4}}],
+          "children": [
+            {"name": "bed", "type": "audio", "sound": "bed", "autoplay": true, "loop": true, "stop": "hush", "gain": 0.7}
+          ]
+        },
+        {
+          "name": "scene_label", "type": "digits", "digits": 10, "size": [120, 16], "x": 500, "y": 326, "text": "SCENE GAME",
+          "display": {"segments": {"style": "alpha14", "fill": "#4ADE80"}}
+        }
+      ]
+    },
+    {
+      "name": "attract", "trigger": "attract",
+      "layers": [
+        {"name": "jingle", "type": "audio", "sound": "jingle", "autoplay": true, "loop": true, "gain": 0.6},
+        {
+          "name": "scene_label", "type": "digits", "digits": 13, "size": [156, 16], "x": 464, "y": 326, "text": "SCENE ATTRACT",
+          "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0"}}
+        }
+      ]
+    }
+  ]
+}

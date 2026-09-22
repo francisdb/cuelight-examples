@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- A badge for the paths example: a gradient (cuelight paints its first
+       stop) and a transformed group. No text: cuelight outlines SVG text
+       through the system's fonts, which the website's player has none of. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3EC9F0"/>
+      <stop offset="1" stop-color="#1E5A8A"/>
+    </linearGradient>
+  </defs>
+  <circle cx="40" cy="40" r="38" fill="url(#sky)"/>
+  <g transform="rotate(45 40 36)">
+    <rect x="24" y="20" width="32" height="32" fill="#0E1116" stroke="#FFB000" stroke-width="3"/>
+  </g>
+  <circle cx="40" cy="36" r="7" fill="#FFB000"/>
+</svg>

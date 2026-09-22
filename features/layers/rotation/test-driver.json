@@ -1,0 +1,21 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "speed": 0, "heading": 350, "stretch": 1 } },
+    { "wait": 1 },
+    { "trigger": "sweep" },
+    { "set": { "speed": 30, "heading": 10 } },
+    { "wait": 1.5 },
+    { "set": { "speed": 100, "stretch": 0.5 } },
+    { "wait": 1.5 },
+    { "set": { "speed": 60, "heading": 90 } },
+    { "wait": 1.5 },
+    { "trigger": "sweep" },
+    { "set": { "stretch": 2 } },
+    { "wait": 1.5 },
+    { "set": { "speed": 0, "heading": 350 } },
+    { "wait": 1.5 },
+    { "set": { "stretch": 1 } },
+    { "wait": 1.5 }
+  ]
+}

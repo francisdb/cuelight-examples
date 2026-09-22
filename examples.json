@@ -18,7 +18,10 @@
         { "path": "features/layers/shapes", "title": "Shapes", "description": "Rectangles and circles, painted in order, in the layer's local space, with translucent fills." },
         { "path": "features/layers/opacity", "title": "Opacity", "description": "Opacity multiplies down the tree: a fading group takes its children along." },
         { "path": "features/layers/scale_anchor", "title": "Scale and anchor", "description": "The anchor decides which point of a layer stays at its x/y while it scales." },
-        { "path": "features/layers/group_clip", "title": "Group clip", "description": "A group with a rect or circle clip is a window onto its children.", "thumbnail_at": 3 }
+        { "path": "features/layers/group_clip", "title": "Group clip", "description": "A group with a rect or circle clip is a window onto its children.", "thumbnail_at": 3 },
+        { "path": "features/layers/paths", "title": "Paths and vectors", "description": "Path shapes filled, stroked or both, a group clipped by a path, and SVG artwork drawn by a vector layer at its own size or sized.", "thumbnail_at": 1.8 },
+        { "path": "features/layers/blend_modes", "title": "Blend modes", "description": "The same lamp glow over dark art as add, screen, multiply and normal, and two overlapping glows in one add group next to two add layers.", "thumbnail_at": 1.8 },
+        { "path": "features/layers/rotation", "title": "Rotation and transforms", "description": "A needle whose rotation follows a variable, a compass on a 360 ring, a spinning fan, a clipped group that turns as one, a mirrored word and a stretch from scale_x and scale_y.", "thumbnail_at": 2.9 }
       ]
     },
     {
@@ -46,7 +49,8 @@
         { "path": "features/bindings/text_format", "title": "Text and format", "description": "Numbers, booleans and text bound to a display: plain, with thousands separators, scaled first.", "thumbnail_at": 0.5 },
         { "path": "features/bindings/map_default", "title": "Map and default", "description": "A state variable looked up in a map: lamps, a status text, and what happens to unlisted values.", "thumbnail_at": 3.5 },
         { "path": "features/bindings/font", "title": "Font binding", "description": "The font style of a text layer mapped from a variable: highlighting the active player's score.", "thumbnail_at": 3.2 },
-        { "path": "features/bindings/transitions", "title": "Transitions", "description": "Bindings that ease to a new value instead of jumping: bars, a smoothed slow feed, a counting score, a fading lamp, and step and offset: a bar that goes 10 pixels past and back, a reel kicked on digit by digit.", "thumbnail_at": 2.2 }
+        { "path": "features/bindings/transitions", "title": "Transitions", "description": "Bindings that ease to a new value instead of jumping: bars, a smoothed slow feed, a counting score, a fading lamp, and step and offset: a bar that goes 10 pixels past and back, a reel kicked on digit by digit.", "thumbnail_at": 2.2 },
+        { "path": "features/bindings/visible_threshold_debounce", "title": "Visible, threshold, debounce", "description": "A bound visible that shows a lamp and swaps two pages, a threshold that snaps a level, and a debounce that lets a strobe pass unseen.", "thumbnail_at": 3.5 }
       ]
     },
     {
@@ -65,6 +69,13 @@
       "description": "Switchable views on top of the show's own layers.",
       "examples": [
         { "path": "features/scenes/scenes", "title": "Scenes", "description": "Attract, game and game over: one scene at a time, each restarting its timelines when entered.", "thumbnail_at": 6 }
+      ]
+    },
+    {
+      "name": "Sound",
+      "description": "Audio layers: sounds played the way timelines are.",
+      "examples": [
+        { "path": "features/sound/audio_layers", "title": "Audio layers", "description": "A looping bed whose group gain follows a variable, one coin trigger under three retrigger policies, a delayed repeat whose end lights a lamp, a stop trigger, and a scene with its own loop.", "thumbnail_at": 2.05 }
       ]
     },
     {

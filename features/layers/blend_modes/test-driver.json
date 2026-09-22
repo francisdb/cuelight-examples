@@ -1,0 +1,15 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "lamp": 0 } },
+    { "wait": 1 },
+    { "set": { "lamp": 1 } },
+    { "wait": 2.5 },
+    { "set": { "lamp": 0.5 } },
+    { "wait": 1.5 },
+    { "set": { "lamp": 1 } },
+    { "wait": 1.5 },
+    { "set": { "lamp": 0 } },
+    { "wait": 1.5 }
+  ]
+}

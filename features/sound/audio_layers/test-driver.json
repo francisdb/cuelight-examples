@@ -1,0 +1,144 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "volume": 1,
+        "policy": "overlap"
+      }
+    },
+    {
+      "trigger": "game"
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "policy": "overlap"
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "policy": "restart"
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "policy": "ignore"
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "coin"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "trigger": "strike"
+    },
+    {
+      "wait": 5
+    },
+    {
+      "set": {
+        "volume": 0.2
+      }
+    },
+    {
+      "wait": 2
+    },
+    {
+      "set": {
+        "volume": 1
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "trigger": "hush"
+    },
+    {
+      "wait": 2
+    },
+    {
+      "trigger": "attract"
+    },
+    {
+      "wait": 4
+    },
+    {
+      "trigger": "game"
+    },
+    {
+      "wait": 2
+    }
+  ]
+}
