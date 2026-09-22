@@ -145,6 +145,15 @@ fn references(
                     ));
                 }
             }
+            if let LayerKind::Vector { vector, .. } = &layer.kind {
+                used.insert(vector.clone());
+                if engine.vector(vector).is_none() {
+                    out.push(format!(
+                        "layer {:?} shows vector {vector:?}, which is not in assets/",
+                        layer.name
+                    ));
+                }
+            }
             walk(engine, layer.children(), used, out);
         }
     }
@@ -164,7 +173,12 @@ fn references(
             ));
         }
     }
-    for asset in loaded.images.iter().chain(&loaded.fonts) {
+    for asset in loaded
+        .images
+        .iter()
+        .chain(&loaded.vectors)
+        .chain(&loaded.fonts)
+    {
         if !used.contains(asset) {
             out.push(format!("asset {asset:?} is not used by the show"));
         }

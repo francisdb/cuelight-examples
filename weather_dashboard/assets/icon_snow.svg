@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+<rect x="8" y="31.76" width="84" height="30.24" rx="15.12" fill="#F1F5F9"/>
+<circle cx="34.879999999999995" cy="27.224000000000004" r="20.16" fill="#F1F5F9"/>
+<circle cx="58.4" cy="21.176000000000002" r="25.2" fill="#F1F5F9"/>
+<rect x="26.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(0 28 80)"/>
+<rect x="26.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(60 28 80)"/>
+<rect x="26.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(120 28 80)"/>
+<rect x="48.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(0 50 80)"/>
+<rect x="48.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(60 50 80)"/>
+<rect x="48.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(120 50 80)"/>
+<rect x="70.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(0 72 80)"/>
+<rect x="70.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(60 72 80)"/>
+<rect x="70.8" y="74" width="2.4" height="12" rx="1.2" fill="#E0F2FE" transform="rotate(120 72 80)"/>
+</svg>
