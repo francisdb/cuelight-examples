@@ -146,9 +146,9 @@
     },
     {
       "name": "signal_left",
-      "type": "image",
-      "image": "arrow_left",
-      "size": [72, 56],
+      "type": "shape",
+      "shape": { "path": "M 0 28 L 36 0 L 36 15 L 72 15 L 72 41 L 36 41 L 36 56 Z" },
+      "fill": "#3DDC84",
       "x": 70,
       "y": 54,
       "anchor": "center",
@@ -173,12 +173,13 @@
     },
     {
       "name": "signal_right",
-      "type": "image",
-      "image": "arrow_right",
-      "size": [72, 56],
+      "type": "shape",
+      "shape": { "path": "M 0 28 L 36 0 L 36 15 L 72 15 L 72 41 L 36 41 L 36 56 Z" },
+      "fill": "#3DDC84",
       "x": 1210,
       "y": 54,
       "anchor": "center",
+      "scale_x": -1,
       "opacity": 0.12,
       "timelines": [
         {
@@ -197,6 +198,13 @@
           ]
         }
       ]
+    },
+    {
+      "name": "relay",
+      "type": "audio",
+      "sound": "click",
+      "trigger": ["turn_left", "turn_right", "hazard"],
+      "repeat": 4
     },
     { "name": "gear_label", "type": "text", "font": "heading_dim", "text": "GEAR", "x": 250, "y": 200, "anchor": "bottom" },
     {
@@ -244,35 +252,56 @@
     {
       "name": "fuel",
       "type": "group",
-      "x": 960,
+      "x": 950,
       "y": 196,
       "children": [
         { "name": "label", "type": "text", "font": "label_dim", "text": "FUEL" },
         {
-          "name": "range",
+          "name": "value",
           "type": "text",
           "font": "label",
           "text": "0",
-          "x": 182,
+          "x": 112,
           "anchor": "top_right",
           "bindings": [{ "property": "text", "variable": "range" }]
         },
-        { "name": "range_unit", "type": "text", "font": "label_dim", "text": "km", "x": 188 },
+        { "name": "value_unit", "type": "text", "font": "label_dim", "text": "km", "x": 118 },
         {
-          "name": "bar",
+          "name": "dial",
           "type": "group",
-          "y": 32,
-          "clip": { "rect": [0, 0, 220, 12] },
+          "x": 60,
+          "y": 132,
           "children": [
-            { "name": "low", "type": "shape", "shape": { "rect": [0, 0, 33, 12] }, "fill": "#FFB020" },
-            { "name": "lit", "type": "shape", "shape": { "rect": [33, 0, 187, 12] }, "fill": "#E8EEF5" },
+            { "name": "arc", "type": "shape", "shape": { "path": "M -44 0 A 44 44 0 0 1 44 0" }, "fill": "#00000000", "stroke": { "color": "#1A2029", "width": 7 } },
+            { "name": "reserve", "type": "shape", "shape": { "path": "M -44 0 A 44 44 0 0 1 -31 -31" }, "fill": "#00000000", "stroke": { "color": "#FFB020", "width": 7 } },
+            { "name": "low", "type": "text", "font": "label_dim", "text": "E", "x": -54, "y": -4, "anchor": "right" },
+            { "name": "high", "type": "text", "font": "label_dim", "text": "F", "x": 54, "y": -4, "anchor": "left" },
             {
-              "name": "unlit",
+              "name": "needle",
               "type": "shape",
-              "shape": { "rect": [0, 0, 220, 12] },
-              "fill": "#1A2029",
-              "bindings": [{ "property": "x", "variable": "fuel", "scale": 220 }]
-            }
+              "shape": { "rect": [-2, -40, 4, 44] },
+              "fill": "#E8EEF5",
+              "rotation": -90,
+              "bindings": [{ "property": "rotation", "variable": "fuel", "scale": 180, "offset": -90, "transition": { "duration": 1.0, "ease": "cubic_out" } }],
+              "timelines": [
+                {
+                  "name": "sweep",
+                  "trigger": "ignition",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        { "t": 0.0, "v": -90 },
+                        { "t": 0.4, "v": -90 },
+                        { "t": 1.1, "v": 90, "ease": "quad_in_out" },
+                        { "t": 1.8, "v": -90, "ease": "quad_in_out" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "name": "hub", "type": "shape", "shape": { "circle": [0, 0, 6] }, "fill": "#0B0E13", "stroke": { "color": "#E8EEF5", "width": 3 } }
           ]
         }
       ]
@@ -280,35 +309,56 @@
     {
       "name": "temp",
       "type": "group",
-      "x": 960,
-      "y": 282,
+      "x": 1110,
+      "y": 196,
       "children": [
         { "name": "label", "type": "text", "font": "label_dim", "text": "TEMP" },
         {
           "name": "value",
           "type": "text",
           "font": "label",
-          "text": "50",
-          "x": 182,
+          "text": "0",
+          "x": 112,
           "anchor": "top_right",
           "bindings": [{ "property": "text", "variable": "temp" }]
         },
-        { "name": "value_unit", "type": "text", "font": "label_dim", "text": "C", "x": 188 },
+        { "name": "value_unit", "type": "text", "font": "label_dim", "text": "C", "x": 118 },
         {
-          "name": "bar",
+          "name": "dial",
           "type": "group",
-          "y": 32,
-          "clip": { "rect": [0, 0, 220, 12] },
+          "x": 60,
+          "y": 132,
           "children": [
-            { "name": "lit", "type": "shape", "shape": { "rect": [0, 0, 176, 12] }, "fill": "#E8EEF5" },
-            { "name": "hot", "type": "shape", "shape": { "rect": [176, 0, 44, 12] }, "fill": "#FF3B30" },
+            { "name": "arc", "type": "shape", "shape": { "path": "M -44 0 A 44 44 0 0 1 44 0" }, "fill": "#00000000", "stroke": { "color": "#1A2029", "width": 7 } },
+            { "name": "hot", "type": "shape", "shape": { "path": "M 31 -31 A 44 44 0 0 1 44 0" }, "fill": "#00000000", "stroke": { "color": "#FF3B30", "width": 7 } },
+            { "name": "low", "type": "text", "font": "label_dim", "text": "C", "x": -54, "y": -4, "anchor": "right" },
+            { "name": "high", "type": "text", "font": "label_dim", "text": "H", "x": 54, "y": -4, "anchor": "left" },
             {
-              "name": "unlit",
+              "name": "needle",
               "type": "shape",
-              "shape": { "rect": [0, 0, 220, 12] },
-              "fill": "#1A2029",
-              "bindings": [{ "property": "x", "variable": "temp", "scale": 2.75, "offset": -137.5 }]
-            }
+              "shape": { "rect": [-2, -40, 4, 44] },
+              "fill": "#E8EEF5",
+              "rotation": -90,
+              "bindings": [{ "property": "rotation", "variable": "temp", "scale": 2.25, "offset": -202.5, "transition": { "duration": 1.0, "ease": "cubic_out" } }],
+              "timelines": [
+                {
+                  "name": "sweep",
+                  "trigger": "ignition",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        { "t": 0.0, "v": -90 },
+                        { "t": 0.4, "v": -90 },
+                        { "t": 1.1, "v": 90, "ease": "quad_in_out" },
+                        { "t": 1.8, "v": -90, "ease": "quad_in_out" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "name": "hub", "type": "shape", "shape": { "circle": [0, 0, 6] }, "fill": "#0B0E13", "stroke": { "color": "#E8EEF5", "width": 3 } }
           ]
         }
       ]
