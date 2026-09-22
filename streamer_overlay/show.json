@@ -1,0 +1,229 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "streamer_overlay",
+  "size": [1920, 1080],
+  "background": "#0B0E13",
+  "fonts": {
+    "pill": { "file": "Oxanium-Bold", "size": 24, "color": "#FFFFFF" },
+    "number": { "file": "Oxanium-Bold", "size": 30, "color": "#F2F6FA" },
+    "label": { "file": "Oxanium-SemiBold", "size": 20, "color": "#8A93A8" },
+    "label_gold": { "file": "Oxanium-SemiBold", "size": 20, "color": "#FFC857" },
+    "headline": { "file": "Oxanium-SemiBold", "size": 22, "color": "#B9A6FF" },
+    "name": { "file": "Oxanium-Bold", "size": 42, "color": "#F2F6FA" },
+    "detail": { "file": "Oxanium-SemiBold", "size": 22, "color": "#A7B0C4" },
+    "title": { "file": "Oxanium-SemiBold", "size": 26, "color": "#A7B0C4" },
+    "cam": { "file": "Oxanium-SemiBold", "size": 28, "color": "#3A4058" },
+    "big": { "file": "Oxanium-Bold", "size": 96, "color": "#F2F6FA" },
+    "countdown": { "file": "Oxanium-Bold", "size": 200, "color": "#9D85FF" },
+    "sub": { "file": "Oxanium-SemiBold", "size": 32, "color": "#8A93A8" }
+  },
+  "variables": {
+    "viewers": 0,
+    "followers": 0,
+    "countdown": 5,
+    "lt_name": "",
+    "lt_title": "",
+    "alert_kind": "follow",
+    "alert_name": "",
+    "alert_detail": ""
+  },
+  "layers": [
+    {"name": "footage", "type": "image", "image": "footage", "size": [1920, 1080]},
+    {
+      "name": "cam", "type": "group", "x": 1400, "y": 760,
+      "children": [
+        {"name": "frame", "type": "shape", "shape": {"rect": [0, 0, 460, 260]}, "fill": "#7C5CFF"},
+        {"name": "inside", "type": "shape", "shape": {"rect": [4, 4, 452, 252]}, "fill": "#0E1120"},
+        {"name": "label", "type": "text", "text": "CAM", "font": "cam", "x": 4, "y": 4, "size": [452, 252], "align": "center"}
+      ]
+    },
+    {
+      "name": "live", "type": "group", "x": 60, "y": 50,
+      "children": [
+        {"name": "pill", "type": "shape", "shape": {"rect": [0, 0, 124, 40]}, "fill": "#E5243B"},
+        {
+          "name": "dot", "type": "shape", "shape": {"circle": [24, 20, 7]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "blink", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.6, "v": 0.25, "ease": "step"}, {"t": 1.2, "v": 0.25}]}]}
+          ]
+        },
+        {"name": "text", "type": "text", "text": "LIVE", "font": "pill", "x": 40, "y": 0, "size": [80, 40], "align": "center"},
+        {"name": "viewers_back", "type": "shape", "shape": {"rect": [136, 0, 260, 40]}, "fill": "#141826D9"},
+        {
+          "name": "viewers", "type": "text", "text": "0", "font": "number", "x": 136, "y": 0, "size": [130, 40], "align": "right",
+          "bindings": [
+            {"property": "text", "variable": "viewers", "format": "thousands", "transition": {"duration": 1.5, "ease": "cubic_out"}}
+          ]
+        },
+        {"name": "viewers_label", "type": "text", "text": "VIEWERS", "font": "label", "x": 278, "y": 0, "size": [110, 40], "align": "left"}
+      ]
+    },
+    {
+      "name": "goal", "type": "group", "x": 1380, "y": 50,
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [-20, -10, 520, 80]}, "fill": "#141826D9"},
+        {
+          "name": "label", "type": "text", "text": "FOLLOWER GOAL", "font": "label", "x": 0, "y": 0, "size": [260, 26], "align": "left",
+          "bindings": [
+            {"property": "opacity", "variable": "followers", "threshold": 1000, "scale": -1, "offset": 1}
+          ]
+        },
+        {
+          "name": "reached", "type": "text", "text": "GOAL REACHED", "font": "label_gold", "x": 0, "y": 0, "size": [260, 26], "align": "left",
+          "bindings": [
+            {"property": "opacity", "variable": "followers", "threshold": 1000}
+          ]
+        },
+        {
+          "name": "count", "type": "text", "text": "0", "font": "number", "x": 240, "y": -3, "size": [160, 32], "align": "right",
+          "bindings": [
+            {"property": "text", "variable": "followers", "format": "thousands", "transition": {"duration": 0.8, "ease": "cubic_out"}}
+          ]
+        },
+        {"name": "target", "type": "text", "text": "/ 1,000", "font": "label", "x": 408, "y": 0, "size": [80, 26], "align": "left"},
+        {"name": "track", "type": "shape", "shape": {"rect": [0, 40, 480, 16]}, "fill": "#2A2F45"},
+        {
+          "name": "bar", "type": "group", "clip": {"rect": [0, 40, 480, 16]},
+          "children": [
+            {
+              "name": "fill", "type": "shape", "shape": {"rect": [0, 40, 480, 16]}, "fill": "#7C5CFF", "x": -480,
+              "bindings": [
+                {"property": "x", "variable": "followers", "scale": 0.48, "offset": -480, "transition": {"duration": 0.8, "ease": "cubic_out"}}
+              ]
+            },
+            {
+              "name": "gold", "type": "shape", "shape": {"rect": [0, 40, 480, 16]}, "fill": "#FFC857", "x": -480, "opacity": 0,
+              "bindings": [
+                {"property": "x", "variable": "followers", "scale": 0.48, "offset": -480, "transition": {"duration": 0.8, "ease": "cubic_out"}},
+                {"property": "opacity", "variable": "followers", "threshold": 1000}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lower_third", "type": "group", "x": 60, "y": 880, "clip": {"rect": [0, 0, 960, 120]},
+      "children": [
+        {
+          "name": "panel", "type": "group", "x": -980,
+          "timelines": [
+            {"name": "show", "trigger": "lower_third", "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -980}, {"t": 0.5, "v": 0, "ease": "cubic_out"}, {"t": 6.0, "v": 0}, {"t": 6.45, "v": -980, "ease": "cubic_in"}]}]}
+          ],
+          "children": [
+            {"name": "stripe", "type": "shape", "shape": {"rect": [0, 0, 12, 100]}, "fill": "#7C5CFF"},
+            {"name": "back", "type": "shape", "shape": {"rect": [12, 0, 820, 100]}, "fill": "#141826E6"},
+            {"name": "underline", "type": "shape", "shape": {"rect": [12, 100, 820, 3]}, "fill": "#7C5CFF80"},
+            {
+              "name": "name", "type": "text", "text": "", "font": "name", "x": 40, "y": 10, "size": [780, 50], "align": "left",
+              "bindings": [
+                {"property": "text", "variable": "lt_name"}
+              ]
+            },
+            {
+              "name": "title", "type": "text", "text": "", "font": "title", "x": 40, "y": 60, "size": [780, 32], "align": "left",
+              "bindings": [
+                {"property": "text", "variable": "lt_title"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "alert", "type": "group", "x": 640, "y": 140, "opacity": 0,
+      "timelines": [
+        {
+          "name": "pop", "trigger": "alert",
+          "tracks": [
+            {"property": "opacity", "keys": [{"t": 0.0, "v": 0}, {"t": 0.15, "v": 1}, {"t": 4.5, "v": 1}, {"t": 4.9, "v": 0}]},
+            {"property": "y", "keys": [{"t": 0.0, "v": 40}, {"t": 0.6, "v": 140, "ease": "back_out"}, {"t": 4.5, "v": 140}, {"t": 4.9, "v": 100, "ease": "cubic_in"}]}
+          ]
+        }
+      ],
+      "children": [
+        {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 640, 150]}, "fill": "#141826F0"},
+        {"name": "stripe", "type": "shape", "shape": {"rect": [0, 0, 10, 150]}, "fill": "#7C5CFF"},
+        {
+          "name": "flash", "type": "image", "image": "glow", "anchor": "center", "blend": "add", "x": 320, "y": 75, "opacity": 0,
+          "timelines": [
+            {
+              "name": "burst", "trigger": "alert",
+              "tracks": [
+                {"property": "scale", "keys": [{"t": 0.0, "v": 0.6}, {"t": 1.0, "v": 4.5, "ease": "cubic_out"}]},
+                {"property": "opacity", "keys": [{"t": 0.0, "v": 0}, {"t": 0.1, "v": 0.75}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "icon", "type": "image", "image": "alert_icons", "sheet": {"cell": [96, 96], "columns": 3}, "x": 40, "y": 27,
+          "bindings": [
+            {"property": "frame", "variable": "alert_kind", "map": {"follow": 0, "sub": 1, "raid": 2}, "default": 0}
+          ]
+        },
+        {
+          "name": "headline", "type": "text", "text": "", "font": "headline", "x": 164, "y": 24, "size": [450, 26], "align": "left",
+          "bindings": [
+            {"property": "text", "variable": "alert_kind", "map": {"follow": "NEW FOLLOWER", "sub": "NEW SUBSCRIBER", "raid": "INCOMING RAID"}, "default": "ALERT"}
+          ]
+        },
+        {
+          "name": "name", "type": "text", "text": "", "font": "name", "x": 164, "y": 50, "size": [450, 48], "align": "left",
+          "bindings": [
+            {"property": "text", "variable": "alert_name"}
+          ]
+        },
+        {
+          "name": "detail", "type": "text", "text": "", "font": "detail", "x": 164, "y": 100, "size": [450, 26], "align": "left",
+          "bindings": [
+            {"property": "text", "variable": "alert_detail"}
+          ]
+        },
+        {"name": "chime", "type": "audio", "sound": "chime", "trigger": "alert", "gain": 0.8}
+      ]
+    }
+  ],
+  "scenes": [
+    {"name": "live", "trigger": "live", "layers": []},
+    {
+      "name": "starting_soon", "trigger": "starting_soon",
+      "layers": [
+        {"name": "dim", "type": "shape", "shape": {"rect": [0, 0, 1920, 1080]}, "fill": "#0B0E13F2"},
+        {"name": "title", "type": "text", "text": "STARTING SOON", "font": "big", "x": 0, "y": 330, "size": [1920, 120], "align": "center"},
+        {
+          "name": "countdown", "type": "text", "text": "5", "font": "countdown", "x": 0, "y": 470, "size": [1920, 220], "align": "center",
+          "bindings": [
+            {"property": "text", "variable": "countdown"}
+          ]
+        },
+        {
+          "name": "loader", "type": "group", "x": 760, "y": 740, "clip": {"rect": [0, 0, 400, 6]},
+          "children": [
+            {"name": "track", "type": "shape", "shape": {"rect": [0, 0, 400, 6]}, "fill": "#2A2F45"},
+            {
+              "name": "runner", "type": "shape", "shape": {"rect": [0, 0, 140, 6]}, "fill": "#9D85FF",
+              "timelines": [
+                {"name": "run", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -140}, {"t": 1.4, "v": 400, "ease": "quad_in_out"}, {"t": 1.8, "v": 400}]}]}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "brb", "trigger": "brb",
+      "layers": [
+        {"name": "dim", "type": "shape", "shape": {"rect": [0, 0, 1920, 1080]}, "fill": "#0B0E13D9"},
+        {
+          "name": "title", "type": "text", "text": "BE RIGHT BACK", "font": "big", "x": 0, "y": 420, "size": [1920, 120], "align": "center",
+          "timelines": [
+            {"name": "breathe", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.2, "v": 0.55, "ease": "quad_in_out"}, {"t": 2.4, "v": 1, "ease": "quad_in_out"}]}]}
+          ]
+        },
+        {"name": "sub", "type": "text", "text": "stretching my legs, chat stays open", "font": "sub", "x": 0, "y": 550, "size": [1920, 40], "align": "center"}
+      ]
+    }
+  ]
+}
