@@ -1,0 +1,173 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "slot_machine",
+  "size": [960, 600],
+  "background": "#07090F",
+  "fonts": {
+    "title": {"file": "Oxanium-Bold", "size": 46, "color": "#E9A93B"},
+    "label": {"file": "Oxanium-Bold", "size": 18, "color": "#7A8594"},
+    "readout": {"file": "Oxanium-Bold", "size": 34, "color": "#FBE8A6"},
+    "button": {"file": "Oxanium-Bold", "size": 24, "color": "#2A1B05"},
+    "banner": {"file": "Oxanium-Bold", "size": 72, "color": "#FBE8A6"}
+  },
+  "variables": {
+    "reel_1": "C", "reel_2": "C", "reel_3": "C",
+    "credits": "00250", "bet": 5, "win": "0000"
+  },
+  "layers": [
+    {
+      "name": "cabinet", "type": "shape", "fill": "#141824",
+      "shape": {"path": "M 58 20 H 902 A 28 28 0 0 1 930 48 V 552 A 28 28 0 0 1 902 580 H 58 A 28 28 0 0 1 30 552 V 48 A 28 28 0 0 1 58 20 Z"},
+      "stroke": {"color": "#E9A93B", "width": 3}
+    },
+    {"name": "title", "type": "text", "text": "LUCKY CUELIGHT", "font": "title", "x": 0, "y": 40, "size": [960, 60], "align": "center"},
+
+    {"name": "reel_1_back", "type": "shape", "shape": {"rect": [140, 140, 200, 300]}, "fill": "#F2EEE0"},
+    {
+      "name": "reel_1", "type": "digits", "digits": 1, "size": [200, 300], "x": 140, "y": 140, "text": "C",
+      "display": {
+        "reel": {
+          "charset": "CLOPGBA7",
+          "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
+          "duration": 3.5, "ease": "quad_out", "direction": "forward",
+          "step": null, "turns": 6, "window": 3,
+          "offset": [{"t": 0.0, "v": 0}, {"t": 3.05, "v": 0}, {"t": 3.45, "v": 0.12}, {"t": 3.85, "v": 0, "ease": "quad_out"}]
+        }
+      },
+      "bindings": [{"property": "text", "variable": "reel_1"}]
+    },
+    {"name": "reel_1_drum", "type": "image", "image": "drum", "size": [200, 300], "x": 140, "y": 140},
+    {
+      "name": "reel_1_frame", "type": "shape", "fill": "#00000000", "stroke": {"color": "#E9A93B", "width": 3},
+      "shape": {"path": "M 152 140 H 328 A 12 12 0 0 1 340 152 V 428 A 12 12 0 0 1 328 440 H 152 A 12 12 0 0 1 140 428 V 152 A 12 12 0 0 1 152 140 Z"}
+    },
+
+    {"name": "reel_2_back", "type": "shape", "shape": {"rect": [380, 140, 200, 300]}, "fill": "#F2EEE0"},
+    {
+      "name": "reel_2", "type": "digits", "digits": 1, "size": [200, 300], "x": 380, "y": 140, "text": "C",
+      "display": {
+        "reel": {
+          "charset": "CLOPGBA7",
+          "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
+          "duration": 4.0, "ease": "quad_out", "direction": "forward",
+          "step": null, "turns": 8, "window": 3,
+          "offset": [{"t": 0.0, "v": 0}, {"t": 3.55, "v": 0}, {"t": 3.95, "v": 0.12}, {"t": 4.35, "v": 0, "ease": "quad_out"}]
+        }
+      },
+      "bindings": [{"property": "text", "variable": "reel_2"}]
+    },
+    {"name": "reel_2_drum", "type": "image", "image": "drum", "size": [200, 300], "x": 380, "y": 140},
+    {
+      "name": "reel_2_frame", "type": "shape", "fill": "#00000000", "stroke": {"color": "#E9A93B", "width": 3},
+      "shape": {"path": "M 392 140 H 568 A 12 12 0 0 1 580 152 V 428 A 12 12 0 0 1 568 440 H 392 A 12 12 0 0 1 380 428 V 152 A 12 12 0 0 1 392 140 Z"}
+    },
+
+    {"name": "reel_3_back", "type": "shape", "shape": {"rect": [620, 140, 200, 300]}, "fill": "#F2EEE0"},
+    {
+      "name": "reel_3", "type": "digits", "digits": 1, "size": [200, 300], "x": 620, "y": 140, "text": "C",
+      "display": {
+        "reel": {
+          "charset": "CLOPGBA7",
+          "cells": {"vectors": ["cherry", "lemon", "orange", "plum", "grapes", "bell", "bar", "seven"]},
+          "duration": 4.5, "ease": "quad_out", "direction": "forward",
+          "step": null, "turns": 10, "window": 3,
+          "offset": [{"t": 0.0, "v": 0}, {"t": 4.05, "v": 0}, {"t": 4.45, "v": 0.12}, {"t": 4.85, "v": 0, "ease": "quad_out"}]
+        }
+      },
+      "bindings": [{"property": "text", "variable": "reel_3"}]
+    },
+    {"name": "reel_3_drum", "type": "image", "image": "drum", "size": [200, 300], "x": 620, "y": 140},
+    {
+      "name": "reel_3_frame", "type": "shape", "fill": "#00000000", "stroke": {"color": "#E9A93B", "width": 3},
+      "shape": {"path": "M 632 140 H 808 A 12 12 0 0 1 820 152 V 428 A 12 12 0 0 1 808 440 H 632 A 12 12 0 0 1 620 428 V 152 A 12 12 0 0 1 632 140 Z"}
+    },
+
+    {
+      "name": "payline", "type": "group", "opacity": 0.55,
+      "timelines": [
+        {"name": "pay", "trigger": "win", "repeat": 6, "tracks": [
+          {"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 0.18, "v": 0.3, "ease": "quad_in"}, {"t": 0.36, "v": 1, "ease": "quad_out"}]}
+        ]}
+      ],
+      "children": [
+        {"name": "line", "type": "shape", "shape": {"rect": [132, 288, 696, 4]}, "fill": "#E4404A"},
+        {"name": "left", "type": "shape", "shape": {"path": "M 102 276 L 128 290 L 102 304 Z"}, "fill": "#E4404A"},
+        {"name": "right", "type": "shape", "shape": {"path": "M 858 276 L 832 290 L 858 304 Z"}, "fill": "#E4404A"}
+      ]
+    },
+
+    {"name": "credits_label", "type": "text", "text": "CREDITS", "font": "label", "x": 100, "y": 456, "size": [190, 20], "align": "left"},
+    {"name": "credits_back", "type": "shape", "shape": {"rect": [100, 480, 190, 60]}, "fill": "#0A0D14"},
+    {
+      "name": "credits", "type": "digits", "digits": 5, "size": [190, 60], "x": 100, "y": 480, "text": "00250",
+      "display": {"reel": {"font": "readout", "duration": 0.1, "ease": "quad_in", "direction": "forward", "stagger": 0.03}},
+      "bindings": [{"property": "text", "variable": "credits"}]
+    },
+
+    {"name": "bet_label", "type": "text", "text": "BET", "font": "label", "x": 360, "y": 456, "size": [110, 20], "align": "left"},
+    {"name": "bet_back", "type": "shape", "shape": {"rect": [360, 480, 110, 60]}, "fill": "#0A0D14"},
+    {
+      "name": "bet", "type": "digits", "digits": 2, "size": [110, 60], "x": 360, "y": 480, "text": "5", "justify": "right",
+      "display": {"segments": {"style": "numeric7", "fill": "#E9A93B", "unlit": "#241B08"}},
+      "bindings": [{"property": "text", "variable": "bet"}]
+    },
+
+    {"name": "win_label", "type": "text", "text": "WIN", "font": "label", "x": 540, "y": 456, "size": [160, 20], "align": "left"},
+    {"name": "win_back", "type": "shape", "shape": {"rect": [540, 480, 160, 60]}, "fill": "#0A0D14"},
+    {
+      "name": "win", "type": "digits", "digits": 4, "size": [160, 60], "x": 540, "y": 480, "text": "0000",
+      "display": {"reel": {"font": "readout", "duration": 0.1, "ease": "quad_in", "direction": "forward", "stagger": 0.03}},
+      "bindings": [{"property": "text", "variable": "win"}]
+    },
+
+    {
+      "name": "button", "type": "group", "x": 838, "y": 510,
+      "timelines": [
+        {"name": "press", "trigger": "spin", "tracks": [
+          {"property": "scale", "keys": [{"t": 0.0, "v": 1}, {"t": 0.08, "v": 0.88, "ease": "quad_out"}, {"t": 0.34, "v": 1, "ease": "back_out"}]}
+        ]}
+      ],
+      "children": [
+        {"name": "rim", "type": "shape", "shape": {"circle": [0, 0, 46]}, "fill": "#8A5A16"},
+        {"name": "face", "type": "shape", "shape": {"circle": [0, -3, 42]}, "fill": "#E9A93B"},
+        {"name": "text", "type": "text", "text": "SPIN", "font": "button", "x": -60, "y": -18, "size": [120, 30], "align": "center"}
+      ]
+    },
+
+    {
+      "name": "banner", "type": "text", "text": "WIN", "font": "banner", "x": 480, "y": 380, "size": [960, 90], "align": "center",
+      "anchor": "center", "opacity": 0,
+      "timelines": [
+        {"name": "show", "trigger": "win", "tracks": [
+          {"property": "opacity", "keys": [{"t": 0.0, "v": 0}, {"t": 0.18, "v": 1}, {"t": 2.0, "v": 1}, {"t": 2.5, "v": 0, "ease": "quad_in"}]},
+          {"property": "scale", "keys": [{"t": 0.0, "v": 0.5}, {"t": 0.6, "v": 1, "ease": "back_out"}, {"t": 2.5, "v": 1}]}
+        ]}
+      ]
+    },
+    {
+      "name": "flash", "type": "shape", "fill": "#00000000", "stroke": {"color": "#FBE8A6", "width": 6}, "opacity": 0,
+      "shape": {"path": "M 58 20 H 902 A 28 28 0 0 1 930 48 V 552 A 28 28 0 0 1 902 580 H 58 A 28 28 0 0 1 30 552 V 48 A 28 28 0 0 1 58 20 Z"},
+      "timelines": [
+        {"name": "celebrate", "trigger": "win", "repeat": 5, "tracks": [
+          {"property": "opacity", "keys": [{"t": 0.0, "v": 0.9}, {"t": 0.25, "v": 0, "ease": "quad_in"}, {"t": 0.5, "v": 0}]}
+        ]}
+      ]
+    },
+
+    {"name": "whir", "type": "audio", "sound": "whir", "trigger": "spin", "loop": true, "stop": "reels_stopped", "gain": 0.7},
+    {"name": "clunk_1", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 3.45, "gain": 0.9},
+    {"name": "clunk_2", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 3.95, "gain": 0.9},
+    {"name": "clunk_3", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 4.45, "gain": 0.9},
+    {"name": "win_sound", "type": "audio", "sound": "win", "trigger": "win", "gain": 0.8},
+    {"name": "lose_sound", "type": "audio", "sound": "lose", "trigger": "lose", "gain": 0.6},
+    {
+      "name": "reel_clock", "type": "shape", "shape": {"rect": [0, 0, 0, 0]}, "fill": "#00000000",
+      "timelines": [
+        {"name": "until_stopped", "trigger": "spin", "on_end": "reels_stopped", "tracks": [
+          {"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 4.9, "v": 1}]}
+        ]}
+      ]
+    }
+  ]
+}

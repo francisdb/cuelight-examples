@@ -19,9 +19,9 @@
 
 #[cfg(feature = "render")]
 use cuelight::render::{Renderer, RgbaFrame};
+use cuelight::{DigitDisplay, Engine, Layer, LayerKind, ReelCells};
 #[cfg(feature = "render")]
 use cuelight::{DotShape, Dots, Pass};
-use cuelight::{Engine, Layer, LayerKind};
 use cuelight_loader::{Driver, DriverPlayer, Step};
 use std::collections::BTreeSet;
 use std::path::Path;
@@ -152,6 +152,41 @@ fn references(
                         "layer {:?} shows vector {vector:?}, which is not in assets/",
                         layer.name
                     ));
+                }
+            }
+            // A reel row draws its symbols from artwork, one per character
+            // of its ring, which counts as using those assets too.
+            if let LayerKind::Digits {
+                display: DigitDisplay::Reel(reel),
+                ..
+            } = &layer.kind
+            {
+                match reel.cells.as_ref() {
+                    Some(ReelCells::Vectors(names)) => {
+                        for name in names {
+                            used.insert(name.clone());
+                            if engine.vector(name).is_none() {
+                                out.push(format!(
+                                    "layer {:?} rolls vector {name:?}, which is not in assets/",
+                                    layer.name
+                                ));
+                            }
+                        }
+                    }
+                    Some(ReelCells::Images(names)) => {
+                        for name in names {
+                            used.insert(name.clone());
+                            if engine.image(name).is_none() {
+                                out.push(format!(
+                                    "layer {:?} rolls image {name:?}, which is not in assets/",
+                                    layer.name
+                                ));
+                            }
+                        }
+                    }
+                    // ReelCells is non-exhaustive: artwork kinds added
+                    // later go unchecked rather than failing to build.
+                    _ => {}
                 }
             }
             walk(engine, layer.children(), used, out);

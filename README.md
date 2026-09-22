@@ -11,6 +11,7 @@ in the browser on the [website](https://francisdb.github.io/cuelight-examples/).
 | --- | --- |
 | [car_dashboard](car_dashboard/) | A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals |
 | [departure_board](departure_board/) | An airport departure board made of segment displays, with no assets at all: text variables, mapped status colors, refresh triggers |
+| [slot_machine](slot_machine/) | A fruit machine: three reels of SVG symbols spinning to staggered stops, with sound, rolling credits and a win celebration |
 | [pinball_dmd](pinball_dmd/) | A pinball dot-matrix display: score layouts, a jackpot in full color, a night drive video mode and a segment display |
 | [streamer_overlay](streamer_overlay/) | A live stream overlay: alerts with a chime, a lower third, a follower goal bar, a viewer count, and starting-soon and be-right-back screens |
 | [weather_dashboard](weather_dashboard/) | A weather kiosk that plays a whole day: a sky and sun that follow the clock, animated SVG icons, a forecast and hourly bars, all from variables |

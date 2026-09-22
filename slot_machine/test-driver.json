@@ -1,0 +1,236 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "credits": "00250",
+        "bet": 5,
+        "win": "0000",
+        "reel_1": "C",
+        "reel_2": "C",
+        "reel_3": "C"
+      }
+    },
+    {
+      "wait": 1.5
+    },
+    {
+      "set": {
+        "credits": "00245",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "L",
+        "reel_2": "O",
+        "reel_3": "P"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00240",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "B",
+        "reel_2": "L",
+        "reel_3": "C"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00235",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "C",
+        "reel_2": "C",
+        "reel_3": "B"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "win"
+    },
+    {
+      "set": {
+        "win": "0010",
+        "credits": "00245"
+      }
+    },
+    {
+      "wait": 3.0
+    },
+    {
+      "set": {
+        "credits": "00240",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "O",
+        "reel_2": "P",
+        "reel_3": "L"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00235",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "7",
+        "reel_2": "7",
+        "reel_3": "A"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00230",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "B",
+        "reel_2": "B",
+        "reel_3": "B"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "win"
+    },
+    {
+      "set": {
+        "win": "0100",
+        "credits": "00330"
+      }
+    },
+    {
+      "wait": 3.0
+    },
+    {
+      "set": {
+        "credits": "00325",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "L",
+        "reel_2": "A",
+        "reel_3": "O"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00320",
+        "win": "0000"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "set": {
+        "reel_1": "7",
+        "reel_2": "7",
+        "reel_3": "7"
+      }
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "win"
+    },
+    {
+      "set": {
+        "win": "0500",
+        "credits": "00820"
+      }
+    },
+    {
+      "wait": 3.0
+    }
+  ]
+}
