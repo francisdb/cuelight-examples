@@ -7,7 +7,8 @@
         { "path": "car_dashboard", "title": "Car dashboard", "description": "A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals.", "thumbnail_at": 8 },
         { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 },
         { "path": "pinball_dmd", "title": "Pinball DMD", "description": "A 128x32 dot-matrix display of glowing dots with six scenes: score layouts, a jackpot in full color, a night drive video mode and a segment display.", "thumbnail_at": 30.3 },
-        { "path": "streamer_overlay", "title": "Streamer overlay", "description": "A live stream overlay on a stand-in for the game capture: alerts that pop in with a chime, a lower third, a follower goal bar, a viewer count, and starting-soon and be-right-back screens.", "thumbnail_at": 9.5 }
+        { "path": "streamer_overlay", "title": "Streamer overlay", "description": "A live stream overlay on a stand-in for the game capture: alerts that pop in with a chime, a lower third, a follower goal bar, a viewer count, and starting-soon and be-right-back screens.", "thumbnail_at": 9.5 },
+        { "path": "weather_dashboard", "title": "Weather dashboard", "description": "A weather kiosk on a day that runs in two minutes: a sky and sun that follow the clock, animated icons for the conditions, a five-day forecast and hourly bars, all from variables a host would feed.", "thumbnail_at": 57 }
       ]
     },
     {

@@ -1,0 +1,524 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json", "format": 1, "name": "weather_dashboard", "size": [1280, 720], "background": "#030712",
+  "fonts": {
+    "city": {"file": "Oxanium-Bold", "size": 44, "color": "#FFFFFF"},
+    "date": {"file": "Oxanium-SemiBold", "size": 22, "color": "#DCE4F0"},
+    "clock": {"file": "Oxanium-Bold", "size": 60, "color": "#FFFFFF"},
+    "temp": {"file": "Oxanium-Bold", "size": 150, "color": "#FFFFFF"},
+    "unit": {"file": "Oxanium-Bold", "size": 44, "color": "#CBD5E1"},
+    "conditions": {"file": "Oxanium-SemiBold", "size": 30, "color": "#E2E8F0"},
+    "label": {"file": "Oxanium-SemiBold", "size": 18, "color": "#94A3B8"},
+    "value": {"file": "Oxanium-Bold", "size": 30, "color": "#FFFFFF"},
+    "small": {"file": "Oxanium-SemiBold", "size": 18, "color": "#CBD5E1"},
+    "day": {"file": "Oxanium-SemiBold", "size": 20, "color": "#E2E8F0"},
+    "hi": {"file": "Oxanium-Bold", "size": 26, "color": "#FFFFFF"},
+    "lo": {"file": "Oxanium-SemiBold", "size": 22, "color": "#94A3B8"},
+    "bar_value": {"file": "Oxanium-Bold", "size": 17, "color": "#FFFFFF"}
+  },
+  "variables": {
+    "city": "",
+    "date": "",
+    "time": "00:00",
+    "sky": "day",
+    "condition": "sun",
+    "sun_x": 60,
+    "sun_y": 670,
+    "temp": 0,
+    "feels": 0,
+    "humidity": 0,
+    "wind": 0,
+    "wind_dir": "",
+    "wind_deg": 0,
+    "h0": 0,
+    "h1": 0,
+    "h2": 0,
+    "h3": 0,
+    "h4": 0,
+    "h5": 0,
+    "h6": 0,
+    "h7": 0,
+    "d0_name": "",
+    "d0_cond": "sun",
+    "d0_hi": "",
+    "d0_lo": "",
+    "d1_name": "",
+    "d1_cond": "sun",
+    "d1_hi": "",
+    "d1_lo": "",
+    "d2_name": "",
+    "d2_cond": "sun",
+    "d2_hi": "",
+    "d2_lo": "",
+    "d3_name": "",
+    "d3_cond": "sun",
+    "d3_hi": "",
+    "d3_lo": "",
+    "d4_name": "",
+    "d4_cond": "sun",
+    "d4_hi": "",
+    "d4_lo": ""
+  },
+  "layers": [
+    {"name": "sky_night", "type": "image", "image": "sky_night", "size": [1280, 720]},
+    {"name": "sky_dusk", "type": "image", "image": "sky_dusk", "size": [1280, 720], "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"dusk": 1, "dawn": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {"name": "sky_day", "type": "image", "image": "sky_day", "size": [1280, 720], "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {
+      "name": "stars", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"night": 1, "dusk": 0.4, "dawn": 0.4}, "default": 0, "transition": {"duration": 2.5}}],
+      "children": [
+        {
+          "name": "star_0", "type": "shape", "shape": {"circle": [553, 203, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.6156742090091272, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.2313484180182543, "v": 1, "ease": "quad_in_out"}]}], "delay": 0.0}
+          ]
+        },
+        {
+          "name": "star_1", "type": "shape", "shape": {"circle": [1115, 34, 1.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.6563133084704011, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.3126266169408023, "v": 1, "ease": "quad_in_out"}]}], "delay": 0.37}
+          ]
+        },
+        {
+          "name": "star_2", "type": "shape", "shape": {"circle": [136, 100, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.00188536818783, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.00377073637566, "v": 1, "ease": "quad_in_out"}]}], "delay": 0.74}
+          ]
+        },
+        {
+          "name": "star_3", "type": "shape", "shape": {"circle": [534, 214, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.3893847733123375, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.778769546624675, "v": 1, "ease": "quad_in_out"}]}], "delay": 1.11}
+          ]
+        },
+        {
+          "name": "star_4", "type": "shape", "shape": {"circle": [540, 26, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.5580653451014816, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.1161306902029633, "v": 1, "ease": "quad_in_out"}]}], "delay": 1.48}
+          ]
+        },
+        {
+          "name": "star_5", "type": "shape", "shape": {"circle": [602, 113, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.7247108346276967, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.4494216692553934, "v": 1, "ease": "quad_in_out"}]}], "delay": 1.85}
+          ]
+        },
+        {
+          "name": "star_6", "type": "shape", "shape": {"circle": [356, 56, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.024890676559013, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.049781353118026, "v": 1, "ease": "quad_in_out"}]}], "delay": 2.22}
+          ]
+        },
+        {
+          "name": "star_7", "type": "shape", "shape": {"circle": [941, 84, 1.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.0190167687952323, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.0380335375904646, "v": 1, "ease": "quad_in_out"}]}], "delay": 2.59}
+          ]
+        },
+        {
+          "name": "star_8", "type": "shape", "shape": {"circle": [458, 130, 1.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.7641143901957497, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.5282287803914993, "v": 1, "ease": "quad_in_out"}]}], "delay": 2.96}
+          ]
+        },
+        {
+          "name": "star_9", "type": "shape", "shape": {"circle": [370, 168, 1.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.1822862309614584, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.3645724619229167, "v": 1, "ease": "quad_in_out"}]}], "delay": 3.33}
+          ]
+        },
+        {
+          "name": "star_10", "type": "shape", "shape": {"circle": [1134, 124, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.0635018016910434, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.1270036033820867, "v": 1, "ease": "quad_in_out"}]}], "delay": 3.7}
+          ]
+        },
+        {
+          "name": "star_11", "type": "shape", "shape": {"circle": [433, 216, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.1689100080684809, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.3378200161369618, "v": 1, "ease": "quad_in_out"}]}], "delay": 4.07}
+          ]
+        },
+        {
+          "name": "star_12", "type": "shape", "shape": {"circle": [879, 104, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.7422133902544656, "v": 0.2, "ease": "quad_in_out"}, {"t": 3.4844267805089313, "v": 1, "ease": "quad_in_out"}]}], "delay": 4.44}
+          ]
+        },
+        {
+          "name": "star_13", "type": "shape", "shape": {"circle": [163, 189, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.1712231906925163, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.3424463813850327, "v": 1, "ease": "quad_in_out"}]}], "delay": 4.81}
+          ]
+        },
+        {
+          "name": "star_14", "type": "shape", "shape": {"circle": [1230, 21, 2.5]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.4363810554902317, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.8727621109804633, "v": 1, "ease": "quad_in_out"}]}], "delay": 5.18}
+          ]
+        },
+        {
+          "name": "star_15", "type": "shape", "shape": {"circle": [722, 53, 2]}, "fill": "#FFFFFF",
+          "timelines": [
+            {"name": "twinkle", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 1.178962138442816, "v": 0.2, "ease": "quad_in_out"}, {"t": 2.357924276885632, "v": 1, "ease": "quad_in_out"}]}], "delay": 5.55}
+          ]
+        }
+      ]
+    },
+    {"name": "moon", "type": "vector", "vector": "moon", "x": 960, "y": 40, "size": [72, 72], "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"night": 1, "dusk": 0.7}, "default": 0, "transition": {"duration": 2.5}}]},
+    {
+      "name": "sun", "type": "group", "x": 60, "y": 670, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1, "dawn": 0.9, "dusk": 0.9}, "default": 0, "transition": {"duration": 2.5}}, {"property": "x", "variable": "sun_x", "transition": {"duration": 2.0}}, {"property": "y", "variable": "sun_y", "transition": {"duration": 2.0}}],
+      "children": [
+        {
+          "name": "rays", "type": "vector", "vector": "sun_rays", "x": 0, "y": 0, "size": [84, 84], "anchor": "center",
+          "timelines": [
+            {"name": "pulse", "autoplay": true, "loop": true, "tracks": [{"property": "scale", "keys": [{"t": 0.0, "v": 0.94}, {"t": 1.5, "v": 1.06, "ease": "quad_in_out"}, {"t": 3.0, "v": 0.94, "ease": "quad_in_out"}]}]},
+            {"name": "turn", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0.0, "v": 0}, {"t": 36.0, "v": 360}]}]}
+          ]
+        },
+        {"name": "disc", "type": "vector", "vector": "sun", "x": 0, "y": 0, "size": [76, 76], "anchor": "center"}
+      ]
+    },
+    {"name": "hills", "type": "shape", "fill": "#0B1220", "shape": {"path": "M 0 610 C 120 560 220 570 330 605 S 540 650 660 600 S 900 560 1010 605 S 1180 610 1280 585 L 1280 720 L 0 720 Z"}},
+    {"name": "city", "type": "text", "text": "", "font": "city", "x": 60, "y": 36, "size": [600, 50], "align": "left", "bindings": [{"property": "text", "variable": "city"}]},
+    {"name": "date", "type": "text", "text": "", "font": "date", "x": 60, "y": 92, "size": [600, 28], "align": "left", "bindings": [{"property": "text", "variable": "date"}]},
+    {"name": "clock", "type": "text", "text": "", "font": "clock", "x": 820, "y": 32, "size": [400, 66], "align": "right", "bindings": [{"property": "text", "variable": "time"}]},
+    {
+      "name": "now", "type": "group", "x": 60, "y": 150,
+      "children": [
+        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 376 A 24 24 0 0 1 536 400 H 24 A 24 24 0 0 1 0 376 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {
+          "name": "icon", "type": "group", "x": 40, "y": 40,
+          "children": [
+            {
+              "name": "now_sun", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "by_day", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1, "dawn": 1, "dusk": 1}, "default": 0, "transition": {"duration": 2.5}}],
+                  "children": [
+                    {
+                      "name": "rays", "type": "vector", "vector": "sun_rays", "x": 100, "y": 100, "size": [170, 170], "anchor": "center",
+                      "timelines": [
+                        {"name": "pulse", "autoplay": true, "loop": true, "tracks": [{"property": "scale", "keys": [{"t": 0.0, "v": 0.94}, {"t": 1.5, "v": 1.06, "ease": "quad_in_out"}, {"t": 3.0, "v": 0.94, "ease": "quad_in_out"}]}]},
+                        {"name": "turn", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0.0, "v": 0}, {"t": 36.0, "v": 360}]}]}
+                      ]
+                    },
+                    {"name": "disc", "type": "vector", "vector": "sun", "x": 100, "y": 100, "size": [96, 96], "anchor": "center"}
+                  ]
+                },
+                {
+                  "name": "by_night", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"night": 1}, "default": 0, "transition": {"duration": 2.5}}],
+                  "children": [
+                    {
+                      "name": "moon", "type": "vector", "vector": "moon", "x": 100, "y": 100, "size": [130, 130], "anchor": "center",
+                      "timelines": [
+                        {"name": "float", "autoplay": true, "loop": true, "tracks": [{"property": "y", "keys": [{"t": 0.0, "v": 96}, {"t": 2.5, "v": 104, "ease": "quad_in_out"}, {"t": 5.0, "v": 96, "ease": "quad_in_out"}]}]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_partly", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "rays", "type": "vector", "vector": "sun_rays", "x": 128, "y": 72, "size": [110, 110], "anchor": "center",
+                  "timelines": [
+                    {"name": "pulse", "autoplay": true, "loop": true, "tracks": [{"property": "scale", "keys": [{"t": 0.0, "v": 0.94}, {"t": 1.5, "v": 1.06, "ease": "quad_in_out"}, {"t": 3.0, "v": 0.94, "ease": "quad_in_out"}]}]},
+                    {"name": "turn", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0.0, "v": 0}, {"t": 36.0, "v": 360}]}]}
+                  ]
+                },
+                {"name": "disc", "type": "vector", "vector": "sun", "x": 128, "y": 72, "size": [60, 60], "anchor": "center"},
+                {
+                  "name": "cloud", "type": "vector", "vector": "cloud", "x": 18, "y": 90, "size": [150, 100],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 18}, {"t": 3.0, "v": 30, "ease": "quad_in_out"}, {"t": 6.0, "v": 18, "ease": "quad_in_out"}]}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_cloud", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "back", "type": "vector", "vector": "cloud_dark", "x": 80, "y": 40, "size": [110, 74],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 80}, {"t": 3.5, "v": 66, "ease": "quad_in_out"}, {"t": 7.0, "v": 80, "ease": "quad_in_out"}]}]}
+                  ]
+                },
+                {
+                  "name": "front", "type": "vector", "vector": "cloud", "x": 10, "y": 85, "size": [160, 106],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 10}, {"t": 2.5, "v": 22, "ease": "quad_in_out"}, {"t": 5.0, "v": 10, "ease": "quad_in_out"}]}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_rain", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "cloud", "type": "vector", "vector": "cloud_dark", "x": 20, "y": 40, "size": [160, 106],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 20}, {"t": 3.0, "v": 26, "ease": "quad_in_out"}, {"t": 6.0, "v": 20, "ease": "quad_in_out"}]}]}
+                  ]
+                },
+                {
+                  "name": "rain_window", "type": "group", "x": 40, "y": 140, "clip": {"path": "M 0 0 H 120 L 99.17 50 H -20.83 Z"},
+                  "children": [
+                    {
+                      "name": "rain", "type": "vector", "vector": "rain", "x": 0, "y": 0, "size": [168, 144],
+                      "timelines": [
+                        {"name": "fall", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -24}, {"t": 0.8, "v": -48}]}, {"property": "y", "keys": [{"t": 0.0, "v": -57.6}, {"t": 0.8, "v": 0}]}]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_storm", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {"name": "cloud", "type": "vector", "vector": "cloud_dark", "x": 20, "y": 40, "size": [160, 106]},
+                {
+                  "name": "rain_window", "type": "group", "x": 40, "y": 140, "clip": {"path": "M 0 0 H 120 L 99.17 50 H -20.83 Z"},
+                  "children": [
+                    {
+                      "name": "rain", "type": "vector", "vector": "rain", "x": 0, "y": 0, "size": [168, 144],
+                      "timelines": [
+                        {"name": "fall", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -24}, {"t": 0.6, "v": -48}]}, {"property": "y", "keys": [{"t": 0.0, "v": -57.6}, {"t": 0.6, "v": 0}]}]}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bolt", "type": "vector", "vector": "bolt", "x": 78, "y": 118, "size": [44, 76], "opacity": 0,
+                  "timelines": [
+                    {"name": "flash", "autoplay": true, "loop": true, "tracks": [{"property": "opacity", "keys": [{"t": 0.0, "v": 0}, {"t": 0.05, "v": 1, "ease": "step"}, {"t": 0.15, "v": 0, "ease": "step"}, {"t": 0.25, "v": 1, "ease": "step"}, {"t": 0.5, "v": 0, "ease": "step"}, {"t": 2.8, "v": 0}]}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_snow", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "cloud", "type": "vector", "vector": "cloud", "x": 20, "y": 40, "size": [160, 106],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 20}, {"t": 3.0, "v": 26, "ease": "quad_in_out"}, {"t": 6.0, "v": 20, "ease": "quad_in_out"}]}]}
+                  ]
+                },
+                {
+                  "name": "snow_window", "type": "group", "x": 40, "y": 140, "clip": {"rect": [0, 0, 120, 50]},
+                  "children": [
+                    {
+                      "name": "snow", "type": "vector", "vector": "snow", "x": 0, "y": 0, "size": [168, 144],
+                      "timelines": [
+                        {"name": "fall", "autoplay": true, "loop": true, "tracks": [{"property": "y", "keys": [{"t": 0.0, "v": -24}, {"t": 2.4, "v": 0}]}]},
+                        {"name": "sway", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -4}, {"t": 1.5, "v": 4, "ease": "quad_in_out"}, {"t": 3.0, "v": -4, "ease": "quad_in_out"}]}]}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "now_fog", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "condition", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}],
+              "children": [
+                {
+                  "name": "bank", "type": "vector", "vector": "fog", "x": 10, "y": 60, "size": [180, 100],
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 10}, {"t": 4.0, "v": 22, "ease": "quad_in_out"}, {"t": 8.0, "v": 10, "ease": "quad_in_out"}]}]}
+                  ]
+                },
+                {
+                  "name": "bank_2", "type": "vector", "vector": "fog", "x": 30, "y": 90, "size": [180, 100], "opacity": 0.6,
+                  "timelines": [
+                    {"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": 30}, {"t": 3.0, "v": 14, "ease": "quad_in_out"}, {"t": 6.0, "v": 30, "ease": "quad_in_out"}]}]}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "temp", "type": "text", "text": "0", "font": "temp", "x": 250, "y": 30, "size": [230, 150], "align": "right", "bindings": [{"property": "text", "variable": "temp", "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "unit", "type": "text", "text": "°C", "font": "unit", "x": 484, "y": 52, "size": [60, 60], "align": "left"},
+        {"name": "conditions", "type": "text", "text": "", "font": "conditions", "x": 250, "y": 190, "size": [290, 34], "align": "right", "bindings": [{"property": "text", "variable": "condition", "map": {"sun": "Clear", "partly": "Partly cloudy", "cloud": "Overcast", "rain": "Rain", "storm": "Thunderstorm", "snow": "Snow", "fog": "Fog"}, "default": ""}]},
+        {"name": "feels_label", "type": "text", "text": "FEELS LIKE", "font": "label", "x": 40, "y": 290, "size": [140, 22], "align": "left"},
+        {"name": "feels", "type": "text", "text": "0", "font": "value", "x": 40, "y": 314, "size": [64, 34], "align": "right", "bindings": [{"property": "text", "variable": "feels", "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "feels_unit", "type": "text", "text": "°", "font": "small", "x": 108, "y": 320, "size": [56, 26], "align": "left"},
+        {"name": "humidity_label", "type": "text", "text": "HUMIDITY", "font": "label", "x": 180, "y": 290, "size": [140, 22], "align": "left"},
+        {"name": "humidity", "type": "text", "text": "0", "font": "value", "x": 180, "y": 314, "size": [64, 34], "align": "right", "bindings": [{"property": "text", "variable": "humidity", "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "humidity_unit", "type": "text", "text": "%", "font": "small", "x": 248, "y": 320, "size": [56, 26], "align": "left"},
+        {"name": "wind_label", "type": "text", "text": "WIND", "font": "label", "x": 320, "y": 290, "size": [140, 22], "align": "left"},
+        {"name": "wind", "type": "text", "text": "0", "font": "value", "x": 320, "y": 314, "size": [64, 34], "align": "right", "bindings": [{"property": "text", "variable": "wind", "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "wind_unit", "type": "text", "text": "km/h", "font": "small", "x": 388, "y": 320, "size": [56, 26], "align": "left"},
+        {"name": "wind_arrow", "type": "shape", "x": 452, "y": 327, "fill": "#E2E8F0", "shape": {"path": "M 0 -11 L 9 9 L 0 5 L -9 9 Z"}, "bindings": [{"property": "rotation", "variable": "wind_deg", "offset": 180, "transition": {"duration": 1.5, "ease": "cubic_in_out", "wrap": 360}}]},
+        {"name": "wind_dir", "type": "text", "text": "", "font": "value", "x": 472, "y": 314, "size": [48, 34], "align": "left", "bindings": [{"property": "text", "variable": "wind_dir"}]},
+        {
+          "name": "streaks", "type": "group", "x": 320, "y": 352, "clip": {"rect": [0, 0, 100, 30]},
+          "children": [
+            {
+              "name": "wind", "type": "vector", "vector": "wind", "x": 0, "y": 0, "size": [100, 30],
+              "timelines": [
+                {"name": "gust", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0.0, "v": -8}, {"t": 1.2, "v": 8, "ease": "quad_in_out"}, {"t": 2.4, "v": -8, "ease": "quad_in_out"}]}]}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "forecast", "type": "group", "x": 660, "y": 150,
+      "children": [
+        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 186 A 24 24 0 0 1 536 210 H 24 A 24 24 0 0 1 0 186 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {"name": "title", "type": "text", "text": "5-DAY FORECAST", "font": "label", "x": 24, "y": 16, "size": [300, 22], "align": "left"},
+        {
+          "name": "day_0", "type": "group", "x": 24, "y": 46,
+          "children": [
+            {"name": "day", "type": "text", "text": "", "font": "day", "x": 0, "y": 0, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d0_name"}]},
+            {"name": "sun", "type": "vector", "vector": "icon_sun", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "partly", "type": "vector", "vector": "icon_partly", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "cloud", "type": "vector", "vector": "icon_cloud", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "rain", "type": "vector", "vector": "icon_rain", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "storm", "type": "vector", "vector": "icon_storm", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "snow", "type": "vector", "vector": "icon_snow", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "fog", "type": "vector", "vector": "icon_fog", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d0_cond", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "hi", "type": "text", "text": "", "font": "hi", "x": 0, "y": 92, "size": [96, 28], "align": "center", "bindings": [{"property": "text", "variable": "d0_hi"}]},
+            {"name": "lo", "type": "text", "text": "", "font": "lo", "x": 0, "y": 120, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d0_lo"}]}
+          ]
+        },
+        {
+          "name": "day_1", "type": "group", "x": 128, "y": 46,
+          "children": [
+            {"name": "day", "type": "text", "text": "", "font": "day", "x": 0, "y": 0, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d1_name"}]},
+            {"name": "sun", "type": "vector", "vector": "icon_sun", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "partly", "type": "vector", "vector": "icon_partly", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "cloud", "type": "vector", "vector": "icon_cloud", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "rain", "type": "vector", "vector": "icon_rain", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "storm", "type": "vector", "vector": "icon_storm", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "snow", "type": "vector", "vector": "icon_snow", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "fog", "type": "vector", "vector": "icon_fog", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d1_cond", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "hi", "type": "text", "text": "", "font": "hi", "x": 0, "y": 92, "size": [96, 28], "align": "center", "bindings": [{"property": "text", "variable": "d1_hi"}]},
+            {"name": "lo", "type": "text", "text": "", "font": "lo", "x": 0, "y": 120, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d1_lo"}]}
+          ]
+        },
+        {
+          "name": "day_2", "type": "group", "x": 232, "y": 46,
+          "children": [
+            {"name": "day", "type": "text", "text": "", "font": "day", "x": 0, "y": 0, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d2_name"}]},
+            {"name": "sun", "type": "vector", "vector": "icon_sun", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "partly", "type": "vector", "vector": "icon_partly", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "cloud", "type": "vector", "vector": "icon_cloud", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "rain", "type": "vector", "vector": "icon_rain", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "storm", "type": "vector", "vector": "icon_storm", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "snow", "type": "vector", "vector": "icon_snow", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "fog", "type": "vector", "vector": "icon_fog", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d2_cond", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "hi", "type": "text", "text": "", "font": "hi", "x": 0, "y": 92, "size": [96, 28], "align": "center", "bindings": [{"property": "text", "variable": "d2_hi"}]},
+            {"name": "lo", "type": "text", "text": "", "font": "lo", "x": 0, "y": 120, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d2_lo"}]}
+          ]
+        },
+        {
+          "name": "day_3", "type": "group", "x": 336, "y": 46,
+          "children": [
+            {"name": "day", "type": "text", "text": "", "font": "day", "x": 0, "y": 0, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d3_name"}]},
+            {"name": "sun", "type": "vector", "vector": "icon_sun", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "partly", "type": "vector", "vector": "icon_partly", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "cloud", "type": "vector", "vector": "icon_cloud", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "rain", "type": "vector", "vector": "icon_rain", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "storm", "type": "vector", "vector": "icon_storm", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "snow", "type": "vector", "vector": "icon_snow", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "fog", "type": "vector", "vector": "icon_fog", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d3_cond", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "hi", "type": "text", "text": "", "font": "hi", "x": 0, "y": 92, "size": [96, 28], "align": "center", "bindings": [{"property": "text", "variable": "d3_hi"}]},
+            {"name": "lo", "type": "text", "text": "", "font": "lo", "x": 0, "y": 120, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d3_lo"}]}
+          ]
+        },
+        {
+          "name": "day_4", "type": "group", "x": 440, "y": 46,
+          "children": [
+            {"name": "day", "type": "text", "text": "", "font": "day", "x": 0, "y": 0, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d4_name"}]},
+            {"name": "sun", "type": "vector", "vector": "icon_sun", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"sun": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "partly", "type": "vector", "vector": "icon_partly", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"partly": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "cloud", "type": "vector", "vector": "icon_cloud", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"cloud": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "rain", "type": "vector", "vector": "icon_rain", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"rain": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "storm", "type": "vector", "vector": "icon_storm", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"storm": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "snow", "type": "vector", "vector": "icon_snow", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"snow": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "fog", "type": "vector", "vector": "icon_fog", "x": 20, "y": 28, "size": [56, 56], "opacity": 0, "bindings": [{"property": "opacity", "variable": "d4_cond", "map": {"fog": 1}, "default": 0, "transition": {"duration": 0.8}}]},
+            {"name": "hi", "type": "text", "text": "", "font": "hi", "x": 0, "y": 92, "size": [96, 28], "align": "center", "bindings": [{"property": "text", "variable": "d4_hi"}]},
+            {"name": "lo", "type": "text", "text": "", "font": "lo", "x": 0, "y": 120, "size": [96, 24], "align": "center", "bindings": [{"property": "text", "variable": "d4_lo"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hourly", "type": "group", "x": 660, "y": 380,
+      "children": [
+        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 146 A 24 24 0 0 1 536 170 H 24 A 24 24 0 0 1 0 146 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {"name": "title", "type": "text", "text": "NEXT HOURS", "font": "label", "x": 24, "y": 14, "size": [300, 22], "align": "left"},
+        {
+          "name": "bar_0", "type": "group", "x": 30, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h0", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_0", "type": "text", "text": "", "font": "bar_value", "x": 22, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h0", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h0", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_0", "type": "text", "text": "+1h", "font": "small", "x": 22, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_1", "type": "group", "x": 96, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h1", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_1", "type": "text", "text": "", "font": "bar_value", "x": 88, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h1", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h1", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_1", "type": "text", "text": "+2h", "font": "small", "x": 88, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_2", "type": "group", "x": 162, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h2", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_2", "type": "text", "text": "", "font": "bar_value", "x": 154, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h2", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h2", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_2", "type": "text", "text": "+3h", "font": "small", "x": 154, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_3", "type": "group", "x": 228, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h3", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_3", "type": "text", "text": "", "font": "bar_value", "x": 220, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h3", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h3", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_3", "type": "text", "text": "+4h", "font": "small", "x": 220, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_4", "type": "group", "x": 294, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h4", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_4", "type": "text", "text": "", "font": "bar_value", "x": 286, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h4", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h4", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_4", "type": "text", "text": "+5h", "font": "small", "x": 286, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_5", "type": "group", "x": 360, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h5", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_5", "type": "text", "text": "", "font": "bar_value", "x": 352, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h5", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h5", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_5", "type": "text", "text": "+6h", "font": "small", "x": 352, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_6", "type": "group", "x": 426, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h6", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_6", "type": "text", "text": "", "font": "bar_value", "x": 418, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h6", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h6", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_6", "type": "text", "text": "+7h", "font": "small", "x": 418, "y": 138, "size": [56, 20], "align": "center"},
+        {
+          "name": "bar_7", "type": "group", "x": 492, "y": 46, "clip": {"rect": [0, 0, 40, 84]},
+          "children": [
+            {"name": "fill", "type": "shape", "shape": {"rect": [0, 0, 40, 84]}, "fill": "#60A5FA", "y": 84, "bindings": [{"property": "y", "variable": "h7", "scale": -2.8, "offset": 70, "transition": {"duration": 1.2, "ease": "cubic_out"}}]}
+          ]
+        },
+        {"name": "value_7", "type": "text", "text": "", "font": "bar_value", "x": 484, "y": 108, "size": [56, 20], "align": "center", "bindings": [{"property": "text", "variable": "h7", "transition": {"duration": 1.2, "ease": "cubic_out"}}, {"property": "y", "variable": "h7", "scale": -2.8, "offset": 94, "transition": {"duration": 1.2, "ease": "cubic_out"}}]},
+        {"name": "hour_7", "type": "text", "text": "+8h", "font": "small", "x": 484, "y": 138, "size": [56, 20], "align": "center"}
+      ]
+    }
+  ]
+}
