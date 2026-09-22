@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "tint",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"state": "ok", "lamp": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 10, "size": [140, 20], "x": 24, "y": 18, "text": "IMAGE TINT",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_one_asset", "type": "digits", "digits": 30, "size": [240, 12], "x": 24, "y": 52,
+      "text": "ONE WHITE BULB, FOUR TINTS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "bulb_plain", "type": "image", "image": "bulb", "size": [64, 64], "x": 30, "y": 72},
+    {
+      "name": "label_plain", "type": "digits", "digits": 5, "size": [50, 12], "x": 37, "y": 140, "text": "NONE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "bulb_amber", "type": "image", "image": "bulb", "size": [64, 64], "x": 110, "y": 72, "tint": "#FFB000"},
+    {
+      "name": "label_amber", "type": "digits", "digits": 7, "size": [56, 12], "x": 114, "y": 140, "text": "FFB000",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "bulb_green", "type": "image", "image": "bulb", "size": [64, 64], "x": 190, "y": 72, "tint": "#4ADE80"},
+    {
+      "name": "label_green", "type": "digits", "digits": 7, "size": [56, 12], "x": 194, "y": 140, "text": "4ADE80",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "bulb_blue", "type": "image", "image": "bulb", "size": [64, 64], "x": 270, "y": 72, "tint": "#3EC9F0"},
+    {
+      "name": "label_blue", "type": "digits", "digits": 7, "size": [56, 12], "x": 274, "y": 140, "text": "3EC9F0",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_state", "type": "digits", "digits": 26, "size": [208, 12], "x": 390, "y": 52,
+      "text": "STATUS: ONE SPRITE AGAIN", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "status_socket", "type": "image", "image": "bulb", "size": [64, 64], "x": 430, "y": 72, "tint": "#262C38"},
+    {
+      "name": "status_ok", "type": "image", "image": "bulb", "size": [64, 64], "x": 430, "y": 72, "tint": "#4ADE80", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"ok": 1}, "default": 0, "transition": {"duration": 0.25}}]
+    },
+    {
+      "name": "status_warn", "type": "image", "image": "bulb", "size": [64, 64], "x": 430, "y": 72, "tint": "#FFB000", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"warn": 1}, "default": 0, "transition": {"duration": 0.25}}]
+    },
+    {
+      "name": "status_fail", "type": "image", "image": "bulb", "size": [64, 64], "x": 430, "y": 72, "tint": "#FF5A5A", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "state", "map": {"fail": 1}, "default": 0, "transition": {"duration": 0.25}}]
+    },
+    {
+      "name": "state_text", "type": "digits", "digits": 4, "size": [56, 20], "x": 516, "y": 94, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}},
+      "bindings": [{"property": "text", "variable": "state"}]
+    },
+    {
+      "name": "label_state_2", "type": "digits", "digits": 26, "size": [208, 12], "x": 390, "y": 140,
+      "text": "THREE TINTS, OPACITY MAPPED", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_lamp", "type": "digits", "digits": 34, "size": [272, 12], "x": 24, "y": 178,
+      "text": "A WHITE GLOW, TINTED, BLEND ADD", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "art", "type": "group", "x": 24, "y": 196,
+      "children": [
+        {"name": "panel", "type": "shape", "shape": {"rect": [0, 0, 300, 140]}, "fill": "#1A1F2B"},
+        {"name": "band_1", "type": "shape", "shape": {"rect": [0, 30, 300, 30]}, "fill": "#2F4E5E"},
+        {"name": "band_2", "type": "shape", "shape": {"rect": [0, 90, 300, 30]}, "fill": "#3B2F5E"},
+        {
+          "name": "caption", "type": "digits", "digits": 12, "size": [168, 18], "x": 66, "y": 61, "text": "DARK ARTWORK",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "lamp_red", "type": "image", "image": "white_glow", "anchor": "center", "x": 94, "y": 266, "tint": "#FF5A5A", "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "lamp_green", "type": "image", "image": "white_glow", "anchor": "center", "x": 174, "y": 266, "tint": "#4ADE80", "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "lamp_blue", "type": "image", "image": "white_glow", "anchor": "center", "x": 254, "y": 266, "tint": "#3EC9F0", "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_worn", "type": "digits", "digits": 30, "size": [240, 12], "x": 360, "y": 178,
+      "text": "A GREY SPECKLE, MULTIPLIED", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "clean", "type": "image", "image": "badge", "size": [104, 104], "x": 372, "y": 200},
+    {
+      "name": "label_clean", "type": "digits", "digits": 5, "size": [50, 12], "x": 399, "y": 312, "text": "CLEAN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "dirty", "type": "image", "image": "badge", "size": [104, 104], "x": 508, "y": 200},
+    {"name": "dirt", "type": "image", "image": "worn", "size": [104, 104], "x": 508, "y": 200, "tint": "#D9B08C", "blend": "multiply"},
+    {
+      "name": "label_dirty", "type": "digits", "digits": 4, "size": [40, 12], "x": 540, "y": 312, "text": "WORN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

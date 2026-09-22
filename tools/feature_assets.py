@@ -16,13 +16,19 @@ in the Oxanium of features/text/outline_font.
 glow.png is a lamp glow for features/layers/blend_modes: an amber disc,
 112x112, dense in the middle and fading to nothing at the rim.
 
+badge.png, bulb.png and white_glow.png are for features/images/tint, both white so a
+tint decides their color: a bulb in its socket, and the same disc as
+glow.png without the amber. worn.png is a grey speckle, a grimy overlay
+to multiply over clean art.
+
 Needs Pillow.
 """
 
 import math
+import random
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 SS = 4  # supersampling factor
@@ -109,7 +115,29 @@ def reel(cell=(48, 64), steps=16, half_angle=55):
 
 
 def glow(size=112):
-    color = (255, 176, 0)
+    return disc(size, (255, 176, 0))
+
+
+def bulb(size=96):
+    """A white bulb in a socket, drawn big and scaled down."""
+    s = size * SS
+    image = Image.new("RGBA", (s, s), (255, 255, 255, 0))
+    draw = ImageDraw.Draw(image)
+    draw.ellipse([0.16 * s, 0.04 * s, 0.84 * s, 0.72 * s], fill="#FFFFFF")
+    draw.polygon(
+        [(0.34 * s, 0.62 * s), (0.66 * s, 0.62 * s), (0.60 * s, 0.78 * s), (0.40 * s, 0.78 * s)],
+        fill="#FFFFFF",
+    )
+    for i in range(3):
+        y = (0.78 + i * 0.07) * s
+        draw.rounded_rectangle(
+            [0.38 * s, y, 0.62 * s, y + 0.045 * s], radius=0.02 * s, fill="#D0D0D0"
+        )
+    return image.resize((size, size), Image.LANCZOS)
+
+
+def disc(size, color):
+    """A soft disc: dense in the middle, gone at the rim."""
     image = Image.new("RGBA", (size, size), color + (0,))
     pixels = image.load()
     for y in range(size):
@@ -119,12 +147,33 @@ def glow(size=112):
     return image
 
 
+def worn(size=128):
+    """Grey speckle and streaks: clean where it is white, dirty where dark."""
+    random.seed(21)
+    image = Image.new("RGBA", (size, size), (255, 255, 255, 255))
+    draw = ImageDraw.Draw(image)
+    for _ in range(420):
+        x, y = random.randint(0, size), random.randint(0, size)
+        r = random.randint(1, 5)
+        grey = random.randint(70, 190)
+        draw.ellipse([x - r, y - r, x + r, y + r], fill=(grey, grey, grey, 255))
+    for _ in range(14):
+        y = random.randint(0, size)
+        grey = random.randint(120, 200)
+        draw.line([(0, y), (size, y + random.randint(-6, 6))], fill=(grey, grey, grey, 255), width=2)
+    return image.filter(ImageFilter.GaussianBlur(0.6))
+
+
 def main():
     for path, image in [
         ("features/images/image/assets/badge.png", badge()),
         ("features/images/sprite_sheet/assets/coin.png", coin_sheet()),
         ("features/bindings/transitions/assets/reel.png", reel()),
         ("features/layers/blend_modes/assets/glow.png", glow()),
+        ("features/images/tint/assets/badge.png", badge()),
+        ("features/images/tint/assets/bulb.png", bulb()),
+        ("features/images/tint/assets/white_glow.png", disc(112, (255, 255, 255))),
+        ("features/images/tint/assets/worn.png", worn()),
     ]:
         out = ROOT / path
         out.parent.mkdir(parents=True, exist_ok=True)
