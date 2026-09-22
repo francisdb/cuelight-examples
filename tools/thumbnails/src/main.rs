@@ -70,7 +70,7 @@ fn run(check_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         let seconds = example["thumbnail_at"].as_f64().unwrap_or(2.0);
 
         let mut engine = Engine::new();
-        let loaded = match cuelight_loader::load(&mut engine, root.join(path)) {
+        let mut loaded = match cuelight_loader::load(&mut engine, root.join(path)) {
             Ok(loaded) => loaded,
             Err(e) => {
                 eprintln!("{path}: {e}");
@@ -86,10 +86,8 @@ fn run(check_only: bool) -> Result<(), Box<dyn std::error::Error>> {
             eprintln!("{path}: asset {skipped:?} has no decoder");
             problems += 1;
         }
-        let driver = match &loaded.driver {
-            Some(file) => Some(Driver::from_file(file)?),
-            None => None,
-        };
+        // The loader parsed the driver script that came with the show.
+        let driver = loaded.driver.take();
         for problem in references(&engine, &loaded, driver.as_ref()) {
             eprintln!("{path}: {problem}");
             problems += 1;
