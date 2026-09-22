@@ -41,7 +41,8 @@
     {
       "name": "status_light", "type": "image", "image": "bulb", "size": [64, 64], "x": 430, "y": 72, "tint": "#262C38",
       "bindings": [{"property": "tint", "variable": "state",
-                    "map": {"ok": "#4ADE80", "warn": "#FFB000", "fail": "#FF5A5A"}}]
+                    "map": {"ok": "#4ADE80", "warn": "#FFB000", "fail": "#FF5A5A"},
+                    "transition": {"duration": 0.25}}]
     },
     {
       "name": "state_text", "type": "digits", "digits": 4, "size": [56, 20], "x": 516, "y": 94, "text": "",
@@ -50,7 +51,7 @@
     },
     {
       "name": "label_state_2", "type": "digits", "digits": 30, "size": [240, 12], "x": 390, "y": 140,
-      "text": "ITS TINT IS MAPPED FROM STATE", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+      "text": "ITS TINT IS MAPPED AND EASED", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     },
     {
       "name": "label_state_3", "type": "digits", "digits": 30, "size": [240, 12], "x": 390, "y": 156,
