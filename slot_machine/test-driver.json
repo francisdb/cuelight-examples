@@ -21,14 +21,14 @@
       }
     },
     {
-      "trigger": "spin"
+      "set": {
+        "reel_1": "C",
+        "reel_2": "L",
+        "reel_3": "O"
+      }
     },
     {
-      "set": {
-        "reel_1": "L",
-        "reel_2": "O",
-        "reel_3": "P"
-      }
+      "trigger": "spin"
     },
     {
       "wait": 5.2
@@ -46,70 +46,14 @@
       }
     },
     {
-      "trigger": "spin"
-    },
-    {
       "set": {
-        "reel_1": "B",
-        "reel_2": "L",
-        "reel_3": "C"
-      }
-    },
-    {
-      "wait": 5.2
-    },
-    {
-      "trigger": "lose"
-    },
-    {
-      "wait": 1.4
-    },
-    {
-      "set": {
-        "credits": "00235",
-        "win": "0000"
-      }
-    },
-    {
-      "trigger": "spin"
-    },
-    {
-      "set": {
-        "reel_1": "C",
-        "reel_2": "C",
+        "reel_1": "P",
+        "reel_2": "G",
         "reel_3": "B"
       }
     },
     {
-      "wait": 5.2
-    },
-    {
-      "trigger": "win"
-    },
-    {
-      "set": {
-        "win": "0010",
-        "credits": "00245"
-      }
-    },
-    {
-      "wait": 3.0
-    },
-    {
-      "set": {
-        "credits": "00240",
-        "win": "0000"
-      }
-    },
-    {
       "trigger": "spin"
-    },
-    {
-      "set": {
-        "reel_1": "O",
-        "reel_2": "P",
-        "reel_3": "L"
-      }
     },
     {
       "wait": 5.2
@@ -127,14 +71,14 @@
       }
     },
     {
-      "trigger": "spin"
+      "set": {
+        "reel_1": "A",
+        "reel_2": "7",
+        "reel_3": "L"
+      }
     },
     {
-      "set": {
-        "reel_1": "7",
-        "reel_2": "7",
-        "reel_3": "A"
-      }
+      "trigger": "spin"
     },
     {
       "wait": 5.2
@@ -152,7 +96,60 @@
       }
     },
     {
+      "set": {
+        "reel_1": "C",
+        "reel_2": "C",
+        "reel_3": "P"
+      }
+    },
+    {
       "trigger": "spin"
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "win"
+    },
+    {
+      "set": {
+        "win": "0010",
+        "credits": "00240"
+      }
+    },
+    {
+      "wait": 3.0
+    },
+    {
+      "set": {
+        "credits": "00235",
+        "win": "0000"
+      }
+    },
+    {
+      "set": {
+        "reel_1": "O",
+        "reel_2": "L",
+        "reel_3": "G"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 5.2
+    },
+    {
+      "trigger": "lose"
+    },
+    {
+      "wait": 1.4
+    },
+    {
+      "set": {
+        "credits": "00230",
+        "win": "0000"
+      }
     },
     {
       "set": {
@@ -160,6 +157,9 @@
         "reel_2": "B",
         "reel_3": "B"
       }
+    },
+    {
+      "trigger": "spin"
     },
     {
       "wait": 5.2
@@ -183,14 +183,14 @@
       }
     },
     {
-      "trigger": "spin"
+      "set": {
+        "reel_1": "7",
+        "reel_2": "7",
+        "reel_3": "L"
+      }
     },
     {
-      "set": {
-        "reel_1": "L",
-        "reel_2": "A",
-        "reel_3": "O"
-      }
+      "trigger": "spin"
     },
     {
       "wait": 5.2
@@ -208,14 +208,14 @@
       }
     },
     {
-      "trigger": "spin"
-    },
-    {
       "set": {
         "reel_1": "7",
         "reel_2": "7",
         "reel_3": "7"
       }
+    },
+    {
+      "trigger": "spin"
     },
     {
       "wait": 5.2
