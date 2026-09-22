@@ -12,7 +12,7 @@ no images, no fonts, nothing to license.
 | Times and the clock | `06.40`: a `.` lights the dot of the cell before it, so a time takes four cells |
 | Status color | a segment display has one `fill`, so the status is three `digits` layers (amber, green, red) bound to the same variable, each in a group whose `opacity` is a mapped binding on the status: `BOARDING` shows the green one, `DELAYED` and `CANCELLED` the red one |
 | Blinking `BOARDING` | an `autoplay`, `loop` timeline on the green layer; the group around it carries the binding, because a running timeline would override a binding on the same layer |
-| Refresh flicker | each row has one timeline with `"trigger": ["refresh", "row_3"]`: the host flickers a row when it changes what the row shows, or the whole board with `refresh` |
+| Refresh fade | each row is an `unlit` group of dark displays with `"text": ""` under a `lit` group of the bound displays without `unlit`. The `lit` group has one timeline with `"trigger": ["refresh", "row_3"]` that fades its digits in: the host fades a row when it changes what the row shows, or the whole board with `refresh`, and the dark segments stay put |
 
 It needs cuelight `main` with timelines that take a list of triggers
 (cuelight #26).
@@ -48,5 +48,5 @@ made up.
 - A way to react to a variable changing (a timeline that plays when its
   layer's bound text changes): the host would not have to fire `row_3`
   next to setting `status_3`.
-- Layer templates or repeaters: the six rows are the same 40 lines with
+- Layer templates or repeaters: the six rows are the same 110 lines with
   another number in the variable names.
