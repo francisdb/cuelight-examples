@@ -13,6 +13,9 @@ and the fifteen after it show it rolling on to the next one. The window
 looks at a drum: digits are squashed and darker towards its top and bottom. The digits are set
 in the Oxanium of features/text/outline_font.
 
+glow.png is a lamp glow for features/layers/blend_modes: an amber disc,
+112x112, dense in the middle and fading to nothing at the rim.
+
 Needs Pillow.
 """
 
@@ -105,11 +108,23 @@ def reel(cell=(48, 64), steps=16, half_angle=55):
     return sheet.convert("RGB").quantize(128, dither=Image.Dither.NONE)
 
 
+def glow(size=112):
+    color = (255, 176, 0)
+    image = Image.new("RGBA", (size, size), color + (0,))
+    pixels = image.load()
+    for y in range(size):
+        for x in range(size):
+            d = math.hypot(x + 0.5 - size / 2, y + 0.5 - size / 2) / (size / 2)
+            pixels[x, y] = color + (int(255 * max(0.0, 1.0 - d * d) ** 2),)
+    return image
+
+
 def main():
     for path, image in [
         ("features/images/image/assets/badge.png", badge()),
         ("features/images/sprite_sheet/assets/coin.png", coin_sheet()),
         ("features/bindings/transitions/assets/reel.png", reel()),
+        ("features/layers/blend_modes/assets/glow.png", glow()),
     ]:
         out = ROOT / path
         out.parent.mkdir(parents=True, exist_ok=True)

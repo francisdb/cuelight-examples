@@ -1,0 +1,529 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "lamp": 1,
+        "page": 1,
+        "brightness": 0,
+        "switch": 0
+      }
+    },
+    {
+      "set": {
+        "page": 1
+      }
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 0
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.3
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.6
+      }
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "page": 2
+      }
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 1
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 1
+      }
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.6
+      }
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "page": 1
+      }
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.3
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 0
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 0
+      }
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "page": 2
+      }
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.3
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 1
+      }
+    },
+    {
+      "set": {
+        "brightness": 0.6
+      }
+    },
+    {
+      "set": {
+        "switch": 1
+      }
+    },
+    {
+      "wait": 1
+    },
+    {
+      "set": {
+        "lamp": 0
+      }
+    },
+    {
+      "set": {
+        "brightness": 1
+      }
+    },
+    {
+      "set": {
+        "switch": 0
+      }
+    },
+    {
+      "wait": 1
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "blend_modes",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"lamp": 0},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 11, "size": [154, 20], "x": 24, "y": 18, "text": "BLEND MODES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "art", "type": "group", "x": 24, "y": 56,
+      "children": [
+        {"name": "panel", "type": "shape", "shape": {"rect": [0, 0, 592, 284]}, "fill": "#1A1F2B"},
+        {"name": "band_1", "type": "shape", "shape": {"rect": [0, 40, 592, 36]}, "fill": "#3B2F5E"},
+        {"name": "band_2", "type": "shape", "shape": {"rect": [0, 76, 592, 36]}, "fill": "#2F4E5E"},
+        {"name": "band_3", "type": "shape", "shape": {"rect": [0, 112, 592, 36]}, "fill": "#5E2F3B"},
+        {"name": "band_4", "type": "shape", "shape": {"rect": [0, 180, 592, 36]}, "fill": "#2F5E3B"},
+        {"name": "band_5", "type": "shape", "shape": {"rect": [0, 216, 592, 36]}, "fill": "#5E4A2F"},
+        {"name": "star_1", "type": "shape", "shape": {"circle": [80, 30, 8]}, "fill": "#E6EDF3"},
+        {"name": "star_2", "type": "shape", "shape": {"circle": [300, 26, 6]}, "fill": "#E6EDF3"},
+        {"name": "star_3", "type": "shape", "shape": {"circle": [470, 32, 7]}, "fill": "#E6EDF3"},
+        {
+          "name": "caption", "type": "digits", "digits": 13, "size": [208, 24], "x": 192, "y": 82, "text": "DARK ARTWORK",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "lamp_add", "type": "image", "image": "glow", "anchor": "center", "x": 110, "y": 150, "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_add", "type": "digits", "digits": 3, "size": [30, 12], "x": 95, "y": 218, "text": "ADD",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_screen", "type": "image", "image": "glow", "anchor": "center", "x": 260, "y": 150, "blend": "screen", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_screen", "type": "digits", "digits": 6, "size": [60, 12], "x": 230, "y": 218, "text": "SCREEN",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_multiply", "type": "image", "image": "glow", "anchor": "center", "x": 410, "y": 150, "blend": "multiply", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_multiply", "type": "digits", "digits": 8, "size": [80, 12], "x": 370, "y": 218, "text": "MULTIPLY",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_normal", "type": "image", "image": "glow", "anchor": "center", "x": 550, "y": 150, "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_normal", "type": "digits", "digits": 6, "size": [60, 12], "x": 520, "y": 218, "text": "NORMAL",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "pair_group", "type": "group", "x": 150, "y": 290, "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}],
+      "children": [
+        {"name": "left", "type": "image", "image": "glow", "anchor": "center", "x": -28, "y": 0},
+        {"name": "right", "type": "image", "image": "glow", "anchor": "center", "x": 28, "y": 0}
+      ]
+    },
+    {
+      "name": "label_pair_group", "type": "digits", "digits": 22, "size": [220, 12], "x": 40, "y": 326, "text": "TWO IN ONE ADD GROUP",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "pair_left", "type": "image", "image": "glow", "anchor": "center", "x": 432, "y": 290, "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "pair_right", "type": "image", "image": "glow", "anchor": "center", "x": 488, "y": 290, "blend": "add", "opacity": 0,
+      "bindings": [{"property": "opacity", "variable": "lamp", "transition": {"duration": 0.5}}]
+    },
+    {
+      "name": "label_pair_layers", "type": "digits", "digits": 24, "size": [240, 12], "x": 350, "y": 326, "text": "TWO ADD LAYERS: OVERLAP",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_pair_layers_2", "type": "digits", "digits": 10, "size": [100, 12], "x": 350, "y": 342, "text": "ADDS TWICE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "loop": true,
+  "steps": [
+    { "set": { "size": 1 } },
+    { "wait": 1.5 },
+    { "trigger": "pulse" },
+    { "wait": 1.5 },
+    { "set": { "size": 0.5 } },
+    { "wait": 1.5 },
+    { "set": { "size": 2 } },
+    { "wait": 1.5 },
+    { "trigger": "pulse" },
+    { "wait": 1.5 },
+    { "set": { "size": 1 } },
+    { "wait": 1.5 }
+  ]
+}

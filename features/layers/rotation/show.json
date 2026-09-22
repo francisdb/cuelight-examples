@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "rotation",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"speed": 0, "heading": 0, "stretch": 1},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 23, "size": [322, 20], "x": 24, "y": 18, "text": "ROTATION AND TRANSFORMS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "dial", "type": "shape", "shape": {"circle": [0, 0, 66]}, "fill": "#161B22", "x": 120, "y": 140},
+    {"name": "dial_min", "type": "shape", "shape": {"rect": [-2, -66, 4, 12]}, "fill": "#8B96A5", "x": 120, "y": 140, "rotation": -120},
+    {"name": "dial_mid", "type": "shape", "shape": {"rect": [-2, -66, 4, 12]}, "fill": "#8B96A5", "x": 120, "y": 140},
+    {"name": "dial_max", "type": "shape", "shape": {"rect": [-2, -66, 4, 12]}, "fill": "#FF5A5A", "x": 120, "y": 140, "rotation": 120},
+    {
+      "name": "needle", "type": "shape", "shape": {"rect": [0, 0, 6, 60]}, "fill": "#FFB000", "anchor": "bottom", "x": 120, "y": 140, "rotation": -120,
+      "bindings": [{"property": "rotation", "variable": "speed", "scale": 2.4, "offset": -120, "transition": {"duration": 0.6, "ease": "cubic_out"}}]
+    },
+    {"name": "hub", "type": "shape", "shape": {"circle": [0, 0, 7]}, "fill": "#E6EDF3", "x": 120, "y": 140},
+    {
+      "name": "speed", "type": "digits", "digits": 3, "size": [36, 16], "x": 102, "y": 160, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "bindings": [{"property": "text", "variable": "speed"}]
+    },
+    {
+      "name": "label_needle", "type": "digits", "digits": 18, "size": [144, 12], "x": 48, "y": 218, "text": "NEEDLE: ROTATION",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_needle_2", "type": "digits", "digits": 18, "size": [144, 12], "x": 48, "y": 234, "text": "BOUND TO SPEED",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "rose", "type": "shape", "shape": {"circle": [0, 0, 66]}, "fill": "#161B22", "x": 320, "y": 140},
+    {
+      "name": "north", "type": "digits", "digits": 1, "size": [10, 12], "x": 315, "y": 80, "text": "N",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "compass", "type": "group", "x": 320, "y": 140,
+      "bindings": [{"property": "rotation", "variable": "heading", "transition": {"duration": 0.8, "ease": "cubic_in_out", "wrap": 360}}],
+      "children": [
+        {"name": "red", "type": "shape", "shape": {"path": "M -7 0 L 0 -54 L 7 0 Z"}, "fill": "#FF5A5A"},
+        {"name": "white", "type": "shape", "shape": {"path": "M -7 0 L 0 54 L 7 0 Z"}, "fill": "#E6EDF3"},
+        {"name": "pin", "type": "shape", "shape": {"circle": [0, 0, 6]}, "fill": "#0E1116"}
+      ]
+    },
+    {
+      "name": "heading", "type": "digits", "digits": 3, "size": [36, 16], "x": 302, "y": 160, "text": "0", "justify": "right",
+      "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0"}}, "bindings": [{"property": "text", "variable": "heading"}]
+    },
+    {
+      "name": "label_compass", "type": "digits", "digits": 18, "size": [144, 12], "x": 248, "y": 218, "text": "GROUP: HEADING ON",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_compass_2", "type": "digits", "digits": 18, "size": [144, 12], "x": 248, "y": 234, "text": "A 360 RING, SHORTEST",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "fan", "type": "shape", "anchor": "center", "x": 520, "y": 140, "fill": "#3EC9F0",
+      "shape": {"path": "M 0 0 L 20 -60 Q 0 -70 -20 -60 Z M 0 0 L 62 12 Q 66 32 50 44 Z M 0 0 L -62 12 Q -66 32 -50 44 Z"},
+      "timelines": [
+        {"name": "spin", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0, "v": 0}, {"t": 3, "v": 360}]}]}
+      ]
+    },
+    {"name": "fan_hub", "type": "shape", "shape": {"circle": [0, 0, 8]}, "fill": "#E6EDF3", "x": 520, "y": 140},
+    {
+      "name": "label_fan", "type": "digits", "digits": 18, "size": [144, 12], "x": 448, "y": 218, "text": "ANCHOR CENTER, A",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_fan_2", "type": "digits", "digits": 18, "size": [144, 12], "x": 448, "y": 234, "text": "LOOPING 0 TO 360",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "radar", "type": "group", "x": 120, "y": 296, "clip": {"rect": [-44, -44, 88, 44]},
+      "timelines": [
+        {"name": "sweep", "trigger": "sweep", "repeat": 2, "tracks": [{"property": "rotation", "keys": [{"t": 0, "v": 0}, {"t": 1.5, "v": 360}]}]}
+      ],
+      "children": [
+        {"name": "disc", "type": "shape", "shape": {"circle": [0, 0, 44]}, "fill": "#12331E"},
+        {"name": "ring", "type": "shape", "shape": {"circle": [0, 0, 44]}, "fill": "#00000000", "stroke": {"color": "#4ADE80", "width": 2}},
+        {"name": "ring_2", "type": "shape", "shape": {"circle": [0, 0, 26]}, "fill": "#00000000", "stroke": {"color": "#4ADE80", "width": 2}},
+        {"name": "beam", "type": "shape", "shape": {"rect": [-1, -44, 2, 44]}, "fill": "#4ADE80"},
+        {"name": "blip", "type": "shape", "shape": {"circle": [18, -24, 4]}, "fill": "#E6EDF3"}
+      ]
+    },
+    {
+      "name": "label_radar", "type": "digits", "digits": 18, "size": [180, 12], "x": 30, "y": 344, "text": "SWEEP: GROUP TURNS",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "word", "type": "digits", "digits": 4, "size": [56, 20], "x": 262, "y": 286, "text": "FLIP",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+    },
+    {
+      "name": "word_mirrored", "type": "digits", "digits": 4, "size": [56, 20], "anchor": "left", "x": 378, "y": 296, "text": "FLIP", "scale_x": -1,
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+    },
+    {
+      "name": "label_flip", "type": "digits", "digits": 10, "size": [100, 12], "x": 280, "y": 344, "text": "SCALE_X -1",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "blob", "type": "shape", "shape": {"circle": [0, 0, 28]}, "fill": "#7C5CFF", "x": 520, "y": 296,
+      "bindings": [
+        {"property": "scale_x", "variable": "stretch", "transition": {"duration": 0.6, "ease": "back_out"}},
+        {"property": "scale_y", "variable": "stretch", "scale": -0.5, "offset": 1.5, "transition": {"duration": 0.6, "ease": "back_out"}}
+      ]
+    },
+    {
+      "name": "label_stretch", "type": "digits", "digits": 18, "size": [144, 12], "x": 448, "y": 344, "text": "SCALE_X, SCALE_Y",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}
