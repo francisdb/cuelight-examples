@@ -155,19 +155,13 @@
       ]
     },
 
-    {"name": "whir", "type": "audio", "sound": "whir", "trigger": "spin", "loop": true, "stop": "reels_stopped", "gain": 0.7},
+    {"name": "spin_1", "type": "audio", "sound": "spin_1", "trigger": "spin", "gain": 0.5},
+    {"name": "spin_2", "type": "audio", "sound": "spin_2", "trigger": "spin", "gain": 0.5},
+    {"name": "spin_3", "type": "audio", "sound": "spin_3", "trigger": "spin", "gain": 0.5},
     {"name": "clunk_1", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 3.45, "gain": 0.9},
     {"name": "clunk_2", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 3.95, "gain": 0.9},
     {"name": "clunk_3", "type": "audio", "sound": "clunk", "trigger": "spin", "delay": 4.45, "gain": 0.9},
     {"name": "win_sound", "type": "audio", "sound": "win", "trigger": "win", "gain": 0.8},
-    {"name": "lose_sound", "type": "audio", "sound": "lose", "trigger": "lose", "gain": 0.6},
-    {
-      "name": "reel_clock", "type": "shape", "shape": {"rect": [0, 0, 0, 0]}, "fill": "#00000000",
-      "timelines": [
-        {"name": "until_stopped", "trigger": "spin", "on_end": "reels_stopped", "tracks": [
-          {"property": "opacity", "keys": [{"t": 0.0, "v": 1}, {"t": 4.9, "v": 1}]}
-        ]}
-      ]
-    }
+    {"name": "lose_sound", "type": "audio", "sound": "lose", "trigger": "lose", "gain": 0.6}
   ]
 }

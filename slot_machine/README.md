@@ -15,7 +15,8 @@ show only knows how to spin, land and celebrate.
 | The strip | the reel behind the symbols is the cream of a paper reel strip, and each symbol is one flat saturated colour under a heavy dark outline with a single highlight, which is what printing on such a strip allowed |
 | Credits and win | `reel` rows again, this time drawn in a font, so the figures roll like an odometer. The host pads them, since a blank is not on their ring |
 | Bet | a `numeric7` segment display, for the one readout on the machine that never rolls |
-| Sound | an `audio` layer per event: a whir that loops from `spin` until a timeline's `on_end` fires `reels_stopped`, three clunks on the same `spin` trigger with `delay` matching each wheel's stop, and a chime or a thud on `win` and `lose` |
+| Sound | an `audio` layer per event, all on the same `spin` trigger the wheels take: one spin sound per reel, each as long as that reel's spin, and three clunks with a `delay` matching each wheel's stop. A chime or a thud on `win` and `lose` |
+| A wheel running down | nothing in a show can follow a reel's speed, so the deceleration is baked into the sound: [`tools/slot_machine_sounds.py`](../tools/slot_machine_sounds.py) reads each reel's `duration` and `turns` out of this file and ticks wherever the ease says a symbol passes the line, so the ticks land on the symbols the eye sees. It is the same tick every time: thirty identical ticks a second fuse into a buzz that falls in pitch with the wheel and comes apart into single ticks as it arrives, where thirty different ones would only hiss |
 | Celebration | `win` flashes the cabinet's stroked outline, pulses the payline and pops a banner in with a `back_out` ease, below the line so the winning symbols stay visible |
 
 It needs cuelight `main` with reel rows, reel artwork, path shapes and
@@ -85,9 +86,12 @@ The game, its odds and its name are made up.
   window.
 - A blur or a squash on a spinning wheel: at speed the symbols step from
   frame to frame rather than smearing, which is what sells a real reel.
-- Sound that follows the wheel: the clunks are placed by hand at each
-  wheel's duration, so changing a duration means changing a delay too. A
-  reel reporting the steps it took this frame, the way the design notes
-  suggest for mechanical sound, would tie the two together.
+- Sound that follows the wheel while it turns. The spin sounds are baked
+  from the reel's own numbers, so they cannot drift, but they are fixed
+  recordings: a held or nudged reel, or a wheel the host stops early,
+  would still be heard running. A reel reporting the steps it took this
+  frame, the way the design notes suggest for mechanical sound, would
+  make the click the wheel's rather than a copy of it. The clunks have
+  the same trouble, placed by hand at each wheel's duration.
 - A held or nudged reel, which is most of what a real fruit machine does
   and needs nothing new: the host would simply leave one variable alone.
