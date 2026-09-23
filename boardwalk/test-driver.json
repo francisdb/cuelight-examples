@@ -1,0 +1,1767 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "gi": 1,
+        "credits": "02",
+        "data_35": 1,
+        "data_31": 0,
+        "data_30": 0,
+        "data_32": 0,
+        "data_33": 0,
+        "data_36": 0,
+        "data_41": 0,
+        "data_40": 0,
+        "data_1": 0,
+        "data_2": 0,
+        "data_3": 0,
+        "data_4": 0,
+        "data_5": 0,
+        "data_6": 0,
+        "data_7": 0,
+        "data_8": 0,
+        "data_9": 0,
+        "score_1": "18720",
+        "score_2": "12070",
+        "score_3": "00000",
+        "score_4": "00000",
+        "data_34": 70
+      }
+    },
+    {
+      "wait": 6.0
+    },
+    {
+      "set": {
+        "credits": "01",
+        "data_31": 1
+      }
+    },
+    {
+      "trigger": "start"
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.7
+    },
+    {
+      "set": {
+        "credits": "00",
+        "data_31": 2
+      }
+    },
+    {
+      "trigger": "start"
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.7
+    },
+    {
+      "set": {
+        "data_35": 0,
+        "data_34": 0,
+        "score_1": "00000",
+        "score_2": "00000",
+        "score_3": "00000",
+        "score_4": "00000"
+      }
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.07
+    },
+    {
+      "trigger": "reel_step"
+    },
+    {
+      "wait": 0.67
+    },
+    {
+      "set": {
+        "data_30": 1,
+        "data_32": 1,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_1": "00010"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "00110"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "00120"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_1": 1,
+        "score_1": "00220"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "00320"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "00420"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "00520"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "00620"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "score_1": "00720"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "00820"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "01820"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_1": "01830"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 3,
+        "score_1": "01930"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "data_2": 1,
+        "score_1": "02030"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "02130"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "02230"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "02330"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "02430"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "score_1": "02440"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "03440"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "04440"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_1": "05440"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 2,
+        "data_32": 1,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_2": "00100"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_2": "00200"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "00210"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "01210"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_3": 1,
+        "score_2": "01310"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "01410"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "01510"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "01610"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "01710"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_2": "01810"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "01820"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "01830"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_4": 1,
+        "score_2": "01930"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "02030"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "02130"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "02230"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "02330"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "score_2": "02430"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "02530"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_2": "03530"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_2": "04530"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 1,
+        "data_32": 2,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_1": "05450"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "05550"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "06550"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_5": 1,
+        "score_1": "06650"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "06750"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "06850"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "06950"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "07050"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "score_1": "07060"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_36": 1
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "07160"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "data_40": 3,
+        "score_1": "07260"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "07360"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_6": 1,
+        "score_1": "07460"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "07560"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "07660"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "07760"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "07860"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "score_1": "07870"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "08870"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "09870"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_1": "10870"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 1,
+        "data_32": 2,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_1": "10880"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "10980"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "11080"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "11180"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "11280"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_1": "12280"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_1": "12290"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_1": "13290"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 2,
+        "data_32": 2,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_2": "04630"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_2": "04730"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "04740"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_7": 1,
+        "score_2": "04840"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "04940"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05040"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05140"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05240"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_2": "05340"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "05440"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05540"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05640"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05740"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "05840"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_33": 1,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 2.8
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 1,
+        "data_32": 3,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_1": "14290"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "14390"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "14400"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_8": 1,
+        "score_1": "14500"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "14600"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "14700"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "14800"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "14900"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "15000"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_1": "15100"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 3,
+        "score_1": "15200"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "data_9": 1,
+        "score_1": "15300"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "15400"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "15500"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "15600"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_1": "15700"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.43
+    },
+    {
+      "set": {
+        "data_41": 1,
+        "credits": "01"
+      }
+    },
+    {
+      "trigger": "knocker"
+    },
+    {
+      "wait": 0.8
+    },
+    {
+      "set": {
+        "score_1": "15710"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_1": "15720"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_1": "16720"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_1": "17720"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_1": "18720"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 2,
+        "data_32": 3,
+        "data_33": 0,
+        "data_40": 0
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "score_2": "05850"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_2": "05950"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "06950"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "07050"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_2": "07150"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "07250"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "07350"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "07450"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "07550"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "07650"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "07660"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "data_40": 3,
+        "score_2": "07760"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.38
+    },
+    {
+      "set": {
+        "score_2": "08760"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "08770"
+      }
+    },
+    {
+      "trigger": "chime_10"
+    },
+    {
+      "wait": 0.48
+    },
+    {
+      "set": {
+        "score_2": "08870"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "08970"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 0.13
+    },
+    {
+      "set": {
+        "score_2": "09070"
+      }
+    },
+    {
+      "trigger": "chime_100"
+    },
+    {
+      "wait": 1.28
+    },
+    {
+      "set": {
+        "data_40": 2,
+        "score_2": "10070"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 1,
+        "score_2": "11070"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.16
+    },
+    {
+      "set": {
+        "data_40": 0,
+        "score_2": "12070"
+      }
+    },
+    {
+      "trigger": "chime_1000"
+    },
+    {
+      "wait": 0.46
+    },
+    {
+      "set": {
+        "data_36": 0,
+        "data_41": 0,
+        "data_33": 0
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "data_30": 0,
+        "data_32": 0,
+        "data_35": 1
+      }
+    },
+    {
+      "wait": 1.0
+    },
+    {
+      "set": {
+        "data_34": 70
+      }
+    },
+    {
+      "wait": 0.8
+    },
+    {
+      "set": {
+        "credits": "02"
+      }
+    },
+    {
+      "trigger": "knocker"
+    },
+    {
+      "wait": 5.0
+    }
+  ]
+}
