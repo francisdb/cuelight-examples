@@ -166,6 +166,12 @@
     {
       "name": "attract", "trigger": "attract",
       "layers": [
+        {
+          "name": "dim", "type": "shape", "shape": {"rect": [0, 0, 640, 360]}, "fill": "#0E1116", "opacity": 0.75,
+          "timelines": [{"name": "fade", "autoplay": true, "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.4, "v": 0.75, "ease": "quad_out"}]}
+          ]}]
+        },
         {"name": "jingle", "type": "audio", "sound": "jingle", "autoplay": true, "loop": true, "gain": 0.6},
         {
           "name": "scene_label", "type": "digits", "digits": 13, "size": [156, 16], "x": 464, "y": 326, "text": "SCENE ATTRACT",
