@@ -47,7 +47,7 @@ def write(path, samples, rate=RATE):
 def encode(wav, path):
     """Ogg Vorbis from a WAV file, with ffmpeg: a tenth of the size."""
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-c:a", "libvorbis", "-q:a", "4",
-                    "-map_metadata", "-1", str(path)], check=True)
+                    "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:a", "+bitexact", str(path)], check=True)
 
 
 

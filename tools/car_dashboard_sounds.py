@@ -44,7 +44,7 @@ def main():
             w.setframerate(RATE)
             w.writeframes(b"".join(samples))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp.name, "-c:a", "libvorbis", "-q:a", "4",
-                        "-map_metadata", "-1", str(out / "click.ogg")], check=True)
+                        "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:a", "+bitexact", str(out / "click.ogg")], check=True)
 
 
 if __name__ == "__main__":

@@ -44,7 +44,7 @@ def encode(path, samples):
             w.setframerate(RATE)
             w.writeframes(frames)
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp.name, "-c:a", "libvorbis", "-q:a", "3",
-                        "-map_metadata", "-1", str(path)], check=True)
+                        "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:a", "+bitexact", str(path)], check=True)
 
 
 def silence(seconds):
