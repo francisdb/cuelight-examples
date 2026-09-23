@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "pick",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"row": ""},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 14, "size": [196, 20], "x": 24, "y": 18, "text": "ONE OF SEVERAL",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "one", "type": "group", "y": 72,
+      "children": [
+        {"name": "knock", "type": "audio", "sound": "knock1", "trigger": "knock_one", "retrigger": "overlap"},
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "pulse", "trigger": "knock_one", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.25, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 9, "size": [117, 16], "x": 76, "y": 0, "text": "ONE SOUND",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"one": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 37, "size": [370, 12], "x": 76, "y": 24, "text": "EVERY KNOCK THE SAME LIKE A TAPE LOOP",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "in_order", "type": "group", "y": 130,
+      "children": [
+        {"name": "knock", "type": "audio", "sound": ["knock1", "knock2", "knock3"], "pick": "in_order", "trigger": "knock_in_order", "retrigger": "overlap"},
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "pulse", "trigger": "knock_in_order", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.25, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 8, "size": [104, 16], "x": 76, "y": 0, "text": "IN_ORDER",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"in_order": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 40, "size": [400, 12], "x": 76, "y": 24, "text": "THE DEFAULT GOES ONE TWO THREE AND ROUND",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "random", "type": "group", "y": 188,
+      "children": [
+        {"name": "knock", "type": "audio", "sound": ["knock1", "knock2", "knock3"], "pick": "random", "trigger": "knock_random", "retrigger": "overlap"},
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "pulse", "trigger": "knock_random", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.25, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 6, "size": [78, 16], "x": 76, "y": 0, "text": "RANDOM",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"random": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 43, "size": [430, 12], "x": 76, "y": 24, "text": "ANY OF THEM AND THE SAME ONE MAY COME TWICE",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "shuffle", "type": "group", "y": 246,
+      "children": [
+        {"name": "knock", "type": "audio", "sound": ["knock1", "knock2", "knock3"], "pick": "shuffle", "trigger": "knock_shuffle", "retrigger": "overlap"},
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "pulse", "trigger": "knock_shuffle", "tracks": [
+            {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.25, "v": 1, "ease": "cubic_out"}]},
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 7, "size": [91, 16], "x": 76, "y": 0, "text": "SHUFFLE",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"shuffle": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 43, "size": [430, 12], "x": 76, "y": 24, "text": "ALL THREE AND THEN ALL THREE IN A NEW ORDER",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "footer_1", "type": "digits", "digits": 49, "size": [490, 12], "x": 24, "y": 310,
+      "text": "A PICK COUNTS PLAYS AND ROLLS NO DICE SO THE SHOW", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "footer_2", "type": "digits", "digits": 50, "size": [500, 12], "x": 24, "y": 328,
+      "text": "SOUNDS THE SAME EVERY RUN UNLESS THE HOST SEEDS IT", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}
