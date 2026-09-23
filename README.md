@@ -12,6 +12,7 @@ in the browser on the [website](https://francisdb.github.io/cuelight-examples/).
 | [car_dashboard](car_dashboard/) | A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals |
 | [checkerboard](checkerboard/) | A rotating, breathing checkerboard behind a still chess piece: nested transforms, a host-driven zoom and a squashed shadow |
 | [departure_board](departure_board/) | An airport departure board made of segment displays, with no assets at all: text variables, mapped status colors, refresh triggers |
+| [game_hud](game_hud/) | A fantasy RPG interface: health and mana orbs, a skill hotbar with clock-wipe cooldowns, a turning minimap, a quest tracker, floating damage and banners, over a dusk landscape |
 | [slot_machine](slot_machine/) | A fruit machine: three reels of SVG symbols spinning to staggered stops, with sound, rolling credits and a win celebration |
 | [pinball_dmd](pinball_dmd/) | A pinball dot-matrix display: score layouts, a jackpot in full color, a night drive video mode and a segment display |
 | [streamer_overlay](streamer_overlay/) | A live stream overlay: alerts with a chime, a lower third, a follower goal bar, a viewer count, and starting-soon and be-right-back screens |
