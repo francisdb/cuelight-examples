@@ -22,25 +22,22 @@
       "wait": 0.5
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_overlap"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_overlap"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_overlap"
     },
     {
-      "wait": 0.1
-    },
-    {
-      "wait": 1.4
+      "wait": 3.0
     },
     {
       "set": {
@@ -51,25 +48,22 @@
       "wait": 0.5
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_restart"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_restart"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_restart"
     },
     {
-      "wait": 0.1
-    },
-    {
-      "wait": 1.4
+      "wait": 3.0
     },
     {
       "set": {
@@ -80,25 +74,48 @@
       "wait": 0.5
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_ignore"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_ignore"
     },
     {
-      "wait": 0.1
+      "wait": 0.4
     },
     {
-      "trigger": "coin"
+      "trigger": "zap_ignore"
     },
     {
-      "wait": 0.1
+      "wait": 3.0
     },
     {
-      "wait": 1.4
+      "set": {
+        "policy": "queue"
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "zap_queue"
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "zap_queue"
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "zap_queue"
+    },
+    {
+      "wait": 3.0
     },
     {
       "trigger": "strike"

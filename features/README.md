@@ -42,7 +42,7 @@ is what the website's gallery is built from.
 | `logo.svg` | `layers/paths` | written by hand for the example | same as this repository |
 | `glow.png` | `layers/blend_modes` | drawn by `tools/feature_assets.py` | same as this repository |
 | `badge.png`, `bulb.png`, `white_glow.png`, `worn.png` | `images/tint` | drawn by `tools/feature_assets.py`, the last three white or grey so a tint decides their color | same as this repository |
-| `music.wav`, `coin.wav`, `thunder.wav`, `jingle.wav` | `sound/audio_layers` | synthesized from sines and noise by [`tools/feature_sounds.py`](../tools/feature_sounds.py) | same as this repository |
+| `music.wav`, `zap.wav`, `thunder.wav`, `jingle.wav` | `sound/audio_layers` | synthesized from sines and noise by [`tools/feature_sounds.py`](../tools/feature_sounds.py) | same as this repository |
 | `knock1.wav`, `knock2.wav`, `knock3.wav` | `sound/pick` | synthesized by `tools/feature_sounds.py`: three takes of one knock | same as this repository |
 | `tiny5-8` bitmap font | `text/bitmap_font` | [Tiny5](https://github.com/Gissio/font_tiny5), rasterized with [`tools/ttf2bmfont.py`](../tools/ttf2bmfont.py) | [OFL 1.1](text/bitmap_font/licenses/Tiny5-OFL.txt), no reserved font name |
 | `silkscreen-8`, `silkscreen_bold-16` bitmap fonts | `text/bitmap_font` | [Silkscreen](https://github.com/googlefonts/silkscreen) from [Google Fonts](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/silkscreen), rasterized with `tools/ttf2bmfont.py` (the bold one at 16 pixels with `--padding 2`) | [OFL 1.1](text/bitmap_font/licenses/Silkscreen-OFL.txt), no reserved font name |
