@@ -61,19 +61,18 @@ def ellipse(cx, cy, rx, ry, steps=28):
 # lettering. (name, polygon, text, face colour, text colour, text box
 # (x, y, w, h), variable, value). The lamp is lit while `variable`
 # equals `value`, or while it is 1 or more when `value` is None. The
-# variables are the B2S data ids a table script sets, passed straight
-# through by a host.
+# variables are named after what they mean, as the table sets them.
 LAMPS = []
 
 for _player, _x in BOARDS:
     LAMPS.append((f"player_{_player}_up", rect(_x + 14, BOARD_TOP + 12, BOARD_W - 28, 30), f"PLAYER {_player} UP",
-                  MUSTARD, INK, (_x + 14, BOARD_TOP + 12, BOARD_W - 28, 30), "data_30", _player))
+                  MUSTARD, INK, (_x + 14, BOARD_TOP + 12, BOARD_W - 28, 30), "player_up", _player))
     LAMPS.append((f"rollover_{_player}", rect(_x + 48, BOARD_BOTTOM - 38, BOARD_W - 96, 26), "100,000",
-                  CREAM, RED, (_x + 48, BOARD_BOTTOM - 38, BOARD_W - 96, 26), f"data_{24 + _player}", None))
+                  CREAM, RED, (_x + 48, BOARD_BOTTOM - 38, BOARD_W - 96, 26), f"rollover_{_player}", None))
 
 # The ticket booth: a SPECIAL sign over the credit window.
 LAMPS.append(("special", rect(BOOTH[0] + 10, BOOTH[1] + 20, BOOTH[2] - 20, 30), "SPECIAL", RED, CREAM,
-              (BOOTH[0] + 10, BOOTH[1] + 20, BOOTH[2] - 20, 30), "data_41", None))
+              (BOOTH[0] + 10, BOOTH[1] + 20, BOOTH[2] - 20, 30), "special", None))
 
 # The fortune wheel on the booth: its ten wedges are the match numbers.
 MATCH_WHEEL = (480, 458, 58, 22)   # centre, outer and inner radius
@@ -83,8 +82,8 @@ for _k in range(10):
     _tx = MATCH_WHEEL[0] + 41 * math.sin(_mid)
     _ty = MATCH_WHEEL[1] - 41 * math.cos(_mid)
     LAMPS.append((f"match_{_k * 10:02d}", wedge(MATCH_WHEEL[0], MATCH_WHEEL[1], MATCH_WHEEL[3], MATCH_WHEEL[2], _a0, _a1),
-                  f"{_k * 10:02d}", [CREAM, MUSTARD][_k % 2], INK, (_tx - 12, _ty - 8, 24, 16), "data_34",
-                  100 if _k == 0 else _k * 10))
+                  f"{_k * 10:02d}", [CREAM, MUSTARD][_k % 2], INK, (_tx - 12, _ty - 8, 24, 16), "match",
+                  f"{_k * 10:02d}"))
 
 # The coaster's five cars on the first hill: the ball in play.
 COASTER_CARS = []
@@ -92,26 +91,26 @@ for _ball in range(1, 6):
     _x, _y = 116 + (_ball - 1) * 36, 214 + (_ball - 1) * 18
     COASTER_CARS.append((_x, _y))
     LAMPS.append((f"ball_{_ball}", rect(_x - 15, _y - 13, 30, 24), str(_ball), CREAM, INK, (_x - 15, _y - 13, 30, 24),
-                  "data_32", _ball))
+                  "ball_in_play", _ball))
 
 # A biplane towing the game-over banner across the sky.
 PLANE = (910, 96)
 BANNER = (672, 76, 196, 42)
-LAMPS.append(("game_over", rect(*BANNER), "GAME OVER", CREAM, RED, BANNER, "data_35", None))
+LAMPS.append(("game_over", rect(*BANNER), "GAME OVER", CREAM, RED, BANNER, "game_over", None))
 
 # Tilt on the lifeguard tower's board, shoot again on a child's balloon.
 TOWER = (424, 312)
 LAMPS.append(("tilt", rect(TOWER[0] - 38, TOWER[1] - 14, 76, 30), "TILT", RED, CREAM,
-              (TOWER[0] - 38, TOWER[1] - 14, 76, 30), "data_33", None))
+              (TOWER[0] - 38, TOWER[1] - 14, 76, 30), "tilt", None))
 BALLOON = (618, 344, 46, 56)   # centre and radii
 LAMPS.append(("shoot_again", ellipse(*BALLOON), "SHOOT\nAGAIN", ORANGE, CREAM,
-              (BALLOON[0] - 38, BALLOON[1] - 30, 76, 60), "data_36", None))
+              (BALLOON[0] - 38, BALLOON[1] - 30, 76, 60), "shoot_again", None))
 
 # Players in the game: four pennants on the booth's roof.
 for _n in range(1, 5):
     _x = BOOTH[0] + 10 + (_n - 1) * 26
     LAMPS.append((f"can_play_{_n}", [(_x, 526), (_x + 22, 526), (_x + 11, 548)], str(_n), TEAL, CREAM,
-                  (_x, 526, 22, 15), "data_31", _n))
+                  (_x, 526, 22, 15), "players", _n))
 
 # Captions painted on the scene that no lamp lights.
 CAPTIONS = [
