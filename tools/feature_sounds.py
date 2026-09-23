@@ -6,11 +6,12 @@
 WAV files, 44.1 kHz mono 16-bit, all made from sines and noise so there
 is nothing to license. For audio_layers:
 
-- bed.wav: four seconds of a soft chord that loops without a seam, every
-  partial a whole number of cycles long, with a slow swell.
+- music.wav: eight seconds of a plucked arpeggio over Am, F, C and G that
+  loops without a seam: notes ringing past the end are mixed into the
+  start. At 22.05 kHz, to keep the file small.
 - coin.wav: a quarter second blip that steps up a fourth.
-- thunder.wav: 1.6 seconds of low, rumbling noise that rolls in and dies
-  away.
+- thunder.wav: 1.6 seconds of rumbling noise that rolls in and dies
+  away, with a few cracks of brighter noise at the start.
 - jingle.wav: a two second three-note motif for the attract scene, looped.
 
 For pick, three takes of one knock on a woodblock, knock1.wav to
@@ -25,14 +26,17 @@ import wave
 from pathlib import Path
 
 RATE = 44100
+# Half rate for the long music loop: half the file, and nothing in it
+# comes near the 11 kHz that still leaves.
+MUSIC_RATE = 22050
 
 
-def write(path, samples):
+def write(path, samples, rate=RATE):
     frames = b"".join(struct.pack("<h", int(max(-1.0, min(1.0, s)) * 32767)) for s in samples)
     with wave.open(str(path), "wb") as w:
         w.setnchannels(1)
         w.setsampwidth(2)
-        w.setframerate(RATE)
+        w.setframerate(rate)
         w.writeframes(frames)
 
 
@@ -55,18 +59,47 @@ def mix(*parts):
     return out
 
 
-def bed():
-    seconds = 4.0
-    # Frequencies rounded so that each fits the loop a whole number of
-    # times: no click at the seam.
-    notes = [round(f * seconds) / seconds for f in (110.0, 164.81, 220.0, 277.18)]
+def midi(note):
+    return 440.0 * 2 ** ((note - 69) / 12)
+
+
+def pluck(frequency, seconds, decay, level, partials, rate=RATE):
+    """A plucked note: a few harmonics, the higher ones dying sooner."""
     out = []
-    for n in range(int(RATE * seconds)):
-        t = n / RATE
-        swell = 0.75 + 0.25 * math.sin(2 * math.pi * t / seconds)  # one cycle per loop
-        value = sum(math.sin(2 * math.pi * f * t) / (i + 1.5) for i, f in enumerate(notes))
-        out.append(0.22 * swell * value)
+    for n in range(int(rate * seconds)):
+        t = n / rate
+        attack = min(t / 0.004, 1.0)
+        value = sum(
+            math.sin(2 * math.pi * frequency * k * t) * math.exp(-t * decay * k) / k
+            for k in range(1, partials + 1)
+        )
+        out.append(level * attack * value)
     return out
+
+
+def music():
+    step = 0.25  # an eighth note at 120 bpm
+    seconds = 32 * step  # four bars
+    chords = [(57, 60, 64), (53, 57, 60), (48, 52, 55), (55, 59, 62)]  # Am F C G
+    pattern = [0, 1, 2, 3, 2, 1, 2, 3]  # indices into root, third, fifth, octave
+    total = int(MUSIC_RATE * seconds)
+    out = [0.0] * total
+
+    def add(start, samples):
+        # Wrapped round, so tails ringing past the end sound at the start
+        # and the loop has no seam.
+        offset = int(start * MUSIC_RATE)
+        for i, v in enumerate(samples):
+            out[(offset + i) % total] += v
+
+    for bar, (root, third, fifth) in enumerate(chords):
+        notes = [root + 12, third + 12, fifth + 12, root + 24]
+        # The bass is low, so its upper harmonics carry it on small speakers.
+        add(bar * 8 * step, pluck(midi(root - 12), 1.6, 2.5, 0.35, 6, MUSIC_RATE))
+        for i, index in enumerate(pattern):
+            add((bar * 8 + i) * step, pluck(midi(notes[index]), 0.9, 5.0, 0.22, 3, MUSIC_RATE))
+    peak = max(abs(v) for v in out)
+    return [0.6 * v / peak for v in out]
 
 
 def coin():
@@ -76,15 +109,22 @@ def coin():
 def thunder():
     random.seed(9)
     seconds = 1.6
+    # A few cracks in the first half second, each a burst of a few ms.
+    cracks = sorted(random.uniform(0.0, 0.5) for _ in range(6))
     out = []
     low = 0.0
     for n in range(int(RATE * seconds)):
         t = n / RATE
-        # White noise through a crude one-pole low pass: a rumble.
-        low += (random.uniform(-1, 1) - low) * 0.02
+        noise = random.uniform(-1, 1)
+        # White noise through a crude one-pole low pass: a rumble, open
+        # enough that small speakers still play some of it.
+        low += (noise - low) * 0.06
         envelope = min(t / 0.15, 1.0) * math.exp(-(t - 0.15) * 2.2 if t > 0.15 else 0.0)
-        out.append(4.5 * low * envelope)
-    return out
+        # What the low pass took out: the crackle on top.
+        crackle = sum(math.exp(-(t - c) * 120) for c in cracks if t >= c) * (noise - low)
+        out.append(2.5 * low * envelope + 0.35 * crackle)
+    peak = max(abs(v) for v in out)
+    return [0.9 * v / peak for v in out]
 
 
 def jingle():
@@ -115,7 +155,7 @@ def knock(pitch, seed):
 def main():
     root = Path(__file__).resolve().parent.parent / "features" / "sound"
     examples = {
-        "audio_layers": [("bed", bed()), ("coin", coin()), ("thunder", thunder()), ("jingle", jingle())],
+        "audio_layers": [("music", music()), ("coin", coin()), ("thunder", thunder()), ("jingle", jingle())],
         "pick": [
             ("knock1", knock(523.25, 1)),
             ("knock2", knock(659.25, 2)),
@@ -126,7 +166,7 @@ def main():
         out = root / example / "assets" / "sounds"
         out.mkdir(parents=True, exist_ok=True)
         for name, samples in sounds:
-            write(out / f"{name}.wav", samples)
+            write(out / f"{name}.wav", samples, MUSIC_RATE if name == "music" else RATE)
 
 
 if __name__ == "__main__":
