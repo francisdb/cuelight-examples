@@ -160,7 +160,7 @@ def chime(out):
             w.setframerate(rate)
             w.writeframes(b"".join(frames))
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp.name, "-c:a", "libvorbis", "-q:a", "4",
-                        "-map_metadata", "-1", str(out / "sounds" / "chime.ogg")], check=True)
+                        "-map_metadata", "-1", "-fflags", "+bitexact", "-flags:a", "+bitexact", str(out / "sounds" / "chime.ogg")], check=True)
 
 
 def main():
