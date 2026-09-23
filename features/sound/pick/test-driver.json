@@ -1,0 +1,265 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "row": "one"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_one"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "set": {
+        "row": "in_order"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_in_order"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "set": {
+        "row": "random"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_random"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "set": {
+        "row": "shuffle"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "trigger": "knock_shuffle"
+    },
+    {
+      "wait": 0.32
+    },
+    {
+      "wait": 0.6
+    }
+  ]
+}

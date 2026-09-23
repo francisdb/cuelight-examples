@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Synthesize the sounds of features/sound/audio_layers.
+"""Synthesize the sounds of the feature examples under features/sound/.
 
-    tools/feature_sounds.py features/sound/audio_layers/assets/sounds
+    tools/feature_sounds.py
 
-Four WAV files, 44.1 kHz mono 16-bit, all made from sines and noise so
-there is nothing to license:
+WAV files, 44.1 kHz mono 16-bit, all made from sines and noise so there
+is nothing to license. For audio_layers:
 
 - bed.wav: four seconds of a soft chord that loops without a seam, every
   partial a whole number of cycles long, with a slow swell.
@@ -12,12 +12,15 @@ there is nothing to license:
 - thunder.wav: 1.6 seconds of low, rumbling noise that rolls in and dies
   away.
 - jingle.wav: a two second three-note motif for the attract scene, looped.
+
+For pick, three takes of one knock on a woodblock, knock1.wav to
+knock3.wav, a quarter second each. Real takes would differ less: these
+are a C, an E and a G, so which one plays is easy to hear.
 """
 
 import math
 import random
 import struct
-import sys
 import wave
 from pathlib import Path
 
@@ -91,11 +94,39 @@ def jingle():
     return out + [0.0] * (int(RATE * 2.0) - len(out))
 
 
+def knock(pitch, seed):
+    """A knock on a woodblock: a tone and the inharmonic overtone wood
+    has, both dying fast, and a click of noise on top for the strike.
+    Pitched up where small speakers still play it, and normalized."""
+    random.seed(seed)
+    seconds = 0.25
+    out = []
+    for n in range(int(RATE * seconds)):
+        t = n / RATE
+        attack = min(t / 0.001, 1.0)
+        body = attack * math.exp(-t * 30) * math.sin(2 * math.pi * pitch * t)
+        overtone = 0.5 * attack * math.exp(-t * 70) * math.sin(2 * math.pi * pitch * 2.76 * t)
+        strike = 0.6 * math.exp(-t * 500) * random.uniform(-1, 1)
+        out.append(body + overtone + strike)
+    peak = max(abs(v) for v in out)
+    return [0.9 * v / peak for v in out]
+
+
 def main():
-    out = Path(sys.argv[1])
-    out.mkdir(parents=True, exist_ok=True)
-    for name, samples in [("bed", bed()), ("coin", coin()), ("thunder", thunder()), ("jingle", jingle())]:
-        write(out / f"{name}.wav", samples)
+    root = Path(__file__).resolve().parent.parent / "features" / "sound"
+    examples = {
+        "audio_layers": [("bed", bed()), ("coin", coin()), ("thunder", thunder()), ("jingle", jingle())],
+        "pick": [
+            ("knock1", knock(523.25, 1)),
+            ("knock2", knock(659.25, 2)),
+            ("knock3", knock(783.99, 3)),
+        ],
+    }
+    for example, sounds in examples.items():
+        out = root / example / "assets" / "sounds"
+        out.mkdir(parents=True, exist_ok=True)
+        for name, samples in sounds:
+            write(out / f"{name}.wav", samples)
 
 
 if __name__ == "__main__":
