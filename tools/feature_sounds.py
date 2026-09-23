@@ -15,9 +15,10 @@ nothing to license (written as WAV and encoded with ffmpeg). For audio_layers:
   away, with a few cracks of brighter noise at the start.
 - jingle.ogg: a two second three-note motif for the attract scene, looped.
 
-For rest, tick.ogg: a switch's click, 25 ms, shorter than the 30 ms
-between two triggers of the chattering switch, so every play ends before
-the next can start.
+For rest, tick.ogg: a switch's click, 80 ms, a knock with a sharp edge
+on it, loud and low enough to hear on its own. Plays of it overlap when
+the switch chatters, but no more than three at once, so every play still
+runs to its end.
 
 For pick, three takes of one knock on a woodblock, knock1.ogg to
 knock3.ogg, a quarter second each. Real takes would differ less: these
@@ -184,14 +185,15 @@ def knock(pitch, seed):
 
 def tick():
     random.seed(40)
-    seconds = 0.025
+    seconds = 0.08
     out = []
     for n in range(int(RATE * seconds)):
         t = n / RATE
-        body = math.exp(-t * 260) * math.sin(2 * math.pi * 2400 * t)
-        click = math.exp(-t * 900) * random.uniform(-1, 1)
-        out.append(0.8 * (0.7 * body + 0.5 * click))
-    return out
+        body = math.exp(-t * 55) * (math.sin(2 * math.pi * 1300 * t) + 0.5 * math.sin(2 * math.pi * 2750 * t))
+        click = math.exp(-t * 600) * random.uniform(-1, 1)
+        out.append(body + 0.8 * click)
+    peak = max(abs(v) for v in out)
+    return [0.9 * v / peak for v in out]
 
 
 def main():
