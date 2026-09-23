@@ -4,7 +4,7 @@
       "name": "Shows",
       "description": "Complete shows, each playing a scripted demo.",
       "examples": [
-        { "path": "boardwalk", "title": "Boardwalk", "description": "A retro electromechanical backglass: a sunny pier painted on glass with lamps behind it, four players of score reels that step and chime, and lettering lit by the same B2S data a VPX table script sends.", "thumbnail_at": 30.0 },
+        { "path": "boardwalk", "title": "Boardwalk", "description": "A retro electromechanical pinball backglass: a sunny pier painted on glass and lit from behind, four players of score reels that step and chime, and every light of the game painted into the scene, switched by the table.", "thumbnail_at": 30.0 },
         { "path": "car_dashboard", "title": "Car dashboard", "description": "A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals.", "thumbnail_at": 8 },
         { "path": "checkerboard", "title": "Checkerboard", "description": "A board that turns and breathes behind a chess piece that does not: two copies of one checkerboard rotating against each other, scaled by the host, with the piece and its squashed shadow standing still in front.", "thumbnail_at": 14 },
         { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 },
