@@ -44,7 +44,8 @@
         { "path": "features/text/bitmap_font", "title": "Bitmap font", "description": "BMFont pixel fonts on a small canvas: color, border, a pixel shadow, alignment in a box, multiple lines.", "thumbnail_at": 3.2 },
         { "path": "features/text/outline_font", "title": "Outline font", "description": "A TrueType font at any size from one file: styles, borders, shadows, alignment, and a scale that stays sharp, its shadow scaling with it.", "thumbnail_at": 1.5 },
         { "path": "features/text/digits", "title": "Digit rows", "description": "Segment displays without any asset: alpha14 and numeric7, unlit segments, justification, the dot.", "thumbnail_at": 3.2 },
-        { "path": "features/text/reels", "title": "Reel rows", "description": "Digit cells that roll through a ring of characters drawn in a font: a staggered score odometer, a letter board, and the same step fast and slow.", "thumbnail_at": 12.2 }
+        { "path": "features/text/reels", "title": "Reel rows", "description": "Digit cells that roll through a ring of characters drawn in a font: a staggered score odometer, a letter board, and the same step fast and slow.", "thumbnail_at": 12.2 },
+        { "path": "features/text/reel_wheels", "title": "Reel wheels", "description": "Three reels that show one, three and five symbols: artwork overshooting into place in one journey, artwork clicking backward symbol by symbol, and letters from a font settling after four turns. The two with spin turn even for the symbol they already show; the one without stands still.", "thumbnail_at": 3.0 }
       ]
     },
     {

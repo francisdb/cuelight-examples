@@ -1,0 +1,70 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "one": "7",
+        "three": "B",
+        "five": "E"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "one": "P",
+        "three": "7",
+        "five": "H"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "one": "P",
+        "three": "7",
+        "five": "H"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "one": "C",
+        "three": "P",
+        "five": "A"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "one": "A",
+        "three": "C",
+        "five": "D"
+      }
+    },
+    {
+      "trigger": "spin"
+    },
+    {
+      "wait": 3.4
+    }
+  ]
+}
