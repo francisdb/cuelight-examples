@@ -74,7 +74,7 @@ have to travel with the files are in [`licenses/`](licenses/).
 | Asset | Origin | License |
 | --- | --- | --- |
 | `*.svg`, `drum.png` | Made for this show, drawn by [`tools/slot_machine_art.py`](../tools/slot_machine_art.py) | MIT, as this repository |
-| `sounds/*.wav` | Made for this show, synthesized from sines and noise by [`tools/slot_machine_sounds.py`](../tools/slot_machine_sounds.py) | MIT, as this repository |
+| `sounds/*.ogg` | Made for this show, synthesized from sines and noise by [`tools/slot_machine_sounds.py`](../tools/slot_machine_sounds.py) | MIT, as this repository |
 | `fonts/Oxanium-Bold.ttf` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, the unmodified static file from [`fonts/ttf`](https://github.com/sevmeyer/oxanium/tree/a8f39e0c71186190027a093e9001459410192d1e/fonts/ttf) | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
 
 The game, its odds and its name are made up.

@@ -17,8 +17,9 @@ glow.png is a soft lavender disc, 256x256, opaque in the middle and
 fading to nothing at the edge: the flash over an alert, drawn with
 additive blending and scaled up while it fades.
 
-sounds/chime.wav is the alert chime: two sine notes a fifth apart, each
-with a fast attack and a long decay, 0.9 seconds, 44.1 kHz mono 16-bit.
+sounds/chime.ogg is the alert chime: two sine notes a fifth apart, each
+with a fast attack and a long decay, 0.9 seconds, mono, written as WAV
+and encoded to Ogg Vorbis with ffmpeg.
 
 Needs Pillow.
 """
@@ -26,7 +27,9 @@ Needs Pillow.
 import math
 import random
 import struct
+import subprocess
 import sys
+import tempfile
 import wave
 from pathlib import Path
 
@@ -150,11 +153,14 @@ def chime(out):
             value += 0.08 * envelope * math.sin(2 * math.pi * frequency * 2 * age)
         frames.append(struct.pack("<h", int(max(-1.0, min(1.0, value)) * 32767)))
     (out / "sounds").mkdir(exist_ok=True)
-    with wave.open(str(out / "sounds" / "chime.wav"), "wb") as w:
-        w.setnchannels(1)
-        w.setsampwidth(2)
-        w.setframerate(rate)
-        w.writeframes(b"".join(frames))
+    with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
+        with wave.open(tmp.name, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(rate)
+            w.writeframes(b"".join(frames))
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp.name, "-c:a", "libvorbis", "-q:a", "4",
+                        "-map_metadata", "-1", str(out / "sounds" / "chime.ogg")], check=True)
 
 
 def main():

@@ -44,7 +44,7 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `sounds/click.wav` | Made for this show, synthesized by [`tools/car_dashboard_sounds.py`](../tools/car_dashboard_sounds.py) | MIT, as this repository |
+| `sounds/click.ogg` | Made for this show, synthesized by [`tools/car_dashboard_sounds.py`](../tools/car_dashboard_sounds.py) | MIT, as this repository |
 | `fonts/Oxanium-Bold.ttf`, `fonts/Oxanium-SemiBold.ttf` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, the unmodified static files from [`fonts/ttf`](https://github.com/sevmeyer/oxanium/tree/a8f39e0c71186190027a093e9001459410192d1e/fonts/ttf). Its digits all have the same width, so numbers keep their place while they change | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
 
 ## What would make it better

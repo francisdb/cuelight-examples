@@ -3,26 +3,28 @@
 
     tools/feature_sounds.py
 
-WAV files, 44.1 kHz mono 16-bit, all made from sines and noise so there
-is nothing to license. For audio_layers:
+Ogg Vorbis files, mono, all made from sines and noise so there is
+nothing to license (written as WAV and encoded with ffmpeg). For audio_layers:
 
-- music.wav: eight seconds of a plucked arpeggio over Am, F, C and G that
+- music.ogg: eight seconds of a plucked arpeggio over Am, F, C and G that
   loops without a seam: notes ringing past the end are mixed into the
   start. At 22.05 kHz, to keep the file small.
-- zap.wav: 1.2 seconds of a tone sweeping down an octave, long enough for three
+- zap.ogg: 1.2 seconds of a tone sweeping down an octave, long enough for three
   zaps 400 ms apart to overlap.
-- thunder.wav: 1.6 seconds of rumbling noise that rolls in and dies
+- thunder.ogg: 1.6 seconds of rumbling noise that rolls in and dies
   away, with a few cracks of brighter noise at the start.
-- jingle.wav: a two second three-note motif for the attract scene, looped.
+- jingle.ogg: a two second three-note motif for the attract scene, looped.
 
-For pick, three takes of one knock on a woodblock, knock1.wav to
-knock3.wav, a quarter second each. Real takes would differ less: these
+For pick, three takes of one knock on a woodblock, knock1.ogg to
+knock3.ogg, a quarter second each. Real takes would differ less: these
 are a C, an E and a G, so which one plays is easy to hear.
 """
 
 import math
 import random
 import struct
+import subprocess
+import tempfile
 import wave
 from pathlib import Path
 
@@ -34,11 +36,19 @@ MUSIC_RATE = 22050
 
 def write(path, samples, rate=RATE):
     frames = b"".join(struct.pack("<h", int(max(-1.0, min(1.0, s)) * 32767)) for s in samples)
-    with wave.open(str(path), "wb") as w:
-        w.setnchannels(1)
-        w.setsampwidth(2)
-        w.setframerate(rate)
-        w.writeframes(frames)
+    with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
+        with wave.open(tmp.name, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(rate)
+            w.writeframes(frames)
+        encode(tmp.name, path)
+
+def encode(wav, path):
+    """Ogg Vorbis from a WAV file, with ffmpeg: a tenth of the size."""
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-c:a", "libvorbis", "-q:a", "4",
+                    "-map_metadata", "-1", str(path)], check=True)
+
 
 
 def tone(frequency, seconds, attack, decay, level):
@@ -182,7 +192,7 @@ def main():
         out = root / example / "assets" / "sounds"
         out.mkdir(parents=True, exist_ok=True)
         for name, samples in sounds:
-            write(out / f"{name}.wav", samples, MUSIC_RATE if name == "music" else RATE)
+            write(out / f"{name}.ogg", samples, MUSIC_RATE if name == "music" else RATE)
 
 
 if __name__ == "__main__":
