@@ -9,13 +9,16 @@
     "size_56": {"file": "Oxanium-Bold", "size": 56, "color": "#E6EDF3"},
     "size_120": {"file": "Oxanium-Bold", "size": 120, "color": "#3EC9F0"},
     "bordered": {"file": "Oxanium-Bold", "size": 56, "color": "#FFB000", "border": {"color": "#7A2E00", "width": 4}},
-    "boxed": {"file": "Oxanium-Bold", "size": 26, "color": "#E6EDF3"}, "zoom": {"file": "Oxanium-Bold", "size": 40, "color": "#4ADE80"}
+    "shadowed": {"file": "Oxanium-Bold", "size": 56, "color": "#E6EDF3", "shadow": {"color": "#3EC9F0A0", "offset": [5, 4]}},
+    "boxed": {"file": "Oxanium-Bold", "size": 26, "color": "#E6EDF3"},
+    "zoom": {"file": "Oxanium-Bold", "size": 40, "color": "#4ADE80", "shadow": {"color": "#00000090", "offset": [3, 3]}}
   },
   "layers": [
     {"name": "size_14", "type": "text", "text": "Sharp at any size", "font": "size_14", "x": 24, "y": 22},
     {"name": "size_28", "type": "text", "text": "Sharp at any size", "font": "size_28", "x": 24, "y": 44},
     {"name": "size_56", "type": "text", "text": "Sharp at any", "font": "size_56", "x": 24, "y": 80},
     {"name": "size_120", "type": "text", "text": "size", "font": "size_120", "x": 20, "y": 130},
+    {"name": "shadowed", "type": "text", "text": "SHADOW", "font": "shadowed", "x": 380, "y": 80},
     {"name": "bordered", "type": "text", "text": "BORDER", "font": "bordered", "x": 380, "y": 150},
     {"name": "box", "type": "shape", "shape": {"rect": [0, 0, 236, 96]}, "fill": "#161B22", "x": 380, "y": 240},
     {
