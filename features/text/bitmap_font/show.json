@@ -10,6 +10,7 @@
     "title": {"file": "silkscreen_bold-16", "color": "#FFB000", "border": {"color": "#7A2E00", "width": 2}},
     "body": {"file": "silkscreen-8", "color": "#E6EDF3"},
     "score": {"file": "silkscreen-8", "color": "#4ADE80", "border": {"color": "#0B3D1E", "width": 1}},
+    "shadowed": {"file": "silkscreen-8", "color": "#E6EDF3", "shadow": {"color": "#2F6FE0", "offset": [1, 1]}},
     "small": {"file": "tiny5-8", "color": "#8B96A5"}
   },
   "layers": [
@@ -22,11 +23,12 @@
       "name": "cornered", "type": "text", "text": "bottom\nright", "font": "body", "x": 132, "y": 52, "size": [116, 36],
       "align": "bottom_right"
     },
-    {"name": "score_label", "type": "text", "text": "color multiplies, border surrounds", "font": "small", "x": 9, "y": 98},
+    {"name": "score_label", "type": "text", "text": "color multiplies, border surrounds, shadow falls", "font": "small", "x": 9, "y": 98},
     {
       "name": "score", "type": "text", "text": "0", "font": "score", "x": 8, "y": 110,
       "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
     },
+    {"name": "shadowed", "type": "text", "text": "SHADOW", "font": "shadowed", "x": 132, "y": 111},
     {"name": "white", "type": "text", "text": "white keeps the font's own", "font": "small", "x": 9, "y": 130}
   ]
 }
