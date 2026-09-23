@@ -1,0 +1,650 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "row": "none"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_none"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "wait": 1.2
+    },
+    {
+      "set": {
+        "row": "short"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_short"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "wait": 1.2
+    },
+    {
+      "set": {
+        "row": "long"
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "trigger": "switch_long"
+    },
+    {
+      "wait": 0.03
+    },
+    {
+      "wait": 1.2
+    }
+  ]
+}
