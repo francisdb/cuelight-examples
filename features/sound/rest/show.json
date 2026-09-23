@@ -1,0 +1,113 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "rest",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"row": ""},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 4, "size": [56, 20], "x": 24, "y": 18, "text": "REST",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "label_in", "type": "digits", "digits": 2, "size": [20, 12], "x": 34, "y": 62, "text": "IN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_play", "type": "digits", "digits": 4, "size": [40, 12], "x": 70, "y": 62, "text": "PLAY",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "none", "type": "group", "y": 92,
+      "children": [
+        {"name": "tick", "type": "audio", "sound": "tick", "trigger": "switch_none", "retrigger": "overlap", "voices": 8, "on_end": "played_none"},
+        {
+          "name": "in", "type": "shape", "shape": {"circle": [44, 8, 6]}, "fill": "#E6EDF3", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "switch_none", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.02, "v": 1}, {"t": 0.03, "v": 0.15}]}
+          ]}]
+        },
+        {
+          "name": "played", "type": "shape", "shape": {"circle": [90, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "played_none", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.08, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 7, "size": [91, 16], "x": 124, "y": 0, "text": "NO REST",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"none": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 33, "size": [330, 12], "x": 124, "y": 24, "text": "EVERY TRIGGER PLAYS AND IT BUZZES",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "short", "type": "group", "y": 162,
+      "children": [
+        {"name": "tick", "type": "audio", "sound": "tick", "trigger": "switch_short", "retrigger": "overlap", "voices": 8, "rest": 0.1,
+          "on_end": "played_short"},
+        {
+          "name": "in", "type": "shape", "shape": {"circle": [44, 8, 6]}, "fill": "#E6EDF3", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "switch_short", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.02, "v": 1}, {"t": 0.03, "v": 0.15}]}
+          ]}]
+        },
+        {
+          "name": "played", "type": "shape", "shape": {"circle": [90, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "played_short", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.08, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 10, "size": [130, 16], "x": 124, "y": 0, "text": "REST 100MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"short": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 28, "size": [280, 12], "x": 124, "y": 24, "text": "AT MOST ONE PLAY EVERY 100MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "long", "type": "group", "y": 232,
+      "children": [
+        {"name": "tick", "type": "audio", "sound": "tick", "trigger": "switch_long", "retrigger": "overlap", "voices": 8, "rest": 0.4,
+          "on_end": "played_long"},
+        {
+          "name": "in", "type": "shape", "shape": {"circle": [44, 8, 6]}, "fill": "#E6EDF3", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "switch_long", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.02, "v": 1}, {"t": 0.03, "v": 0.15}]}
+          ]}]
+        },
+        {
+          "name": "played", "type": "shape", "shape": {"circle": [90, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [{"name": "flash", "trigger": "played_long", "tracks": [
+            {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.08, "v": 0.15, "ease": "quad_in"}]}
+          ]}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 10, "size": [130, 16], "x": 124, "y": 0, "text": "REST 400MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"long": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 28, "size": [280, 12], "x": 124, "y": 24, "text": "AT MOST ONE PLAY EVERY 400MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "footer_1", "type": "digits", "digits": 44, "size": [440, 12], "x": 24, "y": 310,
+      "text": "A SWITCH CHATTERS AND FIRES EVERY 30MS FOR A", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "footer_2", "type": "digits", "digits": 49, "size": [490, 12], "x": 24, "y": 328,
+      "text": "SECOND AND REST DROPS WHAT ARRIVES TOO SOON AFTER", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

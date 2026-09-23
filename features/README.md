@@ -17,7 +17,7 @@ cargo run -p cuelight-player -- ../cuelight-examples/features/timelines/easing
 | [bindings](bindings/) | `scale_offset`, `text_format`, `map_default`, `font`, `transitions`, `visible_threshold_debounce` |
 | [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence` |
 | [scenes](scenes/) | `scenes` |
-| [sound](sound/) | `audio_layers`, `pick` |
+| [sound](sound/) | `audio_layers`, `pick`, `rest` |
 | [output](output/) | `modes`, `scaling`, `dots` |
 | [events](events/) | `show_events` |
 
@@ -44,6 +44,7 @@ is what the website's gallery is built from.
 | `badge.png`, `bulb.png`, `white_glow.png`, `worn.png` | `images/tint` | drawn by `tools/feature_assets.py`, the last three white or grey so a tint decides their color | same as this repository |
 | `music.ogg`, `zap.ogg`, `thunder.ogg`, `jingle.ogg` | `sound/audio_layers` | synthesized from sines and noise by [`tools/feature_sounds.py`](../tools/feature_sounds.py) | same as this repository |
 | `knock1.ogg`, `knock2.ogg`, `knock3.ogg` | `sound/pick` | synthesized by `tools/feature_sounds.py`: three takes of one knock | same as this repository |
+| `tick.ogg` | `sound/rest` | synthesized by `tools/feature_sounds.py`: a switch's 25 ms click | same as this repository |
 | `tiny5-8` bitmap font | `text/bitmap_font` | [Tiny5](https://github.com/Gissio/font_tiny5), rasterized with [`tools/ttf2bmfont.py`](../tools/ttf2bmfont.py) | [OFL 1.1](text/bitmap_font/licenses/Tiny5-OFL.txt), no reserved font name |
 | `silkscreen-8`, `silkscreen_bold-16` bitmap fonts | `text/bitmap_font` | [Silkscreen](https://github.com/googlefonts/silkscreen) from [Google Fonts](https://github.com/google/fonts/tree/e44c4b011a820c2cbe2fd2cfa8052037d7edb571/ofl/silkscreen), rasterized with `tools/ttf2bmfont.py` (the bold one at 16 pixels with `--padding 2`) | [OFL 1.1](text/bitmap_font/licenses/Silkscreen-OFL.txt), no reserved font name |
 | `Oxanium-Bold.ttf` | `text/outline_font`, `bindings/font`, `text/reels` | [Oxanium](https://github.com/sevmeyer/oxanium) | [OFL 1.1](text/outline_font/licenses/Oxanium-OFL.txt), no reserved font name; each show keeps its own copy of the license |
