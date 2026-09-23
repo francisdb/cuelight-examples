@@ -3,18 +3,18 @@
 
     tools/slot_machine_sounds.py slot_machine/assets/sounds
 
-WAV files, 44.1 kHz mono 16-bit, all made from sines, noise and
-envelopes, so there is nothing to license:
+Ogg Vorbis files, mono, all made from sines, noise and envelopes, so
+there is nothing to license (written as WAV and encoded with ffmpeg):
 
-- spin_1.wav, spin_2.wav, spin_3.wav: one wheel running down, one file
+- spin_1.ogg, spin_2.ogg, spin_3.ogg: one wheel running down, one file
   per reel. Each is as long as that reel's spin and slows the way the
   reel does, so the rattle thins out into separate ticks as the wheel
   arrives. The timings are read out of the show rather than written
   here, so a reel and its sound cannot drift apart.
-- clunk.wav: a reel dropping onto its stop, a short knock with a click on
+- clunk.ogg: a reel dropping onto its stop, a short knock with a click on
   top; one plays as each wheel lands.
-- win.wav: a rising three note arpeggio with a shimmer, for a line that pays.
-- lose.wav: two low notes falling away, for one that does not.
+- win.ogg: a rising three note arpeggio with a shimmer, for a line that pays.
+- lose.ogg: two low notes falling away, for one that does not.
 
 Needs nothing outside the standard library.
 """
@@ -23,7 +23,9 @@ import json
 import math
 import random
 import struct
+import subprocess
 import sys
+import tempfile
 import wave
 from pathlib import Path
 
@@ -33,11 +35,19 @@ SHOW = Path(__file__).resolve().parent.parent / "slot_machine" / "show.json"
 
 def write(path, samples):
     frames = b"".join(struct.pack("<h", int(max(-1.0, min(1.0, s)) * 32767)) for s in samples)
-    with wave.open(str(path), "wb") as w:
-        w.setnchannels(1)
-        w.setsampwidth(2)
-        w.setframerate(RATE)
-        w.writeframes(frames)
+    with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
+        with wave.open(tmp.name, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(RATE)
+            w.writeframes(frames)
+        encode(tmp.name, path)
+
+def encode(wav, path):
+    """Ogg Vorbis from a WAV file, with ffmpeg: a tenth of the size."""
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(wav), "-c:a", "libvorbis", "-q:a", "4",
+                    "-map_metadata", "-1", str(path)], check=True)
+
 
 
 def tone(frequency, seconds, attack, decay, level, start=0.0):
@@ -203,8 +213,8 @@ def main():
               for i, (_, duration, turns, symbols) in enumerate(reels(), start=1)]
     sounds += [("clunk", clunk()), ("win", win()), ("lose", lose())]
     for name, samples in sounds:
-        write(out / f"{name}.wav", samples)
-        print(out / f"{name}.wav")
+        write(out / f"{name}.ogg", samples)
+        print(out / f"{name}.ogg")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Synthesize car_dashboard's turn signal relay: click.wav.
+"""Synthesize car_dashboard's turn signal relay: click.ogg.
 
     tools/car_dashboard_sounds.py car_dashboard/assets/sounds
 
-0.7 seconds, 44.1 kHz mono 16-bit: a click at 0 and a softer one at
+0.7 seconds, mono, Ogg Vorbis (written as WAV and encoded with ffmpeg): a click at 0 and a softer one at
 0.35 s, the relay pulling in and dropping out, so one play covers one
 blink of the arrows and a repeat of four covers the four blinks.
 """
@@ -11,7 +11,9 @@ blink of the arrows and a repeat of four covers the four blinks.
 import math
 import random
 import struct
+import subprocess
 import sys
+import tempfile
 import wave
 from pathlib import Path
 
@@ -35,11 +37,14 @@ def main():
         t = n / RATE
         value = click(t, 0.8) + click(t - 0.35, 0.45)
         samples.append(struct.pack("<h", int(max(-1.0, min(1.0, value)) * 32767)))
-    with wave.open(str(out / "click.wav"), "wb") as w:
-        w.setnchannels(1)
-        w.setsampwidth(2)
-        w.setframerate(RATE)
-        w.writeframes(b"".join(samples))
+    with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
+        with wave.open(tmp.name, "wb") as w:
+            w.setnchannels(1)
+            w.setsampwidth(2)
+            w.setframerate(RATE)
+            w.writeframes(b"".join(samples))
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp.name, "-c:a", "libvorbis", "-q:a", "4",
+                        "-map_metadata", "-1", str(out / "click.ogg")], check=True)
 
 
 if __name__ == "__main__":
