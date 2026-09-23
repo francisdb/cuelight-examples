@@ -11,8 +11,8 @@
       "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
     },
     {
-      "name": "label_bed", "type": "digits", "digits": 26, "size": [260, 14], "x": 24, "y": 56,
-      "text": "BED: AUTOPLAY LOOP IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+      "name": "label_music", "type": "digits", "digits": 27, "size": [270, 14], "x": 24, "y": 56,
+      "text": "AUTOPLAY MUSIC LOOP IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     },
     {
       "name": "label_volume", "type": "digits", "digits": 26, "size": [260, 12], "x": 24, "y": 74,
@@ -27,6 +27,12 @@
           "bindings": [{"property": "x", "variable": "volume", "scale": 200, "offset": -200, "transition": {"duration": 0.4}}]
         }
       ]
+    },
+    {
+      "name": "hush_flash", "type": "shape", "shape": {"rect": [0, 0, 116, 24]}, "fill": "#FF5A5A", "x": 508, "y": 58, "opacity": 0.12,
+      "timelines": [{"name": "flash", "trigger": "hush", "tracks": [
+        {"property": "opacity", "keys": [{"t": 0, "v": 0.8}, {"t": 0.6, "v": 0.12, "ease": "quad_in"}]}
+      ]}]
     },
     {
       "name": "label_hush", "type": "digits", "digits": 10, "size": [100, 12], "x": 516, "y": 64, "text": "HUSH STOPS",
@@ -108,7 +114,7 @@
     },
     {
       "name": "label_thunder", "type": "digits", "digits": 40, "size": [400, 14], "x": 24, "y": 216,
-      "text": "THUNDER: DELAY 0.5, REPEAT 2, ON_END LIGHTS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+      "text": "THUNDER DELAY 500MS REPEAT 2 ON_END LAMP", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     },
     {"name": "thunder", "type": "audio", "sound": "thunder", "trigger": "strike", "delay": 0.5, "repeat": 2, "on_end": "thunder_done", "gain": 0.9},
     {
@@ -132,12 +138,12 @@
       "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     },
     {
-      "name": "label_scenes", "type": "digits", "digits": 58, "size": [580, 12], "x": 24, "y": 286,
-      "text": "SCENES: ATTRACT HAS ITS OWN LOOP. LEAVING A SCENE STOPS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+      "name": "label_scenes", "type": "digits", "digits": 48, "size": [480, 12], "x": 24, "y": 286,
+      "text": "EACH SCENE HAS ITS OWN LOOP AND LEAVING IT STOPS", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     },
     {
-      "name": "label_scenes_2", "type": "digits", "digits": 58, "size": [580, 12], "x": 24, "y": 304,
-      "text": "ITS SOUNDS: THE BED STOPS IN ATTRACT, THE JINGLE IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+      "name": "label_scenes_2", "type": "digits", "digits": 49, "size": [490, 12], "x": 24, "y": 304,
+      "text": "THE MUSIC STOPS IN ATTRACT AND THE JINGLE IN GAME", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
     }
   ],
   "scenes": [
@@ -148,7 +154,7 @@
           "name": "music", "type": "group", "gain": 1,
           "bindings": [{"property": "gain", "variable": "volume", "transition": {"duration": 0.4}}],
           "children": [
-            {"name": "bed", "type": "audio", "sound": "bed", "autoplay": true, "loop": true, "stop": "hush", "gain": 0.7}
+            {"name": "loop", "type": "audio", "sound": "music", "autoplay": true, "loop": true, "stop": "hush", "gain": 0.7}
           ]
         },
         {

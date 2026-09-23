@@ -79,7 +79,7 @@
       "name": "Sound",
       "description": "Audio layers: sounds played the way timelines are.",
       "examples": [
-        { "path": "features/sound/audio_layers", "title": "Audio layers", "description": "A looping bed whose group gain follows a variable, one coin trigger under three retrigger policies, a delayed repeat whose end lights a lamp, a stop trigger, and a scene with its own loop.", "thumbnail_at": 2.05 },
+        { "path": "features/sound/audio_layers", "title": "Audio layers", "description": "Looping music whose group gain follows a variable, one coin trigger under three retrigger policies, a delayed repeat whose end lights a lamp, a stop trigger, and a scene with its own loop.", "thumbnail_at": 2.05 },
         { "path": "features/sound/pick", "title": "One of several", "description": "Three takes of one knock on a list, and what pick does with them: in_order, random and shuffle, next to a single sound that repeats like a tape loop. Picks count plays, so the show sounds the same every run.", "thumbnail_at": 0.65 }
       ]
     },
