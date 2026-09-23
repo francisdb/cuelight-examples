@@ -47,6 +47,8 @@
           <div class="controls"><button id="driver" hidden></button><button id="restart">restart</button><button id="sound" hidden></button></div>
           <p class="status" id="driver-note" hidden>The driver script stands in for a host: it fires the triggers
             and sets the variables. Pause it to take over.</p>
+          <p class="status" id="sound-note" hidden>This browser cannot decode some of the show's sounds, so they
+            stay silent, and whatever waits for them to end never happens. The warnings below say which.</p>
         </div>
       </div>
       <div class="box">
@@ -116,7 +118,9 @@ async function play() {
   for (const id of ["actions", "variables"]) $(id).replaceChildren();
   player = await CuelightPlayer.create($("canvas"), folder);
   $("canvas").style.aspectRatio = `${player.width} / ${player.height}`;
-  player.warnings().forEach((warning) => log(warning, true));
+  const warnings = player.warnings();
+  warnings.forEach((warning) => log(warning, true));
+  $("sound-note").hidden = !warnings.some((warning) => warning.includes("could not be decoded"));
   player.onEvent((event) => log(`event  ${JSON.stringify(event)}`));
 
   for (const action of player.actions()) {
