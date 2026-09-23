@@ -10,6 +10,8 @@ publish = false
 [dependencies]
 cuelight = { path = "../../../cuelight/crates/cuelight", default-features = false, features = ["outline-fonts"] }
 cuelight-loader = { path = "../../../cuelight/crates/cuelight-loader" }
+# Only to decode a sound for its length; no sound device.
+cuelight-audio = { path = "../../../cuelight/crates/cuelight-audio", default-features = false }
 serde_json = "1"
 
 [features]

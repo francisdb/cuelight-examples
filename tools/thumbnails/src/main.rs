@@ -4,7 +4,8 @@
 //! cargo run --manifest-path tools/thumbnails/Cargo.toml [-- --check]
 //! ```
 //!
-//! Every show is loaded like the player does, its driver script is played
+//! Every show is loaded like the player does, with its sounds registered at
+//! their length so a sound's `on_end` fires on time, its driver script is played
 //! for the entry's `thumbnail_at` seconds (2 by default) and the frame is
 //! written to `site/thumbnails/<path>.png`, brought to roughly 640 pixels
 //! wide by a whole factor. A `dots` pass of the show's output is drawn into
@@ -22,6 +23,7 @@ use cuelight::render::{Renderer, RgbaFrame};
 use cuelight::{DigitDisplay, Engine, Layer, LayerKind, ReelCells};
 #[cfg(feature = "render")]
 use cuelight::{DotShape, Dots, Pass};
+use cuelight_audio::Sound;
 use cuelight_loader::{Driver, DriverPlayer, Step};
 use std::collections::BTreeSet;
 use std::path::Path;
@@ -85,6 +87,21 @@ fn run(check_only: bool) -> Result<(), Box<dyn std::error::Error>> {
         for skipped in &loaded.skipped {
             eprintln!("{path}: asset {skipped:?} has no decoder");
             problems += 1;
+        }
+        // Only the length: a play of a sound the engine does not know is
+        // silent and never ends, so its `on_end` would never fire.
+        for file in &loaded.sounds {
+            let registered = Sound::decode(&file.extension, &file.bytes)
+                .map_err(|e| e.to_string())
+                .and_then(|sound| {
+                    engine
+                        .set_sound(&file.name, sound.duration())
+                        .map_err(|e| e.to_string())
+                });
+            if let Err(e) = registered {
+                eprintln!("{path}: sound {:?}: {e}", file.name);
+                problems += 1;
+            }
         }
         // The loader parsed the driver script that came with the show.
         let driver = loaded.driver.take();

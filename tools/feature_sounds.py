@@ -9,7 +9,8 @@ is nothing to license. For audio_layers:
 - music.wav: eight seconds of a plucked arpeggio over Am, F, C and G that
   loops without a seam: notes ringing past the end are mixed into the
   start. At 22.05 kHz, to keep the file small.
-- coin.wav: a quarter second blip that steps up a fourth.
+- zap.wav: 1.2 seconds of a tone sweeping down an octave, long enough for three
+  zaps 400 ms apart to overlap.
 - thunder.wav: 1.6 seconds of rumbling noise that rolls in and dies
   away, with a few cracks of brighter noise at the start.
 - jingle.wav: a two second three-note motif for the attract scene, looped.
@@ -102,8 +103,23 @@ def music():
     return [0.6 * v / peak for v in out]
 
 
-def coin():
-    return mix((0.0, tone(1568.0, 0.1, 0.003, 12, 0.5)), (0.08, tone(2093.0, 0.2, 0.003, 10, 0.5)))
+def zap():
+    """A laser zap: a bright tone sweeping down from 1600 to 700 Hz. Long
+    enough that a second one fired 400 ms later lands on top of it, and
+    falling, so a restart is heard as the pitch jumping back up. It stays
+    high throughout: overlapping tails are what tell overlap from
+    restart, and small speakers drop anything low. Quiet enough that
+    three at once do not clip."""
+    seconds = 1.2
+    out = []
+    phase = 0.0
+    for n in range(int(RATE * seconds)):
+        t = n / RATE
+        frequency = 1600.0 * (700.0 / 1600.0) ** (t / seconds)
+        phase += 2 * math.pi * frequency / RATE
+        envelope = min(t / 0.005, 1.0) * min((seconds - t) / 0.2, 1.0)
+        out.append(0.28 * envelope * (math.sin(phase) + 0.3 * math.sin(3 * phase)))
+    return out
 
 
 def thunder():
@@ -155,7 +171,7 @@ def knock(pitch, seed):
 def main():
     root = Path(__file__).resolve().parent.parent / "features" / "sound"
     examples = {
-        "audio_layers": [("music", music()), ("coin", coin()), ("thunder", thunder()), ("jingle", jingle())],
+        "audio_layers": [("music", music()), ("zap", zap()), ("thunder", thunder()), ("jingle", jingle())],
         "pick": [
             ("knock1", knock(523.25, 1)),
             ("knock2", knock(659.25, 2)),
