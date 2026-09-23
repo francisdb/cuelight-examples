@@ -16,8 +16,8 @@ From back to front:
    game) and of the marquee, and the light boxes: every sign, wedge, car
    or banner that shows the state of the game has one the shape of the
    thing itself, masked from the GI and evenly lit by a lamp of its own,
-   all lit by the B2S data the table script sets. In attract the bulbs
-   and the title chase.
+   all lit by the variables the table sets. In attract the bulbs and the
+   title chase.
 2. The glass, multiplied over that light: the paint only glows where a
    lamp burns, in its own colours, as a translite does.
 3. The score reels, behind their windows.
@@ -65,8 +65,8 @@ def lit_by(variable, value, scale=1.0):
 
 
 # Attract mode is the game-over lamp: the bulbs chase while it is on.
-ATTRACT = {"property": "visible", "variable": "data_35", "threshold": 1}
-IN_GAME = {"property": "visible", "variable": "data_35", "threshold": 1, "scale": -1, "offset": 1}
+ATTRACT = {"property": "visible", "variable": "game_over", "threshold": 1}
+IN_GAME = {"property": "visible", "variable": "game_over", "threshold": 1, "scale": -1, "offset": 1}
 
 
 def marquee():
@@ -90,14 +90,14 @@ def wheel():
     chase, bonus = [], []
     # In attract, a tail of light running round the wheel, one turn every
     # 1.6 seconds. In a game the bulbs are the bonus: bulb k burns while
-    # the bonus (data_40) is k or more.
+    # the bonus is k or more.
     period, n = 1.6, len(WHEEL_BULBS)
     for k, (x, y) in enumerate(WHEEL_BULBS):
         chase.append(glow(f"bulb_{k + 1}", x, y, 44, 44, opacity=0.1, timelines=[{
             "name": "chase", "autoplay": True, "loop": True, "delay": round(k * period / n, 3), "tracks": [
                 track("opacity", [(0, 1), (0.08, 1), (0.45, 0.1, "quad_out"), (period, 0.1)])]}]))
         bonus.append(glow(f"bulb_{k + 1}", x, y, 44, 44, opacity=0,
-                          bindings=[{"property": "opacity", "variable": "data_40", "threshold": k + 1,
+                          bindings=[{"property": "opacity", "variable": "bonus", "threshold": k + 1,
                                      "transition": LAMP_ON}]))
     return [
         {"name": "wheel_chase", "type": "group", "bindings": [ATTRACT], "children": chase},
@@ -108,7 +108,7 @@ def wheel():
 def title():
     """The title in light boxes of its own: a mask the shape of the
     letters keeps the GI off them, and each letter has a lamp of its own
-    shape, lit by data_1 to data_9 as the player spells the name. In
+    shape, lit by letter_1 to letter_9 as the player spells the name. In
     attract they light one after another, then flash together."""
     x, y, w, h = TITLE["mask"]
     out = [{"name": "title_mask", "type": "image", "image": "title_mask", "x": x, "y": y, "size": [w, h], "tint": "#2A2119"}]
@@ -117,7 +117,7 @@ def title():
     for i, (x, y, w, h) in enumerate(TITLE["letters"], 1):
         letter = {"type": "image", "image": f"title_{i}", "x": x, "y": y, "size": [w, h], "tint": WARM, "blend": "add"}
         spelled.append(dict(letter, name=f"letter_{i}", opacity=0,
-                            bindings=[{"property": "opacity", "variable": f"data_{i}", "threshold": 1, "transition": LAMP_ON}]))
+                            bindings=[{"property": "opacity", "variable": f"letter_{i}", "threshold": 1, "transition": LAMP_ON}]))
         on = round((i - 1) * step, 2)
         attract.append(dict(letter, name=f"letter_{i}", opacity=0, timelines=[{
             "name": "spell", "autoplay": True, "loop": True, "tracks": [track("opacity", [
@@ -213,11 +213,11 @@ def show():
         {"name": "knocker", "type": "audio", "sound": "knocker", "trigger": "knocker", "gain": 0.9},
     ]})
 
-    variables = {"gi": 1, "credits": "00", **{f"data_{i}": 0 for i in range(1, 10)}, "data_40": 0, "data_30": 0, "data_31": 0, "data_32": 0, "data_33": 0, "data_34": 0,
-                 "data_35": 1, "data_36": 0, "data_41": 0}
+    variables = {"gi": 1, "credits": "00", **{f"letter_{i}": 0 for i in range(1, 10)}, "bonus": 0, "player_up": 0,
+                 "players": 0, "ball_in_play": 0, "tilt": 0, "match": "", "game_over": 1, "shoot_again": 0, "special": 0}
     for player, _, _ in PLAYERS:
         variables[f"score_{player}"] = "0" * REEL_COUNT
-        variables[f"data_{24 + player}"] = 0
+        variables[f"rollover_{player}"] = 0
 
     return {
         "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",

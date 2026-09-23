@@ -4,8 +4,9 @@ A backglass for a four-player electromechanical pinball machine of the
 seventies, on a 960x720 canvas: one picture of a sunny pier painted on
 glass, with the score reels looking through windows in arcade boards
 along the boardwalk and every light of the game painted into the scene.
-It is driven the way a Visual Pinball table drives its backglass: by the
-same data a table script sends the B2S server.
+The table drives it with a handful of variables and triggers named after
+what they mean: whose turn it is, the ball in play, the scores, the
+letters spelled.
 
 ## How the light works
 
@@ -28,23 +29,20 @@ It needs cuelight `main` with blend modes, path shapes, bindable
 
 ## Driving it
 
-The variables are named after the B2S data ids a table script sets with
-`B2SSetData id, value`, so a host passes them straight through:
+What the table sets:
 
-| Variable | B2S | Lights |
-| --- | --- | --- |
-| `data_1` to `data_9` | `B2SSetData 1..9` | the letters of BOARDWALK spelled so far |
-| `data_25` to `data_28` | `B2SSetScoreRolloverPlayer1..4` | 100,000 on a player's board |
-| `data_30` | `B2SSetPlayerUp` | the player up (1 to 4) |
-| `data_31` | `B2SSetCanPlay` | the number of players (1 to 4) |
-| `data_32` | `B2SSetBallInPlay` | the ball in play (1 to 5), on the coaster cars |
-| `data_33` | `B2SSetTilt` | tilt |
-| `data_34` | `B2SSetMatch` | the match number, 100 for 00, on the fortune wheel |
-| `data_35` | `B2SSetGameOver` | game over, and the attract chases |
-| `data_36` | `B2SSetShootAgain` | shoot again |
-| `data_40` | `B2SSetData 40` | the bonus, 0 to 16, on the Ferris wheel |
-| `data_41` | `B2SSetData 41` | special |
-| `score_1` to `score_4`, `credits` | `B2SSetScorePlayer`, `B2SSetCredits` | the reels, as digits padded with zeros |
+| Variable | Lights |
+| --- | --- |
+| `player_up` | the player whose turn it is, 1 to 4, on their board |
+| `players` | how many play, 1 to 4, on the booth's pennants |
+| `ball_in_play` | the ball in play, 1 to 5, on the coaster cars |
+| `letter_1` to `letter_9` | the letters of BOARDWALK spelled so far |
+| `bonus` | the bonus, 0 to 16, on the Ferris wheel |
+| `match` | the number the match landed on, `"00"` to `"90"`, on the fortune wheel; empty for none |
+| `game_over` | game over, and the attract chases while it is on |
+| `tilt`, `shoot_again`, `special` | the tower, the balloon and the booth's sign |
+| `rollover_1` to `rollover_4` | 100,000 on a player's board |
+| `score_1` to `score_4`, `credits` | the reels, as digits padded with zeros |
 
 Triggers: `chime_10`, `chime_100` and `chime_1000` for a score pulse
 (the reel clacks with it), `reel_step` for a reel moving without a chime,
@@ -101,8 +99,8 @@ Everything under `assets/` is committed and free to redistribute.
   same 80 ms and stays the same colour; a real bulb warms up faster than
   it cools and glows redder while dim.
 - Formatting a number with leading zeros. A reel shows every digit, so
-  the scores have to arrive padded (`"01740"`); a host passing on
-  `B2SSetScorePlayer` has to pad them itself.
+  the scores have to arrive padded (`"01740"`), and the table has to pad
+  them itself instead of sending the number.
 - A tone curve on light. Lit ink can only be multiplied by the light
   behind it, so the levels are kept below full to avoid clipping; a
   gentle roll-off would let the brightest lamps saturate the way lit
