@@ -1,0 +1,1382 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "hp": 196,
+        "mana": 160,
+        "xp": 610,
+        "level": 7,
+        "gold": 1280,
+        "target": "",
+        "target_hp": 100,
+        "damage": 0,
+        "crit": "false",
+        "healed": 0,
+        "heading": 20,
+        "braziers": 2,
+        "loot": ""
+      }
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "set": {
+        "heading": 20
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 24
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 28
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 32
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 37
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 41
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 45
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 49
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 53
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 58
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 62
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 66
+      }
+    },
+    {
+      "wait": 0.05
+    },
+    {
+      "set": {
+        "target": "Bog Wraith",
+        "target_hp": 100
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "heading": 70
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 160
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 42,
+        "crit": "false",
+        "target_hp": 96
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.68
+    },
+    {
+      "trigger": "skill_2"
+    },
+    {
+      "set": {
+        "mana": 130
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "mana": 132
+      }
+    },
+    {
+      "wait": 0.15
+    },
+    {
+      "set": {
+        "damage": 236,
+        "crit": "true",
+        "target_hp": 72
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.35
+    },
+    {
+      "set": {
+        "mana": 134
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 134
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 45,
+        "crit": "false",
+        "target_hp": 68
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.28
+    },
+    {
+      "set": {
+        "mana": 136
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "hp": 168
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "mana": 138
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "skill_5"
+    },
+    {
+      "set": {
+        "mana": 120
+      }
+    },
+    {
+      "wait": 0.35
+    },
+    {
+      "set": {
+        "damage": 76,
+        "crit": "false",
+        "target_hp": 60
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.15
+    },
+    {
+      "set": {
+        "mana": 122
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 122
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 39,
+        "crit": "false",
+        "target_hp": 56
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.18
+    },
+    {
+      "set": {
+        "mana": 124
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "hp": 134
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 126
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "skill_3"
+    },
+    {
+      "set": {
+        "mana": 103
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 105
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 105
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 88,
+        "crit": "true",
+        "target_hp": 47
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.08
+    },
+    {
+      "set": {
+        "mana": 107
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 109
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "skill_2"
+    },
+    {
+      "set": {
+        "mana": 79
+      }
+    },
+    {
+      "wait": 0.35
+    },
+    {
+      "set": {
+        "damage": 124,
+        "crit": "false",
+        "target_hp": 35
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.05
+    },
+    {
+      "set": {
+        "mana": 81
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "hp": 112
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 83
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "skill_4"
+    },
+    {
+      "set": {
+        "mana": 50
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "hp": 176,
+        "healed": 64
+      }
+    },
+    {
+      "trigger": "healed"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "mana": 52
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 52
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 41,
+        "crit": "false",
+        "target_hp": 31
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.08
+    },
+    {
+      "set": {
+        "mana": 54
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 56
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "hp": 130
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "mana": 58
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "skill_5"
+    },
+    {
+      "set": {
+        "mana": 38
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 40
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "damage": 80,
+        "crit": "false",
+        "target_hp": 23
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "mana": 42
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "hp": 66
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "mana": 44
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "skill_6"
+    },
+    {
+      "set": {
+        "mana": 44
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 46
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "hp": 156,
+        "healed": 90
+      }
+    },
+    {
+      "trigger": "healed"
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "mana": 48
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 48
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 44,
+        "crit": "false",
+        "target_hp": 18
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.28
+    },
+    {
+      "set": {
+        "mana": 50
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "skill_2"
+    },
+    {
+      "set": {
+        "mana": 20
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 22
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "damage": 250,
+        "crit": "true",
+        "target_hp": 0
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "mana": 24
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "target_hp": 0
+      }
+    },
+    {
+      "trigger": "enemy_die"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "mana": 26
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "xp": 850
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "mana": 28
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "gold": 1315,
+        "loot": "+35 gold"
+      }
+    },
+    {
+      "trigger": "loot"
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "target": ""
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 30
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "heading": 70,
+        "mana": 32
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 75
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 80,
+        "mana": 34
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 85
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 90,
+        "mana": 36
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 95
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 100,
+        "mana": 38
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 105
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 110,
+        "mana": 40
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 115
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 120,
+        "mana": 42
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 125
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 130,
+        "mana": 44
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 135
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 140,
+        "mana": 46
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 145
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 150,
+        "mana": 48
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "braziers": 3
+      }
+    },
+    {
+      "trigger": "objective"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 50
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 52
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 54
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "quest_complete"
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "mana": 56
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "xp": 1000
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 58
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 60
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "level": 8,
+        "xp": 150
+      }
+    },
+    {
+      "trigger": "level_up"
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "mana": 62
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 64
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 66
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "heading": 150,
+        "mana": 68
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 145
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 140,
+        "mana": 70
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 135
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 130,
+        "mana": 72
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 125
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 120,
+        "mana": 74
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 115
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "heading": 110,
+        "target": "Marsh Ghoul",
+        "target_hp": 100,
+        "mana": 76
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 78
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 78
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 47,
+        "crit": "false",
+        "target_hp": 84
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.28
+    },
+    {
+      "set": {
+        "mana": 80
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "trigger": "skill_5"
+    },
+    {
+      "set": {
+        "mana": 60
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 62
+      }
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "damage": 82,
+        "crit": "false",
+        "target_hp": 57
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.25
+    },
+    {
+      "set": {
+        "mana": 64
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "hp": 138
+      }
+    },
+    {
+      "trigger": "hurt"
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "mana": 66
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "skill_1"
+    },
+    {
+      "set": {
+        "mana": 66
+      }
+    },
+    {
+      "wait": 0.12
+    },
+    {
+      "set": {
+        "damage": 86,
+        "crit": "true",
+        "target_hp": 28
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.08
+    },
+    {
+      "set": {
+        "mana": 68
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 70
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "trigger": "skill_2"
+    },
+    {
+      "set": {
+        "mana": 40
+      }
+    },
+    {
+      "wait": 0.35
+    },
+    {
+      "set": {
+        "damage": 131,
+        "crit": "false",
+        "target_hp": 0
+      }
+    },
+    {
+      "trigger": "hit"
+    },
+    {
+      "wait": 0.05
+    },
+    {
+      "set": {
+        "mana": 42
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "target_hp": 0
+      }
+    },
+    {
+      "trigger": "enemy_die"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 44
+      }
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "set": {
+        "xp": 240
+      }
+    },
+    {
+      "wait": 0.2
+    },
+    {
+      "set": {
+        "mana": 46
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "gold": 1327,
+        "loot": "+12 gold"
+      }
+    },
+    {
+      "trigger": "loot"
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "mana": 48
+      }
+    },
+    {
+      "wait": 0.1
+    },
+    {
+      "set": {
+        "target": ""
+      }
+    },
+    {
+      "wait": 0.4
+    },
+    {
+      "set": {
+        "mana": 50
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 52
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 54
+      }
+    },
+    {
+      "wait": 0.5
+    },
+    {
+      "set": {
+        "mana": 56
+      }
+    },
+    {
+      "wait": 0.9
+    },
+    {
+      "set": {
+        "hp": 196,
+        "mana": 160,
+        "xp": 610,
+        "level": 7,
+        "gold": 1280,
+        "braziers": 2,
+        "heading": 20
+      }
+    },
+    {
+      "wait": 0.6
+    }
+  ]
+}
