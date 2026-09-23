@@ -1,0 +1,231 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "reel_wheels",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "fonts": {"letters": {"file": "Oxanium-Bold", "size": 34, "color": "#1C140E"}},
+  "variables": {"one": "C", "three": "C", "five": "A"},
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 11,
+      "size": [154, 20],
+      "x": 24,
+      "y": 18,
+      "text": "REEL WHEELS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "one",
+      "type": "group",
+      "children": [
+        {"name": "drum", "type": "shape", "shape": {"rect": [68.0, 118.0, 104, 84]}, "fill": "#F2EAD8"},
+        {
+          "name": "reel",
+          "type": "digits",
+          "digits": 1,
+          "size": [104, 84],
+          "x": 68.0,
+          "y": 118.0,
+          "text": "C",
+          "display": {
+            "reel": {
+              "charset": "CPBA7",
+              "cells": {"vectors": ["cherry", "plum", "bell", "bar", "seven"]},
+              "spin": "spin",
+              "step": null,
+              "turns": 2,
+              "duration": 1.4,
+              "ease": "back_out",
+              "direction": "forward",
+              "window": 1
+            }
+          },
+          "bindings": [{"property": "text", "variable": "one"}]
+        },
+        {
+          "name": "frame",
+          "type": "shape",
+          "shape": {"rect": [68.0, 118.0, 104, 84]},
+          "fill": "#00000000",
+          "stroke": {"color": "#E9A93B", "width": 3}
+        },
+        {"name": "line", "type": "shape", "shape": {"rect": [58.0, 159, 124, 2]}, "fill": "#FF5A5A"},
+        {
+          "name": "setting",
+          "type": "digits",
+          "digits": 8,
+          "size": [104, 16],
+          "x": 68,
+          "y": 300,
+          "text": "WINDOW 1",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        },
+        {
+          "name": "how",
+          "type": "digits",
+          "digits": 11,
+          "size": [110, 12],
+          "x": 65,
+          "y": 322,
+          "text": "ONE JOURNEY",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "spin",
+          "type": "digits",
+          "digits": 10,
+          "size": [100, 12],
+          "x": 70,
+          "y": 338,
+          "text": "OVERSHOOTS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "three",
+      "type": "group",
+      "children": [
+        {"name": "drum", "type": "shape", "shape": {"rect": [268.0, 64.0, 104, 192]}, "fill": "#F2EAD8"},
+        {
+          "name": "reel",
+          "type": "digits",
+          "digits": 1,
+          "size": [104, 192],
+          "x": 268.0,
+          "y": 64.0,
+          "text": "C",
+          "display": {
+            "reel": {
+              "charset": "CPBA7",
+              "cells": {"vectors": ["cherry", "plum", "bell", "bar", "seven"]},
+              "step": 1,
+              "duration": 0.12,
+              "ease": "quad_in_out",
+              "direction": "backward",
+              "offset": [{"t": 0, "v": 0}, {"t": 0.12, "v": 0}, {"t": 0.16, "v": 0.08}, {"t": 0.22, "v": 0}],
+              "window": 3
+            }
+          },
+          "bindings": [{"property": "text", "variable": "three"}]
+        },
+        {"name": "shade_0", "type": "shape", "shape": {"rect": [268.0, 64.0, 104, 64]}, "fill": "#0E1116", "opacity": 0.3},
+        {"name": "shade_2", "type": "shape", "shape": {"rect": [268.0, 192.0, 104, 64]}, "fill": "#0E1116", "opacity": 0.3},
+        {
+          "name": "frame",
+          "type": "shape",
+          "shape": {"rect": [268.0, 64.0, 104, 192]},
+          "fill": "#00000000",
+          "stroke": {"color": "#E9A93B", "width": 3}
+        },
+        {"name": "line", "type": "shape", "shape": {"rect": [258.0, 159, 124, 2]}, "fill": "#FF5A5A"},
+        {
+          "name": "setting",
+          "type": "digits",
+          "digits": 8,
+          "size": [104, 16],
+          "x": 268,
+          "y": 300,
+          "text": "WINDOW 3",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        },
+        {
+          "name": "how",
+          "type": "digits",
+          "digits": 15,
+          "size": [150, 12],
+          "x": 245,
+          "y": 322,
+          "text": "CLICKS BACKWARD",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "spin",
+          "type": "digits",
+          "digits": 7,
+          "size": [70, 12],
+          "x": 285,
+          "y": 338,
+          "text": "NO SPIN",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "five",
+      "type": "group",
+      "children": [
+        {"name": "drum", "type": "shape", "shape": {"rect": [468.0, 40.0, 104, 240]}, "fill": "#F2EAD8"},
+        {
+          "name": "reel",
+          "type": "digits",
+          "digits": 1,
+          "size": [104, 240],
+          "x": 468.0,
+          "y": 40.0,
+          "text": "A",
+          "display": {
+            "reel": {
+              "font": "letters",
+              "charset": "ABCDEFGH",
+              "spin": "spin",
+              "step": null,
+              "turns": 4,
+              "duration": 2.4,
+              "ease": "cubic_out",
+              "direction": "forward",
+              "offset": [{"t": 0, "v": 0}, {"t": 2.1, "v": 0}, {"t": 2.4, "v": 0.12}, {"t": 2.7, "v": 0, "ease": "quad_out"}],
+              "window": 5
+            }
+          },
+          "bindings": [{"property": "text", "variable": "five"}]
+        },
+        {"name": "shade_0", "type": "shape", "shape": {"rect": [468.0, 40.0, 104, 48]}, "fill": "#0E1116", "opacity": 0.5},
+        {"name": "shade_1", "type": "shape", "shape": {"rect": [468.0, 88.0, 104, 48]}, "fill": "#0E1116", "opacity": 0.3},
+        {"name": "shade_3", "type": "shape", "shape": {"rect": [468.0, 184.0, 104, 48]}, "fill": "#0E1116", "opacity": 0.3},
+        {"name": "shade_4", "type": "shape", "shape": {"rect": [468.0, 232.0, 104, 48]}, "fill": "#0E1116", "opacity": 0.5},
+        {
+          "name": "frame",
+          "type": "shape",
+          "shape": {"rect": [468.0, 40.0, 104, 240]},
+          "fill": "#00000000",
+          "stroke": {"color": "#E9A93B", "width": 3}
+        },
+        {"name": "line", "type": "shape", "shape": {"rect": [458.0, 159, 124, 2]}, "fill": "#FF5A5A"},
+        {
+          "name": "setting",
+          "type": "digits",
+          "digits": 8,
+          "size": [104, 16],
+          "x": 468,
+          "y": 300,
+          "text": "WINDOW 5",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}
+        },
+        {
+          "name": "how",
+          "type": "digits",
+          "digits": 7,
+          "size": [70, 12],
+          "x": 485,
+          "y": 322,
+          "text": "LETTERS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "spin",
+          "type": "digits",
+          "digits": 7,
+          "size": [70, 12],
+          "x": 485,
+          "y": 338,
+          "text": "SETTLES",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    }
+  ]
+}
