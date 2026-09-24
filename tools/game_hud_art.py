@@ -8,14 +8,11 @@
   ruined chapel on a hill and dark pines in front.
 - map.png: the minimap's ground, 256x256: parchment with a river, a
   road, woods and the chapel, drawn to be turned under a fixed arrow.
-- glow.png: a white disc fading to nothing, 128x128, for glows drawn
-  with the add blend and tinted.
-- orb_shade.png: 128x128, clear in the middle and dark towards the rim,
-  laid over an orb's liquid so it reads as a glass ball.
-- vignette.png: 320x180, white at the edges and clear in the middle, for
-  the damage flash, tinted.
 - icons: strike.svg, fireball.svg, ward.svg, heal.svg, frost.svg,
   potion.svg and crest.svg, flat shapes with no text in them.
+
+The glows, the shade that makes an orb read as a glass ball and the red
+flash at the screen's edges on a hit are gradients in the show itself.
 
 Pictures are drawn at four times their size and scaled down, which is
 all the antialiasing they get. Needs Pillow.
@@ -151,42 +148,6 @@ def minimap():
     return image.resize((256, 256), Image.LANCZOS)
 
 
-def glow():
-    size = 128
-    image = Image.new("RGBA", (size, size), (255, 255, 255, 0))
-    pixels = image.load()
-    for y in range(size):
-        for x in range(size):
-            r = math.hypot(x + 0.5 - size / 2, y + 0.5 - size / 2) / (size / 2)
-            pixels[x, y] = (255, 255, 255, round(255 * max(0.0, 1 - r) ** 2))
-    return image
-
-
-def orb_shade():
-    size = 128
-    image = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    pixels = image.load()
-    for y in range(size):
-        for x in range(size):
-            r = math.hypot(x + 0.5 - size / 2, y + 0.5 - size / 2) / (size / 2)
-            if r <= 1:
-                pixels[x, y] = (8, 4, 10, round(235 * min(1.0, max(0.0, (r - 0.45) / 0.55)) ** 1.8))
-    return image
-
-
-def vignette():
-    w, h = 320, 180
-    image = Image.new("RGBA", (w, h), (255, 255, 255, 0))
-    pixels = image.load()
-    for y in range(h):
-        for x in range(w):
-            dx = abs(x + 0.5 - w / 2) / (w / 2)
-            dy = abs(y + 0.5 - h / 2) / (h / 2)
-            d = max(dx, dy) * 0.6 + math.hypot(dx, dy) * 0.4
-            pixels[x, y] = (255, 255, 255, round(255 * min(1.0, max(0.0, (d - 0.55) / 0.5)) ** 1.6))
-    return image
-
-
 def svg(body, size=64):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}" width="{size}" height="{size}">\n'
             + body + "\n</svg>\n")
@@ -246,9 +207,6 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     dusk().save(OUT / "dusk.png", optimize=True)
     minimap().save(OUT / "map.png", optimize=True)
-    glow().save(OUT / "glow.png", optimize=True)
-    orb_shade().save(OUT / "orb_shade.png", optimize=True)
-    vignette().save(OUT / "vignette.png", optimize=True)
     for name, text in ICONS.items():
         (OUT / f"{name}.svg").write_text(text)
 
