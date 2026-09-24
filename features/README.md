@@ -15,7 +15,7 @@ cargo run -p cuelight-player -- ../cuelight-examples/features/timelines/easing
 | [images](images/) | `image`, `sprite_sheet`, `tint`, `asset_paths` |
 | [text](text/) | `bitmap_font`, `outline_font`, `digits`, `reels`, `reel_wheels` |
 | [bindings](bindings/) | `scale_offset`, `text_format`, `map_default`, `font`, `transitions`, `visible_threshold_debounce` |
-| [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence`, `hold` |
+| [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence`, `hold`, `values` |
 | [scenes](scenes/) | `scenes` |
 | [sound](sound/) | `audio_layers`, `pick`, `rest`, `ducking` |
 | [output](output/) | `modes`, `scaling`, `dots`, `overflow` |

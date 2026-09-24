@@ -1,0 +1,203 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "values",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "values": {
+    "breath": {
+      "timelines": [
+        {
+          "name": "loop",
+          "autoplay": true,
+          "loop": true,
+          "keys": [{"t": 0, "v": 0.6}, {"t": 1.5, "v": 1.2, "ease": "quad_in_out"}, {"t": 3, "v": 0.6, "ease": "quad_in_out"}]
+        }
+      ]
+    },
+    "level": {
+      "timelines": [
+        {"name": "rise", "autoplay": true, "trigger": "again", "on_end": "top", "keys": [{"t": 0, "v": 0}, {"t": 2, "v": 100, "ease": "quad_out"}]},
+        {"name": "stay", "trigger": "top", "on_end": "down", "keys": [{"t": 0, "v": 100}, {"t": 1.5, "v": 100}]},
+        {"name": "fall", "trigger": "down", "on_end": "again", "keys": [{"t": 0, "v": 100}, {"t": 2, "v": 0, "ease": "quad_in"}]}
+      ]
+    },
+    "sweep": {
+      "timelines": [
+        {
+          "name": "loop",
+          "autoplay": true,
+          "loop": true,
+          "keys": [{"t": 0, "v": 0}, {"t": 2, "v": 100, "ease": "quad_in_out"}, {"t": 4, "v": 0, "ease": "quad_in_out"}]
+        }
+      ]
+    }
+  },
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 6,
+      "size": [84, 20],
+      "x": 24,
+      "y": 18,
+      "text": "VALUES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "col_0",
+      "type": "group",
+      "x": 24,
+      "y": 70,
+      "children": [
+        {
+          "name": "ball",
+          "type": "shape",
+          "x": 50,
+          "y": 70,
+          "shape": {"circle": [0, 0, 40]},
+          "fill": "#FFB000",
+          "bindings": [{"property": "scale", "variable": "breath"}]
+        },
+        {"name": "bar_back", "type": "shape", "x": 110, "y": 60, "shape": {"rect": [0, 0, 70, 20]}, "fill": "#2A1D04"},
+        {
+          "name": "bar",
+          "type": "shape",
+          "x": 110,
+          "y": 60,
+          "shape": {"rect": [0, 0, 58, 20]},
+          "fill": "#FFB000",
+          "bindings": [{"property": "scale_x", "variable": "breath"}]
+        }
+      ]
+    },
+    {
+      "name": "title_0",
+      "type": "digits",
+      "digits": 11,
+      "size": [110, 12],
+      "x": 24,
+      "y": 248,
+      "text": "TWO READERS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_0",
+      "type": "digits",
+      "digits": 21,
+      "size": [168, 10],
+      "x": 24,
+      "y": 266,
+      "text": "ONE VALUE SCALES BOTH",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "col_1",
+      "type": "group",
+      "x": 228,
+      "y": 70,
+      "children": [
+        {
+          "name": "dial",
+          "type": "shape",
+          "x": 70,
+          "y": 110,
+          "shape": {"path": "M -60 0 A 60 60 0 0 1 60 0"},
+          "fill": "#00000000",
+          "stroke": {"color": "#3A4250", "width": 6}
+        },
+        {
+          "name": "needle",
+          "type": "shape",
+          "x": 70,
+          "y": 110,
+          "shape": {"path": "M -3 0 L 0 -56 L 3 0 Z"},
+          "fill": "#FFB000",
+          "bindings": [{"property": "rotation", "variable": "level", "scale": 1.8, "offset": -90}]
+        },
+        {
+          "name": "reading",
+          "type": "digits",
+          "digits": 3,
+          "size": [60, 32],
+          "x": 40,
+          "y": 125,
+          "text": "0",
+          "justify": "right",
+          "display": {"segments": {"style": "numeric7", "fill": "#FFB000", "unlit": "#2A1D04"}},
+          "bindings": [{"property": "text", "variable": "level", "format": "thousands"}]
+        }
+      ]
+    },
+    {
+      "name": "title_1",
+      "type": "digits",
+      "digits": 9,
+      "size": [90, 12],
+      "x": 228,
+      "y": 248,
+      "text": "STRETCHES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_1",
+      "type": "digits",
+      "digits": 24,
+      "size": [192, 10],
+      "x": 228,
+      "y": 266,
+      "text": "RISE STAY FALL BY ON_END",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "col_2",
+      "type": "group",
+      "x": 432,
+      "y": 70,
+      "children": [
+        {"name": "track", "type": "shape", "x": 40, "y": 10, "shape": {"rect": [0, 0, 24, 150]}, "fill": "#0B2A33"},
+        {
+          "name": "fill",
+          "type": "shape",
+          "x": 40,
+          "y": 160,
+          "shape": {"rect": [0, -150, 24, 150]},
+          "fill": "#3EC9F0",
+          "bindings": [{"property": "scale_y", "variable": "sweep", "scale": 0.01}]
+        },
+        {
+          "name": "reading",
+          "type": "digits",
+          "digits": 3,
+          "size": [60, 32],
+          "x": 90,
+          "y": 64,
+          "text": "0",
+          "justify": "right",
+          "display": {"segments": {"style": "numeric7", "fill": "#FFB000", "unlit": "#2A1D04"}},
+          "bindings": [{"property": "text", "variable": "sweep", "format": "thousands"}]
+        }
+      ]
+    },
+    {
+      "name": "title_2",
+      "type": "digits",
+      "digits": 15,
+      "size": [150, 12],
+      "x": 432,
+      "y": 248,
+      "text": "HOST TAKES OVER",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_2",
+      "type": "digits",
+      "digits": 23,
+      "size": [184, 10],
+      "x": 432,
+      "y": 266,
+      "text": "DRIVER SETS IT FROM 6 S",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}
