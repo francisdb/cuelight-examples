@@ -33,9 +33,10 @@ two minutes: a clear night, dawn, a sunny morning that clouds over, rain,
 a thunderstorm, a clear sunset, fog and snow, with the sun on its arc,
 the readings drifting and the forecast and hourly bars refreshing. It is
 written by
-[`tools/weather_dashboard_day.py`](../tools/weather_dashboard_day.py);
-the show document is generated too, since its forecast slots, bars and
-stars repeat. You can also set a variable from the player's prompt:
+[`tools/weather_dashboard_day.py`](../tools/weather_dashboard_day.py).
+The show document was first written by a script, since its forecast
+slots, bars and stars repeat, but that script is not kept: the document is
+edited as it is. You can also set a variable from the player's prompt:
 `condition=storm`, `sky=night`.
 
 ## Assets
@@ -57,7 +58,7 @@ The weather is made up; the city is real.
   an SVG gradient paints as its first stop.
 - Layer templates or repeaters: the five forecast slots and the eight
   bars are the same block with another number in the variable names,
-  which is why the document is generated.
+  which is why the document was first written by a script.
 - Text with a unit: `18°` and `36 km/h` from one binding and a format,
   instead of a number box and a unit text placed next to it.
 - Bindable vector choice: one forecast icon layer picking its file from a
