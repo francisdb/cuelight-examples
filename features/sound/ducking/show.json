@@ -1,0 +1,183 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "ducking",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "variables": {"row": ""},
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 7,
+      "size": [98, 20],
+      "x": 24,
+      "y": 18,
+      "text": "DUCKING",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "callout", "type": "audio", "sound": "callout", "trigger": "call", "bus": "voice"},
+    {
+      "name": "voice_lamp",
+      "type": "shape",
+      "shape": {"circle": [0, 0, 10]},
+      "x": 470,
+      "y": 28,
+      "fill": "#3EC9F0",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "speaking",
+          "trigger": "call",
+          "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.6, "v": 1}, {"t": 1.8, "v": 0.15, "ease": "quad_in"}]}]
+        }
+      ]
+    },
+    {
+      "name": "voice",
+      "type": "digits",
+      "digits": 5,
+      "size": [65, 16],
+      "x": 490,
+      "y": 20,
+      "text": "VOICE",
+      "display": {"segments": {"style": "alpha14", "fill": "#3EC9F0"}}
+    },
+    {
+      "name": "none",
+      "type": "group",
+      "y": 76,
+      "gain": 0,
+      "bindings": [{"property": "gain", "variable": "row", "map": {"none": 1}, "default": 0, "transition": {"duration": 0.3}}],
+      "children": [
+        {"name": "bed", "type": "audio", "sound": "bed", "autoplay": true, "loop": true, "bus": "music"},
+        {
+          "name": "lamp",
+          "type": "shape",
+          "shape": {"circle": [44, 8, 12]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"none": 1}, "default": 0.15}]
+        },
+        {
+          "name": "mode",
+          "type": "digits",
+          "digits": 7,
+          "size": [91, 16],
+          "x": 76,
+          "y": 0,
+          "text": "NO DUCK",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+          "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"none": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what",
+          "type": "digits",
+          "digits": 31,
+          "size": [310, 12],
+          "x": 76,
+          "y": 24,
+          "text": "THE MUSIC STAYS UNDER THE CHIME",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "hard",
+      "type": "group",
+      "y": 152,
+      "gain": 0,
+      "bindings": [{"property": "gain", "variable": "row", "map": {"hard": 1}, "default": 0, "transition": {"duration": 0.3}}],
+      "children": [
+        {
+          "name": "bed",
+          "type": "audio",
+          "sound": "bed",
+          "autoplay": true,
+          "loop": true,
+          "bus": "music",
+          "duck": {"under": "voice", "to": 0.1, "attack": 0, "release": 0.3}
+        },
+        {
+          "name": "lamp",
+          "type": "shape",
+          "shape": {"circle": [44, 8, 12]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"hard": 1}, "default": 0.15}]
+        },
+        {
+          "name": "mode",
+          "type": "digits",
+          "digits": 9,
+          "size": [117, 16],
+          "x": 76,
+          "y": 0,
+          "text": "DUCK HARD",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+          "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"hard": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what",
+          "type": "digits",
+          "digits": 36,
+          "size": [360, 12],
+          "x": 76,
+          "y": 24,
+          "text": "TO 10 PERCENT AT ONCE BACK IN 300 MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "soft",
+      "type": "group",
+      "y": 228,
+      "gain": 0,
+      "bindings": [{"property": "gain", "variable": "row", "map": {"soft": 1}, "default": 0, "transition": {"duration": 0.3}}],
+      "children": [
+        {
+          "name": "bed",
+          "type": "audio",
+          "sound": "bed",
+          "autoplay": true,
+          "loop": true,
+          "bus": "music",
+          "duck": {"under": "voice", "to": 0.4, "attack": 0.4, "release": 1.2}
+        },
+        {
+          "name": "lamp",
+          "type": "shape",
+          "shape": {"circle": [44, 8, 12]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"soft": 1}, "default": 0.15}]
+        },
+        {
+          "name": "mode",
+          "type": "digits",
+          "digits": 9,
+          "size": [117, 16],
+          "x": 76,
+          "y": 0,
+          "text": "DUCK SOFT",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+          "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"soft": 1}, "default": 0.45}]
+        },
+        {
+          "name": "what",
+          "type": "digits",
+          "digits": 39,
+          "size": [390, 12],
+          "x": 76,
+          "y": 24,
+          "text": "TO 40 PERCENT IN 400 MS BACK IN 1200 MS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    }
+  ]
+}

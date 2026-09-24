@@ -1,0 +1,65 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "set": {
+        "row": "none"
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "row": "hard"
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "set": {
+        "row": "soft"
+      }
+    },
+    {
+      "wait": 2.0
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    },
+    {
+      "trigger": "call"
+    },
+    {
+      "wait": 3.4
+    }
+  ]
+}

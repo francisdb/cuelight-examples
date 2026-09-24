@@ -23,6 +23,10 @@ runs to its end.
 For pick, three takes of one knock on a woodblock, knock1.ogg to
 knock3.ogg, a quarter second each. Real takes would differ less: these
 are a C, an E and a G, so which one plays is easy to hear.
+
+For ducking, bed.ogg is eight seconds of soft arpeggios over C, Am, F
+and G, every note above 300 Hz, looping without a seam, and callout.ogg
+an announcement chime, ding-dong-ding, 1.8 seconds.
 """
 
 import math
@@ -165,6 +169,31 @@ def jingle():
     return out + [0.0] * (int(RATE * 2.0) - len(out))
 
 
+def bed():
+    """Eight seconds of soft arpeggios over C, Am, F and G, all above
+    300 Hz, whose tails wrap round so it loops without a seam."""
+    step = 0.25
+    total = int(RATE * 32 * step)
+    out = [0.0] * total
+    chords = [(72, 76, 79), (69, 72, 76), (65, 69, 72), (67, 71, 74)]  # C Am F G, from C5
+    for bar, chord in enumerate(chords):
+        notes = [chord[0], chord[1], chord[2], chord[0] + 12, chord[2], chord[1], chord[2], chord[0] + 12]
+        for i, note in enumerate(notes):
+            offset = int((bar * 8 + i) * step * RATE)
+            for k, v in enumerate(pluck(midi(note), 1.2, 3.0, 0.25, 3)):
+                out[(offset + k) % total] += v
+    peak = max(abs(v) for v in out)
+    return [0.5 * v / peak for v in out]
+
+
+def callout():
+    """An announcement chime, ding-dong-ding, 1.8 seconds."""
+    notes = [(0.0, 880.0), (0.4, 698.46), (0.8, 1046.5)]  # A5, F5, C6
+    parts = [(start, tone(f, 1.0, 0.004, 3.5, 0.45)) for start, f in notes]
+    out = mix(*parts)
+    return out + [0.0] * max(0, int(RATE * 1.8) - len(out))
+
+
 def knock(pitch, seed):
     """A knock on a woodblock: a tone and the inharmonic overtone wood
     has, both dying fast, and a click of noise on top for the strike.
@@ -201,6 +230,7 @@ def main():
     examples = {
         "audio_layers": [("music", music()), ("zap", zap()), ("thunder", thunder()), ("jingle", jingle())],
         "rest": [("tick", tick())],
+        "ducking": [("bed", bed()), ("callout", callout())],
         "pick": [
             ("knock1", knock(523.25, 1)),
             ("knock2", knock(659.25, 2)),
