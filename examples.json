@@ -27,7 +27,8 @@
         { "path": "features/layers/group_clip", "title": "Group clip", "description": "A group with a rect or circle clip is a window onto its children.", "thumbnail_at": 3 },
         { "path": "features/layers/paths", "title": "Paths and vectors", "description": "Path shapes filled, stroked or both, a group clipped by a path, and SVG artwork drawn by a vector layer at its own size or sized.", "thumbnail_at": 1.8 },
         { "path": "features/layers/blend_modes", "title": "Blend modes", "description": "The same lamp glow over dark art as add, screen, multiply and normal, and two overlapping glows in one add group next to two add layers.", "thumbnail_at": 1.8 },
-        { "path": "features/layers/rotation", "title": "Rotation and transforms", "description": "A needle whose rotation follows a variable, a compass on a 360 ring, a spinning fan, a clipped group that turns as one, a mirrored word and a stretch from scale_x and scale_y.", "thumbnail_at": 2.9 }
+        { "path": "features/layers/rotation", "title": "Rotation and transforms", "description": "A needle whose rotation follows a variable, a compass on a 360 ring, a spinning fan, a clipped group that turns as one, a mirrored word and a stretch from scale_x and scale_y.", "thumbnail_at": 2.9 },
+        { "path": "features/layers/gradients", "title": "Gradients", "description": "Shapes filled with gradients: two stops, a line whose end colors hold beyond it, a fade to transparent over stripes, a radial glow that scales with its layer, an off-centre radial that shades a ball, and a path whose gradient turns with it.", "thumbnail_at": 2.0 }
       ]
     },
     {
