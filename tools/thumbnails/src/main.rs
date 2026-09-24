@@ -245,9 +245,14 @@ fn references(
                 ));
             }
             Step::Set { set } => {
-                for variable in set.keys().filter(|v| !show.variables.contains_key(*v)) {
+                // Setting a name the show animates itself takes that value
+                // over, which is what a host may do.
+                for variable in set
+                    .keys()
+                    .filter(|v| !show.variables.contains_key(*v) && !show.values.contains_key(*v))
+                {
                     out.push(format!(
-                        "the driver sets {variable:?}, which is not a variable"
+                        "the driver sets {variable:?}, which is not a variable or a value"
                     ));
                 }
             }
