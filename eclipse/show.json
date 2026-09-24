@@ -1,0 +1,2885 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "eclipse",
+  "size": [1280, 720],
+  "background": "#F3EDE0",
+  "fonts": {
+    "title": {"file": "Spectral-SemiBold", "size": 38, "color": "#1F2533"},
+    "subtitle": {"file": "Spectral-Italic", "size": 20, "color": "#6B6F7A"},
+    "heading": {"file": "Spectral-SemiBold", "size": 28, "color": "#1F2533"},
+    "body": {"file": "Spectral-Regular", "size": 19, "color": "#3A3F4B"},
+    "label": {"file": "SpectralSC-SemiBold", "size": 17, "color": "#D2452C"},
+    "note": {"file": "Spectral-Italic", "size": 15, "color": "#6B6F7A"},
+    "tick": {"file": "SpectralSC-SemiBold", "size": 15, "color": "#1F2533"},
+    "you": {"file": "Spectral-SemiBold", "size": 16, "color": "#D2452C"},
+    "chip": {"file": "Spectral-Italic", "size": 17, "color": "#FFFFFFE0"},
+    "callout": {"file": "Spectral-Italic", "size": 16, "color": "#FFFFFFE8"}
+  },
+  "layers": [],
+  "scenes": [
+    {
+      "name": "eclipse",
+      "trigger": "cycle",
+      "layers": [
+        {"name": "title", "type": "text", "x": 46, "y": 26, "font": "title", "text": "A total solar eclipse"},
+        {
+          "name": "subtitle",
+          "type": "text",
+          "x": 690,
+          "y": 44,
+          "font": "subtitle",
+          "text": "what you see, and why it happens",
+          "size": [542, 30],
+          "align": "right"
+        },
+        {
+          "name": "sky",
+          "type": "group",
+          "x": 48,
+          "y": 104,
+          "clip": {"path": "M 14 0 H 586 A 14 14 0 0 1 600 14 V 554 A 14 14 0 0 1 586 568 H 14 A 14 14 0 0 1 0 554 V 14 A 14 14 0 0 1 14 0 Z"},
+          "children": [
+            {"name": "sky_day", "type": "image", "image": "sky_day", "size": [600, 568]},
+            {
+              "name": "sky_total",
+              "type": "image",
+              "image": "sky_total",
+              "size": [600, 568],
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "approach",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.4, "v": 0},
+                        {"t": 0.8, "v": 0},
+                        {"t": 1.2, "v": 0},
+                        {"t": 1.6, "v": 0},
+                        {"t": 2, "v": 0},
+                        {"t": 2.4, "v": 0},
+                        {"t": 2.8, "v": 0},
+                        {"t": 3.2, "v": 0},
+                        {"t": 3.6, "v": 0},
+                        {"t": 4, "v": 0}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_in",
+                  "trigger": "c1",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.4, "v": 0},
+                        {"t": 0.8, "v": 0},
+                        {"t": 1.2, "v": 0},
+                        {"t": 1.6, "v": 0},
+                        {"t": 2, "v": 0},
+                        {"t": 2.4, "v": 0},
+                        {"t": 2.8, "v": 0},
+                        {"t": 3.2, "v": 0},
+                        {"t": 3.6, "v": 0},
+                        {"t": 4, "v": 0},
+                        {"t": 4.4, "v": 0},
+                        {"t": 4.8, "v": 0},
+                        {"t": 5.2, "v": 0},
+                        {"t": 5.6, "v": 0},
+                        {"t": 6, "v": 0},
+                        {"t": 6.4, "v": 0},
+                        {"t": 6.8, "v": 0},
+                        {"t": 7.2, "v": 0},
+                        {"t": 7.6, "v": 0},
+                        {"t": 8, "v": 0.001},
+                        {"t": 8.4, "v": 0.001},
+                        {"t": 8.8, "v": 0.002},
+                        {"t": 9.2, "v": 0.003},
+                        {"t": 9.6, "v": 0.004},
+                        {"t": 10, "v": 0.007},
+                        {"t": 10.4, "v": 0.01},
+                        {"t": 10.8, "v": 0.015},
+                        {"t": 11.2, "v": 0.023},
+                        {"t": 11.6, "v": 0.033},
+                        {"t": 12, "v": 0.048},
+                        {"t": 12.4, "v": 0.068},
+                        {"t": 12.8, "v": 0.095},
+                        {"t": 13.2, "v": 0.131},
+                        {"t": 13.6, "v": 0.179},
+                        {"t": 14, "v": 0.24}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "beads",
+                  "trigger": "beads",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0.24}, {"t": 0.4, "v": 0.323}, {"t": 0.8, "v": 0.465}, {"t": 1.2, "v": 0.665}, {"t": 1.6, "v": 0.9}]
+                    }
+                  ]
+                },
+                {
+                  "name": "totality",
+                  "trigger": "c2",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.9},
+                        {"t": 0.4, "v": 1},
+                        {"t": 0.8, "v": 1},
+                        {"t": 1.2, "v": 1},
+                        {"t": 1.6, "v": 1},
+                        {"t": 2, "v": 1},
+                        {"t": 2.4, "v": 1},
+                        {"t": 2.8, "v": 1},
+                        {"t": 3.2, "v": 1},
+                        {"t": 3.6, "v": 1},
+                        {"t": 4, "v": 1},
+                        {"t": 4.4, "v": 1},
+                        {"t": 4.8, "v": 1},
+                        {"t": 5.2, "v": 1},
+                        {"t": 5.6, "v": 1},
+                        {"t": 6, "v": 1},
+                        {"t": 6.4, "v": 1},
+                        {"t": 6.8, "v": 1},
+                        {"t": 7.2, "v": 1},
+                        {"t": 7.6, "v": 1},
+                        {"t": 8, "v": 1},
+                        {"t": 8.4, "v": 1},
+                        {"t": 8.8, "v": 1},
+                        {"t": 9.2, "v": 1},
+                        {"t": 9.6, "v": 1},
+                        {"t": 10, "v": 0.9}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "emerge",
+                  "trigger": "c3",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0.665}, {"t": 0.8, "v": 0.465}, {"t": 1.2, "v": 0.323}, {"t": 1.6, "v": 0.24}]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_out",
+                  "trigger": "emerged",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.24},
+                        {"t": 0.4, "v": 0.179},
+                        {"t": 0.8, "v": 0.131},
+                        {"t": 1.2, "v": 0.095},
+                        {"t": 1.6, "v": 0.068},
+                        {"t": 2, "v": 0.048},
+                        {"t": 2.4, "v": 0.033},
+                        {"t": 2.8, "v": 0.023},
+                        {"t": 3.2, "v": 0.015},
+                        {"t": 3.6, "v": 0.01},
+                        {"t": 4, "v": 0.007},
+                        {"t": 4.4, "v": 0.004},
+                        {"t": 4.8, "v": 0.003},
+                        {"t": 5.2, "v": 0.002},
+                        {"t": 5.6, "v": 0.001},
+                        {"t": 6, "v": 0.001},
+                        {"t": 6.4, "v": 0},
+                        {"t": 6.8, "v": 0},
+                        {"t": 7.2, "v": 0},
+                        {"t": 7.6, "v": 0},
+                        {"t": 8, "v": 0},
+                        {"t": 8.4, "v": 0},
+                        {"t": 8.8, "v": 0},
+                        {"t": 9.2, "v": 0},
+                        {"t": 9.6, "v": 0},
+                        {"t": 10, "v": 0},
+                        {"t": 10.4, "v": 0},
+                        {"t": 10.8, "v": 0},
+                        {"t": 11.2, "v": 0},
+                        {"t": 11.6, "v": 0},
+                        {"t": 12, "v": 0},
+                        {"t": 12.4, "v": 0},
+                        {"t": 12.8, "v": 0},
+                        {"t": 13.2, "v": 0},
+                        {"t": 13.6, "v": 0},
+                        {"t": 14, "v": 0}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "depart",
+                  "trigger": "c4",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.4, "v": 0},
+                        {"t": 0.8, "v": 0},
+                        {"t": 1.2, "v": 0},
+                        {"t": 1.6, "v": 0},
+                        {"t": 2, "v": 0},
+                        {"t": 2.4, "v": 0},
+                        {"t": 2.8, "v": 0},
+                        {"t": 3.2, "v": 0},
+                        {"t": 3.6, "v": 0},
+                        {"t": 4, "v": 0},
+                        {"t": 6, "v": 0}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "star_0",
+              "type": "shape",
+              "x": 70,
+              "y": 250,
+              "shape": {"circle": [0, 0, 1.6]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 0.4,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_1",
+              "type": "shape",
+              "x": 180,
+              "y": 64,
+              "shape": {"circle": [0, 0, 1.2]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 0.75,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_2",
+              "type": "shape",
+              "x": 540,
+              "y": 250,
+              "shape": {"circle": [0, 0, 1.4]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 1.1,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_3",
+              "type": "shape",
+              "x": 548,
+              "y": 188,
+              "shape": {"circle": [0, 0, 1.1]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 1.4499999999999997,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_4",
+              "type": "shape",
+              "x": 410,
+              "y": 40,
+              "shape": {"circle": [0, 0, 1.0]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 1.7999999999999998,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_5",
+              "type": "shape",
+              "x": 40,
+              "y": 300,
+              "shape": {"circle": [0, 0, 1.2]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 2.15,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_6",
+              "type": "shape",
+              "x": 560,
+              "y": 330,
+              "shape": {"circle": [0, 0, 1.3]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 2.4999999999999996,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "star_7",
+              "type": "shape",
+              "x": 240,
+              "y": 36,
+              "shape": {"circle": [0, 0, 1.0]},
+              "fill": "#E8ECFF",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 2.8499999999999996,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "venus",
+              "type": "shape",
+              "x": 118,
+              "y": 372,
+              "shape": {"circle": [0, 0, 2.8]},
+              "fill": "#FFF7E0",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "beads",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.4, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "emerged",
+                  "delay": 3,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "horizon_glow",
+              "type": "image",
+              "image": "horizon_glow",
+              "y": 368,
+              "size": [600, 150],
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "dusk",
+                  "trigger": "beads",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.6, "v": 0.35}, {"t": 600, "v": 0.35}]}]
+                },
+                {
+                  "name": "round",
+                  "trigger": "c2",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 2.0, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 2.5, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "sun_glare",
+              "type": "image",
+              "image": "glow",
+              "x": 300,
+              "y": 226,
+              "size": [420, 420],
+              "anchor": "center",
+              "tint": "#FFF6DA",
+              "blend": "screen",
+              "timelines": [
+                {
+                  "name": "approach",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.95},
+                        {"t": 0.5, "v": 0.95},
+                        {"t": 1, "v": 0.95},
+                        {"t": 1.5, "v": 0.95},
+                        {"t": 2, "v": 0.95},
+                        {"t": 2.5, "v": 0.95},
+                        {"t": 3, "v": 0.95},
+                        {"t": 3.5, "v": 0.95},
+                        {"t": 4, "v": 0.95}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_in",
+                  "trigger": "c1",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.95},
+                        {"t": 0.5, "v": 0.945},
+                        {"t": 1, "v": 0.936},
+                        {"t": 1.5, "v": 0.925},
+                        {"t": 2, "v": 0.912},
+                        {"t": 2.5, "v": 0.897},
+                        {"t": 3, "v": 0.88},
+                        {"t": 3.5, "v": 0.862},
+                        {"t": 4, "v": 0.842},
+                        {"t": 4.5, "v": 0.822},
+                        {"t": 5, "v": 0.8},
+                        {"t": 5.5, "v": 0.777},
+                        {"t": 6, "v": 0.752},
+                        {"t": 6.5, "v": 0.727},
+                        {"t": 7, "v": 0.7},
+                        {"t": 7.5, "v": 0.673},
+                        {"t": 8, "v": 0.644},
+                        {"t": 8.5, "v": 0.614},
+                        {"t": 9, "v": 0.582},
+                        {"t": 9.5, "v": 0.55},
+                        {"t": 10, "v": 0.516},
+                        {"t": 10.5, "v": 0.481},
+                        {"t": 11, "v": 0.444},
+                        {"t": 11.5, "v": 0.405},
+                        {"t": 12, "v": 0.364},
+                        {"t": 12.5, "v": 0.322},
+                        {"t": 13, "v": 0.276},
+                        {"t": 13.5, "v": 0.227},
+                        {"t": 14, "v": 0.173}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "beads",
+                  "trigger": "beads",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.173}, {"t": 0.533, "v": 0.124}, {"t": 1.067, "v": 0.068}, {"t": 1.6, "v": 0}]}]
+                },
+                {
+                  "name": "totality",
+                  "trigger": "c2",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.5, "v": 0},
+                        {"t": 1, "v": 0},
+                        {"t": 1.5, "v": 0},
+                        {"t": 2, "v": 0},
+                        {"t": 2.5, "v": 0},
+                        {"t": 3, "v": 0},
+                        {"t": 3.5, "v": 0},
+                        {"t": 4, "v": 0},
+                        {"t": 4.5, "v": 0},
+                        {"t": 5, "v": 0},
+                        {"t": 5.5, "v": 0},
+                        {"t": 6, "v": 0},
+                        {"t": 6.5, "v": 0},
+                        {"t": 7, "v": 0},
+                        {"t": 7.5, "v": 0},
+                        {"t": 8, "v": 0},
+                        {"t": 8.5, "v": 0},
+                        {"t": 9, "v": 0},
+                        {"t": 9.5, "v": 0},
+                        {"t": 10, "v": 0}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "emerge",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.533, "v": 0.068}, {"t": 1.067, "v": 0.124}, {"t": 1.6, "v": 0.173}]}]
+                },
+                {
+                  "name": "partial_out",
+                  "trigger": "emerged",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.173},
+                        {"t": 0.5, "v": 0.227},
+                        {"t": 1, "v": 0.276},
+                        {"t": 1.5, "v": 0.322},
+                        {"t": 2, "v": 0.364},
+                        {"t": 2.5, "v": 0.405},
+                        {"t": 3, "v": 0.444},
+                        {"t": 3.5, "v": 0.481},
+                        {"t": 4, "v": 0.516},
+                        {"t": 4.5, "v": 0.55},
+                        {"t": 5, "v": 0.582},
+                        {"t": 5.5, "v": 0.614},
+                        {"t": 6, "v": 0.644},
+                        {"t": 6.5, "v": 0.673},
+                        {"t": 7, "v": 0.7},
+                        {"t": 7.5, "v": 0.727},
+                        {"t": 8, "v": 0.752},
+                        {"t": 8.5, "v": 0.777},
+                        {"t": 9, "v": 0.8},
+                        {"t": 9.5, "v": 0.822},
+                        {"t": 10, "v": 0.842},
+                        {"t": 10.5, "v": 0.862},
+                        {"t": 11, "v": 0.88},
+                        {"t": 11.5, "v": 0.897},
+                        {"t": 12, "v": 0.912},
+                        {"t": 12.5, "v": 0.925},
+                        {"t": 13, "v": 0.936},
+                        {"t": 13.5, "v": 0.945},
+                        {"t": 14, "v": 0.95}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "depart",
+                  "trigger": "c4",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0.95},
+                        {"t": 0.5, "v": 0.95},
+                        {"t": 1, "v": 0.95},
+                        {"t": 1.5, "v": 0.95},
+                        {"t": 2, "v": 0.95},
+                        {"t": 2.5, "v": 0.95},
+                        {"t": 3, "v": 0.95},
+                        {"t": 3.5, "v": 0.95},
+                        {"t": 4, "v": 0.95},
+                        {"t": 6, "v": 0.95}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "corona",
+              "type": "group",
+              "x": 300,
+              "y": 226,
+              "opacity": 0,
+              "blend": "screen",
+              "timelines": [
+                {
+                  "name": "inner",
+                  "trigger": "beads",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.35, "ease": "quad_out"}, {"t": 600, "v": 0.35}]}]
+                },
+                {
+                  "name": "full",
+                  "trigger": "c2",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 0.9, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.35, "ease": "quad_out"}, {"t": 2.2, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]
+                    }
+                  ]
+                }
+              ],
+              "children": [{"name": "streamers", "type": "image", "image": "corona", "anchor": "center"}]
+            },
+            {
+              "name": "atmosphere",
+              "type": "group",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "beads",
+                  "delay": 0.6,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "emerged",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ],
+              "children": [
+                {
+                  "name": "prominence_0",
+                  "type": "shape",
+                  "x": 194.26,
+                  "y": 195.68,
+                  "rotation": 286,
+                  "shape": {"path": "M -4.5 12.0 Q -4.5 -10.0 0 -10.0 Q 4.5 -10.0 4.5 12.0 Z"},
+                  "fill": "#FF6F8E"
+                },
+                {
+                  "name": "prominence_1",
+                  "type": "shape",
+                  "x": 194.13,
+                  "y": 244.67,
+                  "rotation": 260,
+                  "shape": {"path": "M -3.5 9.5 Q -3.5 -7.5 0 -7.5 Q 3.5 -7.5 3.5 9.5 Z"},
+                  "fill": "#FF6F8E"
+                },
+                {
+                  "name": "prominence_2",
+                  "type": "shape",
+                  "x": 211.29,
+                  "y": 166.17,
+                  "rotation": 304,
+                  "shape": {"path": "M -4.0 9.0 Q -4.0 -7.0 0 -7.0 Q 4.0 -7.0 4.0 9.0 Z"},
+                  "fill": "#FF6F8E"
+                },
+                {
+                  "name": "prominence_3",
+                  "type": "shape",
+                  "x": 405.26,
+                  "y": 195.82,
+                  "rotation": 74,
+                  "shape": {"path": "M -4.0 11.5 Q -4.0 -9.5 0 -9.5 Q 4.0 -9.5 4.0 11.5 Z"},
+                  "fill": "#FF6F8E"
+                },
+                {
+                  "name": "prominence_4",
+                  "type": "shape",
+                  "x": 406.45,
+                  "y": 240.96,
+                  "rotation": 98,
+                  "shape": {"path": "M -4.5 9.5 Q -4.5 -7.5 0 -7.5 Q 4.5 -7.5 4.5 9.5 Z"},
+                  "fill": "#FF6F8E"
+                },
+                {
+                  "name": "prominence_5",
+                  "type": "shape",
+                  "x": 392.66,
+                  "y": 279.5,
+                  "rotation": 120,
+                  "shape": {"path": "M -3.0 9.0 Q -3.0 -7.0 0 -7.0 Q 3.0 -7.0 3.0 9.0 Z"},
+                  "fill": "#FF6F8E"
+                }
+              ]
+            },
+            {
+              "name": "sun_face",
+              "type": "group",
+              "x": 300,
+              "y": 226,
+              "clip": {"circle": [0, 0, 100]},
+              "children": [
+                {"name": "photosphere", "type": "shape", "x": 0, "y": 0, "shape": {"circle": [0, 0, 100]}, "fill": "#FFF7E2"},
+                {
+                  "name": "moon_disc",
+                  "type": "shape",
+                  "x": 270,
+                  "y": 0,
+                  "shape": {"circle": [0, 0, 106]},
+                  "fill": "#262B38",
+                  "timelines": [
+                    {"name": "approach", "autoplay": true, "tracks": [{"property": "x", "keys": [{"t": 0, "v": 270}, {"t": 4, "v": 206}]}]},
+                    {"name": "partial_in", "trigger": "c1", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 206}, {"t": 14, "v": 22}]}]},
+                    {"name": "beads", "trigger": "beads", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 22}, {"t": 1.6, "v": 6}]}]},
+                    {"name": "totality", "trigger": "c2", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 6}, {"t": 10, "v": -6}]}]},
+                    {"name": "emerge", "trigger": "c3", "tracks": [{"property": "x", "keys": [{"t": 0, "v": -6}, {"t": 1.6, "v": -22}]}]},
+                    {"name": "partial_out", "trigger": "emerged", "tracks": [{"property": "x", "keys": [{"t": 0, "v": -22}, {"t": 14, "v": -206}]}]},
+                    {
+                      "name": "depart",
+                      "trigger": "c4",
+                      "tracks": [{"property": "x", "keys": [{"t": 0, "v": -206}, {"t": 4, "v": -270}, {"t": 6, "v": -270}]}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "beads",
+              "type": "group",
+              "x": 0,
+              "y": 0,
+              "children": [
+                {
+                  "name": "bead_0",
+                  "type": "shape",
+                  "x": 201.2,
+                  "y": 226,
+                  "shape": {"circle": [0, 0, 2.6]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.7, "v": 0},
+                            {"t": 0.85, "v": 1, "ease": "quad_out"},
+                            {"t": 1.5, "v": 0.9},
+                            {"t": 1.5999999999999999, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_1",
+                  "type": "shape",
+                  "x": 201.94,
+                  "y": 238.04,
+                  "shape": {"circle": [0, 0, 2.0]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.7799999999999999, "v": 0},
+                            {"t": 0.9299999999999999, "v": 1, "ease": "quad_out"},
+                            {"t": 1.45, "v": 0.9},
+                            {"t": 1.5699999999999998, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_2",
+                  "type": "shape",
+                  "x": 201.74,
+                  "y": 215.67,
+                  "shape": {"circle": [0, 0, 2.2]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.86, "v": 0},
+                            {"t": 1.01, "v": 1, "ease": "quad_out"},
+                            {"t": 1.4, "v": 0.9},
+                            {"t": 1.54, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_3",
+                  "type": "shape",
+                  "x": 204.13,
+                  "y": 249.9,
+                  "shape": {"circle": [0, 0, 1.6]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.94, "v": 0},
+                            {"t": 1.0899999999999999, "v": 1, "ease": "quad_out"},
+                            {"t": 1.35, "v": 0.9},
+                            {"t": 1.51, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_4",
+                  "type": "shape",
+                  "x": 203.73,
+                  "y": 203.77,
+                  "shape": {"circle": [0, 0, 1.8]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 1.02, "v": 0},
+                            {"t": 1.17, "v": 1, "ease": "quad_out"},
+                            {"t": 1.3, "v": 0.9},
+                            {"t": 1.48, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_5",
+                  "type": "shape",
+                  "x": 207.76,
+                  "y": 261.41,
+                  "shape": {"circle": [0, 0, 1.3]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 1.1, "v": 0},
+                            {"t": 1.25, "v": 1, "ease": "quad_out"},
+                            {"t": 1.25, "v": 0.9},
+                            {"t": 1.45, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_0",
+                  "type": "shape",
+                  "x": 398.8,
+                  "y": 226,
+                  "shape": {"circle": [0, 0, 2.6]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.45000000000000007, "v": 1, "ease": "quad_out"},
+                            {"t": 0.9, "v": 1},
+                            {"t": 1.3, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_1",
+                  "type": "shape",
+                  "x": 398.06,
+                  "y": 213.96,
+                  "shape": {"circle": [0, 0, 2.0]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [{"t": 0, "v": 0}, {"t": 0.38, "v": 1, "ease": "quad_out"}, {"t": 0.96, "v": 1}, {"t": 1.36, "v": 0, "ease": "quad_in"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_2",
+                  "type": "shape",
+                  "x": 398.26,
+                  "y": 236.33,
+                  "shape": {"circle": [0, 0, 2.2]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.31000000000000005, "v": 1, "ease": "quad_out"},
+                            {"t": 1.02, "v": 1},
+                            {"t": 1.42, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_3",
+                  "type": "shape",
+                  "x": 395.87,
+                  "y": 202.1,
+                  "shape": {"circle": [0, 0, 1.6]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.24000000000000002, "v": 1, "ease": "quad_out"},
+                            {"t": 1.08, "v": 1},
+                            {"t": 1.48, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_4",
+                  "type": "shape",
+                  "x": 396.27,
+                  "y": 248.23,
+                  "shape": {"circle": [0, 0, 1.8]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.17, "v": 1, "ease": "quad_out"},
+                            {"t": 1.1400000000000001, "v": 1},
+                            {"t": 1.54, "v": 0, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "bead_5",
+                  "type": "shape",
+                  "x": 392.24,
+                  "y": 190.59,
+                  "shape": {"circle": [0, 0, 1.3]},
+                  "fill": "#FFFFFF",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "flicker",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "opacity",
+                          "keys": [{"t": 0, "v": 0}, {"t": 0.1, "v": 1, "ease": "quad_out"}, {"t": 1.2, "v": 1}, {"t": 1.6, "v": 0, "ease": "quad_in"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "moon",
+              "type": "group",
+              "x": 570,
+              "y": 226,
+              "timelines": [
+                {
+                  "name": "approach",
+                  "autoplay": true,
+                  "on_end": "c1",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 570}, {"t": 4, "v": 506}]}]
+                },
+                {
+                  "name": "partial_in",
+                  "trigger": "c1",
+                  "on_end": "beads",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 506}, {"t": 14, "v": 322}]}]
+                },
+                {
+                  "name": "beads",
+                  "trigger": "beads",
+                  "on_end": "c2",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 322}, {"t": 1.6, "v": 306}]}]
+                },
+                {
+                  "name": "totality",
+                  "trigger": "c2",
+                  "on_end": "c3",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 306}, {"t": 10, "v": 294}]}]
+                },
+                {
+                  "name": "emerge",
+                  "trigger": "c3",
+                  "on_end": "emerged",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 294}, {"t": 1.6, "v": 278}]}]
+                },
+                {
+                  "name": "partial_out",
+                  "trigger": "emerged",
+                  "on_end": "c4",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 278}, {"t": 14, "v": 94}]}]
+                },
+                {
+                  "name": "depart",
+                  "trigger": "c4",
+                  "on_end": "cycle",
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": 94}, {"t": 4, "v": 30}, {"t": 6, "v": 30}]}]
+                }
+              ],
+              "children": [
+                {
+                  "name": "silhouette",
+                  "type": "shape",
+                  "x": 0,
+                  "y": 0,
+                  "shape": {"circle": [0, 0, 106]},
+                  "fill": "#0B0E18",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "in",
+                      "trigger": "beads",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                    },
+                    {
+                      "name": "out",
+                      "trigger": "emerged",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                    }
+                  ]
+                },
+                {
+                  "name": "outline",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 106]},
+                  "fill": "#00000000",
+                  "stroke": {"color": "#FFFFFF", "width": 1.5},
+                  "opacity": 0.55,
+                  "timelines": [
+                    {
+                      "name": "hide",
+                      "trigger": "beads",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.55}, {"t": 0.6, "v": 0}, {"t": 600, "v": 0}]}]
+                    },
+                    {
+                      "name": "show",
+                      "trigger": "emerged",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.5, "v": 0.55}, {"t": 600, "v": 0.55}]}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ring_before",
+              "type": "group",
+              "x": 202,
+              "y": 226,
+              "opacity": 0,
+              "blend": "screen",
+              "timelines": [
+                {
+                  "name": "flash",
+                  "trigger": "beads",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.9, "v": 0},
+                        {"t": 1.3, "v": 1, "ease": "quad_out"},
+                        {"t": 1.48, "v": 0.8},
+                        {"t": 1.6, "v": 0, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {"name": "glare", "type": "image", "image": "glow", "size": [150, 150], "anchor": "center", "tint": "#FFF4DA"},
+                {"name": "core", "type": "image", "image": "glow", "size": [40, 40], "anchor": "center"},
+                {
+                  "name": "flare",
+                  "type": "shape",
+                  "shape": {"path": "M 0 -46 L 2 -2 L 58 0 L 2 2 L 0 46 L -2 2 L -58 0 L -2 -2 Z"},
+                  "fill": "#FFFFFFD0"
+                }
+              ]
+            },
+            {
+              "name": "ring_after",
+              "type": "group",
+              "x": 398,
+              "y": 226,
+              "opacity": 0,
+              "blend": "screen",
+              "timelines": [
+                {
+                  "name": "flash",
+                  "trigger": "c3",
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.25, "v": 0.5},
+                        {"t": 0.8, "v": 1, "ease": "quad_out"},
+                        {"t": 1.4, "v": 0.9},
+                        {"t": 2.4, "v": 0, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {"name": "glare", "type": "image", "image": "glow", "size": [150, 150], "anchor": "center", "tint": "#FFF4DA"},
+                {"name": "core", "type": "image", "image": "glow", "size": [40, 40], "anchor": "center"},
+                {
+                  "name": "flare",
+                  "type": "shape",
+                  "shape": {"path": "M 0 -46 L 2 -2 L 58 0 L 2 2 L 0 46 L -2 2 L -58 0 L -2 -2 Z"},
+                  "fill": "#FFFFFFD0"
+                }
+              ]
+            },
+            {
+              "name": "land",
+              "type": "shape",
+              "shape": {"path": "M 0 498 C 60 484 120 476 190 488 C 260 500 300 506 360 496 C 430 484 520 472 600 490 V 568 H 0 Z"},
+              "fill": "#1B2230"
+            },
+            {
+              "name": "tree",
+              "type": "shape",
+              "shape": {"path": "M 96 484 V 458 C 70 456 66 426 84 418 C 84 396 112 392 118 410 C 138 412 140 444 120 456 C 112 460 104 460 102 458 V 484 Z"},
+              "fill": "#1B2230"
+            },
+            {"name": "head_452", "type": "shape", "x": 449, "y": 457.4, "shape": {"circle": [0, 0, 5.4]}, "fill": "#151924"},
+            {
+              "name": "body_452",
+              "type": "shape",
+              "fill": "#151924",
+              "shape": {"path": "M 447.58 486 L 446.76 463.968 Q 450.5 461.248 454.24 463.968 L 456.42 486 Z"}
+            },
+            {"name": "head_476", "type": "shape", "x": 474, "y": 460.5, "shape": {"circle": [0, 0, 4.5]}, "fill": "#151924"},
+            {
+              "name": "body_476",
+              "type": "shape",
+              "fill": "#151924",
+              "shape": {"path": "M 472.36 484 L 471.92 465.856 Q 475.0 463.616 478.08 465.856 L 479.64 484 Z"}
+            },
+            {
+              "name": "scale_normal",
+              "type": "text",
+              "x": 18,
+              "y": 14,
+              "font": "chip",
+              "text": "1 second here ≈ 5 minutes",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "autoplay": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c2",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0}, {"t": 600, "v": 0}]}]
+                },
+                {
+                  "name": "back",
+                  "trigger": "c3",
+                  "delay": 1.0,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}, {"t": 600, "v": 1}]}]
+                }
+              ]
+            },
+            {
+              "name": "scale_slow",
+              "type": "text",
+              "x": 18,
+              "y": 14,
+              "font": "chip",
+              "text": "slowed down: 1 second here ≈ 15 seconds",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ]
+            },
+            {
+              "name": "corona_callout",
+              "type": "group",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 1.2,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ],
+              "children": [
+                {
+                  "name": "label",
+                  "type": "text",
+                  "x": 432,
+                  "y": 58,
+                  "font": "callout",
+                  "text": "the corona: the sun's\nouter atmosphere",
+                  "size": [160, 44],
+                  "align": "top_left"
+                },
+                {
+                  "name": "leader",
+                  "type": "shape",
+                  "shape": {"path": "M 470 106 L 424 136"},
+                  "fill": "#00000000",
+                  "stroke": {"color": "#FFFFFFB0", "width": 1}
+                }
+              ]
+            },
+            {
+              "name": "prominences_callout",
+              "type": "group",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "in",
+                  "trigger": "c2",
+                  "delay": 2.6,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                },
+                {
+                  "name": "out",
+                  "trigger": "c3",
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                }
+              ],
+              "children": [
+                {
+                  "name": "label",
+                  "type": "text",
+                  "x": 24,
+                  "y": 104,
+                  "font": "callout",
+                  "text": "prominences: glowing\ngas on the sun's edge",
+                  "size": [160, 44],
+                  "align": "top_left"
+                },
+                {
+                  "name": "leader",
+                  "type": "shape",
+                  "shape": {"path": "M 120 152 L 182 188"},
+                  "fill": "#00000000",
+                  "stroke": {"color": "#FFFFFFB0", "width": 1}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "frame",
+          "type": "shape",
+          "x": 48,
+          "y": 104,
+          "shape": {"path": "M 14 0 H 586 A 14 14 0 0 1 600 14 V 554 A 14 14 0 0 1 586 568 H 14 A 14 14 0 0 1 0 554 V 14 A 14 14 0 0 1 14 0 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#1F2533", "width": 2}
+        },
+        {"name": "how", "type": "text", "x": 690, "y": 100, "font": "label", "text": "how it lines up"},
+        {
+          "name": "in_front_of_earth",
+          "type": "group",
+          "clip": {"path": "M 686 90 H 1280 V 106.35 A 126 126 0 0 0 1280 337.65 V 340 H 686 Z"},
+          "children": [
+            {
+              "name": "orbit",
+              "type": "shape",
+              "x": 1330,
+              "y": 222,
+              "shape": {"circle": [0, 0, 424]},
+              "fill": "#00000000",
+              "stroke": {"color": "#BDB5A5", "width": 1.2}
+            },
+            {
+              "name": "rig",
+              "type": "group",
+              "timelines": [
+                {
+                  "name": "approach",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -3.29},
+                        {"t": 0.5, "v": -3.29},
+                        {"t": 1, "v": -3.29},
+                        {"t": 1.5, "v": -3.29},
+                        {"t": 2, "v": -3.29},
+                        {"t": 2.5, "v": -3.29},
+                        {"t": 3, "v": -3.29},
+                        {"t": 3.5, "v": -3.173},
+                        {"t": 4, "v": -3.056}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_in",
+                  "trigger": "c1",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -3.056},
+                        {"t": 0.5, "v": -2.959},
+                        {"t": 1, "v": -2.863},
+                        {"t": 1.5, "v": -2.767},
+                        {"t": 2, "v": -2.671},
+                        {"t": 2.5, "v": -2.575},
+                        {"t": 3, "v": -2.479},
+                        {"t": 3.5, "v": -2.383},
+                        {"t": 4, "v": -2.287},
+                        {"t": 4.5, "v": -2.191},
+                        {"t": 5, "v": -2.096},
+                        {"t": 5.5, "v": -2},
+                        {"t": 6, "v": -1.904},
+                        {"t": 6.5, "v": -1.809},
+                        {"t": 7, "v": -1.713},
+                        {"t": 7.5, "v": -1.618},
+                        {"t": 8, "v": -1.522},
+                        {"t": 8.5, "v": -1.427},
+                        {"t": 9, "v": -1.332},
+                        {"t": 9.5, "v": -1.236},
+                        {"t": 10, "v": -1.141},
+                        {"t": 10.5, "v": -1.046},
+                        {"t": 11, "v": -0.95},
+                        {"t": 11.5, "v": -0.855},
+                        {"t": 12, "v": -0.76},
+                        {"t": 12.5, "v": -0.665},
+                        {"t": 13, "v": -0.569},
+                        {"t": 13.5, "v": -0.474},
+                        {"t": 14, "v": -0.379}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "beads",
+                  "trigger": "beads",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -0.379}, {"t": 0.533, "v": -0.302}, {"t": 1.067, "v": -0.224}, {"t": 1.6, "v": -0.147}]
+                    }
+                  ]
+                },
+                {
+                  "name": "totality",
+                  "trigger": "c2",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -0.147},
+                        {"t": 0.5, "v": -0.133},
+                        {"t": 1, "v": -0.118},
+                        {"t": 1.5, "v": -0.103},
+                        {"t": 2, "v": -0.088},
+                        {"t": 2.5, "v": -0.074},
+                        {"t": 3, "v": -0.059},
+                        {"t": 3.5, "v": -0.044},
+                        {"t": 4, "v": -0.029},
+                        {"t": 4.5, "v": -0.015},
+                        {"t": 5, "v": 0},
+                        {"t": 5.5, "v": 0.015},
+                        {"t": 6, "v": 0.029},
+                        {"t": 6.5, "v": 0.044},
+                        {"t": 7, "v": 0.059},
+                        {"t": 7.5, "v": 0.074},
+                        {"t": 8, "v": 0.088},
+                        {"t": 8.5, "v": 0.103},
+                        {"t": 9, "v": 0.118},
+                        {"t": 9.5, "v": 0.133},
+                        {"t": 10, "v": 0.147}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "emerge",
+                  "trigger": "c3",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": 0.147}, {"t": 0.533, "v": 0.224}, {"t": 1.067, "v": 0.302}, {"t": 1.6, "v": 0.379}]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_out",
+                  "trigger": "emerged",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 0.379},
+                        {"t": 0.5, "v": 0.474},
+                        {"t": 1, "v": 0.569},
+                        {"t": 1.5, "v": 0.665},
+                        {"t": 2, "v": 0.76},
+                        {"t": 2.5, "v": 0.855},
+                        {"t": 3, "v": 0.95},
+                        {"t": 3.5, "v": 1.046},
+                        {"t": 4, "v": 1.141},
+                        {"t": 4.5, "v": 1.236},
+                        {"t": 5, "v": 1.332},
+                        {"t": 5.5, "v": 1.427},
+                        {"t": 6, "v": 1.522},
+                        {"t": 6.5, "v": 1.618},
+                        {"t": 7, "v": 1.713},
+                        {"t": 7.5, "v": 1.809},
+                        {"t": 8, "v": 1.904},
+                        {"t": 8.5, "v": 2},
+                        {"t": 9, "v": 2.096},
+                        {"t": 9.5, "v": 2.191},
+                        {"t": 10, "v": 2.287},
+                        {"t": 10.5, "v": 2.383},
+                        {"t": 11, "v": 2.479},
+                        {"t": 11.5, "v": 2.575},
+                        {"t": 12, "v": 2.671},
+                        {"t": 12.5, "v": 2.767},
+                        {"t": 13, "v": 2.863},
+                        {"t": 13.5, "v": 2.959},
+                        {"t": 14, "v": 3.056}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "depart",
+                  "trigger": "c4",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 3.056},
+                        {"t": 0.5, "v": 3.173},
+                        {"t": 1, "v": 3.29},
+                        {"t": 1.5, "v": 3.29},
+                        {"t": 2, "v": 3.29},
+                        {"t": 2.5, "v": 3.29},
+                        {"t": 3, "v": 3.29},
+                        {"t": 3.5, "v": 3.29},
+                        {"t": 4, "v": 3.29},
+                        {"t": 6, "v": 3.29}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "moon_place",
+                  "type": "group",
+                  "x": -424,
+                  "timelines": [
+                    {
+                      "name": "approach",
+                      "autoplay": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 11.404},
+                            {"t": 0.5, "v": 11.404},
+                            {"t": 1, "v": 11.404},
+                            {"t": 1.5, "v": 11.404},
+                            {"t": 2, "v": 11.404},
+                            {"t": 2.5, "v": 11.404},
+                            {"t": 3, "v": 11.404},
+                            {"t": 3.5, "v": 11.003},
+                            {"t": 4, "v": 10.602}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "partial_in",
+                      "trigger": "c1",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 10.602},
+                            {"t": 0.5, "v": 10.272},
+                            {"t": 1, "v": 9.943},
+                            {"t": 1.5, "v": 9.613},
+                            {"t": 2, "v": 9.283},
+                            {"t": 2.5, "v": 8.952},
+                            {"t": 3, "v": 8.622},
+                            {"t": 3.5, "v": 8.291},
+                            {"t": 4, "v": 7.96},
+                            {"t": 4.5, "v": 7.63},
+                            {"t": 5, "v": 7.299},
+                            {"t": 5.5, "v": 6.967},
+                            {"t": 6, "v": 6.636},
+                            {"t": 6.5, "v": 6.305},
+                            {"t": 7, "v": 5.973},
+                            {"t": 7.5, "v": 5.642},
+                            {"t": 8, "v": 5.31},
+                            {"t": 8.5, "v": 4.978},
+                            {"t": 9, "v": 4.646},
+                            {"t": 9.5, "v": 4.314},
+                            {"t": 10, "v": 3.982},
+                            {"t": 10.5, "v": 3.65},
+                            {"t": 11, "v": 3.318},
+                            {"t": 11.5, "v": 2.986},
+                            {"t": 12, "v": 2.654},
+                            {"t": 12.5, "v": 2.321},
+                            {"t": 13, "v": 1.989},
+                            {"t": 13.5, "v": 1.656},
+                            {"t": 14, "v": 1.324}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "beads",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": 1.324}, {"t": 0.533, "v": 1.054}, {"t": 1.067, "v": 0.784}, {"t": 1.6, "v": 0.515}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "totality",
+                      "trigger": "c2",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 0.515},
+                            {"t": 0.5, "v": 0.463},
+                            {"t": 1, "v": 0.412},
+                            {"t": 1.5, "v": 0.36},
+                            {"t": 2, "v": 0.309},
+                            {"t": 2.5, "v": 0.257},
+                            {"t": 3, "v": 0.206},
+                            {"t": 3.5, "v": 0.154},
+                            {"t": 4, "v": 0.103},
+                            {"t": 4.5, "v": 0.051},
+                            {"t": 5, "v": 0},
+                            {"t": 5.5, "v": -0.051},
+                            {"t": 6, "v": -0.103},
+                            {"t": 6.5, "v": -0.154},
+                            {"t": 7, "v": -0.206},
+                            {"t": 7.5, "v": -0.257},
+                            {"t": 8, "v": -0.309},
+                            {"t": 8.5, "v": -0.36},
+                            {"t": 9, "v": -0.412},
+                            {"t": 9.5, "v": -0.463},
+                            {"t": 10, "v": -0.515}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "emerge",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -0.515}, {"t": 0.533, "v": -0.784}, {"t": 1.067, "v": -1.054}, {"t": 1.6, "v": -1.324}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "partial_out",
+                      "trigger": "emerged",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": -1.324},
+                            {"t": 0.5, "v": -1.656},
+                            {"t": 1, "v": -1.989},
+                            {"t": 1.5, "v": -2.321},
+                            {"t": 2, "v": -2.654},
+                            {"t": 2.5, "v": -2.986},
+                            {"t": 3, "v": -3.318},
+                            {"t": 3.5, "v": -3.65},
+                            {"t": 4, "v": -3.982},
+                            {"t": 4.5, "v": -4.314},
+                            {"t": 5, "v": -4.646},
+                            {"t": 5.5, "v": -4.978},
+                            {"t": 6, "v": -5.31},
+                            {"t": 6.5, "v": -5.642},
+                            {"t": 7, "v": -5.973},
+                            {"t": 7.5, "v": -6.305},
+                            {"t": 8, "v": -6.636},
+                            {"t": 8.5, "v": -6.967},
+                            {"t": 9, "v": -7.299},
+                            {"t": 9.5, "v": -7.63},
+                            {"t": 10, "v": -7.96},
+                            {"t": 10.5, "v": -8.291},
+                            {"t": 11, "v": -8.622},
+                            {"t": 11.5, "v": -8.952},
+                            {"t": 12, "v": -9.283},
+                            {"t": 12.5, "v": -9.613},
+                            {"t": 13, "v": -9.943},
+                            {"t": 13.5, "v": -10.272},
+                            {"t": 14, "v": -10.602}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "depart",
+                      "trigger": "c4",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": -10.602},
+                            {"t": 0.5, "v": -11.003},
+                            {"t": 1, "v": -11.404},
+                            {"t": 1.5, "v": -11.404},
+                            {"t": 2, "v": -11.404},
+                            {"t": 2.5, "v": -11.404},
+                            {"t": 3, "v": -11.404},
+                            {"t": 3.5, "v": -11.404},
+                            {"t": 4, "v": -11.404},
+                            {"t": 6, "v": -11.404}
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "penumbra", "type": "shape", "shape": {"path": "M 0 -9 L 458 -90.46 L 458 90.46 L 0 9 Z"}, "fill": "#1F253326"},
+                    {"name": "umbra", "type": "shape", "shape": {"path": "M 0 -9 L 458 -0.5 L 458 0.5 L 0 9 Z"}, "fill": "#1F2533D8"},
+                    {
+                      "name": "dia_moon",
+                      "type": "shape",
+                      "x": 0,
+                      "y": 0,
+                      "shape": {"circle": [0, 0, 9]},
+                      "fill": "#8A8F99",
+                      "stroke": {"color": "#1F2533", "width": 1.5}
+                    },
+                    {"name": "moon_label", "type": "text", "x": -40, "y": -36, "font": "note", "text": "moon", "size": [80, 20]}
+                  ]
+                }
+              ],
+              "x": 1330,
+              "y": 222
+            }
+          ]
+        },
+        {"name": "orbit_label", "type": "text", "x": 926, "y": 116, "font": "note", "text": "the moon's orbit"},
+        {
+          "name": "earth",
+          "type": "group",
+          "x": 1330,
+          "y": 222,
+          "clip": {"circle": [0, 0, 126]},
+          "children": [
+            {"name": "ocean", "type": "shape", "x": 0, "y": 0, "shape": {"circle": [0, 0, 126]}, "fill": "#7FA7C9"},
+            {
+              "name": "continent",
+              "type": "shape",
+              "fill": "#9DB98A",
+              "shape": {"path": "M -126 -40 C -110 -50 -96 -30 -104 -10 C -112 10 -96 30 -110 60 L -126 60 Z"}
+            },
+            {
+              "name": "shadow_on_earth",
+              "type": "group",
+              "timelines": [
+                {
+                  "name": "approach",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -3.29},
+                        {"t": 0.5, "v": -3.29},
+                        {"t": 1, "v": -3.29},
+                        {"t": 1.5, "v": -3.29},
+                        {"t": 2, "v": -3.29},
+                        {"t": 2.5, "v": -3.29},
+                        {"t": 3, "v": -3.29},
+                        {"t": 3.5, "v": -3.173},
+                        {"t": 4, "v": -3.056}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_in",
+                  "trigger": "c1",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -3.056},
+                        {"t": 0.5, "v": -2.959},
+                        {"t": 1, "v": -2.863},
+                        {"t": 1.5, "v": -2.767},
+                        {"t": 2, "v": -2.671},
+                        {"t": 2.5, "v": -2.575},
+                        {"t": 3, "v": -2.479},
+                        {"t": 3.5, "v": -2.383},
+                        {"t": 4, "v": -2.287},
+                        {"t": 4.5, "v": -2.191},
+                        {"t": 5, "v": -2.096},
+                        {"t": 5.5, "v": -2},
+                        {"t": 6, "v": -1.904},
+                        {"t": 6.5, "v": -1.809},
+                        {"t": 7, "v": -1.713},
+                        {"t": 7.5, "v": -1.618},
+                        {"t": 8, "v": -1.522},
+                        {"t": 8.5, "v": -1.427},
+                        {"t": 9, "v": -1.332},
+                        {"t": 9.5, "v": -1.236},
+                        {"t": 10, "v": -1.141},
+                        {"t": 10.5, "v": -1.046},
+                        {"t": 11, "v": -0.95},
+                        {"t": 11.5, "v": -0.855},
+                        {"t": 12, "v": -0.76},
+                        {"t": 12.5, "v": -0.665},
+                        {"t": 13, "v": -0.569},
+                        {"t": 13.5, "v": -0.474},
+                        {"t": 14, "v": -0.379}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "beads",
+                  "trigger": "beads",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -0.379}, {"t": 0.533, "v": -0.302}, {"t": 1.067, "v": -0.224}, {"t": 1.6, "v": -0.147}]
+                    }
+                  ]
+                },
+                {
+                  "name": "totality",
+                  "trigger": "c2",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -0.147},
+                        {"t": 0.5, "v": -0.133},
+                        {"t": 1, "v": -0.118},
+                        {"t": 1.5, "v": -0.103},
+                        {"t": 2, "v": -0.088},
+                        {"t": 2.5, "v": -0.074},
+                        {"t": 3, "v": -0.059},
+                        {"t": 3.5, "v": -0.044},
+                        {"t": 4, "v": -0.029},
+                        {"t": 4.5, "v": -0.015},
+                        {"t": 5, "v": 0},
+                        {"t": 5.5, "v": 0.015},
+                        {"t": 6, "v": 0.029},
+                        {"t": 6.5, "v": 0.044},
+                        {"t": 7, "v": 0.059},
+                        {"t": 7.5, "v": 0.074},
+                        {"t": 8, "v": 0.088},
+                        {"t": 8.5, "v": 0.103},
+                        {"t": 9, "v": 0.118},
+                        {"t": 9.5, "v": 0.133},
+                        {"t": 10, "v": 0.147}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "emerge",
+                  "trigger": "c3",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": 0.147}, {"t": 0.533, "v": 0.224}, {"t": 1.067, "v": 0.302}, {"t": 1.6, "v": 0.379}]
+                    }
+                  ]
+                },
+                {
+                  "name": "partial_out",
+                  "trigger": "emerged",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 0.379},
+                        {"t": 0.5, "v": 0.474},
+                        {"t": 1, "v": 0.569},
+                        {"t": 1.5, "v": 0.665},
+                        {"t": 2, "v": 0.76},
+                        {"t": 2.5, "v": 0.855},
+                        {"t": 3, "v": 0.95},
+                        {"t": 3.5, "v": 1.046},
+                        {"t": 4, "v": 1.141},
+                        {"t": 4.5, "v": 1.236},
+                        {"t": 5, "v": 1.332},
+                        {"t": 5.5, "v": 1.427},
+                        {"t": 6, "v": 1.522},
+                        {"t": 6.5, "v": 1.618},
+                        {"t": 7, "v": 1.713},
+                        {"t": 7.5, "v": 1.809},
+                        {"t": 8, "v": 1.904},
+                        {"t": 8.5, "v": 2},
+                        {"t": 9, "v": 2.096},
+                        {"t": 9.5, "v": 2.191},
+                        {"t": 10, "v": 2.287},
+                        {"t": 10.5, "v": 2.383},
+                        {"t": 11, "v": 2.479},
+                        {"t": 11.5, "v": 2.575},
+                        {"t": 12, "v": 2.671},
+                        {"t": 12.5, "v": 2.767},
+                        {"t": 13, "v": 2.863},
+                        {"t": 13.5, "v": 2.959},
+                        {"t": 14, "v": 3.056}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "depart",
+                  "trigger": "c4",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 3.056},
+                        {"t": 0.5, "v": 3.173},
+                        {"t": 1, "v": 3.29},
+                        {"t": 1.5, "v": 3.29},
+                        {"t": 2, "v": 3.29},
+                        {"t": 2.5, "v": 3.29},
+                        {"t": 3, "v": 3.29},
+                        {"t": 3.5, "v": 3.29},
+                        {"t": 4, "v": 3.29},
+                        {"t": 6, "v": 3.29}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "moon_place",
+                  "type": "group",
+                  "x": -424,
+                  "timelines": [
+                    {
+                      "name": "approach",
+                      "autoplay": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 11.404},
+                            {"t": 0.5, "v": 11.404},
+                            {"t": 1, "v": 11.404},
+                            {"t": 1.5, "v": 11.404},
+                            {"t": 2, "v": 11.404},
+                            {"t": 2.5, "v": 11.404},
+                            {"t": 3, "v": 11.404},
+                            {"t": 3.5, "v": 11.003},
+                            {"t": 4, "v": 10.602}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "partial_in",
+                      "trigger": "c1",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 10.602},
+                            {"t": 0.5, "v": 10.272},
+                            {"t": 1, "v": 9.943},
+                            {"t": 1.5, "v": 9.613},
+                            {"t": 2, "v": 9.283},
+                            {"t": 2.5, "v": 8.952},
+                            {"t": 3, "v": 8.622},
+                            {"t": 3.5, "v": 8.291},
+                            {"t": 4, "v": 7.96},
+                            {"t": 4.5, "v": 7.63},
+                            {"t": 5, "v": 7.299},
+                            {"t": 5.5, "v": 6.967},
+                            {"t": 6, "v": 6.636},
+                            {"t": 6.5, "v": 6.305},
+                            {"t": 7, "v": 5.973},
+                            {"t": 7.5, "v": 5.642},
+                            {"t": 8, "v": 5.31},
+                            {"t": 8.5, "v": 4.978},
+                            {"t": 9, "v": 4.646},
+                            {"t": 9.5, "v": 4.314},
+                            {"t": 10, "v": 3.982},
+                            {"t": 10.5, "v": 3.65},
+                            {"t": 11, "v": 3.318},
+                            {"t": 11.5, "v": 2.986},
+                            {"t": 12, "v": 2.654},
+                            {"t": 12.5, "v": 2.321},
+                            {"t": 13, "v": 1.989},
+                            {"t": 13.5, "v": 1.656},
+                            {"t": 14, "v": 1.324}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "beads",
+                      "trigger": "beads",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": 1.324}, {"t": 0.533, "v": 1.054}, {"t": 1.067, "v": 0.784}, {"t": 1.6, "v": 0.515}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "totality",
+                      "trigger": "c2",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 0.515},
+                            {"t": 0.5, "v": 0.463},
+                            {"t": 1, "v": 0.412},
+                            {"t": 1.5, "v": 0.36},
+                            {"t": 2, "v": 0.309},
+                            {"t": 2.5, "v": 0.257},
+                            {"t": 3, "v": 0.206},
+                            {"t": 3.5, "v": 0.154},
+                            {"t": 4, "v": 0.103},
+                            {"t": 4.5, "v": 0.051},
+                            {"t": 5, "v": 0},
+                            {"t": 5.5, "v": -0.051},
+                            {"t": 6, "v": -0.103},
+                            {"t": 6.5, "v": -0.154},
+                            {"t": 7, "v": -0.206},
+                            {"t": 7.5, "v": -0.257},
+                            {"t": 8, "v": -0.309},
+                            {"t": 8.5, "v": -0.36},
+                            {"t": 9, "v": -0.412},
+                            {"t": 9.5, "v": -0.463},
+                            {"t": 10, "v": -0.515}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "emerge",
+                      "trigger": "c3",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -0.515}, {"t": 0.533, "v": -0.784}, {"t": 1.067, "v": -1.054}, {"t": 1.6, "v": -1.324}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "partial_out",
+                      "trigger": "emerged",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": -1.324},
+                            {"t": 0.5, "v": -1.656},
+                            {"t": 1, "v": -1.989},
+                            {"t": 1.5, "v": -2.321},
+                            {"t": 2, "v": -2.654},
+                            {"t": 2.5, "v": -2.986},
+                            {"t": 3, "v": -3.318},
+                            {"t": 3.5, "v": -3.65},
+                            {"t": 4, "v": -3.982},
+                            {"t": 4.5, "v": -4.314},
+                            {"t": 5, "v": -4.646},
+                            {"t": 5.5, "v": -4.978},
+                            {"t": 6, "v": -5.31},
+                            {"t": 6.5, "v": -5.642},
+                            {"t": 7, "v": -5.973},
+                            {"t": 7.5, "v": -6.305},
+                            {"t": 8, "v": -6.636},
+                            {"t": 8.5, "v": -6.967},
+                            {"t": 9, "v": -7.299},
+                            {"t": 9.5, "v": -7.63},
+                            {"t": 10, "v": -7.96},
+                            {"t": 10.5, "v": -8.291},
+                            {"t": 11, "v": -8.622},
+                            {"t": 11.5, "v": -8.952},
+                            {"t": 12, "v": -9.283},
+                            {"t": 12.5, "v": -9.613},
+                            {"t": 13, "v": -9.943},
+                            {"t": 13.5, "v": -10.272},
+                            {"t": 14, "v": -10.602}
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "depart",
+                      "trigger": "c4",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": -10.602},
+                            {"t": 0.5, "v": -11.003},
+                            {"t": 1, "v": -11.404},
+                            {"t": 1.5, "v": -11.404},
+                            {"t": 2, "v": -11.404},
+                            {"t": 2.5, "v": -11.404},
+                            {"t": 3, "v": -11.404},
+                            {"t": 3.5, "v": -11.404},
+                            {"t": 4, "v": -11.404},
+                            {"t": 6, "v": -11.404}
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "penumbra", "type": "shape", "shape": {"path": "M 0 -9 L 458 -90.46 L 458 90.46 L 0 9 Z"}, "fill": "#1F253333"},
+                    {"name": "umbra", "type": "shape", "shape": {"path": "M 0 -9 L 458 -0.5 L 458 0.5 L 0 9 Z"}, "fill": "#1F2533D8"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "earth_edge",
+          "type": "shape",
+          "x": 1330,
+          "y": 222,
+          "shape": {"circle": [0, 0, 126]},
+          "fill": "#00000000",
+          "stroke": {"color": "#1F2533", "width": 1.5}
+        },
+        {
+          "name": "dia_sun",
+          "type": "shape",
+          "x": 736,
+          "y": 222,
+          "shape": {"circle": [0, 0, 46]},
+          "fill": "#E9A72E",
+          "stroke": {"color": "#1F2533", "width": 1.5}
+        },
+        {"name": "sun_label", "type": "text", "x": 696, "y": 274, "font": "note", "text": "sun", "size": [80, 20]},
+        {"name": "earth_label", "type": "text", "x": 1228, "y": 150, "font": "chip", "text": "Earth"},
+        {
+          "name": "you",
+          "type": "shape",
+          "x": 1204,
+          "y": 222,
+          "shape": {"circle": [0, 0, 4]},
+          "fill": "#D2452C",
+          "stroke": {"color": "#F3EDE0", "width": 1.5}
+        },
+        {"name": "you_label", "type": "text", "x": 1148, "y": 186, "font": "you", "text": "you", "size": [50, 22], "align": "right"},
+        {"name": "umbra_key", "type": "shape", "x": 716, "y": 358, "shape": {"rect": [0, 0, 18, 10]}, "fill": "#1F2533D8"},
+        {"name": "umbra_note", "type": "text", "x": 742, "y": 350, "font": "note", "text": "umbra: total eclipse"},
+        {"name": "penumbra_key", "type": "shape", "x": 916, "y": 358, "shape": {"rect": [0, 0, 18, 10]}, "fill": "#1F253326"},
+        {"name": "penumbra_note", "type": "text", "x": 942, "y": 350, "font": "note", "text": "penumbra: partial eclipse"},
+        {"name": "rule_top", "type": "shape", "x": 690, "y": 384, "shape": {"rect": [0, 0, 542, 1]}, "fill": "#D3C9B5"},
+        {"name": "contacts", "type": "text", "x": 690, "y": 396, "font": "label", "text": "contacts"},
+        {"name": "track", "type": "shape", "x": 716, "y": 439, "shape": {"rect": [0, 0, 480, 2]}, "fill": "#D3C9B5"},
+        {"name": "track_total", "type": "shape", "x": 916, "y": 438, "shape": {"rect": [0, 0, 80, 4]}, "fill": "#1F2533"},
+        {"name": "totality_note", "type": "text", "x": 896, "y": 408, "font": "note", "text": "totality", "size": [120, 20]},
+        {
+          "name": "tick_c1",
+          "type": "shape",
+          "x": 715,
+          "y": 433,
+          "shape": {"rect": [0, 0, 2, 14]},
+          "fill": "#1F2533",
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c1",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c1_label",
+          "type": "text",
+          "x": 676,
+          "y": 450,
+          "font": "tick",
+          "text": "first",
+          "size": [80, 20],
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c1",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c2",
+          "type": "shape",
+          "x": 915,
+          "y": 433,
+          "shape": {"rect": [0, 0, 2, 14]},
+          "fill": "#1F2533",
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c2",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c2_label",
+          "type": "text",
+          "x": 876,
+          "y": 450,
+          "font": "tick",
+          "text": "second",
+          "size": [80, 20],
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c2",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c3",
+          "type": "shape",
+          "x": 995,
+          "y": 433,
+          "shape": {"rect": [0, 0, 2, 14]},
+          "fill": "#1F2533",
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c3",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c3_label",
+          "type": "text",
+          "x": 956,
+          "y": 450,
+          "font": "tick",
+          "text": "third",
+          "size": [80, 20],
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c3",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c4",
+          "type": "shape",
+          "x": 1195,
+          "y": 433,
+          "shape": {"rect": [0, 0, 2, 14]},
+          "fill": "#1F2533",
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c4",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "tick_c4_label",
+          "type": "text",
+          "x": 1156,
+          "y": 450,
+          "font": "tick",
+          "text": "fourth",
+          "size": [80, 20],
+          "opacity": 0.3,
+          "timelines": [
+            {
+              "name": "reached",
+              "trigger": "c4",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ]
+        },
+        {
+          "name": "dot",
+          "type": "shape",
+          "x": 716,
+          "y": 440,
+          "shape": {"circle": [0, 0, 6]},
+          "fill": "#D2452C",
+          "stroke": {"color": "#F3EDE0", "width": 2},
+          "timelines": [
+            {"name": "approach", "autoplay": true, "tracks": [{"property": "x", "keys": [{"t": 0, "v": 716}, {"t": 4, "v": 716}]}]},
+            {"name": "partial_in", "trigger": "c1", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 716}, {"t": 14, "v": 900}]}]},
+            {"name": "beads", "trigger": "beads", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 900}, {"t": 1.6, "v": 916}]}]},
+            {"name": "totality", "trigger": "c2", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 916}, {"t": 10, "v": 996}]}]},
+            {"name": "emerge", "trigger": "c3", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 996}, {"t": 1.6, "v": 1012}]}]},
+            {"name": "partial_out", "trigger": "emerged", "tracks": [{"property": "x", "keys": [{"t": 0, "v": 1012}, {"t": 14, "v": 1196}]}]},
+            {
+              "name": "depart",
+              "trigger": "c4",
+              "tracks": [{"property": "x", "keys": [{"t": 0, "v": 1196}, {"t": 4, "v": 1196}, {"t": 6, "v": 1196}]}]
+            }
+          ]
+        },
+        {"name": "sunlight", "type": "text", "x": 690, "y": 480, "font": "label", "text": "sunlight"},
+        {"name": "bar_back", "type": "shape", "x": 800, "y": 492, "shape": {"rect": [0, 0, 396, 8]}, "fill": "#E4DBC9"},
+        {
+          "name": "bar",
+          "type": "shape",
+          "x": 800,
+          "y": 492,
+          "shape": {"rect": [0, 0, 396, 8]},
+          "fill": "#E9A72E",
+          "timelines": [
+            {
+              "name": "approach",
+              "autoplay": true,
+              "tracks": [
+                {
+                  "property": "scale_x",
+                  "keys": [
+                    {"t": 0, "v": 1},
+                    {"t": 0.5, "v": 1},
+                    {"t": 1, "v": 1},
+                    {"t": 1.5, "v": 1},
+                    {"t": 2, "v": 1},
+                    {"t": 2.5, "v": 1},
+                    {"t": 3, "v": 1},
+                    {"t": 3.5, "v": 1},
+                    {"t": 4, "v": 1}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "partial_in",
+              "trigger": "c1",
+              "tracks": [
+                {
+                  "property": "scale_x",
+                  "keys": [
+                    {"t": 0, "v": 1},
+                    {"t": 0.5, "v": 0.993},
+                    {"t": 1, "v": 0.98},
+                    {"t": 1.5, "v": 0.963},
+                    {"t": 2, "v": 0.943},
+                    {"t": 2.5, "v": 0.921},
+                    {"t": 3, "v": 0.897},
+                    {"t": 3.5, "v": 0.87},
+                    {"t": 4, "v": 0.842},
+                    {"t": 4.5, "v": 0.813},
+                    {"t": 5, "v": 0.782},
+                    {"t": 5.5, "v": 0.75},
+                    {"t": 6, "v": 0.717},
+                    {"t": 6.5, "v": 0.682},
+                    {"t": 7, "v": 0.647},
+                    {"t": 7.5, "v": 0.611},
+                    {"t": 8, "v": 0.573},
+                    {"t": 8.5, "v": 0.536},
+                    {"t": 9, "v": 0.497},
+                    {"t": 9.5, "v": 0.458},
+                    {"t": 10, "v": 0.418},
+                    {"t": 10.5, "v": 0.378},
+                    {"t": 11, "v": 0.337},
+                    {"t": 11.5, "v": 0.296},
+                    {"t": 12, "v": 0.254},
+                    {"t": 12.5, "v": 0.213},
+                    {"t": 13, "v": 0.171},
+                    {"t": 13.5, "v": 0.129},
+                    {"t": 14, "v": 0.088}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "beads",
+              "trigger": "beads",
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.088}, {"t": 0.533, "v": 0.055}, {"t": 1.067, "v": 0.023}, {"t": 1.6, "v": 0}]}]
+            },
+            {
+              "name": "totality",
+              "trigger": "c2",
+              "tracks": [
+                {
+                  "property": "scale_x",
+                  "keys": [
+                    {"t": 0, "v": 0},
+                    {"t": 0.5, "v": 0},
+                    {"t": 1, "v": 0},
+                    {"t": 1.5, "v": 0},
+                    {"t": 2, "v": 0},
+                    {"t": 2.5, "v": 0},
+                    {"t": 3, "v": 0},
+                    {"t": 3.5, "v": 0},
+                    {"t": 4, "v": 0},
+                    {"t": 4.5, "v": 0},
+                    {"t": 5, "v": 0},
+                    {"t": 5.5, "v": 0},
+                    {"t": 6, "v": 0},
+                    {"t": 6.5, "v": 0},
+                    {"t": 7, "v": 0},
+                    {"t": 7.5, "v": 0},
+                    {"t": 8, "v": 0},
+                    {"t": 8.5, "v": 0},
+                    {"t": 9, "v": 0},
+                    {"t": 9.5, "v": 0},
+                    {"t": 10, "v": 0}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "emerge",
+              "trigger": "c3",
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.533, "v": 0.023}, {"t": 1.067, "v": 0.055}, {"t": 1.6, "v": 0.088}]}]
+            },
+            {
+              "name": "partial_out",
+              "trigger": "emerged",
+              "tracks": [
+                {
+                  "property": "scale_x",
+                  "keys": [
+                    {"t": 0, "v": 0.088},
+                    {"t": 0.5, "v": 0.129},
+                    {"t": 1, "v": 0.171},
+                    {"t": 1.5, "v": 0.213},
+                    {"t": 2, "v": 0.254},
+                    {"t": 2.5, "v": 0.296},
+                    {"t": 3, "v": 0.337},
+                    {"t": 3.5, "v": 0.378},
+                    {"t": 4, "v": 0.418},
+                    {"t": 4.5, "v": 0.458},
+                    {"t": 5, "v": 0.497},
+                    {"t": 5.5, "v": 0.536},
+                    {"t": 6, "v": 0.573},
+                    {"t": 6.5, "v": 0.611},
+                    {"t": 7, "v": 0.647},
+                    {"t": 7.5, "v": 0.682},
+                    {"t": 8, "v": 0.717},
+                    {"t": 8.5, "v": 0.75},
+                    {"t": 9, "v": 0.782},
+                    {"t": 9.5, "v": 0.813},
+                    {"t": 10, "v": 0.842},
+                    {"t": 10.5, "v": 0.87},
+                    {"t": 11, "v": 0.897},
+                    {"t": 11.5, "v": 0.921},
+                    {"t": 12, "v": 0.943},
+                    {"t": 12.5, "v": 0.963},
+                    {"t": 13, "v": 0.98},
+                    {"t": 13.5, "v": 0.993},
+                    {"t": 14, "v": 1}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "depart",
+              "trigger": "c4",
+              "tracks": [
+                {
+                  "property": "scale_x",
+                  "keys": [
+                    {"t": 0, "v": 1},
+                    {"t": 0.5, "v": 1},
+                    {"t": 1, "v": 1},
+                    {"t": 1.5, "v": 1},
+                    {"t": 2, "v": 1},
+                    {"t": 2.5, "v": 1},
+                    {"t": 3, "v": 1},
+                    {"t": 3.5, "v": 1},
+                    {"t": 4, "v": 1},
+                    {"t": 6, "v": 1}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "rule_bottom", "type": "shape", "x": 690, "y": 524, "shape": {"rect": [0, 0, 542, 1]}, "fill": "#D3C9B5"},
+        {
+          "name": "caption_new_moon",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c1",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "New moon"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The moon passes between us and the sun. Its lit side\nfaces away, so in the bright sky you cannot see it.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_first",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c1",
+              "delay": 0.3,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c1",
+              "delay": 5.0,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "First contact"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The moon's edge touches the sun's. A small bite\nappears, and it grows for more than an hour.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_partial",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c1",
+              "delay": 5.6,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "beads",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Partial eclipse"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The eye adapts: with the sun nine tenths covered the\nday hardly looks darker, though most of its light is gone.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_beads",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "beads",
+              "delay": 0.2,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c2",
+              "delay": 0.2,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Baily's beads"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The last sunlight shines through valleys on the moon's\nedge, until one point is left: the diamond ring.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_totality",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c2",
+              "delay": 0.5,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c2",
+              "delay": 5.4,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Totality"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The moon covers the whole sun. Its corona appears,\nstars and planets come out, dusk glows all around.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_fit",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c2",
+              "delay": 6.0,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c3",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "A perfect fit"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The sun is about 400 times wider than the moon and\nabout 400 times farther away: they look the same size.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_third",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c3",
+              "delay": 0.3,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "emerged",
+              "delay": 3.4,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Third contact"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "Sunlight bursts back as a diamond ring on the other\nside. From here on, only look through eclipse glasses.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_leaving",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "emerged",
+              "delay": 4.0,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            },
+            {
+              "name": "out",
+              "trigger": "c4",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Partial again"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The moon moves on. Its shadow races away over the\nEarth at well over a thousand kilometres an hour.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "caption_fourth",
+          "type": "group",
+          "x": 716,
+          "y": 546,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "in",
+              "trigger": "c4",
+              "delay": 0.3,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "heading", "type": "text", "x": 0, "y": 0, "font": "heading", "text": "Fourth contact"},
+            {
+              "name": "body",
+              "type": "text",
+              "x": 0,
+              "y": 40,
+              "font": "body",
+              "text": "The moon leaves the sun. The same spot on Earth sees\na total eclipse only every few centuries.",
+              "size": [516, 80],
+              "align": "top_left"
+            }
+          ]
+        },
+        {
+          "name": "safety",
+          "type": "text",
+          "x": 48,
+          "y": 684,
+          "font": "note",
+          "text": "Never look at the sun without eclipse glasses, except during totality."
+        },
+        {
+          "name": "scale_note",
+          "type": "text",
+          "x": 690,
+          "y": 684,
+          "font": "note",
+          "text": "Not to scale. Times compressed.",
+          "size": [542, 22],
+          "align": "right"
+        }
+      ]
+    }
+  ]
+}
