@@ -51,13 +51,13 @@ if command -v wasm-opt >/dev/null; then
     wasm-opt -Os "$out/pkg/cuelight_web_bg.wasm" -o "$out/pkg/cuelight_web_bg.wasm"
 fi
 
-# Only what a player loads: no READMEs, no license texts (those stay with
-# the repository, which every example page links to).
+# Only what a player loads: the whole folder, since a show may name files
+# by path anywhere in it, but no READMEs and no license texts (those stay
+# with the repository, which every example page links to).
 for show in $shows; do
     mkdir -p "$out/shows/$show"
-    cp "$repo/$show/show.json" "$out/shows/$show"
-    [ ! -f "$repo/$show/test-driver.json" ] || cp "$repo/$show/test-driver.json" "$out/shows/$show"
-    [ ! -d "$repo/$show/assets" ] || cp -r "$repo/$show/assets" "$out/shows/$show/assets"
+    cp -r "$repo/$show/." "$out/shows/$show"
+    rm -rf "$out/shows/$show/README.md" "$out/shows/$show/licenses"
 done
 # shellcheck disable=SC2046 # show paths have no spaces
 cargo run --manifest-path "$cuelight/Cargo.toml" -q -p cuelight-loader \
