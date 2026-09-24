@@ -22,7 +22,7 @@ Everything else listens to those names, in one of two ways:
 
 | Kind | How it works |
 | --- | --- |
-| Follows the moon | Bindings on values. The moon and its disc read `distance` itself. The sky's darkness, the sun's glare, the sunlight left, the side diagram's two turns and the progress dot are values of their own, played in the same stretches with keys computed from the distance: the covered share of the sun is the overlap of two circles, the sky only darkens in the last few per cent, and the shadow's place in the diagram follows the distance. Each is written once, however many layers read it: the diagram's turns drive both the shadows in space and their copy on the Earth |
+| Follows the moon | Bindings on `distance`, the one value the show animates. The moon and its disc read it as it is. The sky's darkness, the sun's glare, the sunlight left, the side diagram's two turns and the progress dot bend it through a `curve`, keys of distance against what they show: the covered share of the sun is the overlap of two circles, the sky only darkens in the last few per cent, and the shadow's place in the diagram follows the distance |
 | Reacts to a contact | Captions, the corona, the stars and Venus, the beads and the diamond ring, and the contact marks only know the cue that starts them and the cue that ends them, with an optional `delay`. A fade-in timeline holds its last value when it ends (`hold`); a fade-out timeline, started later by the ending cue, holds too, and of two held timelines the one started later owns the property. Nothing here depends on how long a stretch lasts |
 
 The layers sit in one scene whose trigger is `cycle`. The last stretch's
@@ -63,8 +63,7 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 ## What would make it better
 
-- A binding that maps a number through a curve, not only `scale` and
-  `offset` (cuelight #109): how much of the sun is covered, and how
-  dark the sky gets, are not straight lines in the distance, which is why
-  they are values of their own with keys computed by the script. With
-  curves they would all be bindings on `distance`.
+- Styles with parameters and repeated layers (cuelight #99): the
+  captions, the stars, the beads and the contact marks are near-identical
+  blocks written out one by one, which is most of why the document is
+  still written by a script.

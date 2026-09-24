@@ -11,14 +11,13 @@ and each one's `on_end` fires the next contact as a trigger (`c1`,
 
 Two kinds of listener:
 
-- Things that change continuously with the moon's position bind to
-  values. The moon and its disc read `distance` itself; the sky's
+- Things that change continuously with the moon's position all bind to
+  `distance`. The moon and its disc read it as it is; the sky's
   darkness, the sun's glare, the sunlight left, the side diagram's two
-  turns and the progress dot are values of their own, with the same
-  stretches and keys computed here from the distance, since a binding
-  can only scale and offset what it reads. This is the only place the
-  physics lives, and each quantity is written once however many layers
-  read it.
+  turns and the progress dot bend it through a `curve`, keys of distance
+  against what that layer shows, computed here: the covered share of the
+  sun is the overlap of two circles, and the sky only darkens in the last
+  few per cent. This is the only place the physics lives.
 - Things that happen at a contact (captions, the corona, stars, the
   beads and the diamond ring, the contact marks) only know the name of
   the contact that starts them and of the one that ends them. They fade
@@ -177,11 +176,11 @@ def stretch_keys(stretch, value, step=None):
 
 
 def stretches(value, step=None, fire=False):
-    """A value of the show's own that follows the moon: one timeline per
+    """The moon's distance as a value of the show's own: one timeline per
     stretch, started by the stretch's trigger and as long as it. The first
     starts at load and again on `cycle`, since values live outside the
-    scene that `cycle` restarts. With `fire` it is the moon's distance
-    itself, the show's clock, and fires the next cue."""
+    scene that `cycle` restarts. With `fire` it is the show's clock and
+    fires the next cue."""
     timelines = []
     for stretch in STRETCHES:
         name, trigger, *_rest, on_end = stretch
@@ -199,17 +198,23 @@ def stretches(value, step=None, fire=False):
 
 
 def values():
-    """Everything that moves with the moon, each as a number of its own;
-    layers only bind to them."""
-    return {
-        "distance": stretches(lambda d: d, fire=True),
-        "darkness": stretches(darkness, step=0.4),
-        "glare": stretches(lambda d: 0.95 * (1 - overlap(d)) ** 0.7, step=0.5),
-        "sunlight": stretches(lambda d: 1 - overlap(d), step=0.5),
-        "orbit": stretches(lambda d: on_orbit(d)[0], step=0.5),
-        "shadow": stretches(lambda d: on_orbit(d)[1] - on_orbit(d)[0], step=0.5),
-        "progress": stretches(lambda d: min(TRACK["c4"], max(TRACK["c1"], track_x(d)))),
-    }
+    """The moon's distance to the sun: the one thing the show animates."""
+    return {"distance": stretches(lambda d: d, fire=True)}
+
+
+def curve(value, fine=2, coarse=16):
+    """A binding's curve bending the distance into `value(d)`: keys every
+    `coarse` units, every `fine` units around totality where things change
+    fast, and on the contacts themselves."""
+    far = C1 + 64
+    # Half a unit inside totality too, where the sky drops the last of the
+    # way to dark in under half a second.
+    points = {-far, far, -C1, C1, -BEADS, BEADS, -C2, C2, -(C2 - 0.5), C2 - 0.5, 0.0}
+    d = -far
+    while d <= far:
+        points.add(round(d, 3))
+        d += fine if abs(d) <= BEADS + fine else coarse
+    return [{"t": r(d), "v": r(value(d))} for d in sorted(points)]
 
 
 def bind(prop, value, **extra):
@@ -324,11 +329,11 @@ def diamond(name, side, trigger, keys):
 def sky():
     """The sky window: what an observer sees."""
     sun_glare = glow("sun_glare", 210, "#FFF6DA", x=SUN_X, y=SUN_Y, blend="screen",
-                     bindings=bind("opacity", "glare"))
+                     bindings=bind("opacity", "distance", curve=curve(lambda d: 0.95 * (1 - overlap(d)) ** 0.7)))
     sky_total = {
         "name": "sky_total", "type": "shape", "shape": {"rect": [0, 0, SKY_W, SKY_H]}, "opacity": 0,
         "fill": vertical(SKY_H, (0, "#070B1E"), (0.55, "#18203F"), (0.85, "#3B3452"), (1, "#5A4455")),
-        "bindings": bind("opacity", "darkness"),
+        "bindings": bind("opacity", "distance", curve=curve(darkness)),
     }
     stars = []
     for i, (x, y, rad) in enumerate([(70, 250, 1.6), (180, 64, 1.2), (540, 250, 1.4), (548, 188, 1.1), (410, 40, 1.0), (40, 300, 1.2), (560, 330, 1.3), (240, 36, 1.0)]):
@@ -503,8 +508,8 @@ def diagram():
 
     def orbiting(name, children):
         return {
-            "name": name, "type": "group", "bindings": bind("rotation", "orbit"),
-            "children": [{"name": "moon_place", "type": "group", "x": -ORBIT_R, "bindings": bind("rotation", "shadow"),
+            "name": name, "type": "group", "bindings": bind("rotation", "distance", curve=curve(lambda d: on_orbit(d)[0])),
+            "children": [{"name": "moon_place", "type": "group", "x": -ORBIT_R, "bindings": bind("rotation", "distance", curve=curve(lambda d: on_orbit(d)[1] - on_orbit(d)[0])),
                           "children": children}],
         }
 
@@ -567,12 +572,12 @@ def progress():
         layers.append(text(f"tick_{cue}_label", x - 40, TRACK_Y + 10, "tick", names[cue], size=[80, 20],
                            opacity=0.3) | {"timelines": [fade("reached", mark, cue, hold=True)]})
     layers.append(circle("dot", TRACK["c1"], TRACK_Y, 6, VERMILION, stroke={"color": PAPER, "width": 2},
-                         bindings=bind("x", "progress")))
+                         bindings=bind("x", "distance", curve=curve(lambda d: min(TRACK["c4"], max(TRACK["c1"], track_x(d)))))))
     layers += [
         text("sunlight", 690, 480, "label", "sunlight"),
         {"name": "bar_back", "type": "shape", "x": BAR_X, "y": BAR_Y, "shape": {"rect": [0, 0, BAR_W, 8]}, "fill": "#E4DBC9"},
         {"name": "bar", "type": "shape", "x": BAR_X, "y": BAR_Y, "shape": {"rect": [0, 0, BAR_W, 8]}, "fill": OCHRE,
-         "bindings": bind("scale_x", "sunlight")},
+         "bindings": bind("scale_x", "distance", curve=curve(lambda d: 1 - overlap(d)))},
         {"name": "rule_bottom", "type": "shape", "x": 690, "y": 524, "shape": {"rect": [0, 0, 542, 1]}, "fill": RULE},
     ]
     return layers
