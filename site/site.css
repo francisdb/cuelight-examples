@@ -69,6 +69,8 @@ button.tab[aria-selected="true"] { color: var(--accent); }
 .transport[hidden], .transport [hidden] { display: none; }
 .transport input[type="range"] { flex: 1; accent-color: var(--accent); }
 .transport .clock { min-width: 56px; text-align: right; font-variant-numeric: tabular-nums; }
+/* One width for "play" and "pause", so the bar beside it stays put. */
+#pause { width: 7ch; text-align: center; padding-left: 0; padding-right: 0; }
 #log { height: 9.5em; overflow: auto; font-size: 12px; white-space: pre-wrap; }
 #log:empty::after { content: "nothing yet"; color: var(--muted); }
 #log .error { color: var(--error); }
