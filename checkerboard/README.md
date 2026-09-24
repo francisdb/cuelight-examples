@@ -15,7 +15,7 @@ how close the camera is.
 | Two copies of the zoom | the shadow lies on the boards, so it has to breathe with them, and it carries a second timeline with the same keys. **They have to stay identical.** A show cannot name a value and have several layers read it, and the shadow cannot simply live inside the boards' group, since a group scales positions too and the shadow would slide off the piece. They keep together only because both start at load (cuelight #74) |
 | The piece | a `vector` in front, still, apart from a slow float |
 | Its shadow | the same outline again as one flat dark shape, squashed with `scale_y` and turned, lying on the board rather than under the piece. It grows and shrinks with the squares it falls across while the piece itself never changes size |
-| The corners | a square filled with a radial gradient from clear to dark, squashed to the canvas with `scale_y`, so the dark follows an ellipse into the corners |
+| The corners | a square filled with a radial gradient from clear to dark, squashed to the canvas with `scale_y`, so the dark follows an ellipse into the corners. It and the board reach past the canvas (`overflow`): the board was already drawn far larger than the canvas, and the vignette, four canvases wide, holds its darkest colour past its edge, so a screen of another shape shows the board fading into the dark instead of flat bars |
 
 It needs cuelight `main` with rotation, uneven scale, inherited group
 transforms, blend modes and vector artwork.
