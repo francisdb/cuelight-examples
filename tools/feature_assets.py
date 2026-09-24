@@ -21,6 +21,10 @@ tint decides their color: a bulb in its socket, and the same disc as
 glow.png without the amber. worn.png is a grey speckle, a grimy overlay
 to multiply over clean art.
 
+For features/images/asset_paths, two skies both called sky.png, a day in
+art/day/ and a night in art/night/, which the show names by
+path, and moon.png in its assets/, which it names by stem.
+
 Needs Pillow.
 """
 
@@ -164,6 +168,35 @@ def worn(size=128):
     return image.filter(ImageFilter.GaussianBlur(0.6))
 
 
+def sky(night, size=(176, 110)):
+    """A small sky for features/images/asset_paths: a day with a sun, or a
+    night with stars. Both are saved as sky.png, in different folders."""
+    w, h = size
+    top, bottom = ((14, 24, 58), (38, 52, 96)) if night else ((70, 140, 220), (170, 214, 245))
+    image = Image.new("RGB", (w * SS, h * SS))
+    draw = ImageDraw.Draw(image)
+    for y in range(h * SS):
+        f = y / (h * SS - 1)
+        draw.line([(0, y), (w * SS, y)], fill=tuple(int(a + (b - a) * f) for a, b in zip(top, bottom)))
+    if night:
+        random.seed(5)
+        for _ in range(30):
+            x, y, r = random.uniform(0, w), random.uniform(0, h), random.uniform(0.6, 1.4)
+            draw.ellipse([(x - r) * SS, (y - r) * SS, (x + r) * SS, (y + r) * SS], fill=(230, 236, 255))
+    else:
+        draw.ellipse([118 * SS, 18 * SS, 150 * SS, 50 * SS], fill=(255, 214, 102))
+    return image.resize(size, Image.LANCZOS)
+
+
+def moon(size=64):
+    """A crescent moon on nothing, kept in assets/ and named by its stem."""
+    image = Image.new("RGBA", (size * SS, size * SS), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    draw.ellipse([6 * SS, 6 * SS, 58 * SS, 58 * SS], fill=(253, 230, 138, 255))
+    draw.ellipse([22 * SS, 0, 72 * SS, 50 * SS], fill=(0, 0, 0, 0))
+    return image.resize((size, size), Image.LANCZOS)
+
+
 def main():
     for path, image in [
         ("features/images/image/assets/badge.png", badge()),
@@ -174,6 +207,9 @@ def main():
         ("features/images/tint/assets/bulb.png", bulb()),
         ("features/images/tint/assets/white_glow.png", disc(112, (255, 255, 255))),
         ("features/images/tint/assets/worn.png", worn()),
+        ("features/images/asset_paths/art/day/sky.png", sky(False)),
+        ("features/images/asset_paths/art/night/sky.png", sky(True)),
+        ("features/images/asset_paths/assets/moon.png", moon()),
     ]:
         out = ROOT / path
         out.parent.mkdir(parents=True, exist_ok=True)
