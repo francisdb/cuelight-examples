@@ -11,7 +11,7 @@ whole day in two minutes so nothing stands still.
 | Icons | SVG files in `assets/`, drawn as `vector` layers: flat fills and strokes, sized into the layer. The parts that move are separate files |
 | The animated "now" icon | one group per condition, its `opacity` a mapped binding on `condition` with a `transition`, so one crossfades into the next. Inside: sun rays that pulse (`scale` on a center-anchored vector), clouds that drift, rain and snow that move inside a clipped group. Their drops sit on a lattice, a column every 20 units with each column starting 12 lower, so one step of a column left and 48 down lands every drop where another one was: the rain travels exactly that step, which is also the way its drops lean, and repeats without a seam. Its clip is a leaning `path`, a parallelogram on the same angle, so drops only ever appear at its top under the cloud and never slide in from a side. Snow is symmetric, so it falls straight through a rect, sways on a period that does not divide the fall, and never repeats mechanically, a bolt that flashes on `step` keys, fog banks sliding past each other, a moon that floats |
 | Clear at night | the clear icon holds a day group and a night group whose opacities are mapped from `sky`; opacity multiplies down the tree, so the condition picks the icon and the sky picks its face |
-| Sky | three gradient PNGs stretched over the canvas, the night one at the bottom, dusk and day above it with opacities mapped from `sky` (`night`, `dawn`, `day`, `dusk`) through a 2.5 s `transition`: sunrise and sunset are crossfades. Stars twinkle on looping timelines, each with its own `delay` |
+| Sky | three canvas-sized rects filled with vertical gradients, the night one at the bottom, dusk and day above it with opacities mapped from `sky` (`night`, `dawn`, `day`, `dusk`) through a 2.5 s `transition`: sunrise and sunset are crossfades. Stars twinkle on looping timelines, each with its own `delay` |
 | Sun | `x` and `y` bound to `sun_x` and `sun_y`, with a `linear` transition as long as the feed interval, so a position posted every two seconds moves continuously. The host computes the arc; the show only follows |
 | Temperature and readings | `text` bindings with a `transition`, so a new reading counts to its value. Units are separate texts next to right-aligned number boxes |
 | Wind direction | an arrow `path` before the direction, pointing where the wind blows: its `rotation` is bound to `wind_deg` (where it comes from) with `offset` 180, on a 360 ring (`wrap`) taking the short way round with a `transition`; the sun's rays turn on a slow looping `rotation` as well as pulse |
@@ -46,15 +46,15 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `*.svg`, `sky_day.png`, `sky_dusk.png`, `sky_night.png` | Made for this show, written by [`tools/weather_dashboard_assets.py`](../tools/weather_dashboard_assets.py) | MIT, as this repository |
+| `*.svg` | Made for this show, written by [`tools/weather_dashboard_assets.py`](../tools/weather_dashboard_assets.py) | MIT, as this repository |
 | `fonts/Oxanium-Bold.ttf`, `fonts/Oxanium-SemiBold.ttf` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, the unmodified static files from [`fonts/ttf`](https://github.com/sevmeyer/oxanium/tree/a8f39e0c71186190027a093e9001459410192d1e/fonts/ttf). Its digits all have the same width, so the readings keep their place while they count | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
 
 The weather is made up; the city is real.
 
 ## What would make it better
 
-- Gradients in shapes and SVGs: the sky is three stretched PNGs because
-  an SVG gradient paints as its first stop.
+- Gradients in SVGs: an icon's gradient still paints as its first stop,
+  so the icons are flat.
 - Layer templates or repeaters: the five forecast slots and the eight
   bars are the same block with another number in the variable names,
   which is why the document is generated.
