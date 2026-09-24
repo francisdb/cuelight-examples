@@ -69,7 +69,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -443,7 +444,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -894,7 +896,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -1263,7 +1266,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -1623,7 +1627,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -2525,7 +2530,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -2851,7 +2857,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -3173,7 +3180,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [
@@ -3509,7 +3517,8 @@
             {
               "name": "appear",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}]}]
             }
           ],
           "children": [

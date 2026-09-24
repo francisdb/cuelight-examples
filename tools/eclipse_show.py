@@ -20,9 +20,10 @@ Two kinds of listener:
 - Things that happen at a contact (captions, the corona, stars, the
   beads and the diamond ring, the contact marks) only know the name of
   the contact that starts them and of the one that ends them. They fade
-  in on a timeline that holds far longer than any stretch and fade out on
-  a second one started later, which wins because a later timeline owns
-  the property. Their timing does not depend on how long a stretch is.
+  in on a timeline that holds its last value when it ends (`hold`) and
+  fade out on a second one started later, which wins because of two held
+  timelines the one started later owns the property. Their timing does
+  not depend on how long a stretch is.
 
 All of it sits in one scene whose trigger is `cycle`: re-entering the
 scene stops every held timeline, so the loop starts clean.
@@ -63,9 +64,6 @@ STRETCHES = [
 ]
 # The depart stretch moves for this long, then waits.
 DEPART_MOVE = 4.0
-# Long enough to outlast any stretch: a held value until the next cue or
-# the next cycle takes it away.
-HOLD = 600
 
 # The side diagram: sun, moon and shadows turn together around the sun's
 # centre, so the shadow sweeps over the observer on the Earth's edge.
@@ -194,7 +192,7 @@ def follow(prop, value, step=None, fire=False):
     return timelines
 
 
-def fade(name, keys, trigger=None, delay=None, prop="opacity"):
+def fade(name, keys, trigger=None, delay=None, prop="opacity", hold=False):
     """A timeline started by a cue (or with the scene when trigger is None).
     keys: [(t, v)] or [(t, v, ease)]."""
     tl = {"name": name}
@@ -204,6 +202,8 @@ def fade(name, keys, trigger=None, delay=None, prop="opacity"):
         tl["trigger"] = trigger
     if delay:
         tl["delay"] = delay
+    if hold:
+        tl["hold"] = True
     out = []
     for k in keys:
         key = {"t": k[0], "v": k[1]}
@@ -218,9 +218,9 @@ def shown(on, off, on_delay=None, off_delay=None, rise=0.6, fall=0.5, level=1):
     """Fade in on one cue and hold; fade out on another. The second timeline
     starts later, so it owns the opacity from then on. Without an end cue it
     holds until the scene starts over."""
-    timelines = [fade("in", [(0, 0), (rise, level, "quad_out"), (HOLD, level)], on, on_delay)]
+    timelines = [fade("in", [(0, 0), (rise, level, "quad_out")], on, on_delay, hold=True)]
     if off is not None:
-        timelines.append(fade("out", [(0, level), (fall, 0, "quad_in"), (HOLD, 0)], off, off_delay))
+        timelines.append(fade("out", [(0, level), (fall, 0, "quad_in")], off, off_delay, hold=True))
     return timelines
 
 
@@ -315,9 +315,9 @@ def sky():
     corona = {
         "name": "corona", "type": "group", "x": SUN_X, "y": SUN_Y, "opacity": 0, "blend": "screen",
         "timelines": [
-            fade("inner", [(0, 0), (1.2, 0.35, "quad_out"), (HOLD, 0.35)], "beads"),
-            fade("full", [(0, 0.35), (0.9, 1, "quad_out"), (HOLD, 1)], "c2"),
-            fade("out", [(0, 1), (0.3, 0.35, "quad_out"), (2.2, 0, "quad_in"), (HOLD, 0)], "c3"),
+            fade("inner", [(0, 0), (1.2, 0.35, "quad_out")], "beads", hold=True),
+            fade("full", [(0, 0.35), (0.9, 1, "quad_out")], "c2", hold=True),
+            fade("out", [(0, 1), (0.3, 0.35, "quad_out"), (2.2, 0, "quad_in")], "c3", hold=True),
         ],
         "children": [{"name": "streamers", "type": "image", "image": "corona", "anchor": "center"}],
     }
@@ -335,8 +335,8 @@ def sky():
     corona_group = {
         "name": "atmosphere", "type": "group", "opacity": 0,
         "timelines": [
-            fade("in", [(0, 0), (0.8, 1, "quad_out"), (HOLD, 1)], "beads", 0.6),
-            fade("out", [(0, 1), (1.4, 0, "quad_in"), (HOLD, 0)], "emerged"),
+            fade("in", [(0, 0), (0.8, 1, "quad_out")], "beads", 0.6, hold=True),
+            fade("out", [(0, 1), (1.4, 0, "quad_in")], "emerged", hold=True),
         ],
         "children": proms,
     }
@@ -366,8 +366,8 @@ def sky():
             {"name": "outline", "type": "shape", "shape": {"circle": [0, 0, MOON_R]}, "fill": "#00000000",
              "stroke": {"color": "#FFFFFF", "width": 1.5}, "opacity": 0.55,
              "timelines": [
-                 fade("hide", [(0, 0.55), (0.6, 0), (HOLD, 0)], "beads"),
-                 fade("show", [(0, 0), (1.5, 0.55), (HOLD, 0.55)], "emerged"),
+                 fade("hide", [(0, 0.55), (0.6, 0)], "beads", hold=True),
+                 fade("show", [(0, 0), (1.5, 0.55)], "emerged", hold=True),
              ]},
         ],
     }
@@ -377,9 +377,9 @@ def sky():
         "fill": vertical(150, (0, "#E8785A00"), (0.5, "#F3955B38"), (0.75, "#F9A35B87"), (1, "#FFB25CFF")),
         "opacity": 0,
         "timelines": [
-            fade("dusk", [(0, 0), (1.6, 0.35), (HOLD, 0.35)], "beads"),
-            fade("round", [(0, 0.35), (2.0, 1, "quad_out"), (HOLD, 1)], "c2"),
-            fade("out", [(0, 1), (2.5, 0, "quad_in"), (HOLD, 0)], "c3"),
+            fade("dusk", [(0, 0), (1.6, 0.35)], "beads", hold=True),
+            fade("round", [(0, 0.35), (2.0, 1, "quad_out")], "c2", hold=True),
+            fade("out", [(0, 1), (2.5, 0, "quad_in")], "c3", hold=True),
         ],
     }
     land = (
@@ -413,9 +413,9 @@ def sky():
     ]
     chips = [
         text("scale_normal", 18, 14, "chip", "1 second here \u2248 5 minutes", opacity=0) | {"timelines": [
-                 fade("in", [(0, 0), (0.6, 1), (HOLD, 1)]),
-                 fade("out", [(0, 1), (0.4, 0), (HOLD, 0)], "c2"),
-                 fade("back", [(0, 0), (0.6, 1), (HOLD, 1)], "c3", 1.0),
+                 fade("in", [(0, 0), (0.6, 1)], hold=True),
+                 fade("out", [(0, 1), (0.4, 0)], "c2", hold=True),
+                 fade("back", [(0, 0), (0.6, 1)], "c3", 1.0, hold=True),
              ]},
         text("scale_slow", 18, 14, "chip", "slowed down: 1 second here \u2248 15 seconds", opacity=0) | {
             "timelines": shown("c2", "c3", rise=0.6, fall=0.4)},
@@ -538,12 +538,12 @@ def progress():
     ]
     names = {"c1": "first", "c2": "second", "c3": "third", "c4": "fourth"}
     for cue, x in TRACK.items():
-        mark = [(0, 0.3), (0.3, 1, "quad_out"), (HOLD, 1)]
+        mark = [(0, 0.3), (0.3, 1, "quad_out")]
         layers.append({"name": f"tick_{cue}", "type": "shape", "x": x - 1, "y": TRACK_Y - 7,
                        "shape": {"rect": [0, 0, 2, 14]}, "fill": INK, "opacity": 0.3,
-                       "timelines": [fade("reached", mark, cue)]})
+                       "timelines": [fade("reached", mark, cue, hold=True)]})
         layers.append(text(f"tick_{cue}_label", x - 40, TRACK_Y + 10, "tick", names[cue], size=[80, 20],
-                           opacity=0.3) | {"timelines": [fade("reached", mark, cue)]})
+                           opacity=0.3) | {"timelines": [fade("reached", mark, cue, hold=True)]})
     layers.append(circle("dot", TRACK["c1"], TRACK_Y, 6, VERMILION, stroke={"color": PAPER, "width": 2},
                          timelines=follow("x", lambda d: min(TRACK["c4"], max(TRACK["c1"], track_x(d))))))
     layers += [

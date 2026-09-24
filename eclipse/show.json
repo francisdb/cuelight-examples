@@ -276,12 +276,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 0.4,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -298,12 +300,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 0.75,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -320,12 +324,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 1.1,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -342,12 +348,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 1.4499999999999997,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -364,12 +372,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 1.7999999999999998,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -386,12 +396,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 2.15,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -408,12 +420,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 2.4999999999999996,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -430,12 +444,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 2.8499999999999996,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}, {"t": 600, "v": 0.9}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.9, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -451,13 +467,15 @@
                 {
                   "name": "in",
                   "trigger": "beads",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.4, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.4, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "emerged",
                   "delay": 3,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -483,17 +501,20 @@
                 {
                   "name": "dusk",
                   "trigger": "beads",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.6, "v": 0.35}, {"t": 600, "v": 0.35}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.6, "v": 0.35}]}]
                 },
                 {
                   "name": "round",
                   "trigger": "c2",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 2.0, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 2.0, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 2.5, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 2.5, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -694,20 +715,23 @@
                 {
                   "name": "inner",
                   "trigger": "beads",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.35, "ease": "quad_out"}, {"t": 600, "v": 0.35}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.2, "v": 0.35, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "full",
                   "trigger": "c2",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 0.9, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.35}, {"t": 0.9, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
+                  "hold": true,
                   "tracks": [
                     {
                       "property": "opacity",
-                      "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.35, "ease": "quad_out"}, {"t": 2.2, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.35, "ease": "quad_out"}, {"t": 2.2, "v": 0, "ease": "quad_in"}]
                     }
                   ]
                 }
@@ -723,12 +747,14 @@
                   "name": "in",
                   "trigger": "beads",
                   "delay": 0.6,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "emerged",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ],
               "children": [
@@ -1197,12 +1223,14 @@
                     {
                       "name": "in",
                       "trigger": "beads",
-                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                      "hold": true,
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "quad_out"}]}]
                     },
                     {
                       "name": "out",
                       "trigger": "emerged",
-                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                      "hold": true,
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}]}]
                     }
                   ]
                 },
@@ -1217,12 +1245,14 @@
                     {
                       "name": "hide",
                       "trigger": "beads",
-                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.55}, {"t": 0.6, "v": 0}, {"t": 600, "v": 0}]}]
+                      "hold": true,
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.55}, {"t": 0.6, "v": 0}]}]
                     },
                     {
                       "name": "show",
                       "trigger": "emerged",
-                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.5, "v": 0.55}, {"t": 600, "v": 0.55}]}]
+                      "hold": true,
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 1.5, "v": 0.55}]}]
                     }
                   ]
                 }
@@ -1403,21 +1433,14 @@
               "text": "1 second here ≈ 5 minutes",
               "opacity": 0,
               "timelines": [
-                {
-                  "name": "in",
-                  "autoplay": true,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}, {"t": 600, "v": 1}]}]
-                },
-                {
-                  "name": "out",
-                  "trigger": "c2",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0}, {"t": 600, "v": 0}]}]
-                },
+                {"name": "in", "autoplay": true, "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}]}]},
+                {"name": "out", "trigger": "c2", "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0}]}]},
                 {
                   "name": "back",
                   "trigger": "c3",
                   "delay": 1.0,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1}]}]
                 }
               ]
             },
@@ -1433,12 +1456,14 @@
                 {
                   "name": "in",
                   "trigger": "c2",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
                 }
               ]
             },
@@ -1451,12 +1476,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 1.2,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}]}]
                 }
               ],
               "children": [
@@ -1488,12 +1515,14 @@
                   "name": "in",
                   "trigger": "c2",
                   "delay": 2.6,
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 1, "ease": "quad_out"}]}]
                 },
                 {
                   "name": "out",
                   "trigger": "c3",
-                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+                  "hold": true,
+                  "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0, "ease": "quad_in"}]}]
                 }
               ],
               "children": [
@@ -2354,7 +2383,8 @@
             {
               "name": "reached",
               "trigger": "c1",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2371,7 +2401,8 @@
             {
               "name": "reached",
               "trigger": "c1",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2387,7 +2418,8 @@
             {
               "name": "reached",
               "trigger": "c2",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2404,7 +2436,8 @@
             {
               "name": "reached",
               "trigger": "c2",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2420,7 +2453,8 @@
             {
               "name": "reached",
               "trigger": "c3",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2437,7 +2471,8 @@
             {
               "name": "reached",
               "trigger": "c3",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2453,7 +2488,8 @@
             {
               "name": "reached",
               "trigger": "c4",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2470,7 +2506,8 @@
             {
               "name": "reached",
               "trigger": "c4",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.3, "v": 1, "ease": "quad_out"}]}]
             }
           ]
         },
@@ -2682,12 +2719,14 @@
             {
               "name": "in",
               "autoplay": true,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c1",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2715,13 +2754,15 @@
               "name": "in",
               "trigger": "c1",
               "delay": 0.3,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c1",
               "delay": 5.0,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2749,12 +2790,14 @@
               "name": "in",
               "trigger": "c1",
               "delay": 5.6,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "beads",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2782,13 +2825,15 @@
               "name": "in",
               "trigger": "beads",
               "delay": 0.2,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c2",
               "delay": 0.2,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2816,13 +2861,15 @@
               "name": "in",
               "trigger": "c2",
               "delay": 0.5,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c2",
               "delay": 5.4,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2850,12 +2897,14 @@
               "name": "in",
               "trigger": "c2",
               "delay": 6.0,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c3",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2883,13 +2932,15 @@
               "name": "in",
               "trigger": "c3",
               "delay": 0.3,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "emerged",
               "delay": 3.4,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2917,12 +2968,14 @@
               "name": "in",
               "trigger": "emerged",
               "delay": 4.0,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             },
             {
               "name": "out",
               "trigger": "c4",
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}, {"t": 600, "v": 0}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 0, "ease": "quad_in"}]}]
             }
           ],
           "children": [
@@ -2950,7 +3003,8 @@
               "name": "in",
               "trigger": "c4",
               "delay": 0.3,
-              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}, {"t": 600, "v": 1}]}]
+              "hold": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 1, "ease": "quad_out"}]}]
             }
           ],
           "children": [
