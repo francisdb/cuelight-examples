@@ -13,10 +13,6 @@ cuelight cannot tint images, so each is drawn in its own color. They are
 drawn four times larger and scaled down, which is all the antialiasing
 they get.
 
-glow.png is a soft lavender disc, 256x256, opaque in the middle and
-fading to nothing at the edge: the flash over an alert, drawn with
-additive blending and scaled up while it fades.
-
 sounds/chime.ogg is the alert chime: two sine notes a fifth apart, each
 with a fast attack and a long decay, 0.9 seconds, mono, written as WAV
 and encoded to Ogg Vorbis with ffmpeg.
@@ -121,20 +117,6 @@ def icons(out):
     sheet.save(out / "alert_icons.png", optimize=True)
 
 
-def glow(out):
-    size = 256
-    color = (225, 210, 255)
-    image = Image.new("RGBA", (size, size), color + (0,))
-    pixels = image.load()
-    for y in range(size):
-        for x in range(size):
-            d = math.hypot(x + 0.5 - size / 2, y + 0.5 - size / 2) / (size / 2)
-            # Dense in the middle, gone at the rim, with a soft edge.
-            a = max(0.0, 1.0 - d * d) ** 2
-            pixels[x, y] = color + (int(255 * a),)
-    image.save(out / "glow.png", optimize=True)
-
-
 def chime(out):
     rate = 44100
     seconds = 0.9
@@ -167,7 +149,6 @@ def main():
     out = Path(sys.argv[1])
     footage(out)
     icons(out)
-    glow(out)
     chime(out)
 
 

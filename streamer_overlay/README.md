@@ -10,7 +10,7 @@ host renders the show over the capture instead.
 | --- | --- |
 | Alerts | one group with `opacity` 0 and a `pop` timeline on the `alert` trigger that drops it in with `back_out` and takes it out again; when the timeline ends the group falls back to its base opacity, so it needs no trigger to hide |
 | Alert kinds | `alert_kind` is a text variable: a mapped `text` binding turns it into the headline, a mapped `frame` binding picks the icon from a sprite sheet (heart, star, bolt) |
-| The flash | a soft lavender disc drawn with `"blend": "add"`, anchored at its center and scaled up while it fades, so it adds light to the footage instead of covering it |
+| The flash | a circle filled with a radial gradient, lavender fading to nothing at its rim, drawn with `"blend": "add"` and scaled up around its centre while it fades, so it adds light to the footage instead of covering it |
 | The chime | an `audio` layer on the same `alert` trigger as the timelines; a new alert restarts it |
 | Lower third | a group with a `clip` rect and, inside it, a panel that slides in and out on `lower_third`; the clip is what makes it appear from the edge instead of over the footage. Name and title are `text` bindings on `lt_name` and `lt_title` |
 | Follower goal | a bar inside a clipped group: its `x` is bound to `followers` with `scale` 0.48 (480 pixels for 1,000 followers) and a `transition`, so it grows smoothly. The count is a `text` binding with the `thousands` format and the same transition, so it counts up |
@@ -48,7 +48,7 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `footage.png`, `alert_icons.png`, `glow.png`, `sounds/chime.ogg` | Made for this show, drawn and synthesized by [`tools/streamer_overlay_assets.py`](../tools/streamer_overlay_assets.py) | MIT, as this repository |
+| `footage.png`, `alert_icons.png`, `sounds/chime.ogg` | Made for this show, drawn and synthesized by [`tools/streamer_overlay_assets.py`](../tools/streamer_overlay_assets.py) | MIT, as this repository |
 | `fonts/Oxanium-Bold.ttf`, `fonts/Oxanium-SemiBold.ttf` | [Oxanium](https://github.com/sevmeyer/oxanium) by The Oxanium Project Authors, the unmodified static files from [`fonts/ttf`](https://github.com/sevmeyer/oxanium/tree/a8f39e0c71186190027a093e9001459410192d1e/fonts/ttf). Its digits all have the same width, so the counts keep their place while they change | [OFL-1.1](licenses/Oxanium-OFL.txt), no reserved font name |
 
 The names in the driver are made up.

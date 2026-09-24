@@ -146,7 +146,8 @@
         {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 640, 150]}, "fill": "#141826F0"},
         {"name": "stripe", "type": "shape", "shape": {"rect": [0, 0, 10, 150]}, "fill": "#7C5CFF"},
         {
-          "name": "flash", "type": "image", "image": "glow", "anchor": "center", "blend": "add", "x": 320, "y": 75, "opacity": 0,
+          "name": "flash", "type": "shape", "shape": {"circle": [0, 0, 128]}, "blend": "add", "x": 320, "y": 75, "opacity": 0,
+          "fill": {"radial": {"center": [0, 0], "radius": 128, "stops": [{"at": 0, "color": "#E1D2FFFF"}, {"at": 0.25, "color": "#E1D2FFE0"}, {"at": 0.5, "color": "#E1D2FF8F"}, {"at": 0.75, "color": "#E1D2FF31"}, {"at": 1, "color": "#E1D2FF00"}]}},
           "timelines": [
             {
               "name": "burst", "trigger": "alert",
