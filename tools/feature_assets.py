@@ -21,6 +21,9 @@ tint decides their color: a bulb in its socket, and the same disc as
 glow.png without the amber. worn.png is a grey speckle, a grimy overlay
 to multiply over clean art.
 
+tile.png is a 48x48 floor tile for features/images/tile, a rounded
+square with a dot that repeats without a seam.
+
 For features/images/asset_paths, two skies both called sky.png, a day in
 art/day/ and a night in art/night/, which the show names by
 path, and moon.png in its assets/, which it names by stem.
@@ -197,6 +200,18 @@ def moon(size=64):
     return image.resize((size, size), Image.LANCZOS)
 
 
+def tile(size=48):
+    """A floor tile for features/images/tile: a rounded square with a dot,
+    its edges meeting the next tile's, so it repeats without a seam."""
+    image = Image.new("RGBA", (size * SS, size * SS), (30, 38, 52, 255))
+    draw = ImageDraw.Draw(image)
+    m = 3 * SS
+    draw.rounded_rectangle([m, m, size * SS - m, size * SS - m], radius=8 * SS, fill=(62, 201, 240, 255))
+    c = size * SS / 2
+    draw.ellipse([c - 7 * SS, c - 7 * SS, c + 7 * SS, c + 7 * SS], fill=(255, 176, 0, 255))
+    return image.resize((size, size), Image.LANCZOS)
+
+
 def main():
     for path, image in [
         ("features/images/image/assets/badge.png", badge()),
@@ -207,6 +222,7 @@ def main():
         ("features/images/tint/assets/bulb.png", bulb()),
         ("features/images/tint/assets/white_glow.png", disc(112, (255, 255, 255))),
         ("features/images/tint/assets/worn.png", worn()),
+        ("features/images/tile/assets/tile.png", tile()),
         ("features/images/asset_paths/art/day/sky.png", sky(False)),
         ("features/images/asset_paths/art/night/sky.png", sky(True)),
         ("features/images/asset_paths/assets/moon.png", moon()),

@@ -1,0 +1,187 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "tile",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 6,
+      "size": [84, 20],
+      "x": 24,
+      "y": 18,
+      "text": "TILING",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "box_0",
+      "type": "group",
+      "x": 24,
+      "y": 70,
+      "clip": {"rect": [0, 0, 104, 164]},
+      "children": [{"name": "tiles", "type": "image", "image": "tile", "size": [104, 164]}]
+    },
+    {
+      "name": "title_0",
+      "type": "digits",
+      "digits": 9,
+      "size": [90, 12],
+      "x": 31,
+      "y": 246,
+      "text": "STRETCHED",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_0",
+      "type": "digits",
+      "digits": 9,
+      "size": [72, 10],
+      "x": 40,
+      "y": 264,
+      "text": "NO REPEAT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "box_1",
+      "type": "group",
+      "x": 146,
+      "y": 70,
+      "clip": {"rect": [0, 0, 104, 164]},
+      "children": [{"name": "tiles", "type": "image", "image": "tile", "size": [104, 164], "repeat": {}}]
+    },
+    {
+      "name": "title_1",
+      "type": "digits",
+      "digits": 7,
+      "size": [70, 12],
+      "x": 163,
+      "y": 246,
+      "text": "NATURAL",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_1",
+      "type": "digits",
+      "digits": 11,
+      "size": [88, 10],
+      "x": 154,
+      "y": 264,
+      "text": "48 PX TILES",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "box_2",
+      "type": "group",
+      "x": 268,
+      "y": 70,
+      "clip": {"rect": [0, 0, 104, 164]},
+      "children": [{"name": "tiles", "type": "image", "image": "tile", "size": [104, 164], "repeat": {"size": [24, 24]}}]
+    },
+    {
+      "name": "title_2",
+      "type": "digits",
+      "digits": 7,
+      "size": [70, 12],
+      "x": 285,
+      "y": 246,
+      "text": "SMALLER",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_2",
+      "type": "digits",
+      "digits": 11,
+      "size": [88, 10],
+      "x": 276,
+      "y": 264,
+      "text": "24 PX TILES",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "box_3",
+      "type": "group",
+      "x": 390,
+      "y": 70,
+      "clip": {"rect": [0, 0, 104, 164]},
+      "children": [
+        {
+          "name": "tiles",
+          "type": "image",
+          "image": "tile",
+          "size": [104, 164],
+          "repeat": {},
+          "timelines": [
+            {
+              "name": "scroll",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {"property": "tile_x", "keys": [{"t": 0, "v": 0}, {"t": 2, "v": 48}]},
+                {"property": "tile_y", "keys": [{"t": 0, "v": 0}, {"t": 2, "v": 48}]}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "title_3",
+      "type": "digits",
+      "digits": 9,
+      "size": [90, 12],
+      "x": 397,
+      "y": 246,
+      "text": "SCROLLING",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_3",
+      "type": "digits",
+      "digits": 13,
+      "size": [104, 10],
+      "x": 390,
+      "y": 264,
+      "text": "MOVING OFFSET",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "box_4",
+      "type": "group",
+      "x": 512,
+      "y": 70,
+      "clip": {"rect": [0, 0, 104, 164]},
+      "children": [
+        {
+          "name": "turning",
+          "type": "group",
+          "x": 52.0,
+          "y": 82.0,
+          "timelines": [{"name": "turn", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0, "v": 0}, {"t": 16, "v": 360}]}]}],
+          "children": [{"name": "tiles", "type": "image", "image": "tile", "size": [240, 240], "anchor": "center", "repeat": {}}]
+        }
+      ]
+    },
+    {
+      "name": "title_4",
+      "type": "digits",
+      "digits": 7,
+      "size": [70, 12],
+      "x": 529,
+      "y": 246,
+      "text": "TURNING",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_4",
+      "type": "digits",
+      "digits": 10,
+      "size": [80, 10],
+      "x": 524,
+      "y": 264,
+      "text": "IN A GROUP",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ]
+}

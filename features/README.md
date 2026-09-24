@@ -12,7 +12,7 @@ cargo run -p cuelight-player -- ../cuelight-examples/features/timelines/easing
 | Folder | Examples |
 | --- | --- |
 | [layers](layers/) | `shapes`, `opacity`, `scale_anchor`, `group_clip`, `paths`, `blend_modes`, `rotation`, `gradients` |
-| [images](images/) | `image`, `sprite_sheet`, `tint`, `asset_paths` |
+| [images](images/) | `image`, `sprite_sheet`, `tint`, `asset_paths`, `tile` |
 | [text](text/) | `bitmap_font`, `outline_font`, `digits`, `reels`, `reel_wheels` |
 | [bindings](bindings/) | `scale_offset`, `text_format`, `map_default`, `font`, `transitions`, `visible_threshold_debounce`, `curves` |
 | [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence`, `hold`, `values` |
@@ -43,6 +43,7 @@ is what the website's gallery is built from.
 | `glow.png` | `layers/blend_modes` | drawn by `tools/feature_assets.py` | same as this repository |
 | `badge.png`, `bulb.png`, `white_glow.png`, `worn.png` | `images/tint` | drawn by `tools/feature_assets.py`, the last three white or grey so a tint decides their color | same as this repository |
 | `art/day/sky.png`, `art/night/sky.png`, `moon.png` | `images/asset_paths` | drawn by `tools/feature_assets.py` | same as this repository |
+| `tile.png` | `images/tile` | drawn by `tools/feature_assets.py`: a floor tile that repeats without a seam | same as this repository |
 | `music.ogg`, `zap.ogg`, `thunder.ogg`, `jingle.ogg` | `sound/audio_layers` | synthesized from sines and noise by [`tools/feature_sounds.py`](../tools/feature_sounds.py) | same as this repository |
 | `knock1.ogg`, `knock2.ogg`, `knock3.ogg` | `sound/pick` | synthesized by `tools/feature_sounds.py`: three takes of one knock | same as this repository |
 | `tick.ogg` | `sound/rest` | synthesized by `tools/feature_sounds.py`: a switch's 25 ms click | same as this repository |
