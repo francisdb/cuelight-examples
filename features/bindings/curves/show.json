@@ -1,0 +1,169 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "curves",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "values": {"input": {"timelines": [{"name": "sweep", "autoplay": true, "loop": true, "keys": [{"t": 0, "v": 0}, {"t": 5, "v": 100}, {"t": 10, "v": 0}]}]}},
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 6,
+      "size": [84, 20],
+      "x": 24,
+      "y": 18,
+      "text": "CURVES",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "input_label",
+      "type": "digits",
+      "digits": 5,
+      "size": [50, 12],
+      "x": 24,
+      "y": 66,
+      "text": "INPUT",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {"name": "input_track", "type": "shape", "x": 200, "y": 70, "shape": {"rect": [0, 0, 360, 2]}, "fill": "#3A4250"},
+    {
+      "name": "input_mark",
+      "type": "shape",
+      "x": 200,
+      "y": 71,
+      "shape": {"circle": [0, 0, 6]},
+      "fill": "#3EC9F0",
+      "bindings": [{"property": "x", "variable": "input", "scale": 3.6, "offset": 200}]
+    },
+    {
+      "name": "input_value",
+      "type": "digits",
+      "digits": 3,
+      "size": [36, 16],
+      "x": 580,
+      "y": 62,
+      "text": "0",
+      "justify": "right",
+      "display": {"segments": {"style": "numeric7", "fill": "#3EC9F0", "unlit": "#0B2A33"}},
+      "bindings": [{"property": "text", "variable": "input", "format": "thousands"}]
+    },
+    {
+      "name": "label_0",
+      "type": "digits",
+      "digits": 8,
+      "size": [80, 12],
+      "x": 24,
+      "y": 108,
+      "text": "NO CURVE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "back_0", "type": "shape", "x": 200, "y": 104, "shape": {"rect": [0, 0, 360, 20]}, "fill": "#2A1D04"},
+    {
+      "name": "bar_0",
+      "type": "shape",
+      "x": 200,
+      "y": 104,
+      "shape": {"rect": [0, 0, 360, 20]},
+      "fill": "#FFB000",
+      "scale_x": 0,
+      "bindings": [{"property": "scale_x", "variable": "input", "scale": 0.01}]
+    },
+    {
+      "name": "label_1",
+      "type": "digits",
+      "digits": 8,
+      "size": [80, 12],
+      "x": 24,
+      "y": 152,
+      "text": "EASED IN",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "back_1", "type": "shape", "x": 200, "y": 148, "shape": {"rect": [0, 0, 360, 20]}, "fill": "#2A1D04"},
+    {
+      "name": "bar_1",
+      "type": "shape",
+      "x": 200,
+      "y": 148,
+      "shape": {"rect": [0, 0, 360, 20]},
+      "fill": "#FFB000",
+      "scale_x": 0,
+      "bindings": [{"property": "scale_x", "variable": "input", "curve": [{"t": 0, "v": 0}, {"t": 100, "v": 1, "ease": "quad_in"}]}]
+    },
+    {
+      "name": "label_2",
+      "type": "digits",
+      "digits": 5,
+      "size": [50, 12],
+      "x": 24,
+      "y": 196,
+      "text": "STEPS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "back_2", "type": "shape", "x": 200, "y": 192, "shape": {"rect": [0, 0, 360, 20]}, "fill": "#2A1D04"},
+    {
+      "name": "bar_2",
+      "type": "shape",
+      "x": 200,
+      "y": 192,
+      "shape": {"rect": [0, 0, 360, 20]},
+      "fill": "#FFB000",
+      "scale_x": 0,
+      "bindings": [
+        {
+          "property": "scale_x",
+          "variable": "input",
+          "curve": [{"t": 0, "v": 0.25}, {"t": 25, "v": 0.5, "ease": "step"}, {"t": 50, "v": 0.75, "ease": "step"}, {"t": 75, "v": 1, "ease": "step"}]
+        }
+      ]
+    },
+    {
+      "name": "label_3",
+      "type": "digits",
+      "digits": 4,
+      "size": [40, 12],
+      "x": 24,
+      "y": 240,
+      "text": "PEAK",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "back_3", "type": "shape", "x": 200, "y": 236, "shape": {"rect": [0, 0, 360, 20]}, "fill": "#2A1D04"},
+    {
+      "name": "bar_3",
+      "type": "shape",
+      "x": 200,
+      "y": 236,
+      "shape": {"rect": [0, 0, 360, 20]},
+      "fill": "#FFB000",
+      "scale_x": 0,
+      "bindings": [
+        {
+          "property": "scale_x",
+          "variable": "input",
+          "curve": [{"t": 0, "v": 0}, {"t": 50, "v": 1, "ease": "quad_out"}, {"t": 100, "v": 0, "ease": "quad_in"}]
+        }
+      ]
+    },
+    {
+      "name": "label_4",
+      "type": "digits",
+      "digits": 7,
+      "size": [70, 12],
+      "x": 24,
+      "y": 284,
+      "text": "CLAMPED",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {"name": "back_4", "type": "shape", "x": 200, "y": 280, "shape": {"rect": [0, 0, 360, 20]}, "fill": "#2A1D04"},
+    {
+      "name": "bar_4",
+      "type": "shape",
+      "x": 200,
+      "y": 280,
+      "shape": {"rect": [0, 0, 360, 20]},
+      "fill": "#FFB000",
+      "scale_x": 0,
+      "bindings": [{"property": "scale_x", "variable": "input", "curve": [{"t": 30, "v": 0}, {"t": 70, "v": 1}]}]
+    }
+  ]
+}
