@@ -11,8 +11,8 @@ how close the camera is.
 | Turning | each copy carries a looping `rotation` timeline, one going 0 to 90 degrees over 23 seconds and the other 90 to 0 over 37. A quarter turn maps a checkerboard onto itself, so those loops have no seam, and the two periods do not divide each other, so the pair never quite repeats |
 | Breathing | the near copy also loops its own `scale` between 1 and 1.35, which multiplies with everything above it |
 | The second board | drawn over the first with `"blend": "multiply"` and a bound opacity, so it darkens the light squares and leaves the dark ones alone. The two boards cut triangles out of each other as they turn |
-| The zoom | the group around both loops its own `scale` between 0.85 and 1.45 over 29 seconds, a period none of the turns divides, so the camera never arrives anywhere twice the same way. A group's transform reaches its whole subtree, so that one timeline scales two boards that are separately rotating and scaling |
-| Two copies of the zoom | the shadow lies on the boards, so it has to breathe with them, and it carries a second timeline with the same keys. **They have to stay identical.** A show cannot name a value and have several layers read it, and the shadow cannot simply live inside the boards' group, since a group scales positions too and the shadow would slide off the piece. They keep together only because both start at load (cuelight #74) |
+| The zoom | one value of the show's own, `zoom`, loops between 0.85 and 1.45 over 29 seconds, a period none of the turns divides, so the camera never arrives anywhere twice the same way. The group around both boards binds its `scale` to it, and a group's transform reaches its whole subtree, so that one value scales two boards that are separately rotating and scaling |
+| The shadow | lies on the boards, so it breathes with them: it binds its `scale` to the same `zoom`. It cannot simply live inside the boards' group, since a group scales positions too and the shadow would slide off the piece |
 | The piece | a `vector` in front, still, apart from a slow float |
 | Its shadow | the same outline again as one flat dark shape, squashed with `scale_y` and turned, lying on the board rather than under the piece. It grows and shrinks with the squares it falls across while the piece itself never changes size |
 | The corners | a square filled with a radial gradient from clear to dark, squashed to the canvas with `scale_y`, so the dark follows an ellipse into the corners. It and the board reach past the canvas (`overflow`): the board was already drawn far larger than the canvas, and the vignette, four canvases wide, holds its darkest colour past its edge, so a screen of another shape shows the board fading into the dark instead of flat bars |
@@ -56,8 +56,3 @@ Everything under `assets/` is committed and free to redistribute.
   seconds because a looping timeline restarts from its first key. Saying
   "90 degrees every 23 seconds" would be plainer, and a host could then
   change the speed.
-- A value the show can name and animate, that several layers read the way
-  they read a variable (cuelight #74). The zoom is one value with two
-  readers, and it has to be written twice because there is no way to say
-  so. Nothing in the document records that the two sets of keys are meant
-  to agree; they do because both start at load.
