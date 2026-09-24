@@ -15,7 +15,7 @@ happened. That is where cuelight is aimed.
 
 | Part | How it works |
 | --- | --- |
-| Health and mana orbs | the liquid is a group inside a circular `clip`, its `y` bound to the value (`scale` and `offset` turn 0 to 240 into empty to full) with an eased `transition`. Its surface is a wave path that rolls sideways forever: a looping `x` timeline over exactly one wavelength, so the loop has no seam. A dark rim picture on top makes it a glass ball, and an `add` glint catches the light |
+| Health and mana orbs | the liquid is a group inside a circular `clip`, its `y` bound to the value (`scale` and `offset` turn 0 to 240 into empty to full) with an eased `transition`. Its surface is a wave path that rolls sideways forever: a looping `x` timeline over exactly one wavelength, so the loop has no seam. A radial gradient that is dark only at its rim lies on top and makes it a glass ball, and an `add` glint catches the light |
 | Orb reactions | the health orb glows red on `hurt` and green on `healed`; the mana orb glows as a spell spends it (a timeline with a list of triggers) |
 | Low health | below 30% a red pulse beats round the health orb, a group whose `visible` is bound to `hp` with a `threshold` (flipped with `scale` -1 and `offset` 1, so it shows *below* the level) and a `debounce` |
 | Skills | six slots of SVG icons. `skill_1` to `skill_6` flash a slot and start its cooldown, a clock wipe from two half discs of shade, each turning inside a clip over one half of the slot, so together they cover any angle. Each slot's cooldown is its own length, from one second to fifteen, and its `on_end` fires `ready_n`, which rings the frame |
@@ -60,7 +60,7 @@ Everything under `assets/` is committed and free to redistribute.
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `dusk.png`, `map.png`, `glow.png`, `orb_shade.png`, `vignette.png`, the icon SVGs | Made for this show, drawn by [`tools/game_hud_art.py`](../tools/game_hud_art.py) | MIT, as this repository |
+| `dusk.png`, `map.png`, the icon SVGs | Made for this show, drawn by [`tools/game_hud_art.py`](../tools/game_hud_art.py) | MIT, as this repository |
 | `fireball`, `frost`, `ward`, `heal`, `ignite`, `potion`, `dissolve`, `level_up` (`.ogg`) | Made for this show, synthesized from sines and noise with a reverb by [`tools/game_hud_sounds.py`](../tools/game_hud_sounds.py) | MIT, as this repository |
 | `swing1`, `swing2`, `coins` (`.ogg`) | [RPG Audio](https://kenney.nl/assets/rpg-audio) by Kenney, fetched by [`tools/game_hud_fetch.sh`](../tools/game_hud_fetch.sh) | [CC0](licenses/Kenney-RPG-Audio-CC0.txt) |
 | `clang1` to `clang3`, `hurt1`, `hurt2`, `clatter1`, `clatter2`, `fall`, `bell` (`.ogg`) | [Impact Sounds](https://kenney.nl/assets/impact-sounds) by Kenney, fetched by the same script | [CC0](licenses/Kenney-Impact-Sounds-CC0.txt) |
