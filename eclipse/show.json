@@ -40,13 +40,30 @@
           "y": 104,
           "clip": {"path": "M 14 0 H 586 A 14 14 0 0 1 600 14 V 554 A 14 14 0 0 1 586 568 H 14 A 14 14 0 0 1 0 554 V 14 A 14 14 0 0 1 14 0 Z"},
           "children": [
-            {"name": "sky_day", "type": "image", "image": "sky_day", "size": [600, 568]},
+            {
+              "name": "sky_day",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 600, 568]},
+              "fill": {
+                "linear": {
+                  "from": [0, 0],
+                  "to": [0, 568],
+                  "stops": [{"at": 0, "color": "#4F8FCC"}, {"at": 0.6, "color": "#8DBDE6"}, {"at": 1, "color": "#CFE4F2"}]
+                }
+              }
+            },
             {
               "name": "sky_total",
-              "type": "image",
-              "image": "sky_total",
-              "size": [600, 568],
+              "type": "shape",
+              "shape": {"rect": [0, 0, 600, 568]},
               "opacity": 0,
+              "fill": {
+                "linear": {
+                  "from": [0, 0],
+                  "to": [0, 568],
+                  "stops": [{"at": 0, "color": "#070B1E"}, {"at": 0.55, "color": "#18203F"}, {"at": 0.85, "color": "#3B3452"}, {"at": 1, "color": "#5A4455"}]
+                }
+              },
               "timelines": [
                 {
                   "name": "approach",
@@ -446,10 +463,21 @@
             },
             {
               "name": "horizon_glow",
-              "type": "image",
-              "image": "horizon_glow",
+              "type": "shape",
               "y": 368,
-              "size": [600, 150],
+              "shape": {"rect": [0, 0, 600, 150]},
+              "fill": {
+                "linear": {
+                  "from": [0, 0],
+                  "to": [0, 150],
+                  "stops": [
+                    {"at": 0, "color": "#E8785A00"},
+                    {"at": 0.5, "color": "#F3955B38"},
+                    {"at": 0.75, "color": "#F9A35B87"},
+                    {"at": 1, "color": "#FFB25CFF"}
+                  ]
+                }
+              },
               "opacity": 0,
               "timelines": [
                 {
@@ -471,13 +499,23 @@
             },
             {
               "name": "sun_glare",
-              "type": "image",
-              "image": "glow",
+              "type": "shape",
+              "shape": {"circle": [0, 0, 210]},
+              "fill": {
+                "radial": {
+                  "center": [0, 0],
+                  "radius": 210,
+                  "stops": [
+                    {"at": 0, "color": "#FFF6DAFF"},
+                    {"at": 0.25, "color": "#FFF6DA80"},
+                    {"at": 0.5, "color": "#FFF6DA30"},
+                    {"at": 0.75, "color": "#FFF6DA09"},
+                    {"at": 1, "color": "#FFF6DA00"}
+                  ]
+                }
+              },
               "x": 300,
               "y": 226,
-              "size": [420, 420],
-              "anchor": "center",
-              "tint": "#FFF6DA",
               "blend": "screen",
               "timelines": [
                 {
@@ -1216,8 +1254,42 @@
                 }
               ],
               "children": [
-                {"name": "glare", "type": "image", "image": "glow", "size": [150, 150], "anchor": "center", "tint": "#FFF4DA"},
-                {"name": "core", "type": "image", "image": "glow", "size": [40, 40], "anchor": "center"},
+                {
+                  "name": "glare",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 75]},
+                  "fill": {
+                    "radial": {
+                      "center": [0, 0],
+                      "radius": 75,
+                      "stops": [
+                        {"at": 0, "color": "#FFF4DAFF"},
+                        {"at": 0.25, "color": "#FFF4DA80"},
+                        {"at": 0.5, "color": "#FFF4DA30"},
+                        {"at": 0.75, "color": "#FFF4DA09"},
+                        {"at": 1, "color": "#FFF4DA00"}
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "core",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 20]},
+                  "fill": {
+                    "radial": {
+                      "center": [0, 0],
+                      "radius": 20,
+                      "stops": [
+                        {"at": 0, "color": "#FFFFFFFF"},
+                        {"at": 0.25, "color": "#FFFFFF80"},
+                        {"at": 0.5, "color": "#FFFFFF30"},
+                        {"at": 0.75, "color": "#FFFFFF09"},
+                        {"at": 1, "color": "#FFFFFF00"}
+                      ]
+                    }
+                  }
+                },
                 {
                   "name": "flare",
                   "type": "shape",
@@ -1252,8 +1324,42 @@
                 }
               ],
               "children": [
-                {"name": "glare", "type": "image", "image": "glow", "size": [150, 150], "anchor": "center", "tint": "#FFF4DA"},
-                {"name": "core", "type": "image", "image": "glow", "size": [40, 40], "anchor": "center"},
+                {
+                  "name": "glare",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 75]},
+                  "fill": {
+                    "radial": {
+                      "center": [0, 0],
+                      "radius": 75,
+                      "stops": [
+                        {"at": 0, "color": "#FFF4DAFF"},
+                        {"at": 0.25, "color": "#FFF4DA80"},
+                        {"at": 0.5, "color": "#FFF4DA30"},
+                        {"at": 0.75, "color": "#FFF4DA09"},
+                        {"at": 1, "color": "#FFF4DA00"}
+                      ]
+                    }
+                  }
+                },
+                {
+                  "name": "core",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 20]},
+                  "fill": {
+                    "radial": {
+                      "center": [0, 0],
+                      "radius": 20,
+                      "stops": [
+                        {"at": 0, "color": "#FFFFFFFF"},
+                        {"at": 0.25, "color": "#FFFFFF80"},
+                        {"at": 0.5, "color": "#FFFFFF30"},
+                        {"at": 0.75, "color": "#FFFFFF09"},
+                        {"at": 1, "color": "#FFFFFF00"}
+                      ]
+                    }
+                  }
+                },
                 {
                   "name": "flare",
                   "type": "shape",

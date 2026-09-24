@@ -235,6 +235,24 @@ def text(name, x, y, font, value, size=None, align=None, opacity=None):
     return layer
 
 
+def stops(*pairs):
+    return [{"at": at, "color": color} for at, color in pairs]
+
+
+def glow(name, radius, color, **extra):
+    """A soft round glow: a circle whose radial gradient fades from its
+    color at the centre to nothing at the edge, as (1 - r)^2.4."""
+    fade = [(0, "FF"), (0.25, "80"), (0.5, "30"), (0.75, "09"), (1, "00")]
+    return {"name": name, "type": "shape", "shape": {"circle": [0, 0, radius]},
+            "fill": {"radial": {"center": [0, 0], "radius": radius,
+                                "stops": stops(*[(at, color + alpha) for at, alpha in fade])}}, **extra}
+
+
+def vertical(height, *pairs):
+    """A vertical gradient over a box of this height, stops top to bottom."""
+    return {"linear": {"from": [0, 0], "to": [0, height], "stops": stops(*pairs)}}
+
+
 def circle(name, x, y, radius, fill, **extra):
     return {"name": name, "type": "shape", "x": x, "y": y, "shape": {"circle": [0, 0, radius]}, "fill": fill, **extra}
 
@@ -272,8 +290,8 @@ def diamond(name, side, trigger, keys):
         "name": name, "type": "group", "x": r(x, 2), "y": r(y, 2), "opacity": 0, "blend": "screen",
         "timelines": [fade("flash", keys, trigger)],
         "children": [
-            {"name": "glare", "type": "image", "image": "glow", "size": [150, 150], "anchor": "center", "tint": "#FFF4DA"},
-            {"name": "core", "type": "image", "image": "glow", "size": [40, 40], "anchor": "center"},
+            glow("glare", 75, "#FFF4DA"),
+            glow("core", 20, "#FFFFFF"),
             {"name": "flare", "type": "shape", "shape": {"path": spikes}, "fill": "#FFFFFFD0"},
         ],
     }
@@ -281,13 +299,11 @@ def diamond(name, side, trigger, keys):
 
 def sky():
     """The sky window: what an observer sees."""
-    sun_glare = {
-        "name": "sun_glare", "type": "image", "image": "glow", "x": SUN_X, "y": SUN_Y, "size": [420, 420],
-        "anchor": "center", "tint": "#FFF6DA", "blend": "screen",
-        "timelines": follow("opacity", lambda d: 0.95 * (1 - overlap(d)) ** 0.7, step=0.5),
-    }
+    sun_glare = glow("sun_glare", 210, "#FFF6DA", x=SUN_X, y=SUN_Y, blend="screen",
+                     timelines=follow("opacity", lambda d: 0.95 * (1 - overlap(d)) ** 0.7, step=0.5))
     sky_total = {
-        "name": "sky_total", "type": "image", "image": "sky_total", "size": [SKY_W, SKY_H], "opacity": 0,
+        "name": "sky_total", "type": "shape", "shape": {"rect": [0, 0, SKY_W, SKY_H]}, "opacity": 0,
+        "fill": vertical(SKY_H, (0, "#070B1E"), (0.55, "#18203F"), (0.85, "#3B3452"), (1, "#5A4455")),
         "timelines": follow("opacity", darkness, step=0.4),
     }
     stars = []
@@ -355,8 +371,10 @@ def sky():
              ]},
         ],
     }
-    glow = {
-        "name": "horizon_glow", "type": "image", "image": "horizon_glow", "y": SKY_H - 200, "size": [SKY_W, 150],
+    horizon = {
+        # Sunset all around: transparent at the top, deepening towards the land.
+        "name": "horizon_glow", "type": "shape", "y": SKY_H - 200, "shape": {"rect": [0, 0, SKY_W, 150]},
+        "fill": vertical(150, (0, "#E8785A00"), (0.5, "#F3955B38"), (0.75, "#F9A35B87"), (1, "#FFB25CFF")),
         "opacity": 0,
         "timelines": [
             fade("dusk", [(0, 0), (1.6, 0.35), (HOLD, 0.35)], "beads"),
@@ -421,11 +439,12 @@ def sky():
         "name": "sky", "type": "group", "x": SKY_X, "y": SKY_Y,
         "clip": {"path": rounded_rect(SKY_W, SKY_H, 14)},
         "children": [
-            {"name": "sky_day", "type": "image", "image": "sky_day", "size": [SKY_W, SKY_H]},
+            {"name": "sky_day", "type": "shape", "shape": {"rect": [0, 0, SKY_W, SKY_H]},
+             "fill": vertical(SKY_H, (0, "#4F8FCC"), (0.6, "#8DBDE6"), (1, "#CFE4F2"))},
             sky_total,
             *stars,
             venus,
-            glow,
+            horizon,
             sun_glare,
             corona,
             corona_group,
