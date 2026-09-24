@@ -178,10 +178,10 @@
     {
       "name": "cloud_free",
       "type": "group",
-      "x": -120,
+      "x": -200,
       "y": 60,
       "overflow": true,
-      "timelines": [{"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0, "v": -160}, {"t": 14, "v": 700}]}]}],
+      "timelines": [{"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0, "v": -200}, {"t": 14, "v": 700}]}]}],
       "children": [
         {
           "name": "puff",
@@ -205,7 +205,7 @@
     {
       "name": "cloud_clipped",
       "type": "group",
-      "x": -120,
+      "x": -200,
       "y": 120,
       "timelines": [
         {
@@ -213,7 +213,7 @@
           "autoplay": true,
           "loop": true,
           "delay": 3,
-          "tracks": [{"property": "x", "keys": [{"t": 0, "v": -160}, {"t": 11, "v": 700}]}]
+          "tracks": [{"property": "x", "keys": [{"t": 0, "v": -200}, {"t": 11, "v": 700}]}]
         }
       ],
       "children": [
