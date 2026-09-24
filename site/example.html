@@ -21,6 +21,11 @@
   <p class="lead" id="description"></p>
 
   <div class="stage" id="stage"><canvas id="canvas"></canvas></div>
+  <div class="transport" id="transport" hidden>
+    <button id="pause">pause</button>
+    <input type="range" id="scrub" min="0" step="0.01" value="0" aria-label="show time" hidden>
+    <span class="status clock" id="clock"></span>
+  </div>
 
   <div class="columns">
     <div class="box">
@@ -145,7 +150,32 @@ async function play() {
     $("variables").append(label, input);
   }
   $("driver").hidden = $("driver-note").hidden = $("driver-tab").hidden = !player.hasDriver;
+  $("transport").hidden = false;
+  // A show that loops, with its length in the catalog, can be scrubbed.
+  $("scrub").hidden = !example.scrub;
+  if (example.scrub) $("scrub").max = example.scrub;
 }
+
+// The show's clock. Seeking replays the show from its start at the rate
+// the page plays it at, 60 steps a second, so a scrubbed moment looks the
+// way it does when played.
+const FPS = 60;
+let resumeAfterScrub = false;
+$("pause").onclick = () => (player.paused ? player.resume() : player.pause());
+$("scrub").onpointerdown = () => { resumeAfterScrub = !player.paused; player.pause(); };
+$("scrub").oninput = () => player.seek($("scrub").valueAsNumber, FPS);
+$("scrub").onchange = () => { if (resumeAfterScrub) player.resume(); resumeAfterScrub = false; };
+(function tick() {
+  if (player) {
+    const time = player.time;
+    // A looping show goes round: the bar shows where it is in the round.
+    const shown = example.scrub ? time % example.scrub : time;
+    if (!$("scrub").matches(":active")) $("scrub").value = shown;
+    $("clock").textContent = `${shown.toFixed(1)} s`;
+    $("pause").textContent = player.paused ? "play" : "pause";
+  }
+  requestAnimationFrame(tick);
+})();
 
 // Browsers keep a page silent until it is clicked or typed into; the
 // player picks that gesture up itself, so on a silent page the button

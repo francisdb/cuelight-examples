@@ -65,6 +65,10 @@ button.tab[aria-selected="true"] { color: var(--accent); }
 .variables input:not([type="checkbox"]) { width: 100%; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
 .variables input[type="checkbox"] { justify-self: start; }
 .status { font-size: 13px; color: var(--muted); }
+.transport { display: flex; align-items: center; gap: 12px; margin: 10px 0 0; }
+.transport[hidden], .transport [hidden] { display: none; }
+.transport input[type="range"] { flex: 1; accent-color: var(--accent); }
+.transport .clock { min-width: 56px; text-align: right; font-variant-numeric: tabular-nums; }
 #log { height: 9.5em; overflow: auto; font-size: 12px; white-space: pre-wrap; }
 #log:empty::after { content: "nothing yet"; color: var(--muted); }
 #log .error { color: var(--error); }
