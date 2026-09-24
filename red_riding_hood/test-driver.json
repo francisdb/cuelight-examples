@@ -1,0 +1,110 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "trigger": "cover"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_1"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_hood"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_2"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_basket"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_3"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_wolf"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_4"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_flowers"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_5"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_cupboard"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_6"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_eyes"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_7"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_teeth"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "trigger": "page_8"
+    },
+    {
+      "wait": 4.0
+    },
+    {
+      "trigger": "tap_cake"
+    },
+    {
+      "wait": 5.0
+    },
+    {
+      "wait": 3.0
+    }
+  ]
+}
