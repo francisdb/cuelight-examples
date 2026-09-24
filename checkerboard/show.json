@@ -204,12 +204,49 @@
     },
     {
       "name": "vignette",
-      "type": "image",
-      "image": "vignette",
-      "size": [
-        960,
-        540
-      ]
+      "type": "shape",
+      "x": 480,
+      "y": 270,
+      "scale_y": 0.5625,
+      "shape": {
+        "rect": [
+          -480,
+          -480,
+          960,
+          960
+        ]
+      },
+      "fill": {
+        "radial": {
+          "center": [
+            0,
+            0
+          ],
+          "radius": 600,
+          "stops": [
+            {
+              "at": 0,
+              "color": "#04060C00"
+            },
+            {
+              "at": 0.25,
+              "color": "#04060C0C"
+            },
+            {
+              "at": 0.5,
+              "color": "#04060C38"
+            },
+            {
+              "at": 0.75,
+              "color": "#04060C87"
+            },
+            {
+              "at": 1,
+              "color": "#04060CFF"
+            }
+          ]
+        }
+      }
     },
     {
       "name": "piece",

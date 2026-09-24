@@ -15,7 +15,7 @@ how close the camera is.
 | Two copies of the zoom | the shadow lies on the boards, so it has to breathe with them, and it carries a second timeline with the same keys. **They have to stay identical.** A show cannot name a value and have several layers read it, and the shadow cannot simply live inside the boards' group, since a group scales positions too and the shadow would slide off the piece. They keep together only because both start at load (cuelight #74) |
 | The piece | a `vector` in front, still, apart from a slow float |
 | Its shadow | the same outline again as one flat dark shape, squashed with `scale_y` and turned, lying on the board rather than under the piece. It grows and shrinks with the squares it falls across while the piece itself never changes size |
-| The corners | a stretched image, since a show has no gradients: the alternative is a stack of translucent shapes, and one small picture is cheaper and softer |
+| The corners | a square filled with a radial gradient from clear to dark, squashed to the canvas with `scale_y`, so the dark follows an ellipse into the corners |
 
 It needs cuelight `main` with rotation, uneven scale, inherited group
 transforms, blend modes and vector artwork.
@@ -38,7 +38,7 @@ Everything under `assets/` is committed and free to redistribute.
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `board.svg`, `knight.svg`, `shadow.svg`, `vignette.png` | Made for this show, drawn by [`tools/checkerboard_art.py`](../tools/checkerboard_art.py) | MIT, as this repository |
+| `board.svg`, `knight.svg`, `shadow.svg` | Made for this show, drawn by [`tools/checkerboard_art.py`](../tools/checkerboard_art.py) | MIT, as this repository |
 
 ## What would make it better
 
@@ -46,7 +46,6 @@ Everything under `assets/` is committed and free to redistribute.
   one, because a show cannot say "this square, repeated". A tiling fill,
   or a layer that repeats its child on a grid, would make it four lines
   and would serve star fields and backgrounds as well.
-- Gradients in shapes, so the corners would not need an image.
 - Perspective, so the board could lie flat and recede instead of facing
   the viewer. Rotation and scale are affine, so the board can only spin
   in its own plane.

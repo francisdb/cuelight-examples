@@ -17,20 +17,12 @@ as it has dark squares.
 knight.svg is the piece that stands in front of it, a flat silhouette
 with a lighter face, drawn as paths so it stays sharp at any size.
 shadow.svg is the same outline in one dark colour, which the show lays
-flat on the board as the piece's shadow.
-
-vignette.png darkens the corners of the canvas, which a show cannot do
-with shapes: it is a 160x90 image of an ellipse fading out, stretched
-over the whole canvas.
-
-Needs Pillow.
+flat on the board as the piece's shadow. The dark corners are a
+gradient in the show itself.
 """
 
-import math
 import sys
 from pathlib import Path
-
-from PIL import Image
 
 LIGHT = "#D9D2BE"
 DARK = "#252C3B"
@@ -108,27 +100,13 @@ def shadow():
     ])
 
 
-def vignette(width=160, height=90):
-    """Clear in the middle, dark towards the corners."""
-    image = Image.new("RGBA", (width, height))
-    pixels = image.load()
-    for y in range(height):
-        for x in range(width):
-            dx = (x + 0.5 - width / 2) / (width / 2)
-            dy = (y + 0.5 - height / 2) / (height / 2)
-            d = min(1.0, math.hypot(dx, dy) / 1.25)
-            pixels[x, y] = (4, 6, 12, int(255 * d ** 2.2))
-    return image
-
-
 def main():
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
     (out / "board.svg").write_text(board())
     (out / "knight.svg").write_text(knight())
     (out / "shadow.svg").write_text(shadow())
-    vignette().save(out / "vignette.png", optimize=True)
-    print(f"board, knight, shadow and vignette in {out}")
+    print(f"board, knight and shadow in {out}")
 
 
 if __name__ == "__main__":
