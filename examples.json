@@ -89,7 +89,8 @@
       "examples": [
         { "path": "features/sound/audio_layers", "title": "Audio layers", "description": "Looping music whose group gain follows a variable, three zaps under four retrigger policies with a lamp for each play that ends, a delayed repeat whose end lights a lamp, a stop trigger, and a scene with its own loop.", "thumbnail_at": 3.25 },
         { "path": "features/sound/pick", "title": "One of several", "description": "Three takes of one knock on a list, and what pick does with them: in_order, random and shuffle, next to a single sound that repeats like a tape loop. Picks count plays, so the show sounds the same every run.", "thumbnail_at": 0.65 },
-        { "path": "features/sound/rest", "title": "Rest", "description": "A switch that chatters, firing its trigger every 30 ms, into three sounds: one with no rest that buzzes, and two that play at most once every 100 and 400 ms, the rest dropped.", "thumbnail_at": 1.2 }
+        { "path": "features/sound/rest", "title": "Rest", "description": "A switch that chatters, firing its trigger every 30 ms, into three sounds: one with no rest that buzzes, and two that play at most once every 100 and 400 ms, the rest dropped.", "thumbnail_at": 1.2 },
+        { "path": "features/sound/ducking", "title": "Ducking", "description": "A music bed that steps back while an announcement plays on another bus: not at all, hard and fast, or soft and slow, one at a time over the same chime.", "thumbnail_at": 12.0 }
       ]
     },
     {
