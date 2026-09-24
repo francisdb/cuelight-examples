@@ -117,11 +117,11 @@
     {
       "name": "note_2",
       "type": "digits",
-      "digits": 35,
-      "size": [350, 12],
+      "digits": 37,
+      "size": [370, 12],
       "x": 24,
       "y": 336,
-      "text": "WIDEN THE PLAYER WINDOW TO SEE THEM",
+      "text": "SEE THEM ON A SCREEN OF ANOTHER SHAPE",
       "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
     }
   ]
