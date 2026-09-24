@@ -100,7 +100,7 @@
         { "path": "features/output/modes", "title": "Output modes", "description": "The same colors as rgb, gray4 and gray2 with a tint, the way a monochrome DMD shows them.", "thumbnail_at": 3 },
         { "path": "features/output/scaling", "title": "Scaling", "description": "A 128x32 canvas brought up to the page in whole pixel_perfect blocks, or smooth.", "thumbnail_at": 1 },
         { "path": "features/output/dots", "title": "Dots", "description": "The dot matrix look, a pass on the shown frame: round or square dots, their size, a color for dots that are off, and a glow.", "thumbnail_at": 13.5 },
-        { "path": "features/output/overflow", "title": "Overflow", "description": "Layers that draw past the canvas into the letterbox: a sky and a group of hills, and two clouds drifting across the edge, one allowed out and one clipped. Pick a wider or squarer screen under it to see them.", "thumbnail_at": 5.0 }
+        { "path": "features/output/overflow", "title": "Overflow", "description": "Layers that draw past the canvas into the letterbox: a sky and a group of hills, balloons rising through the top and bottom, and two clouds drifting across the sides, one allowed out and one clipped. Pick a wider or squarer screen under it to see them.", "thumbnail_at": 5.0 }
       ]
     },
     {

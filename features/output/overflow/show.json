@@ -33,6 +33,151 @@
       ]
     },
     {
+      "name": "balloons",
+      "type": "group",
+      "overflow": true,
+      "children": [
+        {
+          "name": "balloon_0",
+          "type": "group",
+          "x": 150,
+          "y": 520,
+          "timelines": [
+            {"name": "rise", "autoplay": true, "loop": true, "tracks": [{"property": "y", "keys": [{"t": 0, "v": 520}, {"t": 9, "v": -160}]}]},
+            {
+              "name": "sway",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "x",
+                  "keys": [{"t": 0, "v": 150}, {"t": 2.2, "v": 164, "ease": "quad_in_out"}, {"t": 4.4, "v": 150, "ease": "quad_in_out"}]
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "name": "string",
+              "type": "shape",
+              "shape": {"path": "M 0 22 Q 5 40 -2 58"},
+              "fill": "#00000000",
+              "stroke": {"color": "#F4F1E8B0", "width": 1.5}
+            },
+            {"name": "knot", "type": "shape", "shape": {"path": "M -3 24 L 3 24 L 0 19 Z"}, "fill": "#E0475B"},
+            {
+              "name": "body",
+              "type": "shape",
+              "shape": {"path": "M 0 22 C -26 10 -22 -24 0 -24 C 22 -24 26 10 0 22 Z"},
+              "fill": {
+                "radial": {
+                  "center": [-7, -10],
+                  "radius": 30,
+                  "stops": [{"at": 0, "color": "#FFFFFFB0"}, {"at": 0.3, "color": "#E0475B"}, {"at": 1, "color": "#E0475B"}]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "balloon_1",
+          "type": "group",
+          "x": 330,
+          "y": 520,
+          "timelines": [
+            {
+              "name": "rise",
+              "autoplay": true,
+              "loop": true,
+              "delay": 3,
+              "tracks": [{"property": "y", "keys": [{"t": 0, "v": 520}, {"t": 12, "v": -160}]}]
+            },
+            {
+              "name": "sway",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "x",
+                  "keys": [{"t": 0, "v": 330}, {"t": 2.2, "v": 320, "ease": "quad_in_out"}, {"t": 4.4, "v": 330, "ease": "quad_in_out"}]
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "name": "string",
+              "type": "shape",
+              "shape": {"path": "M 0 22 Q 5 40 -2 58"},
+              "fill": "#00000000",
+              "stroke": {"color": "#F4F1E8B0", "width": 1.5}
+            },
+            {"name": "knot", "type": "shape", "shape": {"path": "M -3 24 L 3 24 L 0 19 Z"}, "fill": "#F2C14E"},
+            {
+              "name": "body",
+              "type": "shape",
+              "shape": {"path": "M 0 22 C -26 10 -22 -24 0 -24 C 22 -24 26 10 0 22 Z"},
+              "fill": {
+                "radial": {
+                  "center": [-7, -10],
+                  "radius": 30,
+                  "stops": [{"at": 0, "color": "#FFFFFFB0"}, {"at": 0.3, "color": "#F2C14E"}, {"at": 1, "color": "#F2C14E"}]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "balloon_2",
+          "type": "group",
+          "x": 560,
+          "y": 520,
+          "timelines": [
+            {
+              "name": "rise",
+              "autoplay": true,
+              "loop": true,
+              "delay": 6,
+              "tracks": [{"property": "y", "keys": [{"t": 0, "v": 520}, {"t": 10, "v": -160}]}]
+            },
+            {
+              "name": "sway",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "x",
+                  "keys": [{"t": 0, "v": 560}, {"t": 2.2, "v": 572, "ease": "quad_in_out"}, {"t": 4.4, "v": 560, "ease": "quad_in_out"}]
+                }
+              ]
+            }
+          ],
+          "children": [
+            {
+              "name": "string",
+              "type": "shape",
+              "shape": {"path": "M 0 22 Q 5 40 -2 58"},
+              "fill": "#00000000",
+              "stroke": {"color": "#F4F1E8B0", "width": 1.5}
+            },
+            {"name": "knot", "type": "shape", "shape": {"path": "M -3 24 L 3 24 L 0 19 Z"}, "fill": "#4FB3A9"},
+            {
+              "name": "body",
+              "type": "shape",
+              "shape": {"path": "M 0 22 C -26 10 -22 -24 0 -24 C 22 -24 26 10 0 22 Z"},
+              "fill": {
+                "radial": {
+                  "center": [-7, -10],
+                  "radius": 30,
+                  "stops": [{"at": 0, "color": "#FFFFFFB0"}, {"at": 0.3, "color": "#4FB3A9"}, {"at": 1, "color": "#4FB3A9"}]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "cloud_free",
       "type": "group",
       "x": -120,
@@ -107,11 +252,11 @@
     {
       "name": "note_1",
       "type": "digits",
-      "digits": 45,
-      "size": [450, 12],
+      "digits": 54,
+      "size": [540, 12],
       "x": 24,
       "y": 318,
-      "text": "SKY HILLS AND ONE CLOUD REACH PAST THE CANVAS",
+      "text": "SKY HILLS BALLOONS AND ONE CLOUD REACH PAST THE CANVAS",
       "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
     },
     {
