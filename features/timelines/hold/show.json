@@ -1,0 +1,163 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "hold",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 4,
+      "size": [56, 20],
+      "x": 24,
+      "y": 18,
+      "text": "HOLD",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "steps",
+      "type": "digits",
+      "digits": 25,
+      "size": [250, 12],
+      "x": 24,
+      "y": 310,
+      "text": "SHOW THEN FLASH THEN HIDE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    }
+  ],
+  "scenes": [
+    {
+      "name": "demo",
+      "trigger": "reset",
+      "layers": [
+        {
+          "name": "panel_0",
+          "type": "shape",
+          "x": 24,
+          "y": 80,
+          "shape": {"rect": [0, 0, 136, 140]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "timelines": [{"name": "in", "trigger": "show", "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.15}, {"t": 0.6, "v": 1}]}]}]
+        },
+        {
+          "name": "title_0",
+          "type": "digits",
+          "digits": 7,
+          "size": [70, 12],
+          "x": 57,
+          "y": 234,
+          "text": "NO HOLD",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "note_0",
+          "type": "digits",
+          "digits": 10,
+          "size": [100, 12],
+          "x": 42,
+          "y": 254,
+          "text": "FALLS BACK",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "panel_1",
+          "type": "shape",
+          "x": 176,
+          "y": 80,
+          "shape": {"rect": [0, 0, 136, 140]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "timelines": [{"name": "in", "trigger": "show", "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.15}, {"t": 0.6, "v": 1}]}]}]
+        },
+        {
+          "name": "title_1",
+          "type": "digits",
+          "digits": 4,
+          "size": [40, 12],
+          "x": 224,
+          "y": 234,
+          "text": "HOLD",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "note_1",
+          "type": "digits",
+          "digits": 5,
+          "size": [50, 12],
+          "x": 219,
+          "y": 254,
+          "text": "STAYS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "panel_2",
+          "type": "shape",
+          "x": 328,
+          "y": 80,
+          "shape": {"rect": [0, 0, 136, 140]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "timelines": [
+            {"name": "in", "trigger": "show", "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.15}, {"t": 0.6, "v": 1}]}]},
+            {"name": "flash", "trigger": "flash", "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.3}, {"t": 0.8, "v": 0.3}]}]}
+          ]
+        },
+        {
+          "name": "title_2",
+          "type": "digits",
+          "digits": 12,
+          "size": [120, 12],
+          "x": 336,
+          "y": 234,
+          "text": "FLASH ON TOP",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "note_2",
+          "type": "digits",
+          "digits": 12,
+          "size": [120, 12],
+          "x": 336,
+          "y": 254,
+          "text": "BACK TO HELD",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "panel_3",
+          "type": "shape",
+          "x": 480,
+          "y": 80,
+          "shape": {"rect": [0, 0, 136, 140]},
+          "fill": "#FFB000",
+          "opacity": 0.15,
+          "timelines": [
+            {"name": "in", "trigger": "show", "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0.15}, {"t": 0.6, "v": 1}]}]},
+            {"name": "out", "trigger": "hide", "hold": true, "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.6, "v": 0.4}]}]}
+          ]
+        },
+        {
+          "name": "title_3",
+          "type": "digits",
+          "digits": 11,
+          "size": [110, 12],
+          "x": 493,
+          "y": 234,
+          "text": "IN THEN OUT",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "note_3",
+          "type": "digits",
+          "digits": 14,
+          "size": [140, 12],
+          "x": 478,
+          "y": 254,
+          "text": "LATER ONE WINS",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "trigger": "reset"
+    },
+    {
+      "wait": 0.8
+    },
+    {
+      "trigger": "show"
+    },
+    {
+      "wait": 2.4
+    },
+    {
+      "trigger": "flash"
+    },
+    {
+      "wait": 2.2
+    },
+    {
+      "trigger": "hide"
+    },
+    {
+      "wait": 2.6
+    }
+  ]
+}
