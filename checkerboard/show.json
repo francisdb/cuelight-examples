@@ -10,6 +10,38 @@
   "variables": {
     "depth": 0.35
   },
+  "values": {
+    "zoom": {
+      "timelines": [
+        {
+          "name": "camera",
+          "autoplay": true,
+          "loop": true,
+          "keys": [
+            {
+              "t": 0.0,
+              "v": 1.0
+            },
+            {
+              "t": 9.7,
+              "v": 1.45,
+              "ease": "quad_in_out"
+            },
+            {
+              "t": 19.3,
+              "v": 0.85,
+              "ease": "quad_in_out"
+            },
+            {
+              "t": 29.0,
+              "v": 1.0,
+              "ease": "quad_in_out"
+            }
+          ]
+        }
+      ]
+    }
+  },
   "layers": [
     {
       "name": "board",
@@ -121,37 +153,10 @@
           "blend": "multiply"
         }
       ],
-      "timelines": [
+      "bindings": [
         {
-          "name": "zoom",
-          "autoplay": true,
-          "loop": true,
-          "tracks": [
-            {
-              "property": "scale",
-              "keys": [
-                {
-                  "t": 0.0,
-                  "v": 1.0
-                },
-                {
-                  "t": 9.7,
-                  "v": 1.45,
-                  "ease": "quad_in_out"
-                },
-                {
-                  "t": 19.3,
-                  "v": 0.85,
-                  "ease": "quad_in_out"
-                },
-                {
-                  "t": 29.0,
-                  "v": 1.0,
-                  "ease": "quad_in_out"
-                }
-              ]
-            }
-          ]
+          "property": "scale",
+          "variable": "zoom"
         }
       ]
     },
@@ -169,37 +174,10 @@
       "scale_y": 0.46,
       "opacity": 0.5,
       "rotation": 14,
-      "timelines": [
+      "bindings": [
         {
-          "name": "zoom",
-          "autoplay": true,
-          "loop": true,
-          "tracks": [
-            {
-              "property": "scale",
-              "keys": [
-                {
-                  "t": 0.0,
-                  "v": 1.0
-                },
-                {
-                  "t": 9.7,
-                  "v": 1.45,
-                  "ease": "quad_in_out"
-                },
-                {
-                  "t": 19.3,
-                  "v": 0.85,
-                  "ease": "quad_in_out"
-                },
-                {
-                  "t": 29.0,
-                  "v": 1.0,
-                  "ease": "quad_in_out"
-                }
-              ]
-            }
-          ]
+          "property": "scale",
+          "variable": "zoom"
         }
       ]
     },
