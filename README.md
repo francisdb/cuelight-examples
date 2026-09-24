@@ -57,6 +57,8 @@ cargo run -p cuelight-loader --features render-cli --bin cuelight-render -- \
 
 [`examples.json`](examples.json) is the catalog of the website: categories,
 and per show a title, a description and the moment its thumbnail is taken.
+A show that loops can also give `scrub`, the length of one round in
+seconds, which puts a scrub bar under it on its page.
 A show that is not listed fails the build.
 
 ```sh
