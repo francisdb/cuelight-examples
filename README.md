@@ -43,6 +43,16 @@ this repository:
 cargo run -p cuelight-player -- ../cuelight-examples/<show>
 ```
 
+Without a window, `cuelight-render` writes frames at chosen times, or
+lists what a show fires and when, playing the show's driver:
+
+```sh
+cargo run -p cuelight-loader --features render-cli --bin cuelight-render -- \
+    ../cuelight-examples/eclipse --at 4.1,19.5,26 -o frames/
+cargo run -p cuelight-loader --features render-cli --bin cuelight-render -- \
+    ../cuelight-examples/eclipse --until 52 --events
+```
+
 ## Website
 
 [`examples.json`](examples.json) is the catalog of the website: categories,
