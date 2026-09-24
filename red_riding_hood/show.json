@@ -1,0 +1,4013 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "red_riding_hood",
+  "size": [1280, 720],
+  "background": "#2A1C14",
+  "fonts": {
+    "body": {"file": "IMFellEnglish-Regular", "size": 40, "color": "#2B211C"},
+    "word": {"file": "IMFellEnglish-Regular", "size": 40, "color": "#A8322A"},
+    "initial": {"file": "IMFellFrenchCanon-Regular", "size": 138, "color": "#A8322A"},
+    "title": {"file": "IMFellFrenchCanon-Regular", "size": 76, "color": "#2B211C"},
+    "subtitle": {"file": "IMFellEnglish-Italic", "size": 26, "color": "#7A6A58"},
+    "running": {"file": "IMFellEnglish-Italic", "size": 18, "color": "#7A6A58"},
+    "folio": {"file": "IMFellEnglish-Regular", "size": 18, "color": "#7A6A58"}
+  },
+  "layers": [
+    {"name": "table", "type": "image", "image": "table", "size": [1280, 720]},
+    {"name": "shadow", "type": "shape", "x": 78, "y": 60, "shape": {"rect": [0, 0, 1140, 632]}, "fill": "#00000070"},
+    {
+      "name": "cover_board",
+      "type": "shape",
+      "x": 56,
+      "y": 38,
+      "shape": {"rect": [0, 0, 1168, 654]},
+      "fill": "#5E2A22",
+      "stroke": {"color": "#3A1A15", "width": 2}
+    },
+    {
+      "name": "edge_3",
+      "type": "shape",
+      "x": 62,
+      "y": 53,
+      "shape": {"rect": [0, 0, 1156, 632]},
+      "fill": "#E2D2B0",
+      "stroke": {"color": "#B9A67F", "width": 1}
+    },
+    {
+      "name": "edge_2",
+      "type": "shape",
+      "x": 64,
+      "y": 52,
+      "shape": {"rect": [0, 0, 1152, 632]},
+      "fill": "#E2D2B0",
+      "stroke": {"color": "#B9A67F", "width": 1}
+    },
+    {
+      "name": "edge_1",
+      "type": "shape",
+      "x": 66,
+      "y": 51,
+      "shape": {"rect": [0, 0, 1148, 632]},
+      "fill": "#E2D2B0",
+      "stroke": {"color": "#B9A67F", "width": 1}
+    },
+    {"name": "pages", "type": "shape", "x": 70, "y": 48, "shape": {"rect": [0, 0, 1140, 632]}, "fill": "#EFE3C6"}
+  ],
+  "scenes": [
+    {
+      "name": "cover",
+      "trigger": "cover",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "title_1", "type": "text", "x": 70, "y": 170, "font": "title", "text": "Little Red", "size": [570, 90], "align": "center"},
+            {"name": "title_2", "type": "text", "x": 70, "y": 262, "font": "title", "text": "Riding Hood", "size": [570, 90], "align": "center"},
+            {
+              "name": "flourish",
+              "type": "shape",
+              "x": 355,
+              "y": 382,
+              "shape": {"path": "M -120 0 C -80 -18 -40 18 0 0 C 40 -18 80 18 120 0 M -8 0 L 0 -8 L 8 0 L 0 8 Z"},
+              "fill": "#A8322A",
+              "stroke": {"color": "#2B211C", "width": 1.5}
+            },
+            {
+              "name": "subtitle",
+              "type": "text",
+              "x": 70,
+              "y": 420,
+              "font": "subtitle",
+              "text": "A fairy tale for young readers",
+              "size": [570, 40],
+              "align": "center"
+            }
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_woods", "x": 0, "y": 0},
+            {
+              "name": "cloud_0",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 40,
+              "y": 40,
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 20}, {"t": 12, "v": 70, "ease": "quad_in_out"}, {"t": 24, "v": 20, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "cloud_1",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 240,
+              "y": 90,
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 220}, {"t": 15.5, "v": 270, "ease": "quad_in_out"}, {"t": 31, "v": 220, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "pine", "type": "vector", "vector": "tree_pine", "x": -10, "y": 150, "scale": 1.05},
+            {"name": "oak", "type": "vector", "vector": "tree_round", "x": 316, "y": 170, "scale": 1.1},
+            {"name": "bush", "type": "vector", "vector": "bush", "x": 20, "y": 360},
+            {
+              "name": "flower_0",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 300,
+              "y": 470,
+              "anchor": "bottom",
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_1",
+              "type": "vector",
+              "vector": "flower_white",
+              "x": 330,
+              "y": 480,
+              "anchor": "bottom",
+              "scale": 0.9,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.3,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.285, "v": 6, "ease": "quad_in_out"}, {"t": 2.57, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_2",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 420,
+              "y": 460,
+              "anchor": "bottom",
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.6,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.47, "v": 6, "ease": "quad_in_out"}, {"t": 2.94, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 200,
+              "y": 470,
+              "scale": 1.25,
+              "scale_x": 1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.4,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            },
+            {
+              "name": "butterfly",
+              "type": "group",
+              "x": 80,
+              "y": 250,
+              "timelines": [
+                {
+                  "name": "wander_x",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 80}, {"t": 3.5, "v": 140, "ease": "quad_in_out"}, {"t": 7, "v": 80, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "wander_y",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [{"t": 0, "v": 250}, {"t": 2.205, "v": 220, "ease": "quad_in_out"}, {"t": 4.41, "v": 250, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "wings",
+                  "type": "vector",
+                  "vector": "butterfly",
+                  "x": 0,
+                  "y": 0,
+                  "anchor": "center",
+                  "scale": 1.4,
+                  "timelines": [
+                    {
+                      "name": "flap",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "scale_x",
+                          "keys": [{"t": 0, "v": 1}, {"t": 0.16, "v": 0.2, "ease": "quad_in_out"}, {"t": 0.32, "v": 1, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_1",
+      "trigger": "page_1",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "2", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "3", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "initial", "type": "text", "x": 120, "y": 120, "font": "initial", "text": "O"},
+            {"name": "line_0_0", "type": "text", "x": 239.29, "y": 150, "font": "body", "text": "nce upon a time there"},
+            {"name": "line_1_0", "type": "text", "x": 239.29, "y": 214, "font": "body", "text": "was a little girl."},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "She wore a "},
+            {
+              "name": "word_2_1",
+              "type": "text",
+              "x": 382.94,
+              "y": 303.37,
+              "font": "word",
+              "text": "red hood",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_hood",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_2_2", "type": "text", "x": 457.36, "y": 278, "font": "body", "text": ","},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "so everyone called her"},
+            {"name": "line_4_0", "type": "text", "x": 124, "y": 406, "font": "body", "text": "Little Red Riding Hood."}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_cottage", "x": 0, "y": 0},
+            {
+              "name": "cloud_0",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 40,
+              "y": 50,
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 20}, {"t": 12, "v": 70, "ease": "quad_in_out"}, {"t": 24, "v": 20, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "cloud_1",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 240,
+              "y": 20,
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 220}, {"t": 15.5, "v": 270, "ease": "quad_in_out"}, {"t": 31, "v": 220, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "cottage", "type": "vector", "vector": "cottage", "x": 180, "y": 160},
+            {
+              "name": "puff_0",
+              "type": "shape",
+              "x": 373,
+              "y": 170,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.0,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 170}, {"t": 3.6, "v": 100}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 373}, {"t": 3.6, "v": 397, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "puff_1",
+              "type": "shape",
+              "x": 373,
+              "y": 170,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.2,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 170}, {"t": 3.6, "v": 100}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 373}, {"t": 3.6, "v": 397, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "puff_2",
+              "type": "shape",
+              "x": 373,
+              "y": 170,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 2.4,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 170}, {"t": 3.6, "v": 100}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 373}, {"t": 3.6, "v": 397, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "bird",
+              "type": "vector",
+              "vector": "bird",
+              "x": 312,
+              "y": 184,
+              "anchor": "bottom",
+              "timelines": [
+                {
+                  "name": "hop",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [
+                        {"t": 0, "v": 184},
+                        {"t": 2.6, "v": 184},
+                        {"t": 2.75, "v": 172, "ease": "quad_out"},
+                        {"t": 2.9, "v": 184, "ease": "quad_in"},
+                        {"t": 3.05, "v": 176, "ease": "quad_out"},
+                        {"t": 3.2, "v": 184, "ease": "quad_in"},
+                        {"t": 4.4, "v": 184}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "fence", "type": "vector", "vector": "fence", "x": 250, "y": 400},
+            {
+              "name": "flower_0",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 210,
+              "y": 400,
+              "anchor": "bottom",
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_1",
+              "type": "vector",
+              "vector": "flower_white",
+              "x": 236,
+              "y": 404,
+              "anchor": "bottom",
+              "scale": 0.7,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.3,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.285, "v": 6, "ease": "quad_in_out"}, {"t": 2.57, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_2",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 440,
+              "y": 470,
+              "anchor": "bottom",
+              "scale": 0.9,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.6,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.47, "v": 6, "ease": "quad_in_out"}, {"t": 2.94, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 110,
+              "y": 490,
+              "scale": 1.35,
+              "scale_x": 1,
+              "timelines": [
+                {
+                  "name": "twirl",
+                  "trigger": "tap_hood",
+                  "tracks": [
+                    {
+                      "property": "scale_x",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.35, "v": -1, "ease": "quad_in_out"}, {"t": 0.7, "v": 1, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.4,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_2",
+      "trigger": "page_2",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "4", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "5", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "initial", "type": "text", "x": 120, "y": 120, "font": "initial", "text": "O"},
+            {"name": "line_0_0", "type": "text", "x": 239.29, "y": 150, "font": "body", "text": "ne day her mother said:"},
+            {"name": "line_1_0", "type": "text", "x": 239.29, "y": 214, "font": "body", "text": "“Take this "},
+            {
+              "name": "word_1_1",
+              "type": "text",
+              "x": 476.22,
+              "y": 239.37,
+              "font": "word",
+              "text": "basket",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_basket",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "to Grandma."},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "And stay on the path!”"}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_cottage", "x": 0, "y": 0},
+            {
+              "name": "cloud_0",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 40,
+              "y": 30,
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 20}, {"t": 12, "v": 70, "ease": "quad_in_out"}, {"t": 24, "v": 20, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "cloud_1",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 240,
+              "y": 70,
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 220}, {"t": 15.5, "v": 270, "ease": "quad_in_out"}, {"t": 31, "v": 220, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "cottage", "type": "vector", "vector": "cottage", "x": 150, "y": 130, "scale": 0.85},
+            {
+              "name": "puff_0",
+              "type": "shape",
+              "x": 323,
+              "y": 136,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.0,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 136}, {"t": 3.6, "v": 66}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 323}, {"t": 3.6, "v": 347, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "puff_1",
+              "type": "shape",
+              "x": 323,
+              "y": 136,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.2,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 136}, {"t": 3.6, "v": 66}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 323}, {"t": 3.6, "v": 347, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "puff_2",
+              "type": "shape",
+              "x": 323,
+              "y": 136,
+              "shape": {"circle": [0, 0, 9]},
+              "fill": "#E8E1D2",
+              "stroke": {"color": "#2B211C", "width": 1.5},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "rise",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 2.4,
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 136}, {"t": 3.6, "v": 66}]},
+                    {"property": "x", "keys": [{"t": 0, "v": 323}, {"t": 3.6, "v": 347, "ease": "quad_in"}]},
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.6}, {"t": 3.6, "v": 1.6}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 0.9}, {"t": 3.6, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "mother",
+              "type": "vector",
+              "vector": "mother",
+              "x": 350,
+              "y": 490,
+              "anchor": "bottom",
+              "scale_x": -1,
+              "timelines": [
+                {
+                  "name": "lean",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -1.5}, {"t": 1.9, "v": 1.5, "ease": "quad_in_out"}, {"t": 3.8, "v": -1.5, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 140,
+              "y": 490,
+              "scale": 1.25,
+              "scale_x": 1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "big_basket",
+              "type": "vector",
+              "vector": "basket",
+              "x": 322,
+              "y": 364,
+              "anchor": "top",
+              "scale": 1.2,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "swing",
+                  "trigger": "tap_basket",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.3, "v": 28, "ease": "quad_out"},
+                        {"t": 0.8, "v": -24, "ease": "quad_in_out"},
+                        {"t": 1.3, "v": 16, "ease": "quad_in_out"},
+                        {"t": 1.8, "v": -8, "ease": "quad_in_out"},
+                        {"t": 2.2, "v": 0}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_3",
+      "trigger": "page_3",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "6", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "7", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "initial", "type": "text", "x": 120, "y": 120, "font": "initial", "text": "I"},
+            {"name": "line_0_0", "type": "text", "x": 183.84, "y": 150, "font": "body", "text": "n the woods, Red met"},
+            {"name": "line_1_0", "type": "text", "x": 183.84, "y": 214, "font": "body", "text": "a big grey "},
+            {
+              "name": "word_1_1",
+              "type": "text",
+              "x": 392.19,
+              "y": 239.37,
+              "font": "word",
+              "text": "wolf",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_wolf",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_1_2", "type": "text", "x": 428.84, "y": 214, "font": "body", "text": "."},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "“Where are you going?”"},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "asked the wolf."}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_woods", "x": 0, "y": 0},
+            {"name": "pine_back", "type": "vector", "vector": "tree_pine", "x": 180, "y": 110, "scale": 0.9},
+            {"name": "oak", "type": "vector", "vector": "tree_round", "x": 330, "y": 120, "scale": 1.05},
+            {
+              "name": "red",
+              "type": "group",
+              "x": 96,
+              "y": 480,
+              "scale": 1.15,
+              "scale_x": 1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.7,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 1.1,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            },
+            {
+              "name": "wolf",
+              "type": "group",
+              "x": 250,
+              "y": 430,
+              "scale": 0.95,
+              "timelines": [
+                {
+                  "name": "hop",
+                  "trigger": "tap_wolf",
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [
+                        {"t": 0, "v": 430},
+                        {"t": 0.2, "v": 406, "ease": "quad_out"},
+                        {"t": 0.4, "v": 430, "ease": "quad_in"},
+                        {"t": 0.55, "v": 420, "ease": "quad_out"},
+                        {"t": 0.7, "v": 430, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "tail",
+                  "type": "vector",
+                  "vector": "wolf_tail",
+                  "x": 212,
+                  "y": -104,
+                  "anchor": "left",
+                  "timelines": [
+                    {
+                      "name": "wag",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -10}, {"t": 0.8, "v": 12, "ease": "quad_in_out"}, {"t": 1.6, "v": -10, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "happy",
+                      "trigger": "tap_wolf",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [
+                            {"t": 0, "v": 0},
+                            {"t": 0.15, "v": 20},
+                            {"t": 0.3, "v": -12},
+                            {"t": 0.45, "v": 20},
+                            {"t": 0.6, "v": -12},
+                            {"t": 0.75, "v": 20},
+                            {"t": 0.9, "v": 0}
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {"name": "body", "type": "vector", "vector": "wolf_body", "x": 0, "y": -150},
+                {
+                  "name": "wolf_head",
+                  "type": "group",
+                  "x": 72,
+                  "y": -96,
+                  "timelines": [
+                    {
+                      "name": "tilt",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.5,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "look",
+                      "trigger": "tap_wolf",
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": 0}, {"t": 0.3, "v": 10, "ease": "quad_out"}, {"t": 1.4, "v": 10}, {"t": 1.8, "v": 0, "ease": "quad_in"}]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                    {"name": "jaw", "type": "vector", "vector": "wolf_jaw", "x": -38, "y": -38, "anchor": "top_right"},
+                    {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                    {
+                      "name": "eye",
+                      "type": "group",
+                      "x": -54,
+                      "y": -58,
+                      "scale": 1.0,
+                      "timelines": [
+                        {
+                          "name": "blink",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 1.3,
+                          "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]}]
+                        }
+                      ],
+                      "children": [
+                        {
+                          "name": "white",
+                          "type": "shape",
+                          "x": 0,
+                          "y": 0,
+                          "shape": {"circle": [0, 0, 6.5]},
+                          "fill": "#F2D27A",
+                          "stroke": {"color": "#2B211C", "width": 1.8}
+                        },
+                        {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "pine", "type": "vector", "vector": "tree_pine", "x": 390, "y": 240, "scale": 1.0},
+            {"name": "bush", "type": "vector", "vector": "bush", "x": -20, "y": 440, "scale": 0.9}
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_4",
+      "trigger": "page_4",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "8", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "9", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "line_0_0", "type": "text", "x": 124, "y": 150, "font": "body", "text": "“To Grandma’s house!”"},
+            {"name": "line_1_0", "type": "text", "x": 124, "y": 214, "font": "body", "text": "The wolf ran off."},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "Red picked "},
+            {
+              "name": "word_2_1",
+              "type": "text",
+              "x": 382.23,
+              "y": 303.37,
+              "font": "word",
+              "text": "flowers",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_flowers",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "and forgot the path."}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_meadow", "x": 0, "y": 0},
+            {
+              "name": "cloud_0",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 40,
+              "y": 40,
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 20}, {"t": 12, "v": 70, "ease": "quad_in_out"}, {"t": 24, "v": 20, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "cloud_1",
+              "type": "vector",
+              "vector": "cloud",
+              "x": 240,
+              "y": 100,
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "drift",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 220}, {"t": 15.5, "v": 270, "ease": "quad_in_out"}, {"t": 31, "v": 220, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "runner",
+              "type": "group",
+              "x": 600,
+              "y": 290,
+              "timelines": [
+                {
+                  "name": "run",
+                  "autoplay": true,
+                  "delay": 0.8,
+                  "tracks": [
+                    {"property": "x", "keys": [{"t": 0, "v": 170}, {"t": 3.8, "v": 600}]},
+                    {
+                      "property": "y",
+                      "keys": [
+                        {"t": 0, "v": 318},
+                        {"t": 0.25, "v": 306, "ease": "quad_out"},
+                        {"t": 0.5, "v": 318, "ease": "quad_in"},
+                        {"t": 0.75, "v": 306, "ease": "quad_out"},
+                        {"t": 1.0, "v": 318, "ease": "quad_in"},
+                        {"t": 1.25, "v": 304, "ease": "quad_out"},
+                        {"t": 1.5, "v": 314, "ease": "quad_in"},
+                        {"t": 1.75, "v": 300, "ease": "quad_out"},
+                        {"t": 2.0, "v": 308, "ease": "quad_in"},
+                        {"t": 2.5, "v": 296},
+                        {"t": 3.8, "v": 290}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "wolf",
+                  "type": "group",
+                  "x": 0,
+                  "y": 0,
+                  "scale": 0.3,
+                  "children": [
+                    {
+                      "name": "tail",
+                      "type": "vector",
+                      "vector": "wolf_tail",
+                      "x": 212,
+                      "y": -104,
+                      "anchor": "left",
+                      "timelines": [
+                        {
+                          "name": "wag",
+                          "autoplay": true,
+                          "loop": true,
+                          "tracks": [
+                            {
+                              "property": "rotation",
+                              "keys": [{"t": 0, "v": -10}, {"t": 0.8, "v": 12, "ease": "quad_in_out"}, {"t": 1.6, "v": -10, "ease": "quad_in_out"}]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {"name": "body", "type": "vector", "vector": "wolf_body", "x": 0, "y": -150},
+                    {
+                      "name": "wolf_head",
+                      "type": "group",
+                      "x": 72,
+                      "y": -96,
+                      "timelines": [
+                        {
+                          "name": "tilt",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 0.5,
+                          "tracks": [
+                            {
+                              "property": "rotation",
+                              "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                            }
+                          ]
+                        }
+                      ],
+                      "children": [
+                        {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                        {"name": "jaw", "type": "vector", "vector": "wolf_jaw", "x": -38, "y": -38, "anchor": "top_right"},
+                        {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                        {
+                          "name": "eye",
+                          "type": "group",
+                          "x": -54,
+                          "y": -58,
+                          "scale": 1.0,
+                          "timelines": [
+                            {
+                              "name": "blink",
+                              "autoplay": true,
+                              "loop": true,
+                              "delay": 1.3,
+                              "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]}]
+                            }
+                          ],
+                          "children": [
+                            {
+                              "name": "white",
+                              "type": "shape",
+                              "x": 0,
+                              "y": 0,
+                              "shape": {"circle": [0, 0, 6.5]},
+                              "fill": "#F2D27A",
+                              "stroke": {"color": "#2B211C", "width": 1.8}
+                            },
+                            {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "scale_x": -1
+                }
+              ]
+            },
+            {"name": "oak", "type": "vector", "vector": "tree_round", "x": 330, "y": 140, "scale": 0.8},
+            {
+              "name": "red",
+              "type": "group",
+              "x": 180,
+              "y": 470,
+              "scale": 1.2,
+              "scale_x": 1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.3,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.7,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            },
+            {
+              "name": "flower_0",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 30,
+              "y": 500,
+              "anchor": "bottom",
+              "scale": 1.1,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1.1}, {"t": 0.25, "v": 1.485, "ease": "back_out"}, {"t": 0.8, "v": 1.1, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_1",
+              "type": "vector",
+              "vector": "flower_white",
+              "x": 70,
+              "y": 470,
+              "anchor": "bottom",
+              "scale": 0.9,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.3,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.285, "v": 6, "ease": "quad_in_out"}, {"t": 2.57, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.06,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.9}, {"t": 0.25, "v": 1.215, "ease": "back_out"}, {"t": 0.8, "v": 0.9, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_2",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 110,
+              "y": 505,
+              "anchor": "bottom",
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.6,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.47, "v": 6, "ease": "quad_in_out"}, {"t": 2.94, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.12,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 1.35, "ease": "back_out"}, {"t": 0.8, "v": 1, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_3",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 150,
+              "y": 460,
+              "anchor": "bottom",
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.8999999999999999,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.655, "v": 6, "ease": "quad_in_out"}, {"t": 3.31, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.18,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.8}, {"t": 0.25, "v": 1.08, "ease": "back_out"}, {"t": 0.8, "v": 0.8, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_4",
+              "type": "vector",
+              "vector": "flower_white",
+              "x": 250,
+              "y": 500,
+              "anchor": "bottom",
+              "scale": 1.1,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.2,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.84, "v": 6, "ease": "quad_in_out"}, {"t": 3.68, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.24,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1.1}, {"t": 0.25, "v": 1.485, "ease": "back_out"}, {"t": 0.8, "v": 1.1, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_5",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 290,
+              "y": 470,
+              "anchor": "bottom",
+              "scale": 0.9,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.5,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.3,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.9}, {"t": 0.25, "v": 1.215, "ease": "back_out"}, {"t": 0.8, "v": 0.9, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_6",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 330,
+              "y": 505,
+              "anchor": "bottom",
+              "scale": 1.0,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.7999999999999998,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.285, "v": 6, "ease": "quad_in_out"}, {"t": 2.57, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.36,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 1.35, "ease": "back_out"}, {"t": 0.8, "v": 1, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_7",
+              "type": "vector",
+              "vector": "flower_white",
+              "x": 370,
+              "y": 460,
+              "anchor": "bottom",
+              "scale": 0.8,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 2.1,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.47, "v": 6, "ease": "quad_in_out"}, {"t": 2.94, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.42,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.8}, {"t": 0.25, "v": 1.08, "ease": "back_out"}, {"t": 0.8, "v": 0.8, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_8",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 410,
+              "y": 495,
+              "anchor": "bottom",
+              "scale": 1.1,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 2.4,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.655, "v": 6, "ease": "quad_in_out"}, {"t": 3.31, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.48,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1.1}, {"t": 0.25, "v": 1.485, "ease": "back_out"}, {"t": 0.8, "v": 1.1, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_9",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 450,
+              "y": 470,
+              "anchor": "bottom",
+              "scale": 0.9,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 2.6999999999999997,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.84, "v": 6, "ease": "quad_in_out"}, {"t": 3.68, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.54,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.9}, {"t": 0.25, "v": 1.215, "ease": "back_out"}, {"t": 0.8, "v": 0.9, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_10",
+              "type": "vector",
+              "vector": "flower_blue",
+              "x": 200,
+              "y": 440,
+              "anchor": "bottom",
+              "scale": 0.7,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 3.0,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.1, "v": 6, "ease": "quad_in_out"}, {"t": 2.2, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.6,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.7}, {"t": 0.25, "v": 0.945, "ease": "back_out"}, {"t": 0.8, "v": 0.7, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "flower_11",
+              "type": "vector",
+              "vector": "flower_red",
+              "x": 340,
+              "y": 420,
+              "anchor": "bottom",
+              "scale": 0.6,
+              "timelines": [
+                {
+                  "name": "sway",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 3.3,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -6}, {"t": 1.285, "v": 6, "ease": "quad_in_out"}, {"t": 2.57, "v": -6, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "bob",
+                  "trigger": "tap_flowers",
+                  "delay": 0.6599999999999999,
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 0.6}, {"t": 0.25, "v": 0.81, "ease": "back_out"}, {"t": 0.8, "v": 0.6, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "butterfly",
+              "type": "group",
+              "x": 60,
+              "y": 300,
+              "timelines": [
+                {
+                  "name": "wander_x",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 60}, {"t": 4, "v": 150, "ease": "quad_in_out"}, {"t": 8, "v": 60, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "wander_y",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [{"t": 0, "v": 300}, {"t": 2.52, "v": 270, "ease": "quad_in_out"}, {"t": 5.04, "v": 300, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "wings",
+                  "type": "vector",
+                  "vector": "butterfly",
+                  "x": 0,
+                  "y": 0,
+                  "anchor": "center",
+                  "scale": 1.4,
+                  "timelines": [
+                    {
+                      "name": "flap",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "scale_x",
+                          "keys": [{"t": 0, "v": 1}, {"t": 0.16, "v": 0.2, "ease": "quad_in_out"}, {"t": 0.32, "v": 1, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "butterfly",
+              "type": "group",
+              "x": 300,
+              "y": 240,
+              "timelines": [
+                {
+                  "name": "wander_x",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.1,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [{"t": 0, "v": 300}, {"t": 3.25, "v": 230, "ease": "quad_in_out"}, {"t": 6.5, "v": 300, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "wander_y",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 1.1,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [{"t": 0, "v": 240}, {"t": 2.047, "v": 210, "ease": "quad_in_out"}, {"t": 4.095, "v": 240, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "wings",
+                  "type": "vector",
+                  "vector": "butterfly",
+                  "x": 0,
+                  "y": 0,
+                  "anchor": "center",
+                  "scale": 1.4,
+                  "timelines": [
+                    {
+                      "name": "flap",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "scale_x",
+                          "keys": [{"t": 0, "v": 1}, {"t": 0.16, "v": 0.2, "ease": "quad_in_out"}, {"t": 0.32, "v": 1, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_5",
+      "trigger": "page_5",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "10", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "11", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "initial", "type": "text", "x": 120, "y": 120, "font": "initial", "text": "T"},
+            {"name": "line_0_0", "type": "text", "x": 223.06, "y": 150, "font": "body", "text": "he wolf got there first."},
+            {"name": "line_1_0", "type": "text", "x": 223.06, "y": 214, "font": "body", "text": "Grandma hid in the"},
+            {
+              "name": "word_2_0",
+              "type": "text",
+              "x": 201.92,
+              "y": 303.37,
+              "font": "word",
+              "text": "cupboard",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_cupboard",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_2_1", "type": "text", "x": 279.84, "y": 278, "font": "body", "text": ", and the wolf"},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "jumped into her bed."}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_room", "x": 0, "y": 0},
+            {"name": "window", "type": "vector", "vector": "window_front", "x": 0, "y": 0},
+            {
+              "name": "cupboard",
+              "type": "vector",
+              "vector": "cupboard",
+              "x": 30,
+              "y": 180,
+              "timelines": [
+                {
+                  "name": "rattle",
+                  "trigger": "tap_cupboard",
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.08, "v": -2}, {"t": 0.16, "v": 2}, {"t": 0.24, "v": -2}, {"t": 0.32, "v": 2}, {"t": 0.4, "v": 0}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "peeking",
+              "type": "group",
+              "x": 91,
+              "y": 300,
+              "timelines": [
+                {
+                  "name": "peek",
+                  "trigger": "tap_cupboard",
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [{"t": 0, "v": 300}, {"t": 0.2, "v": 292, "ease": "quad_out"}, {"t": 1.2, "v": 292}, {"t": 1.5, "v": 300, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ],
+              "children": [
+                {
+                  "name": "eyes",
+                  "type": "group",
+                  "x": 0,
+                  "y": 0,
+                  "timelines": [
+                    {
+                      "name": "blink",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.6,
+                      "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 2.94, "v": 1}, {"t": 3.02, "v": 0.1}, {"t": 3.1, "v": 1}]}]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "left",
+                      "type": "shape",
+                      "x": -6,
+                      "y": 0,
+                      "shape": {"circle": [0, 0, 3.5]},
+                      "fill": "#F4ECDA",
+                      "stroke": {"color": "#2B211C", "width": 1.2}
+                    },
+                    {
+                      "name": "right",
+                      "type": "shape",
+                      "x": 6,
+                      "y": 0,
+                      "shape": {"circle": [0, 0, 3.5]},
+                      "fill": "#F4ECDA",
+                      "stroke": {"color": "#2B211C", "width": 1.2}
+                    },
+                    {"name": "left_pupil", "type": "shape", "x": -5, "y": 0.5, "shape": {"circle": [0, 0, 1.6]}, "fill": "#2B211C"},
+                    {"name": "right_pupil", "type": "shape", "x": 7, "y": 0.5, "shape": {"circle": [0, 0, 1.6]}, "fill": "#2B211C"}
+                  ]
+                }
+              ]
+            },
+            {"name": "bed", "type": "vector", "vector": "bed", "x": 140, "y": 240, "scale": 1.0},
+            {
+              "name": "hump",
+              "type": "shape",
+              "x": 310,
+              "y": 346,
+              "scale": 1.0,
+              "shape": {"path": "M -90 4 C -60 -30 40 -34 90 4 Z"},
+              "fill": "#A8322A",
+              "stroke": {"color": "#2B211C", "width": 2.5},
+              "timelines": [
+                {
+                  "name": "breathe",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 1.12, "ease": "quad_in_out"}, {"t": 3, "v": 1, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "wolf_in_bed",
+              "type": "group",
+              "x": 180,
+              "y": 344,
+              "scale": 0.72,
+              "scale_x": -1,
+              "children": [
+                {
+                  "name": "wolf_head",
+                  "type": "group",
+                  "x": 0,
+                  "y": 0,
+                  "timelines": [
+                    {
+                      "name": "tilt",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.5,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                    {"name": "jaw", "type": "vector", "vector": "wolf_jaw", "x": -38, "y": -38, "anchor": "top_right"},
+                    {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                    {
+                      "name": "eye",
+                      "type": "group",
+                      "x": -54,
+                      "y": -58,
+                      "scale": 1.0,
+                      "timelines": [
+                        {
+                          "name": "blink",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 1.3,
+                          "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]}]
+                        }
+                      ],
+                      "children": [
+                        {
+                          "name": "white",
+                          "type": "shape",
+                          "x": 0,
+                          "y": 0,
+                          "shape": {"circle": [0, 0, 6.5]},
+                          "fill": "#F2D27A",
+                          "stroke": {"color": "#2B211C", "width": 1.8}
+                        },
+                        {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                      ]
+                    },
+                    {"name": "nightcap", "type": "vector", "vector": "nightcap", "x": -104, "y": -110, "scale": 0.74}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_6",
+      "trigger": "page_6",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "12", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "13", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "line_0_0", "type": "text", "x": 124, "y": 150, "font": "body", "text": "“Grandma, what big "},
+            {
+              "name": "word_0_1",
+              "type": "text",
+              "x": 503.41,
+              "y": 175.37,
+              "font": "word",
+              "text": "eyes",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_eyes",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_1_0", "type": "text", "x": 124, "y": 214, "font": "body", "text": "you have!”"},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "“All the better"},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "to see you with!”"}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_room", "x": 0, "y": 0},
+            {"name": "window", "type": "vector", "vector": "window_front", "x": 0, "y": 0},
+            {"name": "bed", "type": "vector", "vector": "bed", "x": -30, "y": 210, "scale": 1.5},
+            {
+              "name": "hump",
+              "type": "shape",
+              "x": 225,
+              "y": 369,
+              "scale": 1.5,
+              "shape": {"path": "M -90 4 C -60 -30 40 -34 90 4 Z"},
+              "fill": "#A8322A",
+              "stroke": {"color": "#2B211C", "width": 2.5},
+              "timelines": [
+                {
+                  "name": "breathe",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 1.12, "ease": "quad_in_out"}, {"t": 3, "v": 1, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "wolf_in_bed",
+              "type": "group",
+              "x": 30,
+              "y": 366,
+              "scale": 1.08,
+              "scale_x": -1,
+              "children": [
+                {
+                  "name": "wolf_head",
+                  "type": "group",
+                  "x": 0,
+                  "y": 0,
+                  "timelines": [
+                    {
+                      "name": "tilt",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.5,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                    {"name": "jaw", "type": "vector", "vector": "wolf_jaw", "x": -38, "y": -38, "anchor": "top_right"},
+                    {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                    {
+                      "name": "eye",
+                      "type": "group",
+                      "x": -54,
+                      "y": -58,
+                      "scale": 1.0,
+                      "timelines": [
+                        {
+                          "name": "grow",
+                          "trigger": "tap_eyes",
+                          "tracks": [
+                            {
+                              "property": "scale",
+                              "keys": [{"t": 0, "v": 1}, {"t": 0.4, "v": 2.6, "ease": "back_out"}, {"t": 2, "v": 2.6}, {"t": 2.5, "v": 1, "ease": "quad_in"}]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "blink",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 1.3,
+                          "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]}]
+                        }
+                      ],
+                      "children": [
+                        {
+                          "name": "white",
+                          "type": "shape",
+                          "x": 0,
+                          "y": 0,
+                          "shape": {"circle": [0, 0, 6.5]},
+                          "fill": "#F2D27A",
+                          "stroke": {"color": "#2B211C", "width": 1.8}
+                        },
+                        {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                      ]
+                    },
+                    {"name": "nightcap", "type": "vector", "vector": "nightcap", "x": -104, "y": -110, "scale": 0.74}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 410,
+              "y": 540,
+              "scale": 1.3,
+              "scale_x": -1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.4,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_7",
+      "trigger": "page_7",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "14", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "15", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "line_0_0", "type": "text", "x": 124, "y": 150, "font": "body", "text": "“Grandma, what big "},
+            {
+              "name": "word_0_1",
+              "type": "text",
+              "x": 510.91,
+              "y": 175.37,
+              "font": "word",
+              "text": "teeth",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_teeth",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_1_0", "type": "text", "x": 124, "y": 214, "font": "body", "text": "you have!”"},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "“All the better"},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "to EAT you with!”"}
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_room", "x": 0, "y": 0},
+            {"name": "window", "type": "vector", "vector": "window_front", "x": 0, "y": 0},
+            {"name": "bed", "type": "vector", "vector": "bed", "x": -30, "y": 210, "scale": 1.5},
+            {
+              "name": "hump",
+              "type": "shape",
+              "x": 225,
+              "y": 369,
+              "scale": 1.5,
+              "shape": {"path": "M -90 4 C -60 -30 40 -34 90 4 Z"},
+              "fill": "#A8322A",
+              "stroke": {"color": "#2B211C", "width": 2.5},
+              "timelines": [
+                {
+                  "name": "breathe",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 1}, {"t": 1.5, "v": 1.12, "ease": "quad_in_out"}, {"t": 3, "v": 1, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "wolf_in_bed",
+              "type": "group",
+              "x": 30,
+              "y": 366,
+              "scale": 1.08,
+              "scale_x": -1,
+              "children": [
+                {
+                  "name": "wolf_head",
+                  "type": "group",
+                  "x": 0,
+                  "y": 0,
+                  "timelines": [
+                    {
+                      "name": "tilt",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.5,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                    {
+                      "name": "jaw",
+                      "type": "vector",
+                      "vector": "wolf_jaw",
+                      "x": -38,
+                      "y": -38,
+                      "anchor": "top_right",
+                      "timelines": [
+                        {
+                          "name": "teeth",
+                          "trigger": "tap_teeth",
+                          "tracks": [
+                            {
+                              "property": "rotation",
+                              "keys": [
+                                {"t": 0, "v": 0},
+                                {"t": 0.25, "v": -20, "ease": "back_out"},
+                                {"t": 1.8, "v": -20},
+                                {"t": 2.2, "v": 0, "ease": "quad_in"}
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                    {
+                      "name": "eye",
+                      "type": "group",
+                      "x": -54,
+                      "y": -58,
+                      "scale": 1.0,
+                      "timelines": [
+                        {
+                          "name": "blink",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 1.3,
+                          "tracks": [{"property": "scale_y", "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]}]
+                        }
+                      ],
+                      "children": [
+                        {
+                          "name": "white",
+                          "type": "shape",
+                          "x": 0,
+                          "y": 0,
+                          "shape": {"circle": [0, 0, 6.5]},
+                          "fill": "#F2D27A",
+                          "stroke": {"color": "#2B211C", "width": 1.8}
+                        },
+                        {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                      ]
+                    },
+                    {"name": "nightcap", "type": "vector", "vector": "nightcap", "x": -104, "y": -110, "scale": 0.74}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 410,
+              "y": 540,
+              "scale": 1.3,
+              "scale_x": -1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "basket",
+                  "type": "vector",
+                  "vector": "basket",
+                  "x": 36,
+                  "y": -88,
+                  "anchor": "top",
+                  "timelines": [
+                    {
+                      "name": "sway",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.4,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -5}, {"t": 1.2, "v": 5, "ease": "quad_in_out"}, {"t": 2.4, "v": -5, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "hand",
+                  "type": "shape",
+                  "x": 36,
+                  "y": -86,
+                  "shape": {"circle": [0, 0, 6]},
+                  "fill": "#F2D2B0",
+                  "stroke": {"color": "#2B211C", "width": 2.5}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    },
+    {
+      "name": "page_8",
+      "trigger": "page_8",
+      "layers": [
+        {
+          "name": "left_page",
+          "type": "group",
+          "x": 0,
+          "y": 0,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "appear",
+              "autoplay": true,
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.7, "v": 0}, {"t": 0.95, "v": 1}, {"t": 600, "v": 1}]}]
+            }
+          ],
+          "children": [
+            {"name": "folio_left", "type": "text", "x": 70, "y": 632, "font": "folio", "text": "16", "size": [570, 24], "align": "center"},
+            {"name": "folio_right", "type": "text", "x": 640, "y": 632, "font": "folio", "text": "17", "size": [570, 24], "align": "center"},
+            {
+              "name": "running_title",
+              "type": "text",
+              "x": 70,
+              "y": 72,
+              "font": "running",
+              "text": "Little Red Riding Hood",
+              "size": [570, 24],
+              "align": "center"
+            },
+            {"name": "initial", "type": "text", "x": 120, "y": 120, "font": "initial", "text": "R"},
+            {"name": "line_0_0", "type": "text", "x": 230, "y": 150, "font": "body", "text": "ed shouted for help."},
+            {"name": "line_1_0", "type": "text", "x": 230, "y": 214, "font": "body", "text": "A woodcutter came and"},
+            {"name": "line_2_0", "type": "text", "x": 124, "y": 278, "font": "body", "text": "chased the wolf away."},
+            {"name": "line_3_0", "type": "text", "x": 124, "y": 342, "font": "body", "text": "Grandma came out, and"},
+            {"name": "line_4_0", "type": "text", "x": 124, "y": 406, "font": "body", "text": "they all had "},
+            {
+              "name": "word_4_1",
+              "type": "text",
+              "x": 359.47,
+              "y": 431.37,
+              "font": "word",
+              "text": "cake",
+              "anchor": "center",
+              "timelines": [
+                {
+                  "name": "pulse",
+                  "trigger": "tap_cake",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [{"t": 0, "v": 1}, {"t": 0.18, "v": 1.3, "ease": "quad_out"}, {"t": 0.6, "v": 1, "ease": "back_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "line_4_2", "type": "text", "x": 396.58, "y": 406, "font": "body", "text": "."},
+            {"name": "the_end", "type": "text", "x": 70, "y": 470, "font": "subtitle", "text": "The End", "size": [570, 40], "align": "center"},
+            {
+              "name": "end_flourish",
+              "type": "shape",
+              "x": 355,
+              "y": 524,
+              "shape": {"path": "M -60 0 C -40 -10 -20 10 0 0 C 20 -10 40 10 60 0 M -5 0 L 0 -5 L 5 0 L 0 5 Z"},
+              "fill": "#A8322A",
+              "stroke": {"color": "#2B211C", "width": 1.2}
+            }
+          ]
+        },
+        {
+          "name": "picture",
+          "type": "group",
+          "x": 690,
+          "y": 96,
+          "clip": {"rect": [0, 0, 470, 520]},
+          "children": [
+            {"name": "backdrop", "type": "vector", "vector": "bg_room", "x": 0, "y": 0},
+            {
+              "name": "outside",
+              "type": "group",
+              "x": 0,
+              "y": 0,
+              "clip": {"rect": [290, 70, 120, 130]},
+              "children": [
+                {
+                  "name": "runner",
+                  "type": "group",
+                  "x": 260,
+                  "y": 196,
+                  "timelines": [
+                    {
+                      "name": "flee",
+                      "autoplay": true,
+                      "delay": 1.0,
+                      "tracks": [
+                        {"property": "x", "keys": [{"t": 0, "v": 250}, {"t": 2.4, "v": 520}]},
+                        {
+                          "property": "y",
+                          "keys": [
+                            {"t": 0.0, "v": 196, "ease": "quad_in"},
+                            {"t": 0.2, "v": 186, "ease": "quad_out"},
+                            {"t": 0.4, "v": 196, "ease": "quad_in"},
+                            {"t": 0.6000000000000001, "v": 186, "ease": "quad_out"},
+                            {"t": 0.8, "v": 196, "ease": "quad_in"},
+                            {"t": 1.0, "v": 186, "ease": "quad_out"},
+                            {"t": 1.2000000000000002, "v": 196, "ease": "quad_in"},
+                            {"t": 1.4000000000000001, "v": 186, "ease": "quad_out"},
+                            {"t": 1.6, "v": 196, "ease": "quad_in"},
+                            {"t": 1.8, "v": 186, "ease": "quad_out"},
+                            {"t": 2.0, "v": 196, "ease": "quad_in"},
+                            {"t": 2.2, "v": 186, "ease": "quad_out"},
+                            {"t": 2.4000000000000004, "v": 196, "ease": "quad_in"}
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "wolf",
+                      "type": "group",
+                      "x": 0,
+                      "y": 0,
+                      "scale": 0.3,
+                      "children": [
+                        {
+                          "name": "tail",
+                          "type": "vector",
+                          "vector": "wolf_tail",
+                          "x": 212,
+                          "y": -104,
+                          "anchor": "left",
+                          "timelines": [
+                            {
+                              "name": "wag",
+                              "autoplay": true,
+                              "loop": true,
+                              "tracks": [
+                                {
+                                  "property": "rotation",
+                                  "keys": [{"t": 0, "v": -10}, {"t": 0.8, "v": 12, "ease": "quad_in_out"}, {"t": 1.6, "v": -10, "ease": "quad_in_out"}]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {"name": "body", "type": "vector", "vector": "wolf_body", "x": 0, "y": -150},
+                        {
+                          "name": "wolf_head",
+                          "type": "group",
+                          "x": 72,
+                          "y": -96,
+                          "timelines": [
+                            {
+                              "name": "tilt",
+                              "autoplay": true,
+                              "loop": true,
+                              "delay": 0.5,
+                              "tracks": [
+                                {
+                                  "property": "rotation",
+                                  "keys": [{"t": 0, "v": -2}, {"t": 1.8, "v": 3, "ease": "quad_in_out"}, {"t": 3.6, "v": -2, "ease": "quad_in_out"}]
+                                }
+                              ]
+                            }
+                          ],
+                          "children": [
+                            {"name": "mouth", "type": "shape", "fill": "#6A1D1A", "shape": {"path": "M -112 -29 L -44 -29 L -56 -13 L -104 -16 Z"}},
+                            {"name": "jaw", "type": "vector", "vector": "wolf_jaw", "x": -38, "y": -38, "anchor": "top_right"},
+                            {"name": "head", "type": "vector", "vector": "wolf_head", "x": 0, "y": 0, "anchor": "bottom_right"},
+                            {
+                              "name": "eye",
+                              "type": "group",
+                              "x": -54,
+                              "y": -58,
+                              "scale": 1.0,
+                              "timelines": [
+                                {
+                                  "name": "blink",
+                                  "autoplay": true,
+                                  "loop": true,
+                                  "delay": 1.3,
+                                  "tracks": [
+                                    {
+                                      "property": "scale_y",
+                                      "keys": [{"t": 0, "v": 1}, {"t": 4.24, "v": 1}, {"t": 4.32, "v": 0.1}, {"t": 4.4, "v": 1}]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "name": "white",
+                                  "type": "shape",
+                                  "x": 0,
+                                  "y": 0,
+                                  "shape": {"circle": [0, 0, 6.5]},
+                                  "fill": "#F2D27A",
+                                  "stroke": {"color": "#2B211C", "width": 1.8}
+                                },
+                                {"name": "pupil", "type": "shape", "x": -1.8, "y": 0, "shape": {"circle": [0, 0, 3]}, "fill": "#2B211C"}
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "scale_x": -1
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "window", "type": "vector", "vector": "window_front", "x": 0, "y": 0},
+            {
+              "name": "table",
+              "type": "shape",
+              "x": 110,
+              "y": 380,
+              "shape": {"path": "M 0 0 L 170 0 L 170 12 L 0 12 Z M 16 12 L 28 12 L 28 110 L 16 110 Z M 142 12 L 154 12 L 154 110 L 142 110 Z"},
+              "fill": "#8A6440",
+              "stroke": {"color": "#2B211C", "width": 2.5}
+            },
+            {"name": "cake", "type": "vector", "vector": "cake", "x": 128, "y": 312},
+            {
+              "name": "candle_0",
+              "type": "shape",
+              "x": 165,
+              "y": 334,
+              "shape": {"rect": [0, 0, 6, 20]},
+              "fill": "#F4ECDA",
+              "stroke": {"color": "#2B211C", "width": 1.5}
+            },
+            {
+              "name": "flame_0",
+              "type": "shape",
+              "x": 168,
+              "y": 332,
+              "anchor": "bottom",
+              "shape": {"path": "M 0 -14 Q 6 -4 0 0 Q -6 -4 0 -14 Z"},
+              "fill": "#F2B640",
+              "timelines": [
+                {
+                  "name": "flicker",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 0.85}, {"t": 0.25, "v": 1.15, "ease": "quad_in_out"}, {"t": 0.5, "v": 0.85, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "flare",
+                  "trigger": "tap_cake",
+                  "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 1}, {"t": 0.2, "v": 2, "ease": "back_out"}, {"t": 1.2, "v": 2}, {"t": 1.6, "v": 1}]}]
+                }
+              ]
+            },
+            {
+              "name": "candle_1",
+              "type": "shape",
+              "x": 185,
+              "y": 334,
+              "shape": {"rect": [0, 0, 6, 20]},
+              "fill": "#F4ECDA",
+              "stroke": {"color": "#2B211C", "width": 1.5}
+            },
+            {
+              "name": "flame_1",
+              "type": "shape",
+              "x": 188,
+              "y": 332,
+              "anchor": "bottom",
+              "shape": {"path": "M 0 -14 Q 6 -4 0 0 Q -6 -4 0 -14 Z"},
+              "fill": "#F2B640",
+              "timelines": [
+                {
+                  "name": "flicker",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 0.85}, {"t": 0.315, "v": 1.15, "ease": "quad_in_out"}, {"t": 0.63, "v": 0.85, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "flare",
+                  "trigger": "tap_cake",
+                  "delay": 0.1,
+                  "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 1}, {"t": 0.2, "v": 2, "ease": "back_out"}, {"t": 1.2, "v": 2}, {"t": 1.6, "v": 1}]}]
+                }
+              ]
+            },
+            {
+              "name": "candle_2",
+              "type": "shape",
+              "x": 205,
+              "y": 334,
+              "shape": {"rect": [0, 0, 6, 20]},
+              "fill": "#F4ECDA",
+              "stroke": {"color": "#2B211C", "width": 1.5}
+            },
+            {
+              "name": "flame_2",
+              "type": "shape",
+              "x": 208,
+              "y": 332,
+              "anchor": "bottom",
+              "shape": {"path": "M 0 -14 Q 6 -4 0 0 Q -6 -4 0 -14 Z"},
+              "fill": "#F2B640",
+              "timelines": [
+                {
+                  "name": "flicker",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "scale_y",
+                      "keys": [{"t": 0, "v": 0.85}, {"t": 0.38, "v": 1.15, "ease": "quad_in_out"}, {"t": 0.76, "v": 0.85, "ease": "quad_in_out"}]
+                    }
+                  ]
+                },
+                {
+                  "name": "flare",
+                  "trigger": "tap_cake",
+                  "delay": 0.2,
+                  "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 1}, {"t": 0.2, "v": 2, "ease": "back_out"}, {"t": 1.2, "v": 2}, {"t": 1.6, "v": 1}]}]
+                }
+              ]
+            },
+            {
+              "name": "grandma",
+              "type": "vector",
+              "vector": "grandma",
+              "x": 70,
+              "y": 500,
+              "anchor": "bottom",
+              "timelines": [
+                {
+                  "name": "nod",
+                  "autoplay": true,
+                  "loop": true,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [{"t": 0, "v": -2}, {"t": 1.4, "v": 2, "ease": "quad_in_out"}, {"t": 2.8, "v": -2, "ease": "quad_in_out"}]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "woodcutter",
+              "type": "group",
+              "x": 410,
+              "y": 500,
+              "scale": 0.95,
+              "children": [
+                {
+                  "name": "axe",
+                  "type": "vector",
+                  "vector": "axe",
+                  "x": 10,
+                  "y": -70,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "rest",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": 24}, {"t": 1.7, "v": 27, "ease": "quad_in_out"}, {"t": 3.4, "v": 24, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {"name": "man", "type": "vector", "vector": "woodcutter", "x": 0, "y": 0, "anchor": "bottom"}
+              ]
+            },
+            {
+              "name": "red",
+              "type": "group",
+              "x": 320,
+              "y": 500,
+              "scale": 1.0,
+              "scale_x": -1,
+              "children": [
+                {"name": "body", "type": "vector", "vector": "red_body", "x": -60, "y": -152},
+                {
+                  "name": "head",
+                  "type": "vector",
+                  "vector": "red_head",
+                  "x": 2,
+                  "y": -146,
+                  "anchor": "bottom",
+                  "timelines": [
+                    {
+                      "name": "bob",
+                      "autoplay": true,
+                      "loop": true,
+                      "delay": 0.5,
+                      "tracks": [
+                        {
+                          "property": "rotation",
+                          "keys": [{"t": 0, "v": -3}, {"t": 1.6, "v": 4, "ease": "quad_in_out"}, {"t": 3.2, "v": -3, "ease": "quad_in_out"}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_outer",
+          "type": "shape",
+          "shape": {"path": "M 680 86 H 1170 V 626 H 680 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 2}
+        },
+        {
+          "name": "rule_inner",
+          "type": "shape",
+          "shape": {"path": "M 686 92 H 1164 V 620 H 686 Z"},
+          "fill": "#00000000",
+          "stroke": {"color": "#2B211C", "width": 1}
+        },
+        {
+          "name": "corner_0",
+          "type": "shape",
+          "x": 680,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_1",
+          "type": "shape",
+          "x": 1170,
+          "y": 86,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_2",
+          "type": "shape",
+          "x": 680,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "corner_3",
+          "type": "shape",
+          "x": 1170,
+          "y": 626,
+          "shape": {"path": "M 0 -8 L 8 0 L 0 8 L -8 0 Z"},
+          "fill": "#A8322A",
+          "stroke": {"color": "#2B211C", "width": 1.5}
+        },
+        {
+          "name": "leaf",
+          "type": "group",
+          "x": 640,
+          "y": 48,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "turn",
+              "autoplay": true,
+              "tracks": [
+                {"property": "scale_x", "keys": [{"t": 0, "v": 1}, {"t": 0.75, "v": -1, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.72, "v": 1}, {"t": 1.0, "v": 0, "ease": "quad_out"}]}
+              ]
+            }
+          ],
+          "children": [
+            {"name": "sheet", "type": "shape", "shape": {"rect": [0, 0, 570, 632]}, "fill": "#EFE3C6"},
+            {
+              "name": "shade",
+              "type": "shape",
+              "shape": {"rect": [0, 0, 570, 632]},
+              "fill": "#2B211C",
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "shade",
+                  "autoplay": true,
+                  "tracks": [
+                    {
+                      "property": "opacity",
+                      "keys": [{"t": 0, "v": 0}, {"t": 0.35, "v": 0.14, "ease": "quad_out"}, {"t": 0.7, "v": 0.03, "ease": "quad_in"}]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "paper", "type": "image", "image": "paper", "x": 70, "y": 48, "size": [1140, 632], "blend": "multiply"},
+        {"name": "rustle", "type": "audio", "sound": ["turn1", "turn2"], "autoplay": true, "gain": 0.3}
+      ]
+    }
+  ]
+}
