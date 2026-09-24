@@ -59,9 +59,9 @@
     "d4_lo": ""
   },
   "layers": [
-    {"name": "sky_night", "type": "image", "image": "sky_night", "size": [1280, 720]},
-    {"name": "sky_dusk", "type": "image", "image": "sky_dusk", "size": [1280, 720], "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"dusk": 1, "dawn": 1}, "default": 0, "transition": {"duration": 2.5}}]},
-    {"name": "sky_day", "type": "image", "image": "sky_day", "size": [1280, 720], "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {"name": "sky_night", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#030712"}, {"at": 1.0, "color": "#121E3E"}]}}},
+    {"name": "sky_dusk", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#181446"}, {"at": 0.5, "color": "#6E328C"}, {"at": 0.85, "color": "#EB7846"}, {"at": 1.0, "color": "#FAB45A"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"dusk": 1, "dawn": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {"name": "sky_day", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#2E6EBE"}, {"at": 0.6, "color": "#6EAAE6"}, {"at": 1.0, "color": "#A8D6F5"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1}, "default": 0, "transition": {"duration": 2.5}}]},
     {
       "name": "stars", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"night": 1, "dusk": 0.4, "dawn": 0.4}, "default": 0, "transition": {"duration": 2.5}}],
       "children": [

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the artwork of weather_dashboard: SVG icons and sky gradients.
+"""Write the artwork of weather_dashboard: its SVG icons.
 
     tools/weather_dashboard_assets.py weather_dashboard/assets
 
@@ -17,18 +17,13 @@ tile one column left and 48 down lands every drop where another one was,
 so a layer moving that way in a clipped group falls forever without a
 seam, and that step is the direction the drops lean.
 
-sky_day.png, sky_dusk.png and sky_night.png are 8x360 vertical gradients,
-stretched over the canvas: the only way to a gradient, since an SVG
-gradient paints as its first stop.
-
-Needs Pillow.
+The skies are gradients in the show itself.
 """
 
 import math
 import sys
 from pathlib import Path
 
-from PIL import Image
 
 SUN = "#FFD166"
 CLOUD = "#F1F5F9"
@@ -184,36 +179,11 @@ def icons():
     }
 
 
-def gradient(stops, height=360):
-    """A vertical gradient through (position 0..1, rgb) stops."""
-    image = Image.new("RGB", (8, height))
-    pixels = image.load()
-    for y in range(height):
-        f = y / (height - 1)
-        for (p0, c0), (p1, c1) in zip(stops, stops[1:]):
-            if p0 <= f <= p1:
-                t = (f - p0) / (p1 - p0) if p1 > p0 else 0
-                color = tuple(int(a + (b - a) * t) for a, b in zip(c0, c1))
-                break
-        for x in range(8):
-            pixels[x, y] = color
-    return image
-
-
-SKIES = {
-    "sky_day": [(0.0, (46, 110, 190)), (0.6, (110, 170, 230)), (1.0, (168, 214, 245))],
-    "sky_dusk": [(0.0, (24, 20, 70)), (0.5, (110, 50, 140)), (0.85, (235, 120, 70)), (1.0, (250, 180, 90))],
-    "sky_night": [(0.0, (3, 7, 18)), (1.0, (18, 30, 62))],
-}
-
-
 def main():
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
     for name, text in icons().items():
         (out / f"{name}.svg").write_text(text)
-    for name, stops in SKIES.items():
-        gradient(stops).save(out / f"{name}.png", optimize=True)
 
 
 if __name__ == "__main__":
