@@ -1,0 +1,128 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "overflow",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "sky",
+      "type": "shape",
+      "overflow": true,
+      "shape": {"rect": [-640, -360, 1920, 1080]},
+      "fill": {"linear": {"from": [0, 0], "to": [0, 280], "stops": [{"at": 0, "color": "#2E5C9A"}, {"at": 1, "color": "#F2B25C"}]}}
+    },
+    {"name": "sun", "type": "shape", "x": 470, "y": 210, "shape": {"circle": [0, 0, 34]}, "fill": "#FFE08A"},
+    {
+      "name": "hills",
+      "type": "group",
+      "overflow": true,
+      "children": [
+        {
+          "name": "far",
+          "type": "shape",
+          "fill": "#7B6A9A",
+          "shape": {"path": "M -640 250 Q -480 190 -320 240 T 0 235 T 320 225 T 640 240 T 960 230 T 1280 245 L 1280 720 L -640 720 Z"}
+        },
+        {
+          "name": "near",
+          "type": "shape",
+          "fill": "#3B2F5E",
+          "shape": {"path": "M -640 290 Q -440 250 -240 285 T 160 280 T 560 290 T 960 275 T 1280 290 L 1280 720 L -640 720 Z"}
+        }
+      ]
+    },
+    {
+      "name": "cloud_free",
+      "type": "group",
+      "x": -120,
+      "y": 60,
+      "overflow": true,
+      "timelines": [{"name": "drift", "autoplay": true, "loop": true, "tracks": [{"property": "x", "keys": [{"t": 0, "v": -160}, {"t": 14, "v": 700}]}]}],
+      "children": [
+        {
+          "name": "puff",
+          "type": "shape",
+          "shape": {"path": "M 14 40 C 0 40 0 22 16 22 C 18 6 44 4 50 18 C 60 4 86 10 84 26 C 100 26 100 40 86 40 Z"},
+          "fill": "#F4F1E8",
+          "scale": 1.3
+        },
+        {
+          "name": "label",
+          "type": "digits",
+          "digits": 8,
+          "size": [64, 10],
+          "x": 41,
+          "y": 30,
+          "text": "OVERFLOW",
+          "display": {"segments": {"style": "alpha14", "fill": "#3A4250"}}
+        }
+      ]
+    },
+    {
+      "name": "cloud_clipped",
+      "type": "group",
+      "x": -120,
+      "y": 120,
+      "timelines": [
+        {
+          "name": "drift",
+          "autoplay": true,
+          "loop": true,
+          "delay": 3,
+          "tracks": [{"property": "x", "keys": [{"t": 0, "v": -160}, {"t": 11, "v": 700}]}]
+        }
+      ],
+      "children": [
+        {
+          "name": "puff",
+          "type": "shape",
+          "shape": {"path": "M 14 40 C 0 40 0 22 16 22 C 18 6 44 4 50 18 C 60 4 86 10 84 26 C 100 26 100 40 86 40 Z"},
+          "fill": "#F4F1E8",
+          "scale": 1.3
+        },
+        {
+          "name": "label",
+          "type": "digits",
+          "digits": 7,
+          "size": [56, 10],
+          "x": 45,
+          "y": 30,
+          "text": "CLIPPED",
+          "display": {"segments": {"style": "alpha14", "fill": "#3A4250"}}
+        }
+      ]
+    },
+    {"name": "edge", "type": "shape", "shape": {"rect": [1, 1, 638, 358]}, "fill": "#00000000", "stroke": {"color": "#FFFFFF80", "width": 2}},
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 8,
+      "size": [112, 20],
+      "x": 24,
+      "y": 18,
+      "text": "OVERFLOW",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_1",
+      "type": "digits",
+      "digits": 45,
+      "size": [450, 12],
+      "x": 24,
+      "y": 318,
+      "text": "SKY HILLS AND ONE CLOUD REACH PAST THE CANVAS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_2",
+      "type": "digits",
+      "digits": 35,
+      "size": [350, 12],
+      "x": 24,
+      "y": 336,
+      "text": "WIDEN THE PLAYER WINDOW TO SEE THEM",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    }
+  ]
+}
