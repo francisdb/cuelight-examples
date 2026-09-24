@@ -27,6 +27,10 @@ are a C, an E and a G, so which one plays is easy to hear.
 For ducking, bed.ogg is eight seconds of soft arpeggios over C, Am, F
 and G, every note above 300 Hz, looping without a seam, and callout.ogg
 an announcement chime, ding-dong-ding, 1.8 seconds.
+
+For bound_sound, three sounds of 1.2 seconds that are nothing alike:
+up.ogg is a whistle gliding up an octave, down.ogg a buzzy reed tone
+falling an octave, bells.ogg a bell struck twice.
 """
 
 import math
@@ -194,6 +198,65 @@ def callout():
     return out + [0.0] * max(0, int(RATE * 1.8) - len(out))
 
 
+def whistle(start, end, seconds=1.2):
+    """A whistle gliding from `start` to `end` Hz, with a little vibrato,
+    faded in and out so it also loops cleanly."""
+    total = int(RATE * seconds)
+    out, phase = [], 0.0
+    for i in range(total):
+        t = i / total
+        f = start * (end / start) ** t * (1 + 0.012 * math.sin(2 * math.pi * 6 * i / RATE))
+        phase += 2 * math.pi * f / RATE
+        env = min(1.0, t / 0.05, (1 - t) / 0.08)
+        out.append(env * (math.sin(phase) + 0.15 * math.sin(2 * phase)))
+    peak = max(abs(v) for v in out)
+    return [0.6 * v / peak for v in out]
+
+
+def buzz(start, end, seconds=1.2):
+    """A buzzy, reedy tone falling from `start` to `end` Hz: many
+    harmonics, nothing like the whistle."""
+    total = int(RATE * seconds)
+    out, phase = [], 0.0
+    for i in range(total):
+        t = i / total
+        f = start * (end / start) ** t
+        phase += 2 * math.pi * f / RATE
+        env = min(1.0, t / 0.03, (1 - t) / 0.08)
+        out.append(env * sum(math.sin(n * phase) / n for n in range(1, 9)))
+    peak = max(abs(v) for v in out)
+    return [0.5 * v / peak for v in out]
+
+
+def bell(frequency=880.0, strikes=(0.0, 0.6), seconds=1.2):
+    """A struck bell: inharmonic partials that ring and die away, struck
+    at each time in `strikes`."""
+    total = int(RATE * seconds)
+    out = [0.0] * total
+    partials = [(1.0, 1.0, 3.0), (2.76, 0.5, 5.0), (5.40, 0.25, 8.0), (8.93, 0.12, 12.0)]
+    for start in strikes:
+        offset = int(start * RATE)
+        for i in range(total - offset):
+            t = i / RATE
+            out[offset + i] += sum(a * math.exp(-t * d) * math.sin(2 * math.pi * frequency * r * t)
+                                   for r, a, d in partials)
+    peak = max(abs(v) for v in out)
+    return [0.6 * v / peak for v in out]
+
+
+def tune(notes, seconds=1.2, step=0.2):
+    """A short plucked melody on a steady step, as long as `seconds`, its
+    tails wrapped round so it also loops without a seam."""
+    total = int(RATE * seconds)
+    out = [0.0] * total
+    for i, note in enumerate(notes):
+        offset = int(i * step * RATE)
+        for k, v in enumerate(pluck(midi(note), 0.6, 6.0, 0.3, 3)):
+            out[(offset + k) % total] += v
+    peak = max(abs(v) for v in out)
+    return [0.6 * v / peak for v in out]
+
+
 def knock(pitch, seed):
     """A knock on a woodblock: a tone and the inharmonic overtone wood
     has, both dying fast, and a click of noise on top for the strike.
@@ -231,6 +294,11 @@ def main():
         "audio_layers": [("music", music()), ("zap", zap()), ("thunder", thunder()), ("jingle", jingle())],
         "rest": [("tick", tick())],
         "ducking": [("bed", bed()), ("callout", callout())],
+        "bound_sound": [
+            ("up", whistle(600, 1200)),
+            ("down", buzz(900, 450)),
+            ("bells", bell()),
+        ],
         "pick": [
             ("knock1", knock(523.25, 1)),
             ("knock2", knock(659.25, 2)),
