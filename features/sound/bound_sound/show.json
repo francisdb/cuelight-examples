@@ -1,0 +1,148 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1, "name": "bound_sound", "size": [640, 360], "background": "#0E1116",
+  "variables": {"row": "", "restart": "", "queue": "", "loop": "", "unlisted": "", "phase": ""},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 24, "size": [336, 20], "x": 24, "y": 18,
+      "text": "A SOUND BOUND TO A VALUE", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "asked", "type": "digits", "digits": 5, "size": [50, 10], "x": 520, "y": 48, "text": "ASKED",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "restart", "type": "group", "y": 64,
+      "children": [
+        {
+          "name": "tune", "type": "audio", "sound": "up",
+          "bindings": [{"property": "sound", "variable": "restart", "map": {"UP": "up", "DOWN": "down", "BELLS": "bells"}}],
+          "on_end": "restart_end"
+        },
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [
+            {
+              "name": "ended", "trigger": "restart_end",
+              "tracks": [
+                {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.3, "v": 1, "ease": "cubic_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.15, "ease": "quad_in"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 7, "size": [91, 16], "x": 76, "y": 0, "text": "RESTART",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"restart": 1}, "default": 0.45}]
+        },
+        {
+          "name": "now", "type": "digits", "digits": 5, "size": [65, 16], "x": 520, "y": 0, "text": "     ",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}},
+          "bindings": [{"property": "text", "variable": "restart"}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 32, "size": [320, 12], "x": 76, "y": 24,
+          "text": "A NEW SOUND CUTS THE ONE PLAYING", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "queue", "type": "group", "y": 132,
+      "children": [
+        {
+          "name": "tune", "type": "audio", "sound": "up", "retrigger": "queue",
+          "bindings": [{"property": "sound", "variable": "queue", "map": {"UP": "up", "DOWN": "down", "BELLS": "bells"}}],
+          "on_end": "queue_end"
+        },
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "timelines": [
+            {
+              "name": "ended", "trigger": "queue_end",
+              "tracks": [
+                {"property": "scale", "keys": [{"t": 0, "v": 1.4}, {"t": 0.3, "v": 1, "ease": "cubic_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.3, "v": 0.15, "ease": "quad_in"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 5, "size": [65, 16], "x": 76, "y": 0, "text": "QUEUE",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"queue": 1}, "default": 0.45}]
+        },
+        {
+          "name": "now", "type": "digits", "digits": 5, "size": [65, 16], "x": 520, "y": 0, "text": "     ",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}},
+          "bindings": [{"property": "text", "variable": "queue"}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 37, "size": [370, 12], "x": 76, "y": 24,
+          "text": "A NEW SOUND WAITS FOR THE ONE PLAYING",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "loop", "type": "group", "y": 200,
+      "children": [
+        {
+          "name": "tune", "type": "audio", "sound": "up", "loop": true, "stop": "hush",
+          "bindings": [{"property": "sound", "variable": "loop", "map": {"UP": "up", "DOWN": "down", "BELLS": "bells"}}]
+        },
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"loop": 0.8}, "default": 0.15}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 4, "size": [52, 16], "x": 76, "y": 0, "text": "LOOP",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"loop": 1}, "default": 0.45}]
+        },
+        {
+          "name": "now", "type": "digits", "digits": 5, "size": [65, 16], "x": 520, "y": 0, "text": "     ",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}},
+          "bindings": [{"property": "text", "variable": "loop"}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 27, "size": [270, 12], "x": 76, "y": 24,
+          "text": "LOOPS WHAT IT IS POINTED AT", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "unlisted", "type": "group", "y": 268,
+      "children": [
+        {
+          "name": "tune", "type": "audio", "sound": "up", "loop": true, "stop": "hush",
+          "bindings": [{"property": "sound", "variable": "unlisted", "map": {"UP": "up", "DOWN": "down"}}]
+        },
+        {
+          "name": "lamp", "type": "shape", "shape": {"circle": [44, 8, 12]}, "fill": "#FFB000", "opacity": 0.15,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"unlisted": 0.8}, "default": 0.15}]
+        },
+        {
+          "name": "mode", "type": "digits", "digits": 8, "size": [104, 16], "x": 76, "y": 0, "text": "UNLISTED",
+          "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}}, "opacity": 0.45,
+          "bindings": [{"property": "opacity", "variable": "row", "map": {"unlisted": 1}, "default": 0.45}]
+        },
+        {
+          "name": "now", "type": "digits", "digits": 5, "size": [65, 16], "x": 520, "y": 0, "text": "     ",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}},
+          "bindings": [{"property": "text", "variable": "unlisted"}]
+        },
+        {
+          "name": "what", "type": "digits", "digits": 42, "size": [420, 12], "x": 76, "y": 24,
+          "text": "BELLS IS NOT IN ITS MAP SO NOTHING CHANGES",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "phase", "type": "digits", "digits": 50, "size": [592, 13], "x": 24, "y": 330, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+      "bindings": [{"property": "text", "variable": "phase"}]
+    }
+  ]
+}
