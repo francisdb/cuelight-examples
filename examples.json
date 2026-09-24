@@ -61,6 +61,7 @@
         { "path": "features/bindings/map_default", "title": "Map and default", "description": "A state variable looked up in a map: lamps, a status text, and what happens to unlisted values.", "thumbnail_at": 3.5 },
         { "path": "features/bindings/font", "title": "Font binding", "description": "The font style of a text layer mapped from a variable: highlighting the active player's score.", "thumbnail_at": 3.2 },
         { "path": "features/bindings/transitions", "title": "Transitions", "description": "Bindings that ease to a new value instead of jumping: bars, a smoothed slow feed, a counting score, a fading lamp, and step and offset: a bar that goes 10 pixels past and back, a reel kicked on digit by digit.", "thumbnail_at": 2.2 },
+        { "path": "features/bindings/curves", "title": "Curves", "description": "One input, 0 to 100 and back, read by five bars through different curves: straight, eased in, in four steps, peaking in the middle, and moving only between 30 and 70.", "thumbnail_at": 3.0 },
         { "path": "features/bindings/visible_threshold_debounce", "title": "Visible, threshold, debounce", "description": "A bound visible that shows a lamp and swaps two pages, a threshold that snaps a level, and a debounce that lets a strobe pass unseen.", "thumbnail_at": 3.5 }
       ]
     },
