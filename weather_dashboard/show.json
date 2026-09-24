@@ -59,9 +59,9 @@
     "d4_lo": ""
   },
   "layers": [
-    {"name": "sky_night", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#030712"}, {"at": 1.0, "color": "#121E3E"}]}}},
-    {"name": "sky_dusk", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#181446"}, {"at": 0.5, "color": "#6E328C"}, {"at": 0.85, "color": "#EB7846"}, {"at": 1.0, "color": "#FAB45A"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"dusk": 1, "dawn": 1}, "default": 0, "transition": {"duration": 2.5}}]},
-    {"name": "sky_day", "type": "shape", "shape": {"rect": [0, 0, 1280, 720]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#2E6EBE"}, {"at": 0.6, "color": "#6EAAE6"}, {"at": 1.0, "color": "#A8D6F5"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {"name": "sky_night", "type": "shape", "overflow": true, "shape": {"rect": [-1280, -720, 3840, 2160]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#030712"}, {"at": 1.0, "color": "#121E3E"}]}}},
+    {"name": "sky_dusk", "type": "shape", "overflow": true, "shape": {"rect": [-1280, -720, 3840, 2160]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#181446"}, {"at": 0.5, "color": "#6E328C"}, {"at": 0.85, "color": "#EB7846"}, {"at": 1.0, "color": "#FAB45A"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"dusk": 1, "dawn": 1}, "default": 0, "transition": {"duration": 2.5}}]},
+    {"name": "sky_day", "type": "shape", "overflow": true, "shape": {"rect": [-1280, -720, 3840, 2160]}, "fill": {"linear": {"from": [0, 0], "to": [0, 720], "stops": [{"at": 0.0, "color": "#2E6EBE"}, {"at": 0.6, "color": "#6EAAE6"}, {"at": 1.0, "color": "#A8D6F5"}]}}, "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"day": 1}, "default": 0, "transition": {"duration": 2.5}}]},
     {
       "name": "stars", "type": "group", "opacity": 0, "bindings": [{"property": "opacity", "variable": "sky", "map": {"night": 1, "dusk": 0.4, "dawn": 0.4}, "default": 0, "transition": {"duration": 2.5}}],
       "children": [
@@ -177,7 +177,7 @@
         {"name": "disc", "type": "vector", "vector": "sun", "x": 0, "y": 0, "size": [76, 76], "anchor": "center"}
       ]
     },
-    {"name": "hills", "type": "shape", "fill": "#0B1220", "shape": {"path": "M 0 610 C 120 560 220 570 330 605 S 540 650 660 600 S 900 560 1010 605 S 1180 610 1280 585 L 1280 720 L 0 720 Z"}},
+    {"name": "hills", "type": "shape", "overflow": true, "fill": "#0B1220", "shape": {"path": "M -1280 600 C -1120 570 -980 575 -860 600 S -600 640 -460 606 S -180 572 0 610 C 120 560 220 570 330 605 S 540 650 660 600 S 900 560 1010 605 S 1180 610 1280 585 C 1400 565 1540 588 1660 612 S 1920 642 2060 602 S 2360 572 2560 600 L 2560 1440 L -1280 1440 Z"}},
     {"name": "city", "type": "text", "text": "", "font": "city", "x": 60, "y": 36, "size": [600, 50], "align": "left", "bindings": [{"property": "text", "variable": "city"}]},
     {"name": "date", "type": "text", "text": "", "font": "date", "x": 60, "y": 92, "size": [600, 28], "align": "left", "bindings": [{"property": "text", "variable": "date"}]},
     {"name": "clock", "type": "text", "text": "", "font": "clock", "x": 820, "y": 32, "size": [400, 66], "align": "right", "bindings": [{"property": "text", "variable": "time"}]},
