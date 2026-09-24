@@ -9,9 +9,10 @@ There is no driver. The show plays itself, in a loop of about 51 seconds.
 
 ## How it drives itself
 
-The moon is the clock. Its journey across the sun is a chain of timelines
-on the `moon` layer, one per stretch between two contacts, and each one's
-`on_end` fires the next contact as a trigger:
+The moon is the clock. Its distance to the sun is a value of the show's
+own (`values`), played as a chain of timelines, one per stretch between
+two contacts, and each one's `on_end` fires the next contact as a
+trigger:
 
 ```text
 (scene start) -> c1 -> beads -> c2 -> c3 -> emerged -> c4 -> cycle
@@ -21,12 +22,13 @@ Everything else listens to those names, in one of two ways:
 
 | Kind | How it works |
 | --- | --- |
-| Follows the moon | The moon's disc, the sky's darkness, the sun's glare, the side diagram, the progress dot and the sunlight bar change continuously with how far the moon is from the sun. Each has one timeline per stretch, started by the same trigger as the moon's and as long as it, so they all start each stretch together. The keys come from the moon's distance: the covered share of the sun is the overlap of two circles, the sky only darkens in the last few per cent, and the shadow's place in the diagram follows the distance |
+| Follows the moon | Bindings on values. The moon and its disc read `distance` itself. The sky's darkness, the sun's glare, the sunlight left, the side diagram's two turns and the progress dot are values of their own, played in the same stretches with keys computed from the distance: the covered share of the sun is the overlap of two circles, the sky only darkens in the last few per cent, and the shadow's place in the diagram follows the distance. Each is written once, however many layers read it: the diagram's turns drive both the shadows in space and their copy on the Earth |
 | Reacts to a contact | Captions, the corona, the stars and Venus, the beads and the diamond ring, and the contact marks only know the cue that starts them and the cue that ends them, with an optional `delay`. A fade-in timeline holds its last value when it ends (`hold`); a fade-out timeline, started later by the ending cue, holds too, and of two held timelines the one started later owns the property. Nothing here depends on how long a stretch lasts |
 
-Everything sits in one scene whose trigger is `cycle`. The last stretch's
+The layers sit in one scene whose trigger is `cycle`. The last stretch's
 `on_end` fires it, re-entering the scene stops every held timeline, and the
-loop starts clean.
+loop starts clean. Values live outside scenes, so their first stretch
+listens for `cycle` as well as starting at load.
 
 | Part | How it works |
 | --- | --- |
@@ -61,12 +63,8 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 ## What would make it better
 
-- A value of the show's own, animated by keys and read by bindings
-  (cuelight #74). The moon's distance to the sun is the one number
-  everything that moves depends on, but a timeline can only animate its
-  own layer, so each of those layers repeats the moon's stretches with
-  keys computed by the script. With a named value started by the same
-  triggers, one value would move and everything else would bind to it.
 - A binding that maps a number through a curve, not only `scale` and
   `offset` (cuelight #109): how much of the sun is covered, and how
-  dark the sky gets, are not straight lines in the distance.
+  dark the sky gets, are not straight lines in the distance, which is why
+  they are values of their own with keys computed by the script. With
+  curves they would all be bindings on `distance`.

@@ -3,20 +3,22 @@
 
     tools/eclipse_show.py > eclipse/show.json
 
-The show plays a total solar eclipse on its own, with no driver: the
-moon's journey across the sun is a chain of timelines on one layer, one
-per stretch between two contacts, and each one's `on_end` fires the next
-contact as a trigger (`c1`, `beads`, `c2`, `c3`, `emerged`, `c4`, and
-`cycle` to go round again). Everything else listens to those names.
+The show plays a total solar eclipse on its own, with no driver. The
+moon's distance to the sun is a value of the show's own (`values`),
+played as a chain of timelines, one per stretch between two contacts,
+and each one's `on_end` fires the next contact as a trigger (`c1`,
+`beads`, `c2`, `c3`, `emerged`, `c4`, and `cycle` to go round again).
 
 Two kinds of listener:
 
-- Things that change continuously with the moon's position (the moon
-  itself, the sky's darkness, the sun's glare, the side diagram, the
-  progress dot, the sunlight bar) have one timeline per stretch too,
-  started by the same trigger and as long as the moon's. Their keys are
-  computed here from the moon's distance to the sun, so they are the
-  only place the physics lives.
+- Things that change continuously with the moon's position bind to
+  values. The moon and its disc read `distance` itself; the sky's
+  darkness, the sun's glare, the sunlight left, the side diagram's two
+  turns and the progress dot are values of their own, with the same
+  stretches and keys computed here from the distance, since a binding
+  can only scale and offset what it reads. This is the only place the
+  physics lives, and each quantity is written once however many layers
+  read it.
 - Things that happen at a contact (captions, the corona, stars, the
   beads and the diamond ring, the contact marks) only know the name of
   the contact that starts them and of the one that ends them. They fade
@@ -25,8 +27,9 @@ Two kinds of listener:
   timelines the one started later owns the property. Their timing does
   not depend on how long a stretch is.
 
-All of it sits in one scene whose trigger is `cycle`: re-entering the
-scene stops every held timeline, so the loop starts clean.
+The layers sit in one scene whose trigger is `cycle`: re-entering the
+scene stops every held timeline, so the loop starts clean. The values
+live outside it, so their first stretch listens for `cycle` too.
 """
 
 import json
@@ -173,23 +176,44 @@ def stretch_keys(stretch, value, step=None):
     return keys
 
 
-def follow(prop, value, step=None, fire=False):
-    """One timeline per stretch that follows the moon: started by the
-    stretch's trigger (the first one when the scene starts), as long as the
-    stretch. With `fire` it is the moon itself and fires the next cue."""
+def stretches(value, step=None, fire=False):
+    """A value of the show's own that follows the moon: one timeline per
+    stretch, started by the stretch's trigger and as long as it. The first
+    starts at load and again on `cycle`, since values live outside the
+    scene that `cycle` restarts. With `fire` it is the moon's distance
+    itself, the show's clock, and fires the next cue."""
     timelines = []
     for stretch in STRETCHES:
         name, trigger, *_rest, on_end = stretch
         tl = {"name": name}
         if trigger is None:
             tl["autoplay"] = True
+            tl["trigger"] = "cycle"
         else:
             tl["trigger"] = trigger
         if fire:
             tl["on_end"] = on_end
-        tl["tracks"] = [{"property": prop, "keys": stretch_keys(stretch, value, step)}]
+        tl["keys"] = stretch_keys(stretch, value, step)
         timelines.append(tl)
-    return timelines
+    return {"timelines": timelines}
+
+
+def values():
+    """Everything that moves with the moon, each as a number of its own;
+    layers only bind to them."""
+    return {
+        "distance": stretches(lambda d: d, fire=True),
+        "darkness": stretches(darkness, step=0.4),
+        "glare": stretches(lambda d: 0.95 * (1 - overlap(d)) ** 0.7, step=0.5),
+        "sunlight": stretches(lambda d: 1 - overlap(d), step=0.5),
+        "orbit": stretches(lambda d: on_orbit(d)[0], step=0.5),
+        "shadow": stretches(lambda d: on_orbit(d)[1] - on_orbit(d)[0], step=0.5),
+        "progress": stretches(lambda d: min(TRACK["c4"], max(TRACK["c1"], track_x(d)))),
+    }
+
+
+def bind(prop, value, **extra):
+    return [{"property": prop, "variable": value, **extra}]
 
 
 def fade(name, keys, trigger=None, delay=None, prop="opacity", hold=False):
@@ -300,11 +324,11 @@ def diamond(name, side, trigger, keys):
 def sky():
     """The sky window: what an observer sees."""
     sun_glare = glow("sun_glare", 210, "#FFF6DA", x=SUN_X, y=SUN_Y, blend="screen",
-                     timelines=follow("opacity", lambda d: 0.95 * (1 - overlap(d)) ** 0.7, step=0.5))
+                     bindings=bind("opacity", "glare"))
     sky_total = {
         "name": "sky_total", "type": "shape", "shape": {"rect": [0, 0, SKY_W, SKY_H]}, "opacity": 0,
         "fill": vertical(SKY_H, (0, "#070B1E"), (0.55, "#18203F"), (0.85, "#3B3452"), (1, "#5A4455")),
-        "timelines": follow("opacity", darkness, step=0.4),
+        "bindings": bind("opacity", "darkness"),
     }
     stars = []
     for i, (x, y, rad) in enumerate([(70, 250, 1.6), (180, 64, 1.2), (540, 250, 1.4), (548, 188, 1.1), (410, 40, 1.0), (40, 300, 1.2), (560, 330, 1.3), (240, 36, 1.0)]):
@@ -347,7 +371,7 @@ def sky():
         "clip": {"circle": [0, 0, SUN_R]},
         "children": [
             circle("photosphere", 0, 0, SUN_R, "#FFF7E2"),
-            circle("moon_disc", C1 + 64, 0, MOON_R, "#262B38", timelines=follow("x", lambda d: d)),
+            circle("moon_disc", C1 + 64, 0, MOON_R, "#262B38", bindings=bind("x", "distance")),
         ],
     }
     left_beads = beads(180, "beads", lambda i: [(0, 0), (0.7 + 0.08 * i, 0), (0.85 + 0.08 * i, 1, "quad_out"), (1.25 + 0.05 * (5 - i), 0.9), (1.45 + 0.03 * (5 - i), 0, "quad_in")])
@@ -359,7 +383,7 @@ def sky():
     # new moon cannot be seen in daylight.
     moon = {
         "name": "moon", "type": "group", "x": SUN_X + C1 + 64, "y": SUN_Y,
-        "timelines": follow("x", lambda d: SUN_X + d, fire=True),
+        "bindings": bind("x", "distance", offset=SUN_X),
         "children": [
             circle("silhouette", 0, 0, MOON_R, "#0B0E18", opacity=0,
                    timelines=shown("beads", "emerged", rise=0.5, fall=0.9)),
@@ -476,13 +500,11 @@ def diagram():
              f"V 340 H 686 Z")
     # Two turns: the orbit around the Earth's centre carries the moon, and
     # the moon's own group turns its shadows to point away from the sun.
-    orbit_turn = follow("rotation", lambda d: on_orbit(d)[0], step=0.5)
-    shadow_turn = follow("rotation", lambda d: on_orbit(d)[1] - on_orbit(d)[0], step=0.5)
 
     def orbiting(name, children):
         return {
-            "name": name, "type": "group", "timelines": orbit_turn,
-            "children": [{"name": "moon_place", "type": "group", "x": -ORBIT_R, "timelines": shadow_turn,
+            "name": name, "type": "group", "bindings": bind("rotation", "orbit"),
+            "children": [{"name": "moon_place", "type": "group", "x": -ORBIT_R, "bindings": bind("rotation", "shadow"),
                           "children": children}],
         }
 
@@ -545,12 +567,12 @@ def progress():
         layers.append(text(f"tick_{cue}_label", x - 40, TRACK_Y + 10, "tick", names[cue], size=[80, 20],
                            opacity=0.3) | {"timelines": [fade("reached", mark, cue, hold=True)]})
     layers.append(circle("dot", TRACK["c1"], TRACK_Y, 6, VERMILION, stroke={"color": PAPER, "width": 2},
-                         timelines=follow("x", lambda d: min(TRACK["c4"], max(TRACK["c1"], track_x(d))))))
+                         bindings=bind("x", "progress")))
     layers += [
         text("sunlight", 690, 480, "label", "sunlight"),
         {"name": "bar_back", "type": "shape", "x": BAR_X, "y": BAR_Y, "shape": {"rect": [0, 0, BAR_W, 8]}, "fill": "#E4DBC9"},
         {"name": "bar", "type": "shape", "x": BAR_X, "y": BAR_Y, "shape": {"rect": [0, 0, BAR_W, 8]}, "fill": OCHRE,
-         "timelines": follow("scale_x", lambda d: 1 - overlap(d), step=0.5)},
+         "bindings": bind("scale_x", "sunlight")},
         {"name": "rule_bottom", "type": "shape", "x": 690, "y": 524, "shape": {"rect": [0, 0, 542, 1]}, "fill": RULE},
     ]
     return layers
@@ -626,6 +648,7 @@ def show():
             "chip": {"file": "Spectral-Italic", "size": 17, "color": "#FFFFFFE0"},
             "callout": {"file": "Spectral-Italic", "size": 16, "color": "#FFFFFFE8"},
         },
+        "values": values(),
         "layers": [],
         "scenes": [{"name": "eclipse", "trigger": "cycle", "layers": scene_layers}],
     }
