@@ -8,10 +8,9 @@ colored blobs on a dark ground, 640x360, shown at four times that size,
 so it looks like an out-of-focus game the way a stream preview does.
 
 alert_icons.png is a sprite sheet of three 96x96 cells, one per alert
-kind: a heart (follow), a star (subscription) and a lightning bolt (raid).
-cuelight cannot tint images, so each is drawn in its own color. They are
-drawn four times larger and scaled down, which is all the antialiasing
-they get.
+kind: a heart (follow), a star (subscription) and a lightning bolt (raid),
+each in its own color. They are drawn four times larger and scaled down,
+which is all the antialiasing they get.
 
 sounds/chime.ogg is the alert chime: two sine notes a fifth apart, each
 with a fast attack and a long decay, 0.9 seconds, mono, written as WAV
