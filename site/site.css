@@ -71,6 +71,7 @@ button.tab[aria-selected="true"] { color: var(--accent); }
 .transport .clock { min-width: 56px; text-align: right; font-variant-numeric: tabular-nums; }
 /* One width for "play" and "pause", so the bar beside it stays put. */
 #pause { width: 7ch; text-align: center; padding-left: 0; padding-right: 0; }
+.transport select { font: inherit; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--line); background: #1b222c; color: var(--text); }
 #log { height: 9.5em; overflow: auto; font-size: 12px; white-space: pre-wrap; }
 #log:empty::after { content: "nothing yet"; color: var(--muted); }
 #log .error { color: var(--error); }

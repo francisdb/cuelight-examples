@@ -25,6 +25,12 @@
     <button id="pause">pause</button>
     <input type="range" id="scrub" min="0" step="0.01" value="0" aria-label="show time" hidden>
     <span class="status clock" id="clock"></span>
+    <label class="status" for="screen">screen</label>
+    <select id="screen" title="The shape of the screen the show is fitted into: another shape letterboxes it, and layers with overflow draw into the bars">
+      <option value="">as authored</option>
+      <option value="21 / 9">wider</option>
+      <option value="4 / 3">squarer</option>
+    </select>
   </div>
 
   <div class="columns">
@@ -122,7 +128,7 @@ async function play() {
   player = undefined;
   for (const id of ["actions", "variables"]) $(id).replaceChildren();
   player = await CuelightPlayer.create($("canvas"), folder);
-  $("canvas").style.aspectRatio = `${player.width} / ${player.height}`;
+  $("canvas").style.aspectRatio = $("screen").value || `${player.width} / ${player.height}`;
   const warnings = player.warnings();
   warnings.forEach((warning) => log(warning, true));
   $("sound-note").hidden = !warnings.some((warning) => warning.includes("could not be decoded"));
@@ -162,6 +168,10 @@ async function play() {
 const FPS = 60;
 let resumeAfterScrub = false;
 $("pause").onclick = () => (player.paused ? player.resume() : player.pause());
+// Another screen shape: the player fits the show into it and letterboxes it.
+$("screen").onchange = () => {
+  $("canvas").style.aspectRatio = $("screen").value || `${player.width} / ${player.height}`;
+};
 $("scrub").onpointerdown = () => { resumeAfterScrub = !player.paused; player.pause(); };
 $("scrub").oninput = () => player.seek($("scrub").valueAsNumber, FPS);
 $("scrub").onchange = () => { if (resumeAfterScrub) player.resume(); resumeAfterScrub = false; };
