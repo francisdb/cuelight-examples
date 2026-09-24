@@ -22,7 +22,7 @@ Everything else listens to those names, in one of two ways:
 | Kind | How it works |
 | --- | --- |
 | Follows the moon | The moon's disc, the sky's darkness, the sun's glare, the side diagram, the progress dot and the sunlight bar change continuously with how far the moon is from the sun. Each has one timeline per stretch, started by the same trigger as the moon's and as long as it, so they all start each stretch together. The keys come from the moon's distance: the covered share of the sun is the overlap of two circles, the sky only darkens in the last few per cent, and the shadow's place in the diagram follows the distance |
-| Reacts to a contact | Captions, the corona, the stars and Venus, the beads and the diamond ring, and the contact marks only know the cue that starts them and the cue that ends them, with an optional `delay`. A fade-in timeline holds its value far longer than any stretch; a fade-out timeline, started later by the ending cue, wins because a timeline started later owns the property. Nothing here depends on how long a stretch lasts |
+| Reacts to a contact | Captions, the corona, the stars and Venus, the beads and the diamond ring, and the contact marks only know the cue that starts them and the cue that ends them, with an optional `delay`. A fade-in timeline holds its last value when it ends (`hold`); a fade-out timeline, started later by the ending cue, holds too, and of two held timelines the one started later owns the property. Nothing here depends on how long a stretch lasts |
 
 Everything sits in one scene whose trigger is `cycle`. The last stretch's
 `on_end` fires it, re-entering the scene stops every held timeline, and the
@@ -70,5 +70,3 @@ have to travel with the files are in [`licenses/`](licenses/).
 - A binding that maps a number through a curve, not only `scale` and
   `offset` (cuelight #109): how much of the sun is covered, and how
   dark the sky gets, are not straight lines in the distance.
-- Timeline `hold` (cuelight #88): the fade-ins hold with a key ten minutes
-  away so they outlast any stretch.

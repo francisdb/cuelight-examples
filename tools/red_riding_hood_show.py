@@ -41,7 +41,6 @@ TEXT_X, TEXT_W = 124, 472
 TEXT_Y = 150
 BODY_SIZE, LINE = 40, 64
 CAP_SIZE = 138
-HOLD = 600
 
 FONTS = Path(__file__).resolve().parent.parent / "red_riding_hood" / "assets" / "fonts"
 
@@ -75,7 +74,7 @@ def r(v, digits=2):
 
 # -- Timelines ---------------------------------------------------------------
 
-def tl(name, prop, keys, trigger=None, autoplay=False, loop=False, delay=None):
+def tl(name, prop, keys, trigger=None, autoplay=False, loop=False, delay=None, hold=False):
     t = {"name": name}
     if trigger:
         t["trigger"] = trigger
@@ -85,6 +84,8 @@ def tl(name, prop, keys, trigger=None, autoplay=False, loop=False, delay=None):
         t["loop"] = True
     if delay:
         t["delay"] = delay
+    if hold:
+        t["hold"] = True
     out = []
     for k in keys:
         key = {"t": r(k[0], 3), "v": r(k[1], 3)}
@@ -534,7 +535,7 @@ def spread(name, trigger, story, picture, tap=None, n=0, extra_left=()):
     left = pulse(lay_out(story), tap) if story else []
     # The left page shows up once the turning leaf has landed on it.
     left_page = group("left_page", 0, 0, [*page_numbers(n), *left, *extra_left], opacity=0,
-                      timelines=[tl("appear", "opacity", [(0, 0), (0.7, 0), (0.95, 1), (HOLD, 1)], autoplay=True)])
+                      timelines=[tl("appear", "opacity", [(0, 0), (0.7, 0), (0.95, 1)], autoplay=True, hold=True)])
     return {
         "name": name, "trigger": trigger,
         "layers": [

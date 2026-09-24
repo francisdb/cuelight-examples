@@ -179,8 +179,8 @@
       "name": "attract", "trigger": "attract",
       "layers": [
         {
-          "name": "dim", "type": "shape", "shape": {"rect": [0, 0, 640, 360]}, "fill": "#0E1116", "opacity": 0.75,
-          "timelines": [{"name": "fade", "autoplay": true, "tracks": [
+          "name": "dim", "type": "shape", "shape": {"rect": [0, 0, 640, 360]}, "fill": "#0E1116", "opacity": 0,
+          "timelines": [{"name": "fade", "autoplay": true, "hold": true, "tracks": [
             {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.4, "v": 0.75, "ease": "quad_out"}]}
           ]}]
         },
