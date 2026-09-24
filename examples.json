@@ -72,7 +72,8 @@
         { "path": "features/timelines/delay_repeat_loop", "title": "Delay, repeat, loop", "description": "The same timeline played once, delayed, three times, two and a half times, and forever.", "thumbnail_at": 2.6 },
         { "path": "features/timelines/on_end", "title": "on_end", "description": "Timelines that fire the next one's trigger when they end: a chase that runs without a host.", "thumbnail_at": 1.05 },
         { "path": "features/timelines/trigger_lists", "title": "Trigger lists", "description": "A timeline listening to several triggers: turn signals that also blink together as hazard lights.", "thumbnail_at": 7.1 },
-        { "path": "features/timelines/precedence", "title": "Precedence", "description": "A running timeline beats a binding, a binding beats the base value.", "thumbnail_at": 2.2 }
+        { "path": "features/timelines/precedence", "title": "Precedence", "description": "A running timeline beats a binding, a binding beats the base value.", "thumbnail_at": 2.2 },
+        { "path": "features/timelines/hold", "title": "Hold", "description": "A fade that falls back when it ends next to one that holds its last value, a flash that plays over a held panel and hands it back to the held value, and a fade in and a later fade out, both held, where the later one wins.", "thumbnail_at": 3.6 }
       ]
     },
     {
