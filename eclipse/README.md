@@ -30,7 +30,7 @@ loop starts clean.
 
 | Part | How it works |
 | --- | --- |
-| Sky | a day gradient with a totality gradient over it whose opacity follows the moon; the horizon glows orange all around during totality |
+| Sky | a rect filled with a day gradient, and one with a totality gradient over it whose opacity follows the moon; the horizon glows orange all around during totality, and the sun's glare and the diamond ring are radial gradients |
 | Moon | a dark disc inside a group clipped to the sun, so it only shows where it covers it. Outside the sun, a faint outline marks where the new moon is, and a silhouette appears around totality, against the corona |
 | Corona | one PNG, drawn with `screen`, faint from the beads on and full at second contact. Pink prominences sit just past the limb: the moon is a little larger than the sun, so they show at the side it is leaving |
 | Beads and diamond ring | a few small discs on the limb that flicker out one by one, then a glare and a flare, on the left before totality and on the right after it |
@@ -56,7 +56,7 @@ have to travel with the files are in [`licenses/`](licenses/).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `sky_day.png`, `sky_total.png`, `horizon_glow.png`, `corona.png`, `glow.png` | Made for this show, written by [`tools/eclipse_art.py`](../tools/eclipse_art.py) | MIT, as this repository |
+| `corona.png` | Made for this show, written by [`tools/eclipse_art.py`](../tools/eclipse_art.py) | MIT, as this repository |
 | `fonts/Spectral-Regular.ttf`, `fonts/Spectral-Italic.ttf`, `fonts/Spectral-SemiBold.ttf`, `fonts/SpectralSC-SemiBold.ttf` | [Spectral](https://github.com/productiontype/Spectral) by Production Type, the unmodified static files from [google/fonts](https://github.com/google/fonts/tree/8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5/ofl/spectral) | [OFL-1.1](licenses/Spectral-OFL.txt), no reserved font name |
 
 ## What would make it better
@@ -72,4 +72,3 @@ have to travel with the files are in [`licenses/`](licenses/).
   dark the sky gets, are not straight lines in the distance.
 - Timeline `hold` (cuelight #88): the fade-ins hold with a key ten minutes
   away so they outlast any stretch.
-- Gradients in shapes: the skies and the glows are PNGs.
