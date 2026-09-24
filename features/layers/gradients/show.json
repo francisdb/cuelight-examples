@@ -1,0 +1,217 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "gradients",
+  "size": [640, 360],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 9,
+      "size": [126, 20],
+      "x": 24,
+      "y": 18,
+      "text": "GRADIENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_0",
+      "type": "group",
+      "x": 24,
+      "y": 56,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {
+          "name": "sky",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 176, 104]},
+          "fill": {"linear": {"from": [0, 0], "to": [0, 104], "stops": [{"at": 0, "color": "#1B3A6B"}, {"at": 1, "color": "#F2B25C"}]}}
+        }
+      ]
+    },
+    {
+      "name": "label_0",
+      "type": "digits",
+      "digits": 9,
+      "size": [90, 12],
+      "x": 67,
+      "y": 168,
+      "text": "TWO STOPS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_1",
+      "type": "group",
+      "x": 232,
+      "y": 56,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {
+          "name": "band",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 176, 104]},
+          "fill": {"linear": {"from": [70, 0], "to": [106, 0], "stops": [{"at": 0, "color": "#2F6F5E"}, {"at": 1, "color": "#E8D8A0"}]}}
+        },
+        {"name": "line", "type": "shape", "shape": {"path": "M 70 90 L 106 90"}, "fill": "#00000000", "stroke": {"color": "#0E1116", "width": 2}}
+      ]
+    },
+    {
+      "name": "label_1",
+      "type": "digits",
+      "digits": 9,
+      "size": [90, 12],
+      "x": 275,
+      "y": 168,
+      "text": "HELD ENDS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_2",
+      "type": "group",
+      "x": 440,
+      "y": 56,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {"name": "stripe_0", "type": "shape", "shape": {"rect": [0, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_1", "type": "shape", "shape": {"rect": [22, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_2", "type": "shape", "shape": {"rect": [44, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_3", "type": "shape", "shape": {"rect": [66, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_4", "type": "shape", "shape": {"rect": [88, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_5", "type": "shape", "shape": {"rect": [110, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_6", "type": "shape", "shape": {"rect": [132, 0, 11, 104]}, "fill": "#3A4250"},
+        {"name": "stripe_7", "type": "shape", "shape": {"rect": [154, 0, 11, 104]}, "fill": "#3A4250"},
+        {
+          "name": "fade",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 176, 104]},
+          "fill": {
+            "linear": {
+              "from": [0, 0],
+              "to": [176, 0],
+              "stops": [{"at": 0, "color": "#D2452CFF"}, {"at": 0.5, "color": "#E9A72EC0"}, {"at": 1, "color": "#E9A72E00"}]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "label_2",
+      "type": "digits",
+      "digits": 5,
+      "size": [50, 12],
+      "x": 503,
+      "y": 168,
+      "text": "ALPHA",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_3",
+      "type": "group",
+      "x": 24,
+      "y": 204,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {
+          "name": "glow",
+          "type": "shape",
+          "x": 88.0,
+          "y": 52.0,
+          "shape": {"circle": [0, 0, 42]},
+          "fill": {
+            "radial": {
+              "center": [0, 0],
+              "radius": 42,
+              "stops": [{"at": 0, "color": "#FFF6DAFF"}, {"at": 0.35, "color": "#FFD27A90"}, {"at": 1, "color": "#FFD27A00"}]
+            }
+          },
+          "timelines": [
+            {
+              "name": "pulse",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "scale",
+                  "keys": [{"t": 0, "v": 0.7}, {"t": 1.4, "v": 1.25, "ease": "quad_in_out"}, {"t": 2.8, "v": 0.7, "ease": "quad_in_out"}]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_3",
+      "type": "digits",
+      "digits": 6,
+      "size": [60, 12],
+      "x": 82,
+      "y": 316,
+      "text": "RADIAL",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_4",
+      "type": "group",
+      "x": 232,
+      "y": 204,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {
+          "name": "ball",
+          "type": "shape",
+          "x": 88.0,
+          "y": 52.0,
+          "shape": {"circle": [0, 0, 40]},
+          "fill": {
+            "radial": {
+              "center": [-14, -16],
+              "radius": 60,
+              "stops": [{"at": 0, "color": "#F4F7FF"}, {"at": 0.25, "color": "#6FA8DC"}, {"at": 1, "color": "#0F2C4A"}]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "label_4",
+      "type": "digits",
+      "digits": 10,
+      "size": [100, 12],
+      "x": 270,
+      "y": 316,
+      "text": "OFF CENTRE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "tile_5",
+      "type": "group",
+      "x": 440,
+      "y": 204,
+      "clip": {"rect": [0, 0, 176, 104]},
+      "children": [
+        {
+          "name": "star",
+          "type": "shape",
+          "x": 88.0,
+          "y": 54.0,
+          "shape": {"path": "M 0 -44 L 12 -14 L 44 -12 L 18 8 L 28 40 L 0 22 L -28 40 L -18 8 L -44 -12 L -12 -14 Z"},
+          "fill": {"linear": {"from": [0, -44], "to": [0, 40], "stops": [{"at": 0, "color": "#FFE36E"}, {"at": 1, "color": "#C2410C"}]}},
+          "stroke": {"color": "#0E1116", "width": 2},
+          "timelines": [{"name": "turn", "autoplay": true, "loop": true, "tracks": [{"property": "rotation", "keys": [{"t": 0, "v": 0}, {"t": 8, "v": 360}]}]}]
+        }
+      ]
+    },
+    {
+      "name": "label_5",
+      "type": "digits",
+      "digits": 10,
+      "size": [100, 12],
+      "x": 478,
+      "y": 316,
+      "text": "PATH TURNS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    }
+  ]
+}
