@@ -12,6 +12,7 @@ in the browser on the [website](https://francisdb.github.io/cuelight-examples/).
 | [boardwalk](boardwalk/) | A retro electromechanical pinball backglass: one painted picture lit from behind, score reels that step and chime, and every light of the game painted into the scene |
 | [car_dashboard](car_dashboard/) | A digital instrument cluster driven by variables: bars, shift lights, gear, warning lamps, turn signals |
 | [checkerboard](checkerboard/) | A rotating, breathing checkerboard behind a still chess piece: nested transforms, a host-driven zoom and a squashed shadow |
+| [deck](deck/) | A slide deck about cuelight, made in cuelight: every slide shows its point live, from describing a show to scrubbing, rendering to video and events driving motion |
 | [departure_board](departure_board/) | An airport departure board made of segment displays, with no assets at all: text variables, mapped status colors, refresh triggers |
 | [dragon](dragon/) | A solid-state pinball backglass of around 1980: Hokusai's Dragon filling the glass, 7-segment score displays in windows, and lamps behind the glass lighting the dragon and the words painted on it |
 | [eclipse](eclipse/) | A total solar eclipse explained: the sky darkening into totality beside a side view of the shadow, playing itself with no driver: the moon's journey fires each contact and everything else reacts |
