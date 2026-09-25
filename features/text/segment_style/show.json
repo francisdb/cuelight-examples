@@ -1,0 +1,142 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1, "name": "segment_style", "size": [640, 360], "background": "#0E1116",
+  "values": {
+    "score": {
+      "timelines": [
+        {
+          "name": "count", "autoplay": true, "loop": true,
+          "keys": [
+            {"t": 0, "v": 0},
+            {"t": 0.8, "v": 11, "ease": "step"},
+            {"t": 1.6, "v": 222, "ease": "step"},
+            {"t": 2.4, "v": 3333, "ease": "step"},
+            {"t": 3.2, "v": 44444, "ease": "step"},
+            {"t": 4.0, "v": 555555, "ease": "step"},
+            {"t": 4.8, "v": 6666666, "ease": "step"},
+            {"t": 5.6, "v": 77777777, "ease": "step"},
+            {"t": 6.4, "v": 88888888, "ease": "step"},
+            {"t": 7.2, "v": 1234567, "ease": "step"},
+            {"t": 8.0, "v": 7654321, "ease": "step"},
+            {"t": 8.8, "v": 7654321}
+          ]
+        }
+      ]
+    }
+  },
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 13, "size": [187, 20], "x": 24, "y": 18, "text": "SEGMENT STYLE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "head_numeric", "type": "digits", "digits": 8, "size": [69, 12], "x": 180, "y": 40, "text": "NUMERIC7",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "head_alpha", "type": "digits", "digits": 7, "size": [60, 12], "x": 410, "y": 40, "text": "ALPHA14",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "label_plain", "type": "digits", "digits": 5, "size": [43, 12], "x": 24, "y": 70, "text": "PLAIN",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "plain", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 56, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05"}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "plain_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 56, "text": "SEGMENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05"}}
+    },
+    {
+      "name": "label_slant", "type": "digits", "digits": 8, "size": [69, 12], "x": 24, "y": 112, "text": "SLANT 10",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "slant", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 98, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "slant_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 98, "text": "KMNXVWYZ",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10}}
+    },
+    {
+      "name": "label_thin", "type": "digits", "digits": 13, "size": [112, 12], "x": 24, "y": 154,
+      "text": "THICKNESS .06", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "thin", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 140, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "thickness": 0.06}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "thin_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 140, "text": "SEGMENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "thickness": 0.06}}
+    },
+    {
+      "name": "label_fat", "type": "digits", "digits": 12, "size": [104, 12], "x": 24, "y": 196, "text": "THICKNESS .2",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "fat", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 182, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "thickness": 0.2}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "fat_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 182, "text": "KMNXVWYZ",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "thickness": 0.2}}
+    },
+    {
+      "name": "label_rim", "type": "digits", "digits": 7, "size": [60, 12], "x": 24, "y": 238, "text": "GLOW .1",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "rim", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 224, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 1}}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "rim_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 224, "text": "SEGMENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 1}}}
+    },
+    {
+      "name": "label_halo", "type": "digits", "digits": 8, "size": [69, 12], "x": 24, "y": 280, "text": "GLOW .25",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "halo", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 266, "text": "",
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 1}}},
+      "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
+    },
+    {
+      "name": "halo_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 266, "text": "SEGMENTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 1}}}
+    },
+    {
+      "name": "label_all", "type": "digits", "digits": 11, "size": [95, 12], "x": 24, "y": 322, "text": "ALL AT ONCE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "all", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 308, "text": "",
+      "display": {
+        "segments": {
+          "style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10, "thickness": 0.16,
+          "glow": {"size": 0.25, "strength": 1}
+        }
+      },
+      "justify": "right", "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
+    },
+    {
+      "name": "all_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 308, "text": "KMNXVWYZ",
+      "display": {
+        "segments": {
+          "style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10, "thickness": 0.16,
+          "glow": {"size": 0.25, "strength": 1}
+        }
+      }
+    }
+  ]
+}
