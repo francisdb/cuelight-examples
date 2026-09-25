@@ -18,7 +18,8 @@ glow.png is a lamp glow for features/layers/blend_modes: an amber disc,
 
 badge.png, bulb.png and white_glow.png are for features/images/tint, both white so a
 tint decides their color: a bulb in its socket, and the same disc as
-glow.png without the amber. worn.png is a grey speckle, a grimy overlay
+glow.png without the amber. features/bindings/incandescent has its own
+bulb.png and white_glow.png, for lamps whose filament decides the color. worn.png is a grey speckle, a grimy overlay
 to multiply over clean art.
 
 tile.png is a 48x48 floor tile for features/images/tile, a rounded
@@ -222,6 +223,8 @@ def main():
         ("features/images/tint/assets/bulb.png", bulb()),
         ("features/images/tint/assets/white_glow.png", disc(112, (255, 255, 255))),
         ("features/images/tint/assets/worn.png", worn()),
+        ("features/bindings/incandescent/assets/bulb.png", bulb()),
+        ("features/bindings/incandescent/assets/white_glow.png", disc(112, (255, 255, 255))),
         ("features/images/tile/assets/tile.png", tile()),
         ("features/images/asset_paths/art/day/sky.png", sky(False)),
         ("features/images/asset_paths/art/night/sky.png", sky(True)),

@@ -1,0 +1,207 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1, "name": "incandescent", "size": [640, 360], "background": "#0E1116",
+  "variables": {"power": 0, "phase": ""},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 18, "size": [259, 20], "x": 24, "y": 18, "text": "INCANDESCENT LAMPS",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "intro", "type": "digits", "digits": 32, "size": [276, 12], "x": 24, "y": 52,
+      "text": "FIVE LAMPS ON ONE POWER VARIABLE", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "power_meter", "type": "group", "x": 24, "y": 76, "clip": {"rect": [0, 0, 592, 10], "radius": 5},
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 592, 10]}, "fill": "#161B22"},
+        {
+          "name": "level", "type": "shape", "shape": {"rect": [0, 0, 592, 10]}, "fill": "#FFB000", "x": -592,
+          "bindings": [{"property": "x", "variable": "power", "scale": 592, "offset": -592}]
+        }
+      ]
+    },
+    {
+      "name": "instant_off", "type": "image", "image": "bulb", "size": [80, 80], "x": 80, "y": 170, "anchor": "center",
+      "tint": "#2A2E36"
+    },
+    {
+      "name": "instant_glow", "type": "group", "blend": "add",
+      "children": [
+        {
+          "name": "instant_glow_image", "type": "image", "image": "white_glow", "size": [150, 150], "x": 80, "y": 160,
+          "anchor": "center", "opacity": 0, "bindings": [{"property": "opacity", "variable": "power"}],
+          "tint": "#FFE8B5"
+        }
+      ]
+    },
+    {
+      "name": "instant_on", "type": "image", "image": "bulb", "size": [80, 80], "x": 80, "y": 170, "anchor": "center",
+      "opacity": 0, "bindings": [{"property": "opacity", "variable": "power"}], "tint": "#FFE8B5"
+    },
+    {
+      "name": "label_instant", "type": "digits", "digits": 7, "size": [71, 14], "x": 45, "y": 232, "text": "INSTANT",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_instant", "type": "digits", "digits": 13, "size": [112, 12], "x": 24, "y": 254,
+      "text": "NO TRANSITION", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "fade_off", "type": "image", "image": "bulb", "size": [80, 80], "x": 200, "y": 170, "anchor": "center",
+      "tint": "#2A2E36"
+    },
+    {
+      "name": "fade_glow", "type": "group", "blend": "add",
+      "children": [
+        {
+          "name": "fade_glow_image", "type": "image", "image": "white_glow", "size": [150, 150], "x": 200, "y": 160,
+          "anchor": "center", "opacity": 0,
+          "bindings": [{"property": "opacity", "variable": "power", "transition": {"duration": 0.15}}],
+          "tint": "#FFE8B5"
+        }
+      ]
+    },
+    {
+      "name": "fade_on", "type": "image", "image": "bulb", "size": [80, 80], "x": 200, "y": 170, "anchor": "center",
+      "opacity": 0, "bindings": [{"property": "opacity", "variable": "power", "transition": {"duration": 0.15}}],
+      "tint": "#FFE8B5"
+    },
+    {
+      "name": "label_fade", "type": "digits", "digits": 4, "size": [40, 14], "x": 180, "y": 232, "text": "FADE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_fade", "type": "digits", "digits": 12, "size": [104, 12], "x": 148, "y": 254, "text": "150MS LINEAR",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "filament_off", "type": "image", "image": "bulb", "size": [80, 80], "x": 320, "y": 170, "anchor": "center",
+      "tint": "#2A2E36"
+    },
+    {
+      "name": "filament_glow", "type": "group", "blend": "add",
+      "children": [
+        {
+          "name": "filament_glow_image", "type": "image", "image": "white_glow", "size": [150, 150], "x": 320, "y": 160,
+          "anchor": "center", "opacity": 0,
+          "bindings": [
+            {"property": "opacity", "variable": "power", "transition": {"model": "incandescent"}},
+            {"property": "tint", "variable": "power", "transition": {"model": "incandescent"}}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "filament_on", "type": "image", "image": "bulb", "size": [80, 80], "x": 320, "y": 170, "anchor": "center",
+      "opacity": 0,
+      "bindings": [
+        {"property": "opacity", "variable": "power", "transition": {"model": "incandescent"}},
+        {"property": "tint", "variable": "power", "transition": {"model": "incandescent"}}
+      ]
+    },
+    {
+      "name": "label_filament", "type": "digits", "digits": 8, "size": [81, 14], "x": 280, "y": 232, "text": "FILAMENT",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_filament", "type": "digits", "digits": 8, "size": [69, 12], "x": 286, "y": 254, "text": "DEFAULTS",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "big_off", "type": "image", "image": "bulb", "size": [80, 80], "x": 440, "y": 170, "anchor": "center",
+      "tint": "#2A2E36"
+    },
+    {
+      "name": "big_glow", "type": "group", "blend": "add",
+      "children": [
+        {
+          "name": "big_glow_image", "type": "image", "image": "white_glow", "size": [150, 150], "x": 440, "y": 160,
+          "anchor": "center", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "power",
+              "transition": {"model": "incandescent", "kelvin": 2900, "heating": 0.03, "cooling": 0.25}
+            },
+            {
+              "property": "tint", "variable": "power",
+              "transition": {"model": "incandescent", "kelvin": 2900, "heating": 0.03, "cooling": 0.25}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "big_on", "type": "image", "image": "bulb", "size": [80, 80], "x": 440, "y": 170, "anchor": "center",
+      "opacity": 0,
+      "bindings": [
+        {
+          "property": "opacity", "variable": "power",
+          "transition": {"model": "incandescent", "kelvin": 2900, "heating": 0.03, "cooling": 0.25}
+        },
+        {
+          "property": "tint", "variable": "power",
+          "transition": {"model": "incandescent", "kelvin": 2900, "heating": 0.03, "cooling": 0.25}
+        }
+      ]
+    },
+    {
+      "name": "label_big", "type": "digits", "digits": 8, "size": [81, 14], "x": 400, "y": 232, "text": "BIG BULB",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_big", "type": "digits", "digits": 10, "size": [86, 12], "x": 397, "y": 254, "text": "2900K SLOW",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "small_off", "type": "image", "image": "bulb", "size": [80, 80], "x": 560, "y": 170, "anchor": "center",
+      "tint": "#2A2E36"
+    },
+    {
+      "name": "small_glow", "type": "group", "blend": "add",
+      "children": [
+        {
+          "name": "small_glow_image", "type": "image", "image": "white_glow", "size": [150, 150], "x": 560, "y": 160,
+          "anchor": "center", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "power",
+              "transition": {"model": "incandescent", "kelvin": 2300, "heating": 0.004, "cooling": 0.03}
+            },
+            {
+              "property": "tint", "variable": "power",
+              "transition": {"model": "incandescent", "kelvin": 2300, "heating": 0.004, "cooling": 0.03}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "small_on", "type": "image", "image": "bulb", "size": [80, 80], "x": 560, "y": 170, "anchor": "center",
+      "opacity": 0,
+      "bindings": [
+        {
+          "property": "opacity", "variable": "power",
+          "transition": {"model": "incandescent", "kelvin": 2300, "heating": 0.004, "cooling": 0.03}
+        },
+        {
+          "property": "tint", "variable": "power",
+          "transition": {"model": "incandescent", "kelvin": 2300, "heating": 0.004, "cooling": 0.03}
+        }
+      ]
+    },
+    {
+      "name": "label_small", "type": "digits", "digits": 10, "size": [101, 14], "x": 510, "y": 232, "text": "SMALL BULB",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "note_small", "type": "digits", "digits": 11, "size": [95, 12], "x": 513, "y": 254, "text": "2300K QUICK",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "phase", "type": "digits", "digits": 22, "size": [222, 14], "x": 24, "y": 316, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+      "bindings": [{"property": "text", "variable": "phase"}]
+    }
+  ]
+}
