@@ -184,7 +184,7 @@
     {
       "name": "now", "type": "group", "x": 60, "y": 150,
       "children": [
-        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 376 A 24 24 0 0 1 536 400 H 24 A 24 24 0 0 1 0 376 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 560, 400], "radius": 24}, "fill": "#0F172AA6"},
         {
           "name": "icon", "type": "group", "x": 40, "y": 40,
           "children": [
@@ -370,7 +370,7 @@
     {
       "name": "forecast", "type": "group", "x": 660, "y": 150,
       "children": [
-        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 186 A 24 24 0 0 1 536 210 H 24 A 24 24 0 0 1 0 186 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 560, 210], "radius": 24}, "fill": "#0F172AA6"},
         {"name": "title", "type": "text", "text": "5-DAY FORECAST", "font": "label", "x": 24, "y": 16, "size": [300, 22], "align": "left"},
         {
           "name": "day_0", "type": "group", "x": 24, "y": 46,
@@ -452,7 +452,7 @@
     {
       "name": "hourly", "type": "group", "x": 660, "y": 380,
       "children": [
-        {"name": "card", "type": "shape", "shape": {"path": "M 24 0 H 536 A 24 24 0 0 1 560 24 V 146 A 24 24 0 0 1 536 170 H 24 A 24 24 0 0 1 0 146 V 24 A 24 24 0 0 1 24 0 Z"}, "fill": "#0F172AA6"},
+        {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 560, 170], "radius": 24}, "fill": "#0F172AA6"},
         {"name": "title", "type": "text", "text": "NEXT HOURS", "font": "label", "x": 24, "y": 14, "size": [300, 22], "align": "left"},
         {
           "name": "bar_0", "type": "group", "x": 30, "y": 46, "clip": {"rect": [0, 0, 40, 84]},

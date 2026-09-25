@@ -287,11 +287,7 @@ def circle(name, x, y, radius, fill, **extra):
 
 
 def rounded_rect(w, h, rad):
-    return (
-        f"M {rad} 0 H {w - rad} A {rad} {rad} 0 0 1 {w} {rad} V {h - rad} "
-        f"A {rad} {rad} 0 0 1 {w - rad} {h} H {rad} A {rad} {rad} 0 0 1 0 {h - rad} "
-        f"V {rad} A {rad} {rad} 0 0 1 {rad} 0 Z"
-    )
+    return {"rect": [0, 0, w, h], "radius": rad}
 
 
 def limb(angle_deg, radius=SUN_R):
@@ -466,7 +462,7 @@ def sky():
         })
     return {
         "name": "sky", "type": "group", "x": SKY_X, "y": SKY_Y,
-        "clip": {"path": rounded_rect(SKY_W, SKY_H, 14)},
+        "clip": rounded_rect(SKY_W, SKY_H, 14),
         "children": [
             {"name": "sky_day", "type": "shape", "shape": {"rect": [0, 0, SKY_W, SKY_H]},
              "fill": vertical(SKY_H, (0, "#4F8FCC"), (0.6, "#8DBDE6"), (1, "#CFE4F2"))},
@@ -622,7 +618,7 @@ def captions():
 
 
 def show():
-    frame = {"name": "frame", "type": "shape", "x": SKY_X, "y": SKY_Y, "shape": {"path": rounded_rect(SKY_W, SKY_H, 14)},
+    frame = {"name": "frame", "type": "shape", "x": SKY_X, "y": SKY_Y, "shape": rounded_rect(SKY_W, SKY_H, 14),
              "fill": "#00000000", "stroke": {"color": INK, "width": 2}}
     scene_layers = [
         text("title", 46, 26, "title", "A total solar eclipse"),
