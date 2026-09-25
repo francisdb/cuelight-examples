@@ -77,7 +77,8 @@
         { "path": "features/timelines/trigger_lists", "title": "Trigger lists", "description": "A timeline listening to several triggers: turn signals that also blink together as hazard lights.", "thumbnail_at": 7.1 },
         { "path": "features/timelines/precedence", "title": "Precedence", "description": "A running timeline beats a binding, a binding beats the base value.", "thumbnail_at": 2.2 },
         { "path": "features/timelines/hold", "title": "Hold", "description": "A fade that falls back when it ends next to one that holds its last value, a flash that plays over a held panel and hands it back to the held value, and a fade in and a later fade out, both held, where the later one wins.", "thumbnail_at": 3.6 },
-        { "path": "features/timelines/values", "title": "Values", "description": "Values the show animates itself and bindings read: one looping value scaling a ball and a bar together, a value played in stretches chained by on_end and read by a needle and a number, and one a host takes over by setting a variable of the same name.", "thumbnail_at": 2.8 }
+        { "path": "features/timelines/values", "title": "Values", "description": "Values the show animates itself and bindings read: one looping value scaling a ball and a bar together, a value played in stretches chained by on_end and read by a needle and a number, and one a host takes over by setting a variable of the same name.", "thumbnail_at": 2.8 },
+        { "path": "features/timelines/when_while", "title": "When and while", "description": "Rules started by a variable instead of a trigger, with the lamp and mode they watch shown above them: flash when the lamp turns on, blink while it is on, flash on the lamp or a test trigger, flash when the mode becomes bonus. The lamp is remembered across scenes: coming back with it still on restarts only the blink, coming back after it turned on while away fires the flashes too.", "thumbnail_at": 3.3 }
       ]
     },
     {
