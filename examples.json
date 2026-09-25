@@ -9,6 +9,12 @@
         { "path": "checkerboard", "title": "Checkerboard", "description": "A board that turns and breathes behind a chess piece that does not: two copies of one checkerboard rotating against each other, scaled by the host, with the piece and its squashed shadow standing still in front.", "thumbnail_at": 14 },
         { "path": "departure_board", "title": "Departure board", "description": "An airport departure board made of segment displays, with no assets at all.", "thumbnail_at": 12 },
         {
+          "path": "deck",
+          "title": "Deck",
+          "description": "A slide deck about cuelight, made in cuelight: where it fits, describing instead of programming, same inputs giving the same frames, scrubbing, rendering to video and events driving motion, each shown live on its slide.",
+          "thumbnail_at": 3.0
+        },
+        {
           "path": "dragon",
           "title": "Dragon",
           "description": "A solid-state pinball backglass of around 1980: Hokusai's Dragon fills the glass, scores on 7-segment displays in windows cut into it, and lamps behind the glass lighting the dragon's eyes, head, claws and tail and the words painted on it.",

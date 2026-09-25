@@ -1,0 +1,4291 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "deck",
+  "size": [1280, 720],
+  "background": "#F4EFE6",
+  "fonts": {
+    "hero": {"file": "ArchivoBlack-Regular", "size": 140, "color": "#1C1B22"},
+    "hero_light": {"file": "ArchivoBlack-Regular", "size": 140, "color": "#FFB000"},
+    "h1": {"file": "ArchivoBlack-Regular", "size": 52, "color": "#1C1B22"},
+    "h2": {"file": "ArchivoBlack-Regular", "size": 28, "color": "#1C1B22"},
+    "end": {"file": "ArchivoBlack-Regular", "size": 96, "color": "#1C1B22"},
+    "readout": {"file": "ArchivoBlack-Regular", "size": 60, "color": "#1C1B22"},
+    "jackpot": {"file": "ArchivoBlack-Regular", "size": 44, "color": "#FF5A3C", "border": {"color": "#1C1B22", "width": 3}},
+    "lead": {"file": "AtkinsonHyperlegible-Regular", "size": 30, "color": "#4A4740"},
+    "claim": {"file": "AtkinsonHyperlegible-Bold", "size": 42, "color": "#4A4740"},
+    "body": {"file": "AtkinsonHyperlegible-Regular", "size": 25, "color": "#1C1B22"},
+    "body_bold": {"file": "AtkinsonHyperlegible-Bold", "size": 25, "color": "#1C1B22"},
+    "small": {"file": "AtkinsonHyperlegible-Regular", "size": 19, "color": "#8A857C"},
+    "label": {"file": "AtkinsonHyperlegible-Bold", "size": 19, "color": "#1C1B22"},
+    "brand": {"file": "AtkinsonHyperlegible-Bold", "size": 19, "color": "#8A857C"},
+    "brand_light": {"file": "AtkinsonHyperlegible-Bold", "size": 19, "color": "#FFB000"},
+    "label_paper": {"file": "AtkinsonHyperlegible-Bold", "size": 19, "color": "#F4EFE6"},
+    "tag": {"file": "AtkinsonHyperlegible-Bold", "size": 15, "color": "#8A857C"},
+    "chip": {"file": "DMMono-Medium", "size": 19, "color": "#1C1B22"},
+    "chip_paper": {"file": "DMMono-Medium", "size": 19, "color": "#F4EFE6"},
+    "equation": {"file": "DMMono-Medium", "size": 36, "color": "#1C1B22"},
+    "mono_small": {"file": "DMMono-Regular", "size": 15, "color": "#8A857C"},
+    "link": {"file": "DMMono-Medium", "size": 30, "color": "#1C1B22"}
+  },
+  "variables": {"credits": 0},
+  "values": {
+    "fuel": {
+      "timelines": [
+        {
+          "name": "host",
+          "trigger": "slide_3",
+          "loop": true,
+          "keys": [
+            {"t": 0, "v": 72},
+            {"t": 2.2, "v": 34, "ease": "step"},
+            {"t": 4.4, "v": 91, "ease": "step"},
+            {"t": 6.6, "v": 58, "ease": "step"},
+            {"t": 8.8, "v": 72, "ease": "step"}
+          ]
+        }
+      ]
+    },
+    "probe_t": {
+      "timelines": [
+        {
+          "name": "jump",
+          "trigger": "slide_4",
+          "loop": true,
+          "keys": [
+            {"t": 0, "v": 0.6},
+            {"t": 1.6, "v": 2.8, "ease": "step"},
+            {"t": 3.2, "v": 1.4, "ease": "step"},
+            {"t": 4.8, "v": 2.8, "ease": "step"},
+            {"t": 6.4, "v": 3.6, "ease": "step"},
+            {"t": 8, "v": 0.6, "ease": "step"}
+          ]
+        }
+      ]
+    },
+    "snap_t": {
+      "timelines": [
+        {
+          "name": "keep",
+          "trigger": "slide_4",
+          "hold": true,
+          "keys": [{"t": 0, "v": -1}, {"t": 1.6, "v": 2.8, "ease": "step"}]
+        }
+      ]
+    },
+    "scrub": {
+      "timelines": [
+        {
+          "name": "drag",
+          "trigger": "slide_5",
+          "loop": true,
+          "keys": [
+            {"t": 0, "v": 0},
+            {"t": 4, "v": 4, "ease": "linear"},
+            {"t": 4.9, "v": 1.2, "ease": "quad_in_out"},
+            {"t": 6.9, "v": 2.6, "ease": "quad_in_out"},
+            {"t": 7.5, "v": 0.5, "ease": "quad_in_out"},
+            {"t": 8.1, "v": 0.5, "ease": "linear"},
+            {"t": 11.6, "v": 4, "ease": "linear"},
+            {"t": 14, "v": 4, "ease": "linear"}
+          ]
+        }
+      ]
+    },
+    "scrub_mode": {
+      "timelines": [
+        {
+          "name": "mode",
+          "trigger": "slide_5",
+          "loop": true,
+          "keys": [{"t": 0, "v": 0}, {"t": 4, "v": 1, "ease": "step"}, {"t": 8.1, "v": 0, "ease": "step"}, {"t": 14, "v": 0}]
+        }
+      ]
+    }
+  },
+  "layers": [
+    {
+      "name": "slide_sound",
+      "type": "audio",
+      "sound": "slide",
+      "gain": 0.6,
+      "trigger": ["slide_1", "slide_2", "slide_3", "slide_4", "slide_5", "slide_6", "slide_7", "slide_8", "slide_9"]
+    },
+    {
+      "name": "brand",
+      "type": "group",
+      "x": 80,
+      "y": 686,
+      "children": [
+        {"name": "cue", "type": "text", "text": "cue", "font": "brand", "anchor": "left"},
+        {"name": "light", "type": "text", "text": "light", "font": "brand_light", "x": 31.5, "anchor": "left"}
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "slide_1",
+      "trigger": "slide_1",
+      "layers": [
+        {
+          "name": "title_circle_holder",
+          "type": "group",
+          "x": 1010,
+          "y": 250,
+          "children": [
+            {
+              "name": "title_circle",
+              "type": "shape",
+              "shape": {"circle": [0, 0, 92]},
+              "fill": "#FF5A3C",
+              "timelines": [
+                {
+                  "name": "idle_y",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.2,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 1.7, "v": -18, "ease": "quad_in_out"},
+                        {"t": 3.4, "v": 0, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "title_square_holder",
+          "type": "group",
+          "x": 870,
+          "y": 430,
+          "children": [
+            {
+              "name": "title_square",
+              "type": "shape",
+              "shape": {"rect": [-75, -75, 150, 150], "radius": 18},
+              "fill": "#2D5BFF",
+              "timelines": [
+                {
+                  "name": "idle_rotation",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.35,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -8},
+                        {"t": 2.6, "v": 8, "ease": "quad_in_out"},
+                        {"t": 5.2, "v": -8, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.35,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "title_triangle_holder",
+          "type": "group",
+          "x": 1110,
+          "y": 470,
+          "children": [
+            {
+              "name": "title_triangle",
+              "type": "shape",
+              "shape": {"path": "M 0 -84 L 80 58 L -80 58 Z"},
+              "fill": "#FFC21A",
+              "timelines": [
+                {
+                  "name": "idle_rotation",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.5,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 4},
+                        {"t": 2.2, "v": -6, "ease": "quad_in_out"},
+                        {"t": 4.4, "v": 4, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.5,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "title_pill_holder",
+          "type": "group",
+          "x": 1000,
+          "y": 600,
+          "children": [
+            {
+              "name": "title_pill",
+              "type": "shape",
+              "shape": {"rect": [-105, -28, 210, 56], "radius": 28},
+              "fill": "#1FBF8F",
+              "timelines": [
+                {
+                  "name": "idle_x",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.65,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 1.9, "v": 24, "ease": "quad_in_out"},
+                        {"t": 3.8, "v": 0, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.65,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "type": "group",
+          "x": 74,
+          "y": 190,
+          "children": [
+            {"name": "cue", "type": "text", "text": "cue", "font": "hero"},
+            {"name": "light", "type": "text", "text": "light", "font": "hero_light", "x": 280.1}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 212}, {"t": 0.55, "v": 190, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "claim",
+          "type": "text",
+          "text": "Motion you write down.",
+          "font": "claim",
+          "x": 80,
+          "y": 360,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.35,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 382}, {"t": 0.55, "v": 360, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pitch_0",
+          "type": "text",
+          "text": "A small engine for screens that react to a program:",
+          "font": "body",
+          "x": 80,
+          "y": 440,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.6,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 462}, {"t": 0.55, "v": 440, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "pitch_1",
+          "type": "text",
+          "text": "explainers, game HUDs, overlays, backglasses.",
+          "font": "body",
+          "x": 80,
+          "y": 476,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.72,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 498}, {"t": 0.55, "v": 476, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "hint",
+          "type": "group",
+          "x": 80,
+          "y": 620,
+          "children": [
+            {
+              "name": "key",
+              "type": "group",
+              "children": [
+                {
+                  "name": "pill",
+                  "type": "shape",
+                  "y": -17,
+                  "shape": {"rect": [0, 0, 73.6, 34], "radius": 17},
+                  "fill": "#1C1B22"
+                },
+                {"name": "words", "type": "text", "text": "next", "font": "chip_paper", "x": 14, "anchor": "left"}
+              ]
+            },
+            {
+              "name": "arrow",
+              "type": "shape",
+              "x": 76,
+              "shape": {"path": "M 0 -2.4 L 11.0 -2.4 L 11.0 -9.0 L 20 0 L 11.0 9.0 L 11.0 2.4 L 0 2.4 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "This deck is a cuelight show.",
+              "font": "small",
+              "x": 112,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 642}, {"t": 0.55, "v": 620, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#FF5A3C",
+          "scale_x": 0.111,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.6, "v": 0.111, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "01 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_2",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_2",
+      "trigger": "slide_2",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Where it fits",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#2D5BFF",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "subtitle",
+          "type": "text",
+          "text": "Wherever a program knows what is happening and a screen should show it.",
+          "font": "lead",
+          "x": 80,
+          "y": 158,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.15,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 180}, {"t": 0.55, "v": 158, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_game_hud",
+          "type": "group",
+          "x": 80,
+          "y": 212,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "game_hud",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 189]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Game HUDs",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 234}, {"t": 0.55, "v": 212, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_streamer_overlay",
+          "type": "group",
+          "x": 464,
+          "y": 212,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "streamer_overlay",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 189]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Stream overlays",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.42,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 234}, {"t": 0.55, "v": 212, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_boardwalk",
+          "type": "group",
+          "x": 848,
+          "y": 212,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "boardwalk",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 252]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FFC21A"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Pinball backglasses",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.54,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 234}, {"t": 0.55, "v": 212, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_eclipse",
+          "type": "group",
+          "x": 80,
+          "y": 444,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "eclipse",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 189]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Explainers",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.66,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 466}, {"t": 0.55, "v": 444, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_weather_dashboard",
+          "type": "group",
+          "x": 464,
+          "y": 444,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "weather_dashboard",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 189]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Kiosks and dashboards",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.78,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 466}, {"t": 0.55, "v": 444, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "card_red_riding_hood",
+          "type": "group",
+          "x": 848,
+          "y": 444,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 214], "radius": 14}, "fill": "#FFFFFF"},
+            {
+              "name": "window",
+              "type": "group",
+              "x": 8,
+              "y": 8,
+              "children": [
+                {
+                  "name": "shot",
+                  "type": "image",
+                  "image": "red_riding_hood",
+                  "x": 168,
+                  "y": 86,
+                  "anchor": "center",
+                  "size": [336, 189]
+                }
+              ],
+              "clip": {"rect": [0, 0, 336, 172], "radius": 9}
+            },
+            {
+              "name": "mark",
+              "type": "shape",
+              "x": 20,
+              "y": 197,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {
+              "name": "label",
+              "type": "text",
+              "text": "Picture books",
+              "font": "label",
+              "x": 34,
+              "y": 197,
+              "anchor": "left"
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.9,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 466}, {"t": 0.55, "v": 444, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#2D5BFF",
+          "scale_x": 0.222,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.111}, {"t": 0.6, "v": 0.222, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "02 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_3",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_1",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_3",
+      "trigger": "slide_3",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Describe it. Don't program it.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#1FBF8F",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "panel",
+          "type": "shape",
+          "x": 80,
+          "y": 180,
+          "shape": {"rect": [0, 0, 600, 453], "radius": 16},
+          "fill": "#1C1B22",
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 202}, {"t": 0.55, "v": 180, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_0",
+          "type": "group",
+          "x": 106,
+          "y": 194,
+          "children": [{"name": "code", "type": "vector", "vector": "code_00"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.35,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 204}, {"t": 0.55, "v": 194, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_1",
+          "type": "group",
+          "x": 106,
+          "y": 219,
+          "children": [{"name": "code", "type": "vector", "vector": "code_01"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.41,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 229}, {"t": 0.55, "v": 219, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_2",
+          "type": "group",
+          "x": 106,
+          "y": 244,
+          "children": [{"name": "code", "type": "vector", "vector": "code_02"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.47,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 254}, {"t": 0.55, "v": 244, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_3",
+          "type": "group",
+          "x": 106,
+          "y": 269,
+          "children": [{"name": "code", "type": "vector", "vector": "code_03"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.53,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 279}, {"t": 0.55, "v": 269, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_4",
+          "type": "group",
+          "x": 106,
+          "y": 294,
+          "children": [{"name": "code", "type": "vector", "vector": "code_04"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.59,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 304}, {"t": 0.55, "v": 294, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_5",
+          "type": "group",
+          "x": 106,
+          "y": 319,
+          "children": [{"name": "code", "type": "vector", "vector": "code_05"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.65,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 329}, {"t": 0.55, "v": 319, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_6",
+          "type": "group",
+          "x": 106,
+          "y": 344,
+          "children": [{"name": "code", "type": "vector", "vector": "code_06"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.71,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 354}, {"t": 0.55, "v": 344, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_7",
+          "type": "group",
+          "x": 106,
+          "y": 369,
+          "children": [{"name": "code", "type": "vector", "vector": "code_07"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.77,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 379}, {"t": 0.55, "v": 369, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_8",
+          "type": "group",
+          "x": 106,
+          "y": 394,
+          "children": [{"name": "code", "type": "vector", "vector": "code_08"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.83,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 404}, {"t": 0.55, "v": 394, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_9",
+          "type": "group",
+          "x": 106,
+          "y": 419,
+          "children": [{"name": "code", "type": "vector", "vector": "code_09"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.89,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 429}, {"t": 0.55, "v": 419, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_10",
+          "type": "group",
+          "x": 106,
+          "y": 444,
+          "children": [{"name": "code", "type": "vector", "vector": "code_10"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.95,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 454}, {"t": 0.55, "v": 444, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_11",
+          "type": "group",
+          "x": 106,
+          "y": 469,
+          "children": [{"name": "code", "type": "vector", "vector": "code_11"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.01,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 479}, {"t": 0.55, "v": 469, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_12",
+          "type": "group",
+          "x": 106,
+          "y": 494,
+          "children": [{"name": "code", "type": "vector", "vector": "code_12"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.07,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 504}, {"t": 0.55, "v": 494, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_13",
+          "type": "group",
+          "x": 106,
+          "y": 519,
+          "children": [{"name": "code", "type": "vector", "vector": "code_13"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.13,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 529}, {"t": 0.55, "v": 519, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_14",
+          "type": "group",
+          "x": 106,
+          "y": 544,
+          "children": [{"name": "code", "type": "vector", "vector": "code_14"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.19,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 554}, {"t": 0.55, "v": 544, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_15",
+          "type": "group",
+          "x": 106,
+          "y": 569,
+          "children": [{"name": "code", "type": "vector", "vector": "code_15"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.25,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 579}, {"t": 0.55, "v": 569, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fuel_code_16",
+          "type": "group",
+          "x": 106,
+          "y": 594,
+          "children": [{"name": "code", "type": "vector", "vector": "code_16"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.31,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 604}, {"t": 0.55, "v": 594, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "gauge",
+          "type": "group",
+          "x": 736,
+          "y": 270,
+          "children": [
+            {"name": "label", "type": "text", "text": "FUEL", "font": "tag"},
+            {
+              "name": "readout",
+              "type": "text",
+              "text": "",
+              "font": "readout",
+              "x": 440,
+              "y": -20,
+              "anchor": "top_right",
+              "bindings": [
+                {
+                  "property": "text",
+                  "variable": "fuel",
+                  "decimals": 0,
+                  "suffix": "%",
+                  "transition": {"duration": 0.5}
+                }
+              ]
+            },
+            {
+              "name": "track",
+              "type": "group",
+              "y": 60,
+              "children": [
+                {"name": "track", "type": "shape", "shape": {"rect": [0, 0, 440, 40]}, "fill": "#DDD6C8"},
+                {
+                  "name": "fuel",
+                  "type": "shape",
+                  "shape": {"rect": [0, 0, 440, 40]},
+                  "fill": "#1FBF8F",
+                  "bindings": [
+                    {
+                      "property": "scale_x",
+                      "variable": "fuel",
+                      "scale": 0.01,
+                      "transition": {"duration": 0.5, "ease": "back_out"}
+                    }
+                  ]
+                }
+              ],
+              "clip": {"rect": [0, 0, 440, 40], "radius": 20}
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.5,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 292}, {"t": 0.55, "v": 270, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "host",
+          "type": "group",
+          "x": 736,
+          "y": 424,
+          "children": [
+            {
+              "name": "pill",
+              "type": "shape",
+              "y": -17,
+              "shape": {"rect": [0, 0, 130.6, 34], "radius": 17},
+              "fill": "#FFC21A"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "fuel = 72",
+              "font": "chip",
+              "x": 14,
+              "anchor": "left",
+              "bindings": [{"property": "text", "variable": "fuel", "decimals": 0, "prefix": "fuel = "}]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.7,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 446}, {"t": 0.55, "v": 424, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "host_note",
+          "type": "text",
+          "text": "The host sets one number. The show does the rest.",
+          "font": "small",
+          "x": 736,
+          "y": 456,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.8,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 478}, {"t": 0.55, "v": 456, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_0",
+          "type": "group",
+          "x": 736,
+          "y": 510,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {"name": "words", "type": "text", "text": "No draw loop and no callbacks.", "font": "body", "x": 28}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 532}, {"t": 0.55, "v": 510, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_1",
+          "type": "group",
+          "x": 736,
+          "y": 552,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {"name": "words", "type": "text", "text": "One file to edit, diff and review.", "font": "body", "x": 28}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.15,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 574}, {"t": 0.55, "v": 552, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_2",
+          "type": "group",
+          "x": 736,
+          "y": 594,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Tools can write it too. It is only JSON.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 616}, {"t": 0.55, "v": 594, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#1FBF8F",
+          "scale_x": 0.333,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.222}, {"t": 0.6, "v": 0.333, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "03 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_4",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_2",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_4",
+      "trigger": "slide_4",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Same inputs, same frames.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#FF5A3C",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "equation",
+          "type": "text",
+          "text": "frame = show(inputs, t)",
+          "font": "equation",
+          "x": 80,
+          "y": 196,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.25,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "probe_ruler",
+          "type": "group",
+          "x": 90,
+          "y": 300,
+          "children": [
+            {"name": "line", "type": "shape", "shape": {"rect": [0, 0, 520, 3]}, "fill": "#1C1B22"},
+            {"name": "tick_0", "type": "shape", "x": -1, "y": -8, "shape": {"rect": [0, 0, 2, 16]}, "fill": "#1C1B22"},
+            {"name": "label_0", "type": "text", "text": "0s", "font": "mono_small", "y": 18, "anchor": "top"},
+            {
+              "name": "tick_1",
+              "type": "shape",
+              "x": 129,
+              "y": -8,
+              "shape": {"rect": [0, 0, 2, 16]},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "label_1",
+              "type": "text",
+              "text": "1s",
+              "font": "mono_small",
+              "x": 130,
+              "y": 18,
+              "anchor": "top"
+            },
+            {
+              "name": "tick_2",
+              "type": "shape",
+              "x": 259,
+              "y": -8,
+              "shape": {"rect": [0, 0, 2, 16]},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "label_2",
+              "type": "text",
+              "text": "2s",
+              "font": "mono_small",
+              "x": 260,
+              "y": 18,
+              "anchor": "top"
+            },
+            {
+              "name": "tick_3",
+              "type": "shape",
+              "x": 389,
+              "y": -8,
+              "shape": {"rect": [0, 0, 2, 16]},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "label_3",
+              "type": "text",
+              "text": "3s",
+              "font": "mono_small",
+              "x": 390,
+              "y": 18,
+              "anchor": "top"
+            },
+            {
+              "name": "tick_4",
+              "type": "shape",
+              "x": 519,
+              "y": -8,
+              "shape": {"rect": [0, 0, 2, 16]},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "label_4",
+              "type": "text",
+              "text": "4s",
+              "font": "mono_small",
+              "x": 520,
+              "y": 18,
+              "anchor": "top"
+            },
+            {
+              "name": "marker",
+              "type": "group",
+              "children": [
+                {
+                  "name": "head",
+                  "type": "shape",
+                  "y": -12,
+                  "shape": {"path": "M -9 -14 L 9 -14 L 0 0 Z"},
+                  "fill": "#FF5A3C"
+                },
+                {
+                  "name": "stem",
+                  "type": "shape",
+                  "x": -1.5,
+                  "y": -12,
+                  "shape": {"rect": [0, 0, 3, 24]},
+                  "fill": "#FF5A3C"
+                }
+              ],
+              "bindings": [{"property": "x", "variable": "probe_t", "scale": 130}]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.4,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 322}, {"t": 0.55, "v": 300, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "probe_readout",
+          "type": "text",
+          "text": "",
+          "font": "chip",
+          "x": 90,
+          "y": 346,
+          "bindings": [{"property": "text", "variable": "probe_t", "decimals": 1, "prefix": "t = ", "suffix": " s"}],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.45,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 368}, {"t": 0.55, "v": 346, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_0",
+          "type": "group",
+          "x": 80,
+          "y": 420,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Time is an input like any other: nothing reads the clock.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.8,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 442}, {"t": 0.55, "v": 420, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_1",
+          "type": "group",
+          "x": 80,
+          "y": 466,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Random picks count plays, so every run picks alike.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.95,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 488}, {"t": 0.55, "v": 466, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_2",
+          "type": "group",
+          "x": 80,
+          "y": 512,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Screenshot tests that do not flake, replays that match.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 534}, {"t": 0.55, "v": 512, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "footnote",
+          "type": "text",
+          "text": "Across GPUs a pixel may differ by one level; the engine's state never does.",
+          "font": "small",
+          "x": 80,
+          "y": 584,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 606}, {"t": 0.55, "v": 584, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "live",
+          "type": "group",
+          "x": 780,
+          "y": 186,
+          "children": [
+            {"name": "tag", "type": "text", "text": "LIVE, AT t", "font": "tag"},
+            {
+              "name": "scene",
+              "type": "group",
+              "y": 26,
+              "children": [
+                {
+                  "name": "stage",
+                  "type": "shape",
+                  "shape": {"rect": [0, 0, 380, 190], "radius": 14},
+                  "fill": "#FFFFFF"
+                },
+                {"name": "floor", "type": "shape", "y": 172, "shape": {"rect": [0, 0, 380, 3]}, "fill": "#DDD6C8"},
+                {
+                  "name": "spinner",
+                  "type": "shape",
+                  "x": 326.8,
+                  "y": 57,
+                  "shape": {"rect": [-20.9, -20.9, 41.8, 41.8], "radius": 6},
+                  "fill": "#FFC21A",
+                  "bindings": [{"property": "rotation", "variable": "probe_t", "curve": [{"t": 0, "v": 0}, {"t": 4, "v": 360}]}]
+                },
+                {
+                  "name": "shadow",
+                  "type": "shape",
+                  "shape": {"rect": [-19, -4, 38, 8], "radius": 4},
+                  "fill": "#1C1B2233",
+                  "y": 173,
+                  "bindings": [
+                    {"property": "x", "variable": "probe_t", "curve": [{"t": 0, "v": 38}, {"t": 4, "v": 296.4}]},
+                    {
+                      "property": "scale",
+                      "variable": "probe_t",
+                      "curve": [
+                        {"t": 0, "v": 1},
+                        {"t": 0.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 1, "v": 1, "ease": "quad_in"},
+                        {"t": 1.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 2, "v": 1, "ease": "quad_in"},
+                        {"t": 2.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 3, "v": 1, "ease": "quad_in"},
+                        {"t": 3.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 4, "v": 1, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ball",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 19]},
+                  "fill": "#FF5A3C",
+                  "bindings": [
+                    {"property": "x", "variable": "probe_t", "curve": [{"t": 0, "v": 38}, {"t": 4, "v": 296.4}]},
+                    {
+                      "property": "y",
+                      "variable": "probe_t",
+                      "curve": [
+                        {"t": 0, "v": 153},
+                        {"t": 0.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 1, "v": 153, "ease": "quad_in"},
+                        {"t": 1.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 2, "v": 153, "ease": "quad_in"},
+                        {"t": 2.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 3, "v": 153, "ease": "quad_in"},
+                        {"t": 3.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 4, "v": 153, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "clip": {"rect": [0, 0, 380, 190], "radius": 14}
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.5,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 208}, {"t": 0.55, "v": 186, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "kept",
+          "type": "group",
+          "x": 780,
+          "y": 430,
+          "children": [
+            {"name": "tag", "type": "text", "text": "KEPT AT t = 2.8 s", "font": "tag"},
+            {
+              "name": "scene",
+              "type": "group",
+              "y": 26,
+              "children": [
+                {
+                  "name": "stage",
+                  "type": "shape",
+                  "shape": {"rect": [0, 0, 380, 190], "radius": 14},
+                  "fill": "#FFFFFF"
+                },
+                {"name": "floor", "type": "shape", "y": 172, "shape": {"rect": [0, 0, 380, 3]}, "fill": "#DDD6C8"},
+                {
+                  "name": "spinner",
+                  "type": "shape",
+                  "x": 326.8,
+                  "y": 57,
+                  "shape": {"rect": [-20.9, -20.9, 41.8, 41.8], "radius": 6},
+                  "fill": "#FFC21A",
+                  "bindings": [{"property": "rotation", "variable": "snap_t", "curve": [{"t": 0, "v": 0}, {"t": 4, "v": 360}]}]
+                },
+                {
+                  "name": "shadow",
+                  "type": "shape",
+                  "shape": {"rect": [-19, -4, 38, 8], "radius": 4},
+                  "fill": "#1C1B2233",
+                  "y": 173,
+                  "bindings": [
+                    {"property": "x", "variable": "snap_t", "curve": [{"t": 0, "v": 38}, {"t": 4, "v": 296.4}]},
+                    {
+                      "property": "scale",
+                      "variable": "snap_t",
+                      "curve": [
+                        {"t": 0, "v": 1},
+                        {"t": 0.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 1, "v": 1, "ease": "quad_in"},
+                        {"t": 1.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 2, "v": 1, "ease": "quad_in"},
+                        {"t": 2.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 3, "v": 1, "ease": "quad_in"},
+                        {"t": 3.5, "v": 0.45, "ease": "quad_out"},
+                        {"t": 4, "v": 1, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ball",
+                  "type": "shape",
+                  "shape": {"circle": [0, 0, 19]},
+                  "fill": "#FF5A3C",
+                  "bindings": [
+                    {"property": "x", "variable": "snap_t", "curve": [{"t": 0, "v": 38}, {"t": 4, "v": 296.4}]},
+                    {
+                      "property": "y",
+                      "variable": "snap_t",
+                      "curve": [
+                        {"t": 0, "v": 153},
+                        {"t": 0.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 1, "v": 153, "ease": "quad_in"},
+                        {"t": 1.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 2, "v": 153, "ease": "quad_in"},
+                        {"t": 2.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 3, "v": 153, "ease": "quad_in"},
+                        {"t": 3.5, "v": 53.2, "ease": "quad_out"},
+                        {"t": 4, "v": 153, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "clip": {"rect": [0, 0, 380, 190], "radius": 14},
+              "bindings": [{"property": "visible", "variable": "snap_t", "threshold": 0}]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.6,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 452}, {"t": 0.55, "v": 430, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "same",
+          "type": "group",
+          "x": 230,
+          "y": 358,
+          "children": [
+            {
+              "name": "badge",
+              "type": "group",
+              "children": [
+                {
+                  "name": "pill",
+                  "type": "shape",
+                  "y": -17,
+                  "shape": {"rect": [0, 0, 233.2, 34], "radius": 17},
+                  "fill": "#1FBF8F"
+                },
+                {
+                  "name": "words",
+                  "type": "text",
+                  "text": "same t, same frame",
+                  "font": "chip",
+                  "x": 14,
+                  "anchor": "left"
+                }
+              ]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "flash",
+              "trigger": "slide_4",
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "opacity",
+                  "keys": [
+                    {"t": 0, "v": 0},
+                    {"t": 4.8, "v": 0, "ease": "step"},
+                    {"t": 5, "v": 1, "ease": "quad_out"},
+                    {"t": 6.2, "v": 1},
+                    {"t": 6.4, "v": 0, "ease": "quad_in"},
+                    {"t": 8, "v": 0}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#FF5A3C",
+          "scale_x": 0.444,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.333}, {"t": 0.6, "v": 0.444, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "04 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_5",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_3",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_5",
+      "trigger": "slide_5",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Play it live. Scrub it like video.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#FFC21A",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "stage",
+          "type": "group",
+          "x": 200,
+          "y": 212,
+          "children": [
+            {"name": "stage", "type": "shape", "shape": {"rect": [0, 0, 880, 250], "radius": 14}, "fill": "#FFFFFF"},
+            {"name": "floor", "type": "shape", "y": 232, "shape": {"rect": [0, 0, 880, 3]}, "fill": "#DDD6C8"},
+            {
+              "name": "spinner",
+              "type": "shape",
+              "x": 756.8,
+              "y": 75,
+              "shape": {"rect": [-27.5, -27.5, 55, 55], "radius": 6},
+              "fill": "#FFC21A",
+              "bindings": [{"property": "rotation", "variable": "scrub", "curve": [{"t": 0, "v": 0}, {"t": 4, "v": 360}]}]
+            },
+            {
+              "name": "shadow",
+              "type": "shape",
+              "shape": {"rect": [-25, -4, 50, 8], "radius": 4},
+              "fill": "#1C1B2233",
+              "y": 233,
+              "bindings": [
+                {"property": "x", "variable": "scrub", "curve": [{"t": 0, "v": 88}, {"t": 4, "v": 686.4}]},
+                {
+                  "property": "scale",
+                  "variable": "scrub",
+                  "curve": [
+                    {"t": 0, "v": 1},
+                    {"t": 0.5, "v": 0.45, "ease": "quad_out"},
+                    {"t": 1, "v": 1, "ease": "quad_in"},
+                    {"t": 1.5, "v": 0.45, "ease": "quad_out"},
+                    {"t": 2, "v": 1, "ease": "quad_in"},
+                    {"t": 2.5, "v": 0.45, "ease": "quad_out"},
+                    {"t": 3, "v": 1, "ease": "quad_in"},
+                    {"t": 3.5, "v": 0.45, "ease": "quad_out"},
+                    {"t": 4, "v": 1, "ease": "quad_in"}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ball",
+              "type": "shape",
+              "shape": {"circle": [0, 0, 25]},
+              "fill": "#FF5A3C",
+              "bindings": [
+                {"property": "x", "variable": "scrub", "curve": [{"t": 0, "v": 88}, {"t": 4, "v": 686.4}]},
+                {
+                  "property": "y",
+                  "variable": "scrub",
+                  "curve": [
+                    {"t": 0, "v": 207},
+                    {"t": 0.5, "v": 70, "ease": "quad_out"},
+                    {"t": 1, "v": 207, "ease": "quad_in"},
+                    {"t": 1.5, "v": 70, "ease": "quad_out"},
+                    {"t": 2, "v": 207, "ease": "quad_in"},
+                    {"t": 2.5, "v": 70, "ease": "quad_out"},
+                    {"t": 3, "v": 207, "ease": "quad_in"},
+                    {"t": 3.5, "v": 70, "ease": "quad_out"},
+                    {"t": 4, "v": 207, "ease": "quad_in"}
+                  ]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [0, 0, 880, 250], "radius": 14},
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 234}, {"t": 0.55, "v": 212, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "timeline",
+          "type": "group",
+          "x": 200,
+          "y": 544,
+          "children": [
+            {
+              "name": "bar",
+              "type": "shape",
+              "y": -26,
+              "shape": {"rect": [0, 0, 880, 52], "radius": 12},
+              "fill": "#FFFFFF"
+            },
+            {"name": "line", "type": "shape", "x": 20, "y": -1, "shape": {"rect": [0, 0, 840, 2]}, "fill": "#DDD6C8"},
+            {
+              "name": "key_0",
+              "type": "shape",
+              "x": 20,
+              "shape": {"path": "M 0 -9 L 9 0 L 0 9 L -9 0 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "key_1",
+              "type": "shape",
+              "x": 230,
+              "shape": {"path": "M 0 -9 L 9 0 L 0 9 L -9 0 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "key_2",
+              "type": "shape",
+              "x": 440,
+              "shape": {"path": "M 0 -9 L 9 0 L 0 9 L -9 0 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "key_3",
+              "type": "shape",
+              "x": 650,
+              "shape": {"path": "M 0 -9 L 9 0 L 0 9 L -9 0 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "key_4",
+              "type": "shape",
+              "x": 860,
+              "shape": {"path": "M 0 -9 L 9 0 L 0 9 L -9 0 Z"},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "playhead",
+              "type": "group",
+              "x": 20,
+              "children": [
+                {
+                  "name": "line",
+                  "type": "shape",
+                  "x": -1.5,
+                  "y": -34,
+                  "shape": {"rect": [0, 0, 3, 68]},
+                  "fill": "#FF5A3C"
+                },
+                {"name": "knob", "type": "shape", "y": -34, "shape": {"circle": [0, 0, 8]}, "fill": "#FF5A3C"}
+              ],
+              "bindings": [{"property": "x", "variable": "scrub", "scale": 210, "offset": 20}]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.35,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 566}, {"t": 0.55, "v": 544, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "status",
+          "type": "group",
+          "x": 200,
+          "y": 612,
+          "children": [
+            {
+              "name": "playing",
+              "type": "group",
+              "children": [
+                {
+                  "name": "pill",
+                  "type": "shape",
+                  "y": -17,
+                  "shape": {"rect": [0, 0, 107.8, 34], "radius": 17},
+                  "fill": "#1C1B22"
+                },
+                {"name": "words", "type": "text", "text": "PLAYING", "font": "chip_paper", "x": 14, "anchor": "left"}
+              ],
+              "bindings": [{"property": "visible", "variable": "scrub_mode", "map": {"0": 1}, "default": 0}]
+            },
+            {
+              "name": "scrubbing",
+              "type": "group",
+              "children": [
+                {
+                  "name": "pill",
+                  "type": "shape",
+                  "y": -17,
+                  "shape": {"rect": [0, 0, 130.6, 34], "radius": 17},
+                  "fill": "#FF5A3C"
+                },
+                {
+                  "name": "words",
+                  "type": "text",
+                  "text": "SCRUBBING",
+                  "font": "chip_paper",
+                  "x": 14,
+                  "anchor": "left"
+                }
+              ],
+              "bindings": [{"property": "visible", "variable": "scrub_mode", "map": {"1": 1}, "default": 0}]
+            },
+            {
+              "name": "t",
+              "type": "text",
+              "text": "",
+              "font": "chip",
+              "x": 150,
+              "anchor": "left",
+              "bindings": [{"property": "text", "variable": "scrub", "decimals": 2, "prefix": "t = ", "suffix": " s"}]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.45,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 634}, {"t": 0.55, "v": 612, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "note",
+          "type": "text",
+          "text": "Pause, drag, play on: every frame is one you can get back to.",
+          "font": "body",
+          "x": 200,
+          "y": 164,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 186}, {"t": 0.55, "v": 164, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#FFC21A",
+          "scale_x": 0.556,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.444}, {"t": 0.6, "v": 0.556, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "05 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_6",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_4",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_6",
+      "trigger": "slide_6",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Render it to frames or to video.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#2D5BFF",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "panel",
+          "type": "shape",
+          "x": 80,
+          "y": 196,
+          "shape": {"rect": [0, 0, 720, 262], "radius": 16},
+          "fill": "#1C1B22",
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "run_0_0",
+          "type": "group",
+          "x": 106,
+          "y": 214,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_17"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 0.6,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.88, "v": 530.2}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_1_0",
+          "type": "group",
+          "x": 106,
+          "y": 244,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_18"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 1.68,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.25, "v": 152.2}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_2_0",
+          "type": "group",
+          "x": 106,
+          "y": 274,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_19"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 2.13,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.77, "v": 465.4}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_3_0",
+          "type": "group",
+          "x": 106,
+          "y": 304,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_20"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 3.11,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.54, "v": 325}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_5_0",
+          "type": "group",
+          "x": 106,
+          "y": 364,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_21"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 4.25,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.77, "v": 465.4}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_6_0",
+          "type": "group",
+          "x": 106,
+          "y": 394,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_22"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 5.22,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.05, "v": 690, "ease": "step"}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "run_7_0",
+          "type": "group",
+          "x": 106,
+          "y": 424,
+          "children": [
+            {"name": "code", "type": "vector", "vector": "code_23"},
+            {
+              "name": "cover",
+              "type": "shape",
+              "x": -4,
+              "y": -6,
+              "shape": {"rect": [0, 0, 690, 32]},
+              "fill": "#1C1B22",
+              "timelines": [
+                {
+                  "name": "type",
+                  "autoplay": true,
+                  "delay": 5.37,
+                  "hold": true,
+                  "tracks": [{"property": "x", "keys": [{"t": 0, "v": -4}, {"t": 0.05, "v": 690, "ease": "step"}]}]
+                }
+              ]
+            }
+          ],
+          "clip": {"rect": [-6, -8, 680, 34]}
+        },
+        {
+          "name": "points_0",
+          "type": "group",
+          "x": 80,
+          "y": 500,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "The same engine with no window, in fixed steps.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 522}, {"t": 0.55, "v": 500, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_1",
+          "type": "group",
+          "x": 80,
+          "y": 542,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Inputs on the command line: --trigger, --set.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.15,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 564}, {"t": 0.55, "v": 542, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_2",
+          "type": "group",
+          "x": 80,
+          "y": 584,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Stills, strips for video, --events for tests.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 606}, {"t": 0.55, "v": 584, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "film",
+          "type": "group",
+          "x": 900,
+          "y": 196,
+          "children": [
+            {
+              "name": "base",
+              "type": "shape",
+              "x": -18,
+              "y": -8,
+              "shape": {"rect": [0, 0, 286, 470], "radius": 12},
+              "fill": "#1C1B22"
+            },
+            {
+              "name": "window",
+              "type": "group",
+              "y": 12,
+              "children": [
+                {
+                  "name": "reel",
+                  "type": "vector",
+                  "vector": "film",
+                  "x": -8,
+                  "timelines": [
+                    {
+                      "name": "roll",
+                      "autoplay": true,
+                      "loop": true,
+                      "tracks": [{"property": "y", "keys": [{"t": 0, "v": 0}, {"t": 12, "v": -1240}]}]
+                    }
+                  ]
+                }
+              ],
+              "clip": {"rect": [-10, 0, 270, 446]}
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#2D5BFF",
+          "scale_x": 0.667,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.556}, {"t": 0.6, "v": 0.667, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "06 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_7",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_5",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_7",
+      "trigger": "slide_7",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "Events in, motion out.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#FFC21A",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "host",
+          "type": "group",
+          "x": 80,
+          "y": 205,
+          "children": [
+            {"name": "box", "type": "shape", "shape": {"rect": [0, 0, 330, 250], "radius": 16}, "fill": "#1C1B22"},
+            {"name": "tag", "type": "text", "text": "YOUR PROGRAM", "font": "label_paper", "x": 24, "y": 22},
+            {
+              "name": "line_0",
+              "type": "group",
+              "x": 24,
+              "y": 76,
+              "children": [
+                {
+                  "name": "glow",
+                  "type": "shape",
+                  "x": -8,
+                  "y": -4,
+                  "shape": {"rect": [0, 0, 290, 30], "radius": 6},
+                  "fill": "#FFFFFF22",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "run",
+                      "trigger": "coin",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}]}]
+                    }
+                  ]
+                },
+                {
+                  "name": "code_0",
+                  "type": "group",
+                  "children": [{"name": "code", "type": "vector", "vector": "code_25"}]
+                }
+              ]
+            },
+            {
+              "name": "line_1",
+              "type": "group",
+              "x": 24,
+              "y": 126,
+              "children": [
+                {
+                  "name": "glow",
+                  "type": "shape",
+                  "x": -8,
+                  "y": -4,
+                  "shape": {"rect": [0, 0, 290, 30], "radius": 6},
+                  "fill": "#FFFFFF22",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "run",
+                      "trigger": "coin",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}]}]
+                    }
+                  ]
+                },
+                {
+                  "name": "code_0",
+                  "type": "group",
+                  "children": [{"name": "code", "type": "vector", "vector": "code_26"}]
+                }
+              ]
+            },
+            {
+              "name": "line_2",
+              "type": "group",
+              "x": 24,
+              "y": 176,
+              "children": [
+                {
+                  "name": "glow",
+                  "type": "shape",
+                  "x": -8,
+                  "y": -4,
+                  "shape": {"rect": [0, 0, 290, 30], "radius": 6},
+                  "fill": "#FFFFFF22",
+                  "opacity": 0,
+                  "timelines": [
+                    {
+                      "name": "run",
+                      "trigger": "jackpot",
+                      "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 0, "ease": "quad_in"}]}]
+                    }
+                  ]
+                },
+                {
+                  "name": "code_0",
+                  "type": "group",
+                  "children": [{"name": "code", "type": "vector", "vector": "code_27"}]
+                }
+              ]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 227}, {"t": 0.55, "v": 205, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "wire",
+          "type": "shape",
+          "x": 410,
+          "y": 328.5,
+          "shape": {"rect": [0, 0, 390, 3]},
+          "fill": "#1C1B22",
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 350.5}, {"t": 0.55, "v": 328.5, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "show",
+          "type": "group",
+          "x": 800,
+          "y": 205,
+          "children": [
+            {"name": "box", "type": "shape", "shape": {"rect": [0, 0, 400, 250], "radius": 16}, "fill": "#FFFFFF"},
+            {"name": "tag", "type": "text", "text": "THE SHOW", "font": "label", "x": 24, "y": 22},
+            {
+              "name": "burst",
+              "type": "group",
+              "x": 200,
+              "y": 140,
+              "children": [
+                {
+                  "name": "ray_0",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 0
+                },
+                {
+                  "name": "ray_1",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 30
+                },
+                {
+                  "name": "ray_2",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 60
+                },
+                {
+                  "name": "ray_3",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 90
+                },
+                {
+                  "name": "ray_4",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 120
+                },
+                {
+                  "name": "ray_5",
+                  "type": "shape",
+                  "shape": {"rect": [-8, -70, 16, 140], "radius": 8},
+                  "fill": "#FFC21A",
+                  "rotation": 150
+                }
+              ],
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "burst",
+                  "trigger": "jackpot",
+                  "tracks": [
+                    {"property": "scale", "keys": [{"t": 0, "v": 0.3}, {"t": 0.8, "v": 1.6, "ease": "quad_out"}]},
+                    {"property": "rotation", "keys": [{"t": 0, "v": 0}, {"t": 0.8, "v": 40, "ease": "quad_out"}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 0.9}, {"t": 0.8, "v": 0, "ease": "quad_in"}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "coin",
+              "type": "shape",
+              "x": 110,
+              "y": 130,
+              "shape": {"circle": [0, 0, 34]},
+              "fill": "#FFC21A",
+              "stroke": {"color": "#1C1B22", "width": 4},
+              "opacity": 0,
+              "timelines": [
+                {
+                  "name": "drop",
+                  "trigger": "coin",
+                  "tracks": [
+                    {"property": "y", "keys": [{"t": 0, "v": 40}, {"t": 0.6, "v": 150, "ease": "bounce_out"}]},
+                    {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.9, "v": 1}, {"t": 1.2, "v": 0}]}
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "credits_tag",
+              "type": "text",
+              "text": "CREDITS",
+              "font": "tag",
+              "x": 290,
+              "y": 70,
+              "anchor": "top"
+            },
+            {
+              "name": "credits",
+              "type": "text",
+              "text": "0",
+              "font": "readout",
+              "x": 290,
+              "y": 88,
+              "anchor": "top",
+              "bindings": [{"property": "text", "variable": "credits", "decimals": 0, "transition": {"duration": 0.4}}]
+            },
+            {
+              "name": "jackpot",
+              "type": "text",
+              "text": "JACKPOT!",
+              "font": "jackpot",
+              "x": 200,
+              "y": 206,
+              "anchor": "center",
+              "scale": 0,
+              "timelines": [
+                {
+                  "name": "pop",
+                  "trigger": "jackpot",
+                  "tracks": [
+                    {
+                      "property": "scale",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 0.45, "v": 1, "ease": "back_out"},
+                        {"t": 1.8, "v": 1},
+                        {"t": 2.1, "v": 0, "ease": "quad_in"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.4,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 227}, {"t": 0.55, "v": 205, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "send_coin",
+          "type": "group",
+          "x": 410,
+          "y": 330,
+          "children": [
+            {
+              "name": "pill",
+              "type": "shape",
+              "y": -17,
+              "shape": {"rect": [0, 0, 73.6, 34], "radius": 17},
+              "fill": "#FFC21A"
+            },
+            {"name": "words", "type": "text", "text": "coin", "font": "chip", "x": 14, "anchor": "left"}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "send",
+              "trigger": "coin",
+              "delay": 0,
+              "tracks": [
+                {"property": "x", "keys": [{"t": 0, "v": 410}, {"t": 0.7, "v": 670, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.6, "v": 1}, {"t": 0.75, "v": 0}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "send_credits",
+          "type": "group",
+          "x": 410,
+          "y": 330,
+          "children": [
+            {
+              "name": "pill",
+              "type": "shape",
+              "y": -17,
+              "shape": {"rect": [0, 0, 107.8, 34], "radius": 17},
+              "fill": "#1FBF8F"
+            },
+            {"name": "words", "type": "text", "text": "credits", "font": "chip", "x": 14, "anchor": "left"}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "send",
+              "trigger": "coin",
+              "delay": 0.15,
+              "tracks": [
+                {"property": "x", "keys": [{"t": 0, "v": 410}, {"t": 0.7, "v": 670, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.6, "v": 1}, {"t": 0.75, "v": 0}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "send_jackpot",
+          "type": "group",
+          "x": 410,
+          "y": 330,
+          "children": [
+            {
+              "name": "pill",
+              "type": "shape",
+              "y": -17,
+              "shape": {"rect": [0, 0, 107.8, 34], "radius": 17},
+              "fill": "#FF5A3C"
+            },
+            {"name": "words", "type": "text", "text": "jackpot", "font": "chip", "x": 14, "anchor": "left"}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "send",
+              "trigger": "jackpot",
+              "delay": 0,
+              "tracks": [
+                {"property": "x", "keys": [{"t": 0, "v": 410}, {"t": 0.7, "v": 670, "ease": "quad_in_out"}]},
+                {"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 0.6, "v": 1}, {"t": 0.75, "v": 0}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_0",
+          "type": "group",
+          "x": 80,
+          "y": 500,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FFC21A"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "Triggers for moments, variables for state.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.8,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 522}, {"t": 0.55, "v": 500, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "points_1",
+          "type": "group",
+          "x": 80,
+          "y": 542,
+          "children": [
+            {
+              "name": "dot",
+              "type": "shape",
+              "x": 7,
+              "y": 16,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FFC21A"
+            },
+            {
+              "name": "words",
+              "type": "text",
+              "text": "The program never says how anything looks.",
+              "font": "body",
+              "x": 28
+            }
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.95,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 564}, {"t": 0.55, "v": 542, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "try",
+          "type": "text",
+          "text": "Fire them yourself: coin, jackpot, or set credits.",
+          "font": "small",
+          "x": 800,
+          "y": 504,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 1.2,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 526}, {"t": 0.55, "v": 504, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "coin_sound", "type": "audio", "sound": "coin", "trigger": "coin", "retrigger": "overlap"},
+        {"name": "jackpot_sound", "type": "audio", "sound": "jackpot", "trigger": "jackpot"},
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#FFC21A",
+          "scale_x": 0.778,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.667}, {"t": 0.6, "v": 0.778, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "07 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_8",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_6",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_8",
+      "trigger": "slide_8",
+      "layers": [
+        {
+          "name": "title",
+          "type": "text",
+          "text": "For people who make things move.",
+          "font": "h1",
+          "x": 80,
+          "y": 56,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 78}, {"t": 0.55, "v": 56, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "underline",
+          "type": "shape",
+          "x": 80,
+          "y": 132,
+          "shape": {"rect": [0, 0, 72, 8], "radius": 4},
+          "fill": "#FF5A3C",
+          "scale_x": 0,
+          "timelines": [
+            {
+              "name": "grow",
+              "autoplay": true,
+              "delay": 0.2,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "column_0",
+          "type": "group",
+          "x": 80,
+          "y": 196,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 410], "radius": 16}, "fill": "#FFFFFF"},
+            {
+              "name": "art",
+              "type": "group",
+              "x": 28,
+              "y": 42,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "group",
+                  "children": [
+                    {
+                      "name": "axes",
+                      "type": "shape",
+                      "shape": {"path": "M 0 0 L 0 90 L 200 90"},
+                      "fill": "#00000000",
+                      "stroke": {"color": "#DDD6C8", "width": 3}
+                    },
+                    {
+                      "name": "curve",
+                      "type": "shape",
+                      "shape": {
+                        "path": "M 0 90 L 2 89.9 L 4 89.7 L 6 89.4 L 8 88.9 L 10 88.3 L 12 87.5 L 14 86.7 L 16 85.6 L 18 84.5 L 20 83.2 L 22 81.8 L 24 80.2 L 26 78.5 L 28 76.7 L 30 74.7 L 32 72.6 L 34 70.3 L 36 67.9 L 38 65.4 L 40 62.8 L 42 60.0 L 44 57.1 L 46 54.0 L 48 50.8 L 50 47.5 L 52 44.0 L 54 40.4 L 56 36.6 L 58 32.8 L 60 28.7 L 62 24.6 L 64 20.3 L 66 15.9 L 68 11.3 L 70 6.6 L 72 1.8 L 74 1.5 L 76 3.9 L 78 6.1 L 80 8.1 L 82 10.0 L 84 11.8 L 86 13.4 L 88 14.9 L 90 16.3 L 92 17.5 L 94 18.6 L 96 19.6 L 98 20.4 L 100 21.1 L 102 21.6 L 104 22.1 L 106 22.3 L 108 22.5 L 110 22.5 L 112 22.4 L 114 22.1 L 116 21.7 L 118 21.1 L 120 20.5 L 122 19.7 L 124 18.7 L 126 17.6 L 128 16.4 L 130 15.1 L 132 13.6 L 134 11.9 L 136 10.2 L 138 8.3 L 140 6.2 L 142 4.1 L 144 1.8 L 146 0.3 L 148 1.5 L 150 2.5 L 152 3.3 L 154 4.0 L 156 4.6 L 158 5.1 L 160 5.4 L 162 5.6 L 164 5.6 L 166 5.5 L 168 5.3 L 170 4.9 L 172 4.4 L 174 3.8 L 176 3.0 L 178 2.1 L 180 1.1 L 182 0.1 L 184 0.6 L 186 1.0 L 188 1.3 L 190 1.4 L 192 1.4 L 194 1.2 L 196 1.0 L 198 0.6 L 200 0.0"
+                      },
+                      "fill": "#00000000",
+                      "stroke": {"color": "#1C1B22", "width": 3}
+                    },
+                    {
+                      "name": "dot",
+                      "type": "shape",
+                      "y": 90,
+                      "shape": {"circle": [0, 0, 9]},
+                      "fill": "#FF5A3C",
+                      "timelines": [
+                        {
+                          "name": "trace",
+                          "autoplay": true,
+                          "loop": true,
+                          "tracks": [
+                            {"property": "x", "keys": [{"t": 0, "v": 0}, {"t": 1.6, "v": 200}, {"t": 2.4, "v": 200}]},
+                            {
+                              "property": "y",
+                              "keys": [{"t": 0, "v": 90}, {"t": 1.6, "v": 0, "ease": "bounce_out"}, {"t": 2.4, "v": 0}]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "head", "type": "text", "text": "Animators", "font": "h2", "x": 28, "y": 174},
+            {
+              "name": "dot_0",
+              "type": "shape",
+              "x": 34,
+              "y": 245,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {"name": "point_0", "type": "text", "text": "Keyframes, 13 easings", "font": "body", "x": 52, "y": 230},
+            {
+              "name": "dot_1",
+              "type": "shape",
+              "x": 34,
+              "y": 297,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {"name": "point_1", "type": "text", "text": "Clips, blends, gradients", "font": "body", "x": 52, "y": 282},
+            {
+              "name": "dot_2",
+              "type": "shape",
+              "x": 34,
+              "y": 349,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#FF5A3C"
+            },
+            {"name": "point_2", "type": "text", "text": "Lamps that warm up", "font": "body", "x": 52, "y": 334}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.25,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "column_1",
+          "type": "group",
+          "x": 464,
+          "y": 196,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 410], "radius": 16}, "fill": "#FFFFFF"},
+            {
+              "name": "art",
+              "type": "group",
+              "x": 28,
+              "y": 42,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "group",
+                  "children": [
+                    {
+                      "name": "frame",
+                      "type": "shape",
+                      "shape": {"rect": [0, 0, 150, 90], "radius": 10},
+                      "fill": "#2D5BFF"
+                    },
+                    {
+                      "name": "play",
+                      "type": "shape",
+                      "x": 75,
+                      "y": 45,
+                      "shape": {"path": "M -16 -22 L 24 0 L -16 22 Z"},
+                      "fill": "#F4EFE6",
+                      "timelines": [
+                        {
+                          "name": "idle_scale",
+                          "autoplay": true,
+                          "loop": true,
+                          "delay": 0,
+                          "tracks": [
+                            {
+                              "property": "scale",
+                              "keys": [
+                                {"t": 0, "v": 0.9},
+                                {"t": 0.7, "v": 1.15, "ease": "quad_in_out"},
+                                {"t": 1.4, "v": 0.9, "ease": "quad_in_out"}
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "bar",
+                      "type": "shape",
+                      "y": 100,
+                      "shape": {"rect": [0, 0, 150, 6], "radius": 3},
+                      "fill": "#DDD6C8"
+                    },
+                    {
+                      "name": "progress",
+                      "type": "shape",
+                      "y": 100,
+                      "shape": {"rect": [0, 0, 150, 6], "radius": 3},
+                      "fill": "#2D5BFF",
+                      "timelines": [
+                        {
+                          "name": "play",
+                          "autoplay": true,
+                          "loop": true,
+                          "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0}, {"t": 4, "v": 1}]}]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {"name": "head", "type": "text", "text": "Explainer makers", "font": "h2", "x": 28, "y": 174},
+            {
+              "name": "dot_0",
+              "type": "shape",
+              "x": 34,
+              "y": 245,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {"name": "point_0", "type": "text", "text": "A story you can scrub", "font": "body", "x": 52, "y": 230},
+            {
+              "name": "dot_1",
+              "type": "shape",
+              "x": 34,
+              "y": 297,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {"name": "point_1", "type": "text", "text": "Rendered to video", "font": "body", "x": 52, "y": 282},
+            {
+              "name": "dot_2",
+              "type": "shape",
+              "x": 34,
+              "y": 349,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#2D5BFF"
+            },
+            {"name": "point_2", "type": "text", "text": "Sound on the same clock", "font": "body", "x": 52, "y": 334}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.4,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "column_2",
+          "type": "group",
+          "x": 848,
+          "y": 196,
+          "children": [
+            {"name": "card", "type": "shape", "shape": {"rect": [0, 0, 352, 410], "radius": 16}, "fill": "#FFFFFF"},
+            {
+              "name": "art",
+              "type": "group",
+              "x": 28,
+              "y": 42,
+              "children": [
+                {
+                  "name": "icon",
+                  "type": "group",
+                  "children": [
+                    {
+                      "name": "track",
+                      "type": "shape",
+                      "y": 30,
+                      "shape": {"rect": [0, 0, 200, 30], "radius": 15},
+                      "fill": "#DDD6C8"
+                    },
+                    {
+                      "name": "health",
+                      "type": "group",
+                      "y": 30,
+                      "children": [
+                        {
+                          "name": "fill",
+                          "type": "shape",
+                          "shape": {"rect": [0, 0, 200, 30]},
+                          "fill": "#1FBF8F",
+                          "timelines": [
+                            {
+                              "name": "hits",
+                              "autoplay": true,
+                              "loop": true,
+                              "tracks": [
+                                {
+                                  "property": "scale_x",
+                                  "keys": [
+                                    {"t": 0, "v": 1},
+                                    {"t": 0.8, "v": 0.62, "ease": "back_out"},
+                                    {"t": 1.8, "v": 0.3, "ease": "back_out"},
+                                    {"t": 3.2, "v": 1, "ease": "cubic_in_out"},
+                                    {"t": 4, "v": 1}
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "clip": {"rect": [0, 0, 200, 30], "radius": 15}
+                    },
+                    {"name": "hp", "type": "text", "text": "HP", "font": "tag", "y": 70}
+                  ]
+                }
+              ]
+            },
+            {"name": "head", "type": "text", "text": "Game designers", "font": "h2", "x": 28, "y": 174},
+            {
+              "name": "dot_0",
+              "type": "shape",
+              "x": 34,
+              "y": 245,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {"name": "point_0", "type": "text", "text": "Looks bound to state", "font": "body", "x": 52, "y": 230},
+            {
+              "name": "dot_1",
+              "type": "shape",
+              "x": 34,
+              "y": 297,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {"name": "point_1", "type": "text", "text": "Attract, play, game over", "font": "body", "x": 52, "y": 282},
+            {
+              "name": "dot_2",
+              "type": "shape",
+              "x": 34,
+              "y": 349,
+              "shape": {"rect": [-5, -5, 10, 10], "radius": 2},
+              "fill": "#1FBF8F"
+            },
+            {"name": "point_2", "type": "text", "text": "Restyle, no code change", "font": "body", "x": 52, "y": 334}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.55,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 218}, {"t": 0.55, "v": 196, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#FF5A3C",
+          "scale_x": 0.889,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.778}, {"t": 0.6, "v": 0.889, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "08 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "next",
+              "trigger": "next",
+              "on_end": "slide_9",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            },
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_7",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "slide_9",
+      "trigger": "slide_9",
+      "layers": [
+        {
+          "name": "end_circle_holder",
+          "type": "group",
+          "x": 1010,
+          "y": 250,
+          "children": [
+            {
+              "name": "end_circle",
+              "type": "shape",
+              "shape": {"circle": [0, 0, 92]},
+              "fill": "#FF5A3C",
+              "timelines": [
+                {
+                  "name": "idle_y",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.2,
+                  "tracks": [
+                    {
+                      "property": "y",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 1.7, "v": -18, "ease": "quad_in_out"},
+                        {"t": 3.4, "v": 0, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.6,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "end_square_holder",
+          "type": "group",
+          "x": 870,
+          "y": 430,
+          "children": [
+            {
+              "name": "end_square",
+              "type": "shape",
+              "shape": {"rect": [-75, -75, 150, 150], "radius": 18},
+              "fill": "#2D5BFF",
+              "timelines": [
+                {
+                  "name": "idle_rotation",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.35,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": -8},
+                        {"t": 2.6, "v": 8, "ease": "quad_in_out"},
+                        {"t": 5.2, "v": -8, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.75,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "end_triangle_holder",
+          "type": "group",
+          "x": 1110,
+          "y": 470,
+          "children": [
+            {
+              "name": "end_triangle",
+              "type": "shape",
+              "shape": {"path": "M 0 -84 L 80 58 L -80 58 Z"},
+              "fill": "#FFC21A",
+              "timelines": [
+                {
+                  "name": "idle_rotation",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.5,
+                  "tracks": [
+                    {
+                      "property": "rotation",
+                      "keys": [
+                        {"t": 0, "v": 4},
+                        {"t": 2.2, "v": -6, "ease": "quad_in_out"},
+                        {"t": 4.4, "v": 4, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 0.9,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "end_pill_holder",
+          "type": "group",
+          "x": 1000,
+          "y": 600,
+          "children": [
+            {
+              "name": "end_pill",
+              "type": "shape",
+              "shape": {"rect": [-105, -28, 210, 56], "radius": 28},
+              "fill": "#1FBF8F",
+              "timelines": [
+                {
+                  "name": "idle_x",
+                  "autoplay": true,
+                  "loop": true,
+                  "delay": 0.65,
+                  "tracks": [
+                    {
+                      "property": "x",
+                      "keys": [
+                        {"t": 0, "v": 0},
+                        {"t": 1.9, "v": 24, "ease": "quad_in_out"},
+                        {"t": 3.8, "v": 0, "ease": "quad_in_out"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "scale": 0,
+          "timelines": [
+            {
+              "name": "pop",
+              "autoplay": true,
+              "delay": 1.05,
+              "hold": true,
+              "tracks": [{"property": "scale", "keys": [{"t": 0, "v": 0}, {"t": 0.5, "v": 1, "ease": "back_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "try",
+          "type": "text",
+          "text": "Try it.",
+          "font": "end",
+          "x": 76,
+          "y": 150,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.1,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 172}, {"t": 0.55, "v": 150, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "site",
+          "type": "group",
+          "x": 80,
+          "y": 300,
+          "children": [
+            {"name": "label", "type": "text", "text": "Every example plays in the browser", "font": "small"},
+            {"name": "url", "type": "text", "text": "francisdb.github.io/cuelight-examples", "font": "link", "y": 26},
+            {"name": "line", "type": "shape", "y": 68, "shape": {"rect": [0, 0, 666, 5]}, "fill": "#FF5A3C"}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.3,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 322}, {"t": 0.55, "v": 300, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "repo",
+          "type": "group",
+          "x": 80,
+          "y": 410,
+          "children": [
+            {"name": "label", "type": "text", "text": "The engine", "font": "small"},
+            {"name": "url", "type": "text", "text": "github.com/francisdb/cuelight", "font": "link", "y": 26},
+            {"name": "line", "type": "shape", "y": 68, "shape": {"rect": [0, 0, 522, 5]}, "fill": "#2D5BFF"}
+          ],
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.45,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 432}, {"t": 0.55, "v": 410, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {
+          "name": "made",
+          "type": "text",
+          "text": "This deck is one show.json, written by tools/deck_show.py.",
+          "font": "body",
+          "x": 80,
+          "y": 540,
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "enter",
+              "autoplay": true,
+              "delay": 0.7,
+              "hold": true,
+              "tracks": [
+                {"property": "opacity", "keys": [{"t": 0, "v": 0}, {"t": 0.39, "v": 1, "ease": "quad_out"}]},
+                {"property": "y", "keys": [{"t": 0, "v": 562}, {"t": 0.55, "v": 540, "ease": "cubic_out"}]}
+              ]
+            }
+          ]
+        },
+        {"name": "progress_track", "type": "shape", "y": 714, "shape": {"rect": [0, 0, 1280, 6]}, "fill": "#DDD6C8"},
+        {
+          "name": "progress",
+          "type": "shape",
+          "y": 714,
+          "shape": {"rect": [0, 0, 1280, 6]},
+          "fill": "#1FBF8F",
+          "scale_x": 1,
+          "timelines": [
+            {
+              "name": "advance",
+              "autoplay": true,
+              "hold": true,
+              "tracks": [{"property": "scale_x", "keys": [{"t": 0, "v": 0.889}, {"t": 0.6, "v": 1, "ease": "cubic_out"}]}]
+            }
+          ]
+        },
+        {
+          "name": "page",
+          "type": "text",
+          "text": "09 / 09",
+          "font": "mono_small",
+          "x": 1200,
+          "y": 686,
+          "anchor": "right"
+        },
+        {
+          "name": "nav",
+          "type": "shape",
+          "shape": {"rect": [0, 0, 1, 1]},
+          "fill": "#00000000",
+          "timelines": [
+            {
+              "name": "prev",
+              "trigger": "prev",
+              "on_end": "slide_8",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 0}]}]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
