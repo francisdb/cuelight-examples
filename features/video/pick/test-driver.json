@@ -1,0 +1,14 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "next"
+    },
+    {
+      "wait": 0.5
+    }
+  ]
+}

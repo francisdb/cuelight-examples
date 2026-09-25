@@ -1,0 +1,357 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "retrigger",
+  "size": [
+    640,
+    360
+  ],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 9,
+      "size": [
+        130,
+        20
+      ],
+      "x": 16,
+      "y": 18,
+      "text": "RETRIGGER",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "intro",
+      "type": "digits",
+      "digits": 26,
+      "size": [
+        225,
+        12
+      ],
+      "x": 16,
+      "y": 56,
+      "text": "GO THREE TIMES 600MS APART",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "a_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "b_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          222,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "c_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          430,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "restart",
+      "type": "video",
+      "video": "sweep",
+      "x": 16,
+      "y": 96,
+      "trigger": "go",
+      "retrigger": "restart",
+      "gain": 0.5,
+      "on_end": "restart_done"
+    },
+    {
+      "name": "label_restart",
+      "type": "digits",
+      "digits": 7,
+      "size": [
+        71,
+        14
+      ],
+      "x": 16,
+      "y": 224,
+      "text": "RESTART",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "lamp_restart",
+      "type": "shape",
+      "shape": {
+        "circle": [
+          0,
+          0,
+          7
+        ]
+      },
+      "x": 196,
+      "y": 229,
+      "fill": "#FFB000",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "flash",
+          "trigger": "restart_done",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [
+                {
+                  "t": 0,
+                  "v": 1
+                },
+                {
+                  "t": 0.8,
+                  "v": 0.15,
+                  "ease": "quad_in"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ignore",
+      "type": "video",
+      "video": "sweep",
+      "x": 224,
+      "y": 96,
+      "trigger": "go",
+      "retrigger": "ignore",
+      "gain": 0.5,
+      "on_end": "ignore_done"
+    },
+    {
+      "name": "label_ignore",
+      "type": "digits",
+      "digits": 6,
+      "size": [
+        60,
+        14
+      ],
+      "x": 224,
+      "y": 224,
+      "text": "IGNORE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "lamp_ignore",
+      "type": "shape",
+      "shape": {
+        "circle": [
+          0,
+          0,
+          7
+        ]
+      },
+      "x": 404,
+      "y": 229,
+      "fill": "#FFB000",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "flash",
+          "trigger": "ignore_done",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [
+                {
+                  "t": 0,
+                  "v": 1
+                },
+                {
+                  "t": 0.8,
+                  "v": 0.15,
+                  "ease": "quad_in"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "queue",
+      "type": "video",
+      "video": "sweep",
+      "x": 432,
+      "y": 96,
+      "trigger": "go",
+      "retrigger": "queue",
+      "gain": 0.5,
+      "on_end": "queue_done"
+    },
+    {
+      "name": "label_queue",
+      "type": "digits",
+      "digits": 5,
+      "size": [
+        50,
+        14
+      ],
+      "x": 432,
+      "y": 224,
+      "text": "QUEUE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "lamp_queue",
+      "type": "shape",
+      "shape": {
+        "circle": [
+          0,
+          0,
+          7
+        ]
+      },
+      "x": 612,
+      "y": 229,
+      "fill": "#FFB000",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "flash",
+          "trigger": "queue_done",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [
+                {
+                  "t": 0,
+                  "v": 1
+                },
+                {
+                  "t": 0.8,
+                  "v": 0.15,
+                  "ease": "quad_in"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "note_restart",
+      "type": "digits",
+      "digits": 16,
+      "size": [
+        138,
+        12
+      ],
+      "x": 16,
+      "y": 244,
+      "text": "CUTS TO THE LAST",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_ignore",
+      "type": "digits",
+      "digits": 10,
+      "size": [
+        86,
+        12
+      ],
+      "x": 224,
+      "y": 244,
+      "text": "FIRST ONLY",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_queue",
+      "type": "digits",
+      "digits": 10,
+      "size": [
+        86,
+        12
+      ],
+      "x": 432,
+      "y": 244,
+      "text": "ONE BY ONE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_lamps",
+      "type": "digits",
+      "digits": 24,
+      "size": [
+        207,
+        12
+      ],
+      "x": 16,
+      "y": 300,
+      "text": "A LAMP FLASHES ON ON_END",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    }
+  ]
+}

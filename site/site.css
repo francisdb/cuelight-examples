@@ -81,3 +81,6 @@ pre#source { margin: 0; padding: 12px; overflow: auto; max-height: 70vh; font-si
 .j-key { color: #9cdcfe; } .j-str { color: #ce9178; } .j-num { color: #b5cea8; } .j-lit { color: #569cd6; }
 .pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; font-size: 14px; }
 footer { margin-top: 48px; font-size: 13px; color: var(--muted); }
+.native-note { margin: 0 0 16px; padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--panel); border-radius: 4px; }
+.native-note p { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+.native-note pre { margin: 0; font-family: ui-monospace, monospace; font-size: 13px; overflow-x: auto; }
