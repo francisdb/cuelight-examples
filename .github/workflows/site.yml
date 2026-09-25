@@ -35,10 +35,10 @@ jobs:
         with:
           workspaces: |
             cuelight
-            cuelight-examples/tools/thumbnails
+            cuelight-examples/tools/check
       # Also: no missing or unused assets, no driver step the show ignores.
       - name: Every show loads without warnings
-        run: cargo run --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --no-default-features -- --check
+        run: cargo run --manifest-path cuelight-examples/tools/check/Cargo.toml
       - name: Install wasm-bindgen, the version cuelight locks
         run: |
           version=$(grep -A1 '^name = "wasm-bindgen"$' cuelight/Cargo.lock | sed -n 's/^version = "\(.*\)"$/\1/p')
@@ -85,13 +85,11 @@ jobs:
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: cuelight-examples/tools/thumbnails
+          workspaces: cuelight-examples/tools/check
       - name: rustfmt
-        run: cargo fmt --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --check
+        run: cargo fmt --manifest-path cuelight-examples/tools/check/Cargo.toml --check
       - name: clippy
-        run: cargo clippy --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml -- -D warnings
-      - name: clippy (check only, as the build job uses it)
-        run: cargo clippy --manifest-path cuelight-examples/tools/thumbnails/Cargo.toml --no-default-features -- -D warnings
+        run: cargo clippy --manifest-path cuelight-examples/tools/check/Cargo.toml -- -D warnings
       - name: shellcheck
         run: shellcheck cuelight-examples/site/build.sh
       - name: python scripts compile

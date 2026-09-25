@@ -62,8 +62,8 @@ seconds, which puts a scrub bar under it on its page.
 A show that is not listed fails the build.
 
 ```sh
-cargo run --manifest-path tools/thumbnails/Cargo.toml   # render site/thumbnails, needs a GPU
-site/build.sh                                           # build _site/
+tools/thumbnails.py   # render site/thumbnails with cuelight-render, needs a GPU
+site/build.sh         # build _site/
 python3 -m http.server -d _site
 ```
 
@@ -77,7 +77,7 @@ READMEs and pages, builds the site against cuelight `main` and deploys it
 to GitHub Pages on every push to `main`. The show checks run locally with
 
 ```sh
-cargo run --manifest-path tools/thumbnails/Cargo.toml --no-default-features -- --check
+cargo run --manifest-path tools/check/Cargo.toml
 ```
 
 ## Licenses

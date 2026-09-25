@@ -12,7 +12,7 @@
 # wasm-opt (binaryen) shrinks the player when it is installed.
 #
 # Thumbnails are not built here, they are committed: render them with
-# `cargo run --manifest-path tools/thumbnails/Cargo.toml`, which needs a GPU.
+# `tools/thumbnails.py`, which needs a GPU.
 set -eu
 
 site=$(cd "$(dirname "$0")" && pwd)
