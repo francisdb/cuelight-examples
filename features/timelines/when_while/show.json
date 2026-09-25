@@ -1,0 +1,170 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1, "name": "when_while", "size": [640, 360], "background": "#0E1116",
+  "variables": {"lamp": 0, "mode": "", "phase": ""},
+  "layers": [
+    {
+      "name": "title", "type": "digits", "digits": 14, "size": [202, 20], "x": 24, "y": 18, "text": "WHEN AND WHILE",
+      "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+    },
+    {
+      "name": "lamp_label", "type": "digits", "digits": 4, "size": [40, 14], "x": 24, "y": 58, "text": "LAMP",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "lamp_switch", "type": "group", "x": 80, "y": 54,
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 56, 22], "radius": 11}, "fill": "#232A34"},
+        {
+          "name": "knob", "type": "shape", "shape": {"circle": [11, 11, 8]}, "fill": "#8B96A5",
+          "bindings": [{"property": "x", "variable": "lamp", "scale": 34}]
+        },
+        {
+          "name": "lit", "type": "shape", "shape": {"circle": [45, 11, 8]}, "fill": "#FFB000",
+          "bindings": [{"property": "visible", "variable": "lamp"}]
+        }
+      ]
+    },
+    {
+      "name": "lamp_state", "type": "digits", "digits": 3, "size": [30, 14], "x": 146, "y": 58, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+      "bindings": [{"property": "text", "variable": "lamp", "map": {"0": "OFF", "1": "ON"}}]
+    },
+    {
+      "name": "mode_label", "type": "digits", "digits": 4, "size": [40, 14], "x": 230, "y": 58, "text": "MODE",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "mode_value", "type": "digits", "digits": 6, "size": [60, 14], "x": 290, "y": 58, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#4ADE80"}},
+      "bindings": [{"property": "text", "variable": "mode", "map": {"bonus": "BONUS"}, "default": "-"}]
+    },
+    {
+      "name": "test_label", "type": "digits", "digits": 4, "size": [40, 14], "x": 400, "y": 58, "text": "TEST",
+      "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+    },
+    {
+      "name": "test_signal", "type": "group", "x": 452, "y": 54,
+      "children": [
+        {"name": "back", "type": "shape", "shape": {"rect": [0, 0, 56, 22], "radius": 11}, "fill": "#232A34"},
+        {
+          "name": "hit", "type": "shape", "shape": {"rect": [0, 0, 56, 22], "radius": 11}, "fill": "#FFB000",
+          "opacity": 0,
+          "timelines": [
+            {
+              "name": "fired", "trigger": "test",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.2, "v": 0, "ease": "quad_in"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "phase", "type": "digits", "digits": 40, "size": [461, 16], "x": 24, "y": 300, "text": "",
+      "display": {"segments": {"style": "alpha14", "fill": "#FFB000"}},
+      "bindings": [{"property": "text", "variable": "phase"}]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "play", "trigger": "play",
+      "layers": [
+        {
+          "name": "scene_name", "type": "digits", "digits": 10, "size": [86, 12], "x": 24, "y": 100,
+          "text": "SCENE PLAY", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "out_when", "type": "shape", "shape": {"circle": [0, 0, 30]}, "x": 88, "y": 178, "fill": "#FFB000",
+          "opacity": 0.08,
+          "timelines": [
+            {
+              "name": "flash", "when": {"variable": "lamp"},
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.2, "v": 0.08, "ease": "quad_in"}]}]
+            }
+          ]
+        },
+        {
+          "name": "rule_when_1", "type": "digits", "digits": 9, "size": [78, 12], "x": 49, "y": 224, "text": "WHEN LAMP",
+          "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "rule_when_2", "type": "digits", "digits": 15, "size": [130, 12], "x": 23, "y": 242,
+          "text": "TURNS ON: FLASH", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "out_while", "type": "shape", "shape": {"circle": [0, 0, 30]}, "x": 248, "y": 178, "fill": "#FFB000",
+          "opacity": 0.08,
+          "timelines": [
+            {
+              "name": "blink", "while": {"variable": "lamp"}, "loop": true,
+              "tracks": [
+                {
+                  "property": "opacity",
+                  "keys": [{"t": 0, "v": 1}, {"t": 0.25, "v": 0.08, "ease": "step"}, {"t": 0.5, "v": 0.08}]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rule_while_1", "type": "digits", "digits": 10, "size": [86, 12], "x": 205, "y": 224,
+          "text": "WHILE LAMP", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "rule_while_2", "type": "digits", "digits": 12, "size": [104, 12], "x": 196, "y": 242,
+          "text": "IS ON: BLINK", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "out_either", "type": "shape", "shape": {"circle": [0, 0, 30]}, "x": 408, "y": 178, "fill": "#FFB000",
+          "opacity": 0.08,
+          "timelines": [
+            {
+              "name": "flash", "when": {"variable": "lamp"}, "trigger": "test",
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.2, "v": 0.08, "ease": "quad_in"}]}]
+            }
+          ]
+        },
+        {
+          "name": "rule_either_1", "type": "digits", "digits": 9, "size": [78, 12], "x": 369, "y": 224,
+          "text": "WHEN LAMP", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "rule_either_2", "type": "digits", "digits": 14, "size": [121, 12], "x": 348, "y": 242,
+          "text": "OR TEST: FLASH", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        },
+        {
+          "name": "out_mode", "type": "shape", "shape": {"circle": [0, 0, 30]}, "x": 568, "y": 178, "fill": "#4ADE80",
+          "opacity": 0.08,
+          "timelines": [
+            {
+              "name": "flash", "when": {"variable": "mode", "map": {"bonus": 1}},
+              "tracks": [{"property": "opacity", "keys": [{"t": 0, "v": 1}, {"t": 1.2, "v": 0.08, "ease": "quad_in"}]}]
+            }
+          ]
+        },
+        {
+          "name": "rule_mode_1", "type": "digits", "digits": 9, "size": [78, 12], "x": 529, "y": 224,
+          "text": "WHEN MODE", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "rule_mode_2", "type": "digits", "digits": 15, "size": [130, 12], "x": 503, "y": 242,
+          "text": "IS BONUS: FLASH", "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    },
+    {
+      "name": "away", "trigger": "away",
+      "layers": [
+        {
+          "name": "scene_name", "type": "digits", "digits": 10, "size": [86, 12], "x": 24, "y": 100,
+          "text": "SCENE AWAY", "display": {"segments": {"style": "alpha14", "fill": "#E6EDF3"}}
+        },
+        {
+          "name": "away_note", "type": "digits", "digits": 38, "size": [383, 14], "x": 128, "y": 178,
+          "text": "ANOTHER SCENE. THE RULES ARE NOT HERE.",
+          "display": {"segments": {"style": "alpha14", "fill": "#8B96A5"}}
+        }
+      ]
+    }
+  ]
+}
