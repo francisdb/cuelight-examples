@@ -46,7 +46,7 @@ touch "$out/.nojekyll"
 cargo build --manifest-path "$cuelight/Cargo.toml" -p cuelight-web \
     --target wasm32-unknown-unknown --release
 wasm-bindgen --target web --no-typescript --out-dir "$out/pkg" \
-    "$cuelight/target/wasm32-unknown-unknown/release/cuelight_web.wasm"
+    "${CARGO_TARGET_DIR:-$cuelight/target}/wasm32-unknown-unknown/release/cuelight_web.wasm"
 if command -v wasm-opt >/dev/null; then
     wasm-opt -Os "$out/pkg/cuelight_web_bg.wasm" -o "$out/pkg/cuelight_web_bg.wasm"
 fi
