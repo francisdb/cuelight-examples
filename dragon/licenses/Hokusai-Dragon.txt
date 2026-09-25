@@ -1,0 +1,8 @@
+Dragon, by Katsushika Hokusai (1760-1849).
+
+Public domain: the painter died more than a hundred years ago, and the
+reproduction is marked "Public domain" on Wikimedia Commons:
+https://commons.wikimedia.org/wiki/File:Hokusai_Dragon.jpg
+
+assets/dragon.png is that image brought down to 1000 pixels square
+with a palette of 128 colours, by tools/dragon_art.py.
