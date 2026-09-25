@@ -1,0 +1,424 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "rounded_corners",
+  "size": [
+    640,
+    360
+  ],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 15,
+      "size": [
+        216,
+        20
+      ],
+      "x": 24,
+      "y": 18,
+      "text": "ROUNDED CORNERS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "radius_0",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          120,
+          64
+        ]
+      },
+      "fill": "#3EC9F0",
+      "x": 24,
+      "y": 70
+    },
+    {
+      "name": "label_radius_0",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        69,
+        12
+      ],
+      "x": 24,
+      "y": 146,
+      "text": "RADIUS 0",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "radius_8",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          120,
+          64
+        ],
+        "radius": 8
+      },
+      "fill": "#3EC9F0",
+      "x": 176,
+      "y": 70
+    },
+    {
+      "name": "label_radius_8",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        69,
+        12
+      ],
+      "x": 176,
+      "y": 146,
+      "text": "RADIUS 8",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "radius_20",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          120,
+          64
+        ],
+        "radius": 20
+      },
+      "fill": "#3EC9F0",
+      "x": 328,
+      "y": 70
+    },
+    {
+      "name": "label_radius_20",
+      "type": "digits",
+      "digits": 9,
+      "size": [
+        78,
+        12
+      ],
+      "x": 328,
+      "y": 146,
+      "text": "RADIUS 20",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "radius_999",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          120,
+          64
+        ],
+        "radius": 999
+      },
+      "fill": "#3EC9F0",
+      "x": 480,
+      "y": 70
+    },
+    {
+      "name": "label_radius_999",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        112,
+        12
+      ],
+      "x": 480,
+      "y": 146,
+      "text": "999 IS A PILL",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "outline",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          176,
+          80
+        ],
+        "radius": 16
+      },
+      "fill": "#00000000",
+      "stroke": {
+        "color": "#FFB000",
+        "width": 4
+      },
+      "x": 24,
+      "y": 190
+    },
+    {
+      "name": "label_outline",
+      "type": "digits",
+      "digits": 6,
+      "size": [
+        52,
+        12
+      ],
+      "x": 24,
+      "y": 284,
+      "text": "STROKE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "gradient",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          0,
+          0,
+          176,
+          80
+        ],
+        "radius": 16
+      },
+      "x": 232,
+      "y": 190,
+      "fill": {
+        "linear": {
+          "from": [
+            0,
+            0
+          ],
+          "to": [
+            176,
+            80
+          ],
+          "stops": [
+            {
+              "at": 0,
+              "color": "#A78BFA"
+            },
+            {
+              "at": 1,
+              "color": "#FF5A8A"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "label_gradient",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        69,
+        12
+      ],
+      "x": 232,
+      "y": 284,
+      "text": "GRADIENT",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "window",
+      "type": "group",
+      "x": 440,
+      "y": 190,
+      "clip": {
+        "rect": [
+          0,
+          0,
+          176,
+          80
+        ],
+        "radius": 24
+      },
+      "children": [
+        {
+          "name": "back",
+          "type": "shape",
+          "shape": {
+            "rect": [
+              0,
+              0,
+              176,
+              80
+            ]
+          },
+          "fill": "#4ADE80"
+        },
+        {
+          "name": "stripes",
+          "type": "group",
+          "children": [
+            {
+              "name": "stripe_0",
+              "type": "shape",
+              "shape": {
+                "path": "M -80 0 L -60 0 L -100 80 L -120 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_1",
+              "type": "shape",
+              "shape": {
+                "path": "M -40 0 L -20 0 L -60 80 L -80 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_2",
+              "type": "shape",
+              "shape": {
+                "path": "M 0 0 L 20 0 L -20 80 L -40 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_3",
+              "type": "shape",
+              "shape": {
+                "path": "M 40 0 L 60 0 L 20 80 L 0 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_4",
+              "type": "shape",
+              "shape": {
+                "path": "M 80 0 L 100 0 L 60 80 L 40 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_5",
+              "type": "shape",
+              "shape": {
+                "path": "M 120 0 L 140 0 L 100 80 L 80 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_6",
+              "type": "shape",
+              "shape": {
+                "path": "M 160 0 L 180 0 L 140 80 L 120 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_7",
+              "type": "shape",
+              "shape": {
+                "path": "M 200 0 L 220 0 L 180 80 L 160 80 Z"
+              },
+              "fill": "#0E1116"
+            },
+            {
+              "name": "stripe_8",
+              "type": "shape",
+              "shape": {
+                "path": "M 240 0 L 260 0 L 220 80 L 200 80 Z"
+              },
+              "fill": "#0E1116"
+            }
+          ],
+          "timelines": [
+            {
+              "name": "slide",
+              "autoplay": true,
+              "loop": true,
+              "tracks": [
+                {
+                  "property": "x",
+                  "keys": [
+                    {
+                      "t": 0,
+                      "v": 0
+                    },
+                    {
+                      "t": 1.5,
+                      "v": 40
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_window",
+      "type": "digits",
+      "digits": 12,
+      "size": [
+        104,
+        12
+      ],
+      "x": 440,
+      "y": 284,
+      "text": "A GROUP CLIP",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_clamped",
+      "type": "digits",
+      "digits": 32,
+      "size": [
+        276,
+        12
+      ],
+      "x": 24,
+      "y": 322,
+      "text": "CLAMPED TO HALF THE SHORTER SIDE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    }
+  ]
+}
