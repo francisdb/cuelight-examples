@@ -18,6 +18,7 @@ cargo run -p cuelight-player -- ../cuelight-examples/features/timelines/easing
 | [timelines](timelines/) | `easing`, `delay_repeat_loop`, `on_end`, `trigger_lists`, `precedence`, `hold`, `values` |
 | [scenes](scenes/) | `scenes` |
 | [sound](sound/) | `audio_layers`, `pick`, `rest`, `ducking`, `bound_sound` |
+| [video](video/) | `video_layer`, `retrigger`, `pick`, `masked`, `one_clip_many_plays` |
 | [output](output/) | `modes`, `scaling`, `dots`, `overflow` |
 | [events](events/) | `show_events` |
 

@@ -1,0 +1,190 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "one_clip_many_plays",
+  "size": [
+    436,
+    320
+  ],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 19,
+      "size": [
+        190,
+        16
+      ],
+      "x": 16,
+      "y": 14,
+      "text": "ONE CLIP MANY PLAYS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "frame_1",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          46,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "play_1",
+      "type": "video",
+      "video": "sweep",
+      "x": 16,
+      "y": 48,
+      "trigger": "go_1",
+      "gain": 0.2
+    },
+    {
+      "name": "caption_1",
+      "type": "digits",
+      "digits": 6,
+      "size": [
+        52.2,
+        10
+      ],
+      "x": 16,
+      "y": 164,
+      "text": "PLAY 1",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "frame_2",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          226,
+          46,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "play_2",
+      "type": "video",
+      "video": "sweep",
+      "x": 228,
+      "y": 48,
+      "trigger": "go_2",
+      "gain": 0.2
+    },
+    {
+      "name": "caption_2",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        113.1,
+        10
+      ],
+      "x": 228,
+      "y": 164,
+      "text": "PLAY 2 +300MS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "frame_3",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          186,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "play_3",
+      "type": "video",
+      "video": "sweep",
+      "x": 16,
+      "y": 188,
+      "trigger": "go_3",
+      "gain": 0.2
+    },
+    {
+      "name": "caption_3",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        113.1,
+        10
+      ],
+      "x": 16,
+      "y": 304,
+      "text": "PLAY 3 +600MS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "frame_4",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          226,
+          186,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "play_4",
+      "type": "video",
+      "video": "sweep",
+      "x": 228,
+      "y": 188,
+      "trigger": "go_4",
+      "gain": 0.2
+    },
+    {
+      "name": "caption_4",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        113.1,
+        10
+      ],
+      "x": 228,
+      "y": 304,
+      "text": "PLAY 4 +900MS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    }
+  ]
+}

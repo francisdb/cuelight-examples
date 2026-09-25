@@ -1,0 +1,32 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "go_1"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "go_2"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "go_3"
+    },
+    {
+      "wait": 0.3
+    },
+    {
+      "trigger": "go_4"
+    },
+    {
+      "wait": 3.3
+    }
+  ]
+}

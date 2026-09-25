@@ -112,9 +112,10 @@
       "description": "Video layers: clips played the way sounds are. Not in the browser yet.",
       "examples": [
         { "path": "features/video/video_layer", "title": "Video layers", "description": "A clip that plays once and then shows nothing, a quiet loop that a trigger stops, and one that waits two seconds and plays three times, with a lamp for each play that ends.", "thumbnail_at": 2.9 },
-        { "path": "features/video/retrigger", "title": "Retrigger", "description": "One clip asked to play three times, 600 ms apart, under three policies: restart cuts to the last, ignore keeps the first, queue plays them one after another.", "thumbnail_at": 0.8 },
+        { "path": "features/video/retrigger", "title": "Retrigger", "description": "One clip asked to play three times, 600 ms apart, under three policies: restart cuts to the last, ignore keeps the first, queue plays them one after another.", "thumbnail_at": 2.3 },
         { "path": "features/video/pick", "title": "One of several", "description": "Three clips on a list, and what pick does with them: in_order, random and shuffle, next to each other. Picks count plays, so the show looks the same every run.", "thumbnail_at": 2.2 },
-        { "path": "features/video/masked", "title": "Clipped video", "description": "One looping clip cut to a shape by a group clip: a circle, a star path, and a round window that sweeps across while the picture inside stays put, both moved by one show value.", "thumbnail_at": 1.0 }
+        { "path": "features/video/masked", "title": "Clipped video", "description": "One looping clip cut to a shape by a group clip: a circle, a star path, and a round window that sweeps across while the picture inside stays put, both moved by one show value.", "thumbnail_at": 1.0 },
+        { "path": "features/video/one_clip_many_plays", "title": "One clip, many plays", "description": "One clip playing on four layers at once, each started 300 ms after the one before: every layer shows its own point in the clip.", "thumbnail_at": 1.7 }
       ]
     },
     {
