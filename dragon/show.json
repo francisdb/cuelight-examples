@@ -1,0 +1,1223 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1, "name": "dragon", "size": [1000, 900], "background": "#000000",
+  "fonts": {
+    "title": {
+      "file": "DelaGothicOne-Regular", "size": 92, "color": "#E2B862", "border": {"color": "#2A1206", "width": 4},
+      "shadow": {"color": "#000000B0", "offset": [4, 5]}
+    },
+    "insert_20": {"file": "DelaGothicOne-Regular", "size": 20, "color": "#FFE2A0"},
+    "insert_24": {"file": "DelaGothicOne-Regular", "size": 24, "color": "#FFE2A0"},
+    "insert_30": {"file": "DelaGothicOne-Regular", "size": 30, "color": "#FFE2A0"},
+    "insert_34": {"file": "DelaGothicOne-Regular", "size": 34, "color": "#FFE2A0"},
+    "insert_unlit_20": {"file": "DelaGothicOne-Regular", "size": 20, "color": "#3A1C0C"},
+    "insert_unlit_24": {"file": "DelaGothicOne-Regular", "size": 24, "color": "#3A1C0C"},
+    "insert_unlit_30": {"file": "DelaGothicOne-Regular", "size": 30, "color": "#3A1C0C"},
+    "insert_unlit_34": {"file": "DelaGothicOne-Regular", "size": 34, "color": "#3A1C0C"},
+    "small": {"file": "DelaGothicOne-Regular", "size": 17, "color": "#E2B862", "border": {"color": "#1A0A04", "width": 2}}
+  },
+  "variables": {
+    "game_running": false, "gi": true, "players": 0, "player": 0, "ball": "", "credits": 3, "score_1": "",
+    "score_2": "", "score_3": "", "score_4": "", "tilt": false, "shoot_again": false, "match_lit": false,
+    "high_score": false, "eye": false, "head": false, "claw_1": false, "claw_2": false, "claw_3": false,
+    "claw_4": false, "tail": false
+  },
+  "values": {
+    "attract": {
+      "timelines": [
+        {
+          "name": "round", "autoplay": true, "loop": true,
+          "keys": [
+            {"t": 0, "v": 0},
+            {"t": 0.45, "v": 1, "ease": "step"},
+            {"t": 0.9, "v": 2, "ease": "step"},
+            {"t": 1.35, "v": 3, "ease": "step"},
+            {"t": 1.8, "v": 4, "ease": "step"},
+            {"t": 2.25, "v": 5, "ease": "step"},
+            {"t": 2.7, "v": 6, "ease": "step"},
+            {"t": 3.15, "v": 99, "ease": "step"},
+            {"t": 3.55, "v": -1, "ease": "step"},
+            {"t": 3.95, "v": 99, "ease": "step"},
+            {"t": 4.35, "v": -1, "ease": "step"},
+            {"t": 5.35, "v": -1}
+          ]
+        }
+      ]
+    }
+  },
+  "layers": [
+    {"name": "art", "type": "image", "image": "dragon", "x": 0, "y": -50.0, "size": [1000, 1000]},
+    {
+      "name": "foot", "type": "shape", "shape": {"rect": [0, 660, 1000, 240]},
+      "fill": {
+        "linear": {
+          "from": [0, 660], "to": [0, 800],
+          "stops": [{"at": 0, "color": "#0A040200"}, {"at": 1, "color": "#0A0402E8"}]
+        }
+      }
+    },
+    {
+      "name": "unlit_glass", "type": "shape", "shape": {"rect": [0, 0, 1000, 900]}, "fill": "#000000", "opacity": 0.62,
+      "bindings": [
+        {
+          "property": "opacity", "variable": "gi", "map": {"true": 0.18}, "default": 0.62,
+          "transition": {"duration": 0.25, "ease": "quad_out"}
+        }
+      ]
+    },
+    {
+      "name": "attract_lamps", "type": "group",
+      "children": [
+        {
+          "name": "attract_eye", "type": "group",
+          "children": [
+            {
+              "name": "spot_0", "type": "group",
+              "children": [
+                {
+                  "name": "pool", "type": "shape", "shape": {"circle": [638.0, 262.0, 30.0]}, "blend": "screen",
+                  "opacity": 0,
+                  "fill": {
+                    "radial": {
+                      "center": [638.0, 262.0], "radius": 30.0,
+                      "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                    }
+                  },
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                      "scale": 0.6
+                    }
+                  ]
+                },
+                {
+                  "name": "glow", "type": "image", "image": "glow", "x": 638.0, "y": 262.0, "size": [24.0, 24.0],
+                  "anchor": "center", "blend": "add", "opacity": 0,
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                      "scale": 0.35
+                    },
+                    {
+                      "property": "tint", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "spot_1", "type": "group",
+              "children": [
+                {
+                  "name": "pool", "type": "shape", "shape": {"circle": [597.0, 255.0, 25.0]}, "blend": "screen",
+                  "opacity": 0,
+                  "fill": {
+                    "radial": {
+                      "center": [597.0, 255.0], "radius": 25.0,
+                      "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                    }
+                  },
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                      "scale": 0.6
+                    }
+                  ]
+                },
+                {
+                  "name": "glow", "type": "image", "image": "glow", "x": 597.0, "y": 255.0, "size": [20.0, 20.0],
+                  "anchor": "center", "blend": "add", "opacity": 0,
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                      "scale": 0.35
+                    },
+                    {
+                      "property": "tint", "variable": "attract", "map": {"5": 1, "99": 1}, "default": 0,
+                      "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_head", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [635.0, 290.0, 140.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [635.0, 290.0], "radius": 140.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"4": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 635.0, "y": 290.0, "size": [112.0, 112.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"4": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"4": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_claw_1", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [360.0, 280.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [360.0, 280.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"3": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 360.0, "y": 280.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"3": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"3": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_claw_2", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [210.0, 380.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [210.0, 380.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"2": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 210.0, "y": 380.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"2": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"2": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_claw_3", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [870.0, 380.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [870.0, 380.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"6": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 870.0, "y": 380.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"6": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"6": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_claw_4", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [130.0, 720.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [130.0, 720.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"1": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 130.0, "y": 720.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"1": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"1": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attract_tail", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [620.0, 780.0, 130.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [620.0, 780.0], "radius": 130.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"0": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 620.0, "y": 780.0, "size": [104.0, 104.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "attract", "map": {"0": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2},
+                  "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "attract", "map": {"0": 1, "99": 1}, "default": 0,
+                  "transition": {"model": "incandescent", "kelvin": 2500, "heating": 0.02, "cooling": 0.2}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bindings": [{"property": "visible", "variable": "game_running", "map": {"false": 1}, "default": 0}]
+    },
+    {
+      "name": "game_lamps", "type": "group",
+      "children": [
+        {
+          "name": "game_eye", "type": "group",
+          "children": [
+            {
+              "name": "spot_0", "type": "group",
+              "children": [
+                {
+                  "name": "pool", "type": "shape", "shape": {"circle": [638.0, 262.0, 30.0]}, "blend": "screen",
+                  "opacity": 0,
+                  "fill": {
+                    "radial": {
+                      "center": [638.0, 262.0], "radius": 30.0,
+                      "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                    }
+                  },
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}, "scale": 0.6
+                    }
+                  ]
+                },
+                {
+                  "name": "glow", "type": "image", "image": "glow", "x": 638.0, "y": 262.0, "size": [24.0, 24.0],
+                  "anchor": "center", "blend": "add", "opacity": 0,
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}, "scale": 0.35
+                    },
+                    {
+                      "property": "tint", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "spot_1", "type": "group",
+              "children": [
+                {
+                  "name": "pool", "type": "shape", "shape": {"circle": [597.0, 255.0, 25.0]}, "blend": "screen",
+                  "opacity": 0,
+                  "fill": {
+                    "radial": {
+                      "center": [597.0, 255.0], "radius": 25.0,
+                      "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                    }
+                  },
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}, "scale": 0.6
+                    }
+                  ]
+                },
+                {
+                  "name": "glow", "type": "image", "image": "glow", "x": 597.0, "y": 255.0, "size": [20.0, 20.0],
+                  "anchor": "center", "blend": "add", "opacity": 0,
+                  "bindings": [
+                    {
+                      "property": "opacity", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}, "scale": 0.35
+                    },
+                    {
+                      "property": "tint", "variable": "eye", "map": {"true": 1}, "default": 0,
+                      "transition": {"model": "incandescent"}
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_head", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [635.0, 290.0, 140.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [635.0, 290.0], "radius": 140.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "head", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 635.0, "y": 290.0, "size": [112.0, 112.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "head", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "head", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_claw_1", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [360.0, 280.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [360.0, 280.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_1", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 360.0, "y": 280.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_1", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "claw_1", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_claw_2", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [210.0, 380.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [210.0, 380.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_2", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 210.0, "y": 380.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_2", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "claw_2", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_claw_3", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [870.0, 380.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [870.0, 380.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_3", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 870.0, "y": 380.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_3", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "claw_3", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_claw_4", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [130.0, 720.0, 90.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [130.0, 720.0], "radius": 90.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_4", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 130.0, "y": 720.0, "size": [72.0, 72.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "claw_4", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "claw_4", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "game_tail", "type": "group",
+          "children": [
+            {
+              "name": "pool", "type": "shape", "shape": {"circle": [620.0, 780.0, 130.0]}, "blend": "screen",
+              "opacity": 0,
+              "fill": {
+                "radial": {
+                  "center": [620.0, 780.0], "radius": 130.0,
+                  "stops": [{"at": 0, "color": "#FFB45A"}, {"at": 1, "color": "#FFB45A00"}]
+                }
+              },
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "tail", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.6
+                }
+              ]
+            },
+            {
+              "name": "glow", "type": "image", "image": "glow", "x": 620.0, "y": 780.0, "size": [104.0, 104.0],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "tail", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "tail", "map": {"true": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bindings": [{"property": "visible", "variable": "game_running", "map": {"true": 1}, "default": 0}]
+    },
+    {
+      "name": "title", "type": "text", "text": "DRAGON", "font": "title", "x": 500.0, "y": 70, "anchor": "center",
+      "opacity": 0.55,
+      "bindings": [
+        {
+          "property": "opacity", "variable": "gi", "map": {"true": 1}, "default": 0,
+          "transition": {"model": "incandescent"}, "scale": 0.44999999999999996, "offset": 0.55
+        }
+      ]
+    },
+    {
+      "name": "players", "type": "text", "text": "1 TO 4 CAN PLAY", "font": "small", "x": 500.0, "y": 132,
+      "anchor": "center"
+    },
+    {
+      "name": "player_1", "type": "group",
+      "children": [
+        {
+          "name": "score", "type": "group",
+          "children": [
+            {
+              "name": "window", "type": "shape", "shape": {"rect": [58, 150, 290, 76.9], "radius": 6},
+              "fill": "#050303", "stroke": {"color": "#8A7A5A", "width": 2}
+            },
+            {
+              "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 70, "y": 159,
+              "justify": "right", "text": "",
+              "display": {
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+              },
+              "bindings": [{"property": "text", "variable": "score_1"}]
+            }
+          ]
+        },
+        {
+          "name": "up", "type": "group",
+          "children": [
+            {
+              "name": "ink", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "1", "font": "insert_unlit_34", "x": 30, "y": 188.0,
+                  "anchor": "center"
+                }
+              ]
+            },
+            {
+              "name": "halo", "type": "image", "image": "glow", "x": 30, "y": 188, "size": [27.200000000000003, 89.76],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"1": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "player", "map": {"1": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            },
+            {
+              "name": "lit", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "1", "font": "insert_34", "x": 30, "y": 188.0,
+                  "anchor": "center"
+                }
+              ],
+              "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"1": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "player_2", "type": "group",
+      "children": [
+        {
+          "name": "score", "type": "group",
+          "children": [
+            {
+              "name": "window", "type": "shape", "shape": {"rect": [652, 150, 290, 76.9], "radius": 6},
+              "fill": "#050303", "stroke": {"color": "#8A7A5A", "width": 2}
+            },
+            {
+              "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 664, "y": 159,
+              "justify": "right", "text": "",
+              "display": {
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+              },
+              "bindings": [{"property": "text", "variable": "score_2"}]
+            }
+          ]
+        },
+        {
+          "name": "up", "type": "group",
+          "children": [
+            {
+              "name": "ink", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "2", "font": "insert_unlit_34", "x": 970, "y": 188.0,
+                  "anchor": "center"
+                }
+              ]
+            },
+            {
+              "name": "halo", "type": "image", "image": "glow", "x": 970, "y": 188,
+              "size": [27.200000000000003, 89.76], "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"2": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "player", "map": {"2": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            },
+            {
+              "name": "lit", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "2", "font": "insert_34", "x": 970, "y": 188.0,
+                  "anchor": "center"
+                }
+              ],
+              "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"2": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "player_3", "type": "group",
+      "children": [
+        {
+          "name": "score", "type": "group",
+          "children": [
+            {
+              "name": "window", "type": "shape", "shape": {"rect": [58, 700, 290, 76.9], "radius": 6},
+              "fill": "#050303", "stroke": {"color": "#8A7A5A", "width": 2}
+            },
+            {
+              "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 70, "y": 709,
+              "justify": "right", "text": "",
+              "display": {
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+              },
+              "bindings": [{"property": "text", "variable": "score_3"}]
+            }
+          ]
+        },
+        {
+          "name": "up", "type": "group",
+          "children": [
+            {
+              "name": "ink", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "3", "font": "insert_unlit_34", "x": 30, "y": 738.0,
+                  "anchor": "center"
+                }
+              ]
+            },
+            {
+              "name": "halo", "type": "image", "image": "glow", "x": 30, "y": 738, "size": [27.200000000000003, 89.76],
+              "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"3": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "player", "map": {"3": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            },
+            {
+              "name": "lit", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "3", "font": "insert_34", "x": 30, "y": 738.0,
+                  "anchor": "center"
+                }
+              ],
+              "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"3": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "player_4", "type": "group",
+      "children": [
+        {
+          "name": "score", "type": "group",
+          "children": [
+            {
+              "name": "window", "type": "shape", "shape": {"rect": [652, 700, 290, 76.9], "radius": 6},
+              "fill": "#050303", "stroke": {"color": "#8A7A5A", "width": 2}
+            },
+            {
+              "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 664, "y": 709,
+              "justify": "right", "text": "",
+              "display": {
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+              },
+              "bindings": [{"property": "text", "variable": "score_4"}]
+            }
+          ]
+        },
+        {
+          "name": "up", "type": "group",
+          "children": [
+            {
+              "name": "ink", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "4", "font": "insert_unlit_34", "x": 970, "y": 738.0,
+                  "anchor": "center"
+                }
+              ]
+            },
+            {
+              "name": "halo", "type": "image", "image": "glow", "x": 970, "y": 738,
+              "size": [27.200000000000003, 89.76], "anchor": "center", "blend": "add", "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"4": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}, "scale": 0.35
+                },
+                {
+                  "property": "tint", "variable": "player", "map": {"4": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            },
+            {
+              "name": "lit", "type": "group",
+              "children": [
+                {
+                  "name": "line_0", "type": "text", "text": "4", "font": "insert_34", "x": 970, "y": 738.0,
+                  "anchor": "center"
+                }
+              ],
+              "opacity": 0,
+              "bindings": [
+                {
+                  "property": "opacity", "variable": "player", "map": {"4": 1}, "default": 0,
+                  "transition": {"model": "incandescent"}
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "credits", "type": "group",
+      "children": [
+        {
+          "name": "window", "type": "shape", "shape": {"rect": [318, 800, 88, 67.6], "radius": 6}, "fill": "#050303",
+          "stroke": {"color": "#8A7A5A", "width": 2}
+        },
+        {
+          "name": "digits", "type": "digits", "digits": 2, "size": [64, 49.6], "x": 330, "y": 809, "justify": "right",
+          "text": "",
+          "display": {
+            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+          },
+          "bindings": [{"property": "text", "variable": "credits"}]
+        }
+      ]
+    },
+    {
+      "name": "credits_label", "type": "text", "text": "CREDITS", "font": "small", "x": 362, "y": 788,
+      "anchor": "center"
+    },
+    {
+      "name": "ball", "type": "group",
+      "children": [
+        {
+          "name": "window", "type": "shape", "shape": {"rect": [598, 800, 88, 67.6], "radius": 6}, "fill": "#050303",
+          "stroke": {"color": "#8A7A5A", "width": 2}
+        },
+        {
+          "name": "digits", "type": "digits", "digits": 2, "size": [64, 49.6], "x": 610, "y": 809, "justify": "right",
+          "text": "",
+          "display": {
+            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+          },
+          "bindings": [{"property": "text", "variable": "ball"}]
+        }
+      ]
+    },
+    {
+      "name": "ball_label", "type": "text", "text": "BALL IN PLAY", "font": "small", "x": 642, "y": 788,
+      "anchor": "center"
+    },
+    {
+      "name": "tilt", "type": "group",
+      "children": [
+        {
+          "name": "ink", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "TILT", "font": "insert_unlit_30", "x": 500, "y": 190.0,
+              "anchor": "center"
+            }
+          ]
+        },
+        {
+          "name": "halo", "type": "image", "image": "glow", "x": 500, "y": 190, "size": [96.0, 79.2],
+          "anchor": "center", "blend": "add", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "tilt", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}, "scale": 0.35
+            },
+            {
+              "property": "tint", "variable": "tilt", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        },
+        {
+          "name": "lit", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "TILT", "font": "insert_30", "x": 500, "y": 190.0,
+              "anchor": "center"
+            }
+          ],
+          "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "tilt", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "shoot_again", "type": "group",
+      "children": [
+        {
+          "name": "ink", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "SAME PLAYER", "font": "insert_unlit_20", "x": 500, "y": 240.0,
+              "anchor": "center"
+            },
+            {
+              "name": "line_1", "type": "text", "text": "SHOOTS AGAIN", "font": "insert_unlit_20", "x": 500,
+              "y": 264.0, "anchor": "center"
+            }
+          ]
+        },
+        {
+          "name": "halo", "type": "image", "image": "glow", "x": 500, "y": 252, "size": [192.0, 105.60000000000001],
+          "anchor": "center", "blend": "add", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "shoot_again", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}, "scale": 0.35
+            },
+            {
+              "property": "tint", "variable": "shoot_again", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        },
+        {
+          "name": "lit", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "SAME PLAYER", "font": "insert_20", "x": 500, "y": 240.0,
+              "anchor": "center"
+            },
+            {
+              "name": "line_1", "type": "text", "text": "SHOOTS AGAIN", "font": "insert_20", "x": 500, "y": 264.0,
+              "anchor": "center"
+            }
+          ],
+          "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "shoot_again", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game_over", "type": "group",
+      "children": [
+        {
+          "name": "ink", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "GAME OVER", "font": "insert_unlit_24", "x": 160, "y": 842.0,
+              "anchor": "center"
+            }
+          ]
+        },
+        {
+          "name": "halo", "type": "image", "image": "glow", "x": 160, "y": 842, "size": [172.8, 63.36],
+          "anchor": "center", "blend": "add", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "game_running", "map": {"false": 1}, "default": 0,
+              "transition": {"model": "incandescent"}, "scale": 0.35
+            },
+            {
+              "property": "tint", "variable": "game_running", "map": {"false": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        },
+        {
+          "name": "lit", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "GAME OVER", "font": "insert_24", "x": 160, "y": 842.0,
+              "anchor": "center"
+            }
+          ],
+          "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "game_running", "map": {"false": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "match", "type": "group",
+      "children": [
+        {
+          "name": "ink", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "MATCH", "font": "insert_unlit_24", "x": 502, "y": 842.0,
+              "anchor": "center"
+            }
+          ]
+        },
+        {
+          "name": "halo", "type": "image", "image": "glow", "x": 502, "y": 842, "size": [96.0, 63.36],
+          "anchor": "center", "blend": "add", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "match_lit", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}, "scale": 0.35
+            },
+            {
+              "property": "tint", "variable": "match_lit", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        },
+        {
+          "name": "lit", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "MATCH", "font": "insert_24", "x": 502, "y": 842.0,
+              "anchor": "center"
+            }
+          ],
+          "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "match_lit", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "high_score", "type": "group",
+      "children": [
+        {
+          "name": "ink", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "HIGH SCORE", "font": "insert_unlit_20", "x": 845, "y": 830.0,
+              "anchor": "center"
+            },
+            {
+              "name": "line_1", "type": "text", "text": "TO DATE", "font": "insert_unlit_20", "x": 845, "y": 854.0,
+              "anchor": "center"
+            }
+          ]
+        },
+        {
+          "name": "halo", "type": "image", "image": "glow", "x": 845, "y": 842, "size": [160.0, 105.60000000000001],
+          "anchor": "center", "blend": "add", "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "high_score", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}, "scale": 0.35
+            },
+            {
+              "property": "tint", "variable": "high_score", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        },
+        {
+          "name": "lit", "type": "group",
+          "children": [
+            {
+              "name": "line_0", "type": "text", "text": "HIGH SCORE", "font": "insert_20", "x": 845, "y": 830.0,
+              "anchor": "center"
+            },
+            {
+              "name": "line_1", "type": "text", "text": "TO DATE", "font": "insert_20", "x": 845, "y": 854.0,
+              "anchor": "center"
+            }
+          ],
+          "opacity": 0,
+          "bindings": [
+            {
+              "property": "opacity", "variable": "high_score", "map": {"true": 1}, "default": 0,
+              "transition": {"model": "incandescent"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
