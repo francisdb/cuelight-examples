@@ -1,0 +1,301 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "video_layer",
+  "size": [
+    640,
+    360
+  ],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 12,
+      "size": [
+        173,
+        20
+      ],
+      "x": 16,
+      "y": 18,
+      "text": "VIDEO LAYERS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "a_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "b_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          222,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "c_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          430,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "once",
+      "type": "video",
+      "video": "sweep",
+      "x": 16,
+      "y": 96,
+      "trigger": "go",
+      "on_end": "once_done"
+    },
+    {
+      "name": "loop",
+      "type": "video",
+      "video": "orbit",
+      "x": 224,
+      "y": 96,
+      "autoplay": true,
+      "loop": true,
+      "trigger": "go",
+      "stop": "halt",
+      "gain": 0.4
+    },
+    {
+      "name": "repeat",
+      "type": "video",
+      "video": "pop_c",
+      "x": 432,
+      "y": 96,
+      "trigger": "go",
+      "delay": 2,
+      "repeat": 3,
+      "on_end": "repeat_done"
+    },
+    {
+      "name": "label_once",
+      "type": "digits",
+      "digits": 4,
+      "size": [
+        40,
+        14
+      ],
+      "x": 16,
+      "y": 224,
+      "text": "ONCE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_once",
+      "type": "digits",
+      "digits": 12,
+      "size": [
+        104,
+        12
+      ],
+      "x": 16,
+      "y": 244,
+      "text": "THEN NOTHING",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_loop",
+      "type": "digits",
+      "digits": 4,
+      "size": [
+        40,
+        14
+      ],
+      "x": 224,
+      "y": 224,
+      "text": "LOOP",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_loop",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        112,
+        12
+      ],
+      "x": 224,
+      "y": 244,
+      "text": "HALT STOPS IT",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_repeat",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        81,
+        14
+      ],
+      "x": 432,
+      "y": 224,
+      "text": "DELAY 2S",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_repeat",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        69,
+        12
+      ],
+      "x": 432,
+      "y": 244,
+      "text": "REPEAT 3",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_lamps",
+      "type": "digits",
+      "digits": 24,
+      "size": [
+        207,
+        12
+      ],
+      "x": 16,
+      "y": 300,
+      "text": "A LAMP FLASHES ON ON_END",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "lamp_once",
+      "type": "shape",
+      "shape": {
+        "circle": [
+          0,
+          0,
+          7
+        ]
+      },
+      "x": 196,
+      "y": 229,
+      "fill": "#FFB000",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "flash",
+          "trigger": "once_done",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [
+                {
+                  "t": 0,
+                  "v": 1
+                },
+                {
+                  "t": 0.8,
+                  "v": 0.15,
+                  "ease": "quad_in"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "lamp_repeat",
+      "type": "shape",
+      "shape": {
+        "circle": [
+          0,
+          0,
+          7
+        ]
+      },
+      "x": 612,
+      "y": 229,
+      "fill": "#FFB000",
+      "opacity": 0.15,
+      "timelines": [
+        {
+          "name": "flash",
+          "trigger": "repeat_done",
+          "tracks": [
+            {
+              "property": "opacity",
+              "keys": [
+                {
+                  "t": 0,
+                  "v": 1
+                },
+                {
+                  "t": 0.8,
+                  "v": 0.15,
+                  "ease": "quad_in"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

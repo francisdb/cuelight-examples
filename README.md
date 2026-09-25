@@ -43,6 +43,13 @@ this repository:
 cargo run -p cuelight-player -- ../cuelight-examples/<show>
 ```
 
+Shows with video layers need the player's `video` feature, and ffmpeg on
+the machine:
+
+```sh
+cargo run -p cuelight-player --features video -- ../cuelight-examples/features/video/video_layer
+```
+
 Without a window, `cuelight-render` writes frames at chosen times, or
 lists what a show fires and when, playing the show's driver:
 

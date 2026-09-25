@@ -1,0 +1,26 @@
+{
+  "loop": true,
+  "steps": [
+    {
+      "wait": 0.5
+    },
+    {
+      "trigger": "go"
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "go"
+    },
+    {
+      "wait": 0.6
+    },
+    {
+      "trigger": "go"
+    },
+    {
+      "wait": 5.3
+    }
+  ]
+}

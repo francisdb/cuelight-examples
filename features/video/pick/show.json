@@ -1,0 +1,237 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "pick",
+  "size": [
+    640,
+    360
+  ],
+  "background": "#0E1116",
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 14,
+      "size": [
+        202,
+        20
+      ],
+      "x": 16,
+      "y": 18,
+      "text": "ONE OF SEVERAL",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "intro",
+      "type": "digits",
+      "digits": 17,
+      "size": [
+        147,
+        12
+      ],
+      "x": 16,
+      "y": 56,
+      "text": "NEXT EVERY SECOND",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "a_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "b_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          222,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "c_frame",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          430,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "in_order",
+      "type": "video",
+      "video": [
+        "pop_c",
+        "pop_e",
+        "pop_g"
+      ],
+      "pick": "in_order",
+      "x": 16,
+      "y": 96,
+      "trigger": "next",
+      "gain": 0.6
+    },
+    {
+      "name": "label_in_order",
+      "type": "digits",
+      "digits": 8,
+      "size": [
+        81,
+        14
+      ],
+      "x": 16,
+      "y": 224,
+      "text": "IN_ORDER",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "random",
+      "type": "video",
+      "video": [
+        "pop_c",
+        "pop_e",
+        "pop_g"
+      ],
+      "pick": "random",
+      "x": 224,
+      "y": 96,
+      "trigger": "next",
+      "gain": 0.0
+    },
+    {
+      "name": "label_random",
+      "type": "digits",
+      "digits": 6,
+      "size": [
+        60,
+        14
+      ],
+      "x": 224,
+      "y": 224,
+      "text": "RANDOM",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "shuffle",
+      "type": "video",
+      "video": [
+        "pop_c",
+        "pop_e",
+        "pop_g"
+      ],
+      "pick": "shuffle",
+      "x": 432,
+      "y": 96,
+      "trigger": "next",
+      "gain": 0.0
+    },
+    {
+      "name": "label_shuffle",
+      "type": "digits",
+      "digits": 7,
+      "size": [
+        71,
+        14
+      ],
+      "x": 432,
+      "y": 224,
+      "text": "SHUFFLE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_in_order",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        112,
+        12
+      ],
+      "x": 16,
+      "y": 244,
+      "text": "THE ONE HEARD",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_random",
+      "type": "digits",
+      "digits": 10,
+      "size": [
+        86,
+        12
+      ],
+      "x": 224,
+      "y": 244,
+      "text": "MAY REPEAT",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_shuffle",
+      "type": "digits",
+      "digits": 16,
+      "size": [
+        138,
+        12
+      ],
+      "x": 432,
+      "y": 244,
+      "text": "ALL BEFORE AGAIN",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    }
+  ]
+}

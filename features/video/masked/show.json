@@ -1,0 +1,284 @@
+{
+  "$schema": "https://raw.githubusercontent.com/francisdb/cuelight/main/crates/cuelight/schemas/show.schema.json",
+  "format": 1,
+  "name": "masked",
+  "size": [
+    640,
+    360
+  ],
+  "background": "#0E1116",
+  "values": {
+    "spot": {
+      "timelines": [
+        {
+          "name": "sweep",
+          "autoplay": true,
+          "loop": true,
+          "keys": [
+            {
+              "t": 0,
+              "v": 34
+            },
+            {
+              "t": 2,
+              "v": 158,
+              "ease": "quad_in_out"
+            },
+            {
+              "t": 4,
+              "v": 34,
+              "ease": "quad_in_out"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "layers": [
+    {
+      "name": "title",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        187,
+        20
+      ],
+      "x": 16,
+      "y": 18,
+      "text": "CLIPPED VIDEO",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#E6EDF3"
+        }
+      }
+    },
+    {
+      "name": "intro",
+      "type": "digits",
+      "digits": 40,
+      "size": [
+        346,
+        12
+      ],
+      "x": 16,
+      "y": 56,
+      "text": "A GROUP CLIP CUTS THE PICTURE TO A SHAPE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "frame_0",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          14,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "frame_1",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          222,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "frame_2",
+      "type": "shape",
+      "shape": {
+        "rect": [
+          430,
+          94,
+          196,
+          112
+        ]
+      },
+      "fill": "#1B2230"
+    },
+    {
+      "name": "circle",
+      "type": "group",
+      "x": 16,
+      "y": 96,
+      "clip": {
+        "circle": [
+          96,
+          54,
+          50
+        ]
+      },
+      "children": [
+        {
+          "name": "circle_video",
+          "type": "video",
+          "video": "orbit",
+          "autoplay": true,
+          "loop": true,
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "name": "star",
+      "type": "group",
+      "x": 224,
+      "y": 96,
+      "clip": {
+        "path": "M 96.0 0.0 L 108.9 36.2 L 147.4 37.3 L 116.9 60.8 L 127.7 97.7 L 96.0 76.0 L 64.3 97.7 L 75.1 60.8 L 44.6 37.3 L 83.1 36.2 Z"
+      },
+      "children": [
+        {
+          "name": "star_video",
+          "type": "video",
+          "video": "orbit",
+          "autoplay": true,
+          "loop": true,
+          "gain": 0
+        }
+      ]
+    },
+    {
+      "name": "window",
+      "type": "group",
+      "x": 432,
+      "y": 150,
+      "clip": {
+        "circle": [
+          0,
+          0,
+          34
+        ]
+      },
+      "bindings": [
+        {
+          "property": "x",
+          "variable": "spot",
+          "offset": 432
+        }
+      ],
+      "children": [
+        {
+          "name": "window_video",
+          "type": "video",
+          "video": "orbit",
+          "y": -54,
+          "autoplay": true,
+          "loop": true,
+          "gain": 0,
+          "bindings": [
+            {
+              "property": "x",
+              "variable": "spot",
+              "scale": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "label_circle",
+      "type": "digits",
+      "digits": 6,
+      "size": [
+        60,
+        14
+      ],
+      "x": 16,
+      "y": 224,
+      "text": "CIRCLE",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_star_path",
+      "type": "digits",
+      "digits": 9,
+      "size": [
+        91,
+        14
+      ],
+      "x": 224,
+      "y": 224,
+      "text": "STAR PATH",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "label_moving_window",
+      "type": "digits",
+      "digits": 13,
+      "size": [
+        131,
+        14
+      ],
+      "x": 432,
+      "y": 224,
+      "text": "MOVING WINDOW",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_window",
+      "type": "digits",
+      "digits": 17,
+      "size": [
+        147,
+        12
+      ],
+      "x": 432,
+      "y": 244,
+      "text": "THE PICTURE STAYS",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    },
+    {
+      "name": "note_soft",
+      "type": "digits",
+      "digits": 39,
+      "size": [
+        337,
+        12
+      ],
+      "x": 16,
+      "y": 300,
+      "text": "HARD EDGES ONLY. SOFT MASKS ARE TO COME",
+      "display": {
+        "segments": {
+          "style": "alpha14",
+          "fill": "#8B96A5"
+        }
+      }
+    }
+  ]
+}
