@@ -1,6 +1,6 @@
 version: 2
 updates:
-  # No cargo entry: the only Cargo project, tools/thumbnails, depends on the
+  # No cargo entry: the only Cargo project, tools/check, depends on the
   # cuelight checkout next to this repository by path, which Dependabot
   # cannot reach. Its versions follow cuelight's, which are kept up to date
   # over there.
