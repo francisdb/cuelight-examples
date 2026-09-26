@@ -88,20 +88,13 @@ fn references(
 ) -> Vec<String> {
     fn walk(engine: &Engine, layers: &[Layer], used: &mut BTreeSet<String>, out: &mut Vec<String>) {
         for layer in layers {
+            // An artwork layer draws pixels or vector artwork, whichever
+            // is registered under its name.
             if let LayerKind::Image { image, .. } = &layer.kind {
                 used.insert(image.clone());
-                if engine.image(image).is_none() {
+                if engine.image(image).is_none() && engine.vector(image).is_none() {
                     out.push(format!(
-                        "layer {:?} shows image {image:?}, which is not in assets/",
-                        layer.name
-                    ));
-                }
-            }
-            if let LayerKind::Vector { vector, .. } = &layer.kind {
-                used.insert(vector.clone());
-                if engine.vector(vector).is_none() {
-                    out.push(format!(
-                        "layer {:?} shows vector {vector:?}, which is not in assets/",
+                        "layer {:?} shows artwork {image:?}, which is not in assets/",
                         layer.name
                     ));
                 }

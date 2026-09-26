@@ -52,12 +52,18 @@
       "children": [
         {
           "name": "ground",
-          "type": "vector",
-          "vector": "board",
+          "type": "image",
+          "image": "checker",
           "size": [
             1700,
             1700
           ],
+          "repeat": {
+            "size": [
+              200,
+              200
+            ]
+          },
           "anchor": "center",
           "timelines": [
             {
@@ -110,12 +116,18 @@
         },
         {
           "name": "over",
-          "type": "vector",
-          "vector": "board",
+          "type": "image",
+          "image": "checker",
           "size": [
             1700,
             1700
           ],
+          "repeat": {
+            "size": [
+              200,
+              200
+            ]
+          },
           "anchor": "center",
           "scale": 1.55,
           "opacity": 0.35,
