@@ -82,15 +82,13 @@ FONTS = {
     "link": style("DMMono-Medium", 30, INK),
 }
 
-# Code on a night panel, coloured by what each piece is. Drawn into SVG
-# artwork as glyph outlines rather than set as text layers: a line of
-# code is one piece of art, not a layer per coloured word (cuelight#203
-# will let SVG text use the show's own fonts instead).
+# Code on a night panel, coloured by what each piece is. A line of code
+# is one piece of SVG artwork, its text in DM Mono from the show's own
+# fonts with a tspan per coloured word, rather than a text layer per word.
 CODE_SIZE = 18
-CODE = {
-    "plain": ("DMMono-Regular", PAPER), "key": ("DMMono-Regular", "#9DB8FF"),
-    "string": ("DMMono-Regular", "#FFC857"), "number": ("DMMono-Regular", "#5EE0B0"),
-    "punct": ("DMMono-Regular", "#8E8A80"), "prompt": ("DMMono-Medium", CORAL), "out": ("DMMono-Regular", "#8E8A80"),
+CODE = {    # weight and colour
+    "plain": (400, PAPER), "key": (400, "#9DB8FF"), "string": (400, "#FFC857"), "number": (400, "#5EE0B0"),
+    "punct": (400, "#8E8A80"), "prompt": (500, CORAL), "out": (400, "#8E8A80"),
 }
 SVGS = {}
 
@@ -221,34 +219,28 @@ def number(v):
     return f"{v:.2f}".rstrip("0").rstrip(".")
 
 
-def glyph_path(words, x, baseline, file, size):
-    """SVG path data for a line of text from the font's own outlines."""
-    from fontTools.pens.svgPathPen import SVGPathPen
-    from fontTools.pens.transformPen import TransformPen
-    face = TTFont(OUT / "assets/fonts" / f"{file}.ttf")
-    glyphs, cmap, scale = face.getGlyphSet(), face.getBestCmap(), size / face["head"].unitsPerEm
-    pen = SVGPathPen(glyphs, ntos=number)
-    for c in words:
-        glyphs[cmap[ord(c)]].draw(TransformPen(pen, (scale, 0, 0, -scale, x, baseline)))
-        x += face["hmtx"][cmap[ord(c)]][0] * scale
-    return pen.getCommands()
+DM_MONO = TTFont(OUT / "assets/fonts/DMMono-Regular.ttf") if (OUT / "assets/fonts/DMMono-Regular.ttf").exists() else None
 
 
-def outline(pieces):
-    """SVG artwork of one line of code: `pieces` are (column, text, kind),
-    each drawn from its font's glyph outlines in its colour."""
-    font = TTFont(OUT / "assets/fonts/DMMono-Regular.ttf")
-    em = font["head"].unitsPerEm
-    scale = CODE_SIZE / em
-    ascent, descent = font["hhea"].ascent * scale, -font["hhea"].descent * scale
-    cell = font["hmtx"][font.getBestCmap()[ord("0")]][0] * scale
-    paths = {}
-    for column, words, kind in pieces:
-        file, color = CODE[kind]
-        paths.setdefault(color, []).append(glyph_path(words, column * cell, ascent, file, CODE_SIZE))
+def mono_text(pieces, size, y):
+    """A line of DM Mono in SVG: `pieces` are (column, text, weight,
+    colour), each a tspan on the font's fixed advance."""
+    from xml.sax.saxutils import escape
+    cell = DM_MONO["hmtx"][DM_MONO.getBestCmap()[ord("0")]][0] * size / DM_MONO["head"].unitsPerEm
+    spans = "".join(f'<tspan x="{number(column * cell)}" fill="{color}"'
+                    + (f' font-weight="{weight}"' if weight != 400 else "") + f">{escape(words)}</tspan>"
+                    for column, words, weight, color in pieces)
+    return (f'<text xml:space="preserve" font-family="DM Mono" font-size="{size}" y="{number(y)}">'
+            f"{spans}</text>"), cell
+
+
+def code_line(pieces):
+    """SVG artwork of one line of code: `pieces` are (column, text, kind)."""
+    scale = CODE_SIZE / DM_MONO["head"].unitsPerEm
+    ascent, descent = DM_MONO["hhea"].ascent * scale, -DM_MONO["hhea"].descent * scale
+    body, cell = mono_text([(c, t, *CODE[k]) for c, t, k in pieces], CODE_SIZE, ascent)
     w = number(max((c + len(t)) * cell for c, t, _ in pieces)) if pieces else "1"
     h = number(ascent + descent)
-    body = "".join(f'<path fill="{color}" d="{" ".join(d)}"/>' for color, d in paths.items())
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}">{body}</svg>\n'
 
 
@@ -276,7 +268,7 @@ def code_block(name, rows, x, y, step=27, delay=None, shell=False, output=False)
                     pieces.append((column, piece, look))
                 column += len(piece)
         stem = f"code_{len(SVGS):02d}"
-        SVGS[stem] = outline(pieces)
+        SVGS[stem] = code_line(pieces)
         line = group(f"{name}_{i}", [{"name": "code", "type": "vector", "vector": stem, "x": 0, "y": 0}],
                      x, y + i * step)
         layers.append(enter(line, delay + i * 0.06, rise=10) if delay is not None else line)
@@ -633,7 +625,7 @@ def film():
         t = (k % 8) * 0.5
         top = 8 + k * FRAME_STEP
         x, y, grow, turn = (round(at(c, t), 2) for c in (x_curve, y_curve, shadow_curve, spin))
-        label = glyph_path(f"{t:.1f} s", 0, 0, "DMMono-Regular", 15)
+        label, _ = mono_text([(0, f"{t:.1f} s", 400, MUTED)], 15, 22)
         parts.append(
             f'<g transform="translate(8 {top})">'
             f'<rect x="-8" y="-8" width="{FRAME_W + 16}" height="{FRAME_H + 16}" rx="6" fill="{INK}"/>'
@@ -644,7 +636,7 @@ def film():
             f'<rect x="{-r}" y="-4" width="{2 * r}" height="8" rx="4" fill="{INK}" fill-opacity="0.2" '
             f'transform="translate({x} {floor + 1}) scale({grow})"/>'
             f'<circle cx="{x}" cy="{y}" r="{r}" fill="{CORAL}"/>'
-            f'<path fill="{MUTED}" transform="translate(10 22)" d="{label}"/>'
+            f'<g transform="translate(10 0)">{label}</g>'
             f'</g>')
     height = 16 * FRAME_STEP
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{FRAME_W + 16}" height="{height}" '

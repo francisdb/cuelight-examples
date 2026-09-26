@@ -22,7 +22,7 @@ shows its point instead of only saying it.
 | --- | --- |
 | Slides | a scene each, `slide_1` to `slide_9`. Every element enters by a held timeline with its own `delay`, so a slide builds itself |
 | Navigation | the host sends `next` and `prev`. Each slide routes them: a timeline of no length whose `on_end` fires the slide before or after it, so keys or a click map straight onto two events |
-| Code | each line is SVG artwork drawn from DM Mono's glyph outlines, coloured per token, one `vector` layer a line (until SVG text can use the show's own fonts, cuelight#203) |
+| Code | each line is SVG artwork whose text is set in DM Mono from the show's own `assets/fonts`, a coloured `tspan` per token, one `vector` layer a line |
 | Chrome | the progress bar grows from the previous slide's share to this one's; the page number and the wordmark sit on every slide |
 
 ## Driving it
@@ -57,7 +57,7 @@ fetched by [`tools/deck_fetch.sh`](../tools/deck_fetch.sh).
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `code_*.svg`, `film.svg` | Drawn by `tools/deck_show.py`, the code from DM Mono's outlines | MIT, as this repository |
+| `code_*.svg`, `film.svg` | Drawn by `tools/deck_show.py` | MIT, as this repository |
 | `sounds/*.ogg` | Synthesized from sines by `tools/deck_sounds.py` | MIT, as this repository |
 | `game_hud.png` and the other thumbnails | This repository's gallery thumbnails, rendered from its shows | MIT, as this repository |
 | `fonts/ArchivoBlack-Regular.ttf` | [Archivo Black](https://github.com/Omnibus-Type/ArchivoBlack), from google/fonts | [OFL-1.1](licenses/ArchivoBlack-OFL.txt) |
