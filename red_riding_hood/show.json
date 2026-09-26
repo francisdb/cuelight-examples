@@ -473,6 +473,7 @@
               "font": "word",
               "text": "red hood",
               "anchor": "center",
+              "press": {"trigger": "tap_hood"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -924,6 +925,7 @@
               "font": "word",
               "text": "basket",
               "anchor": "center",
+              "press": {"trigger": "tap_basket"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -1294,6 +1296,7 @@
               "font": "word",
               "text": "wolf",
               "anchor": "center",
+              "press": {"trigger": "tap_wolf"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -1655,6 +1658,7 @@
               "font": "word",
               "text": "flowers",
               "anchor": "center",
+              "press": {"trigger": "tap_flowers"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -2558,6 +2562,7 @@
               "font": "word",
               "text": "cupboard",
               "anchor": "center",
+              "press": {"trigger": "tap_cupboard"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -2883,6 +2888,7 @@
               "font": "word",
               "text": "eyes",
               "anchor": "center",
+              "press": {"trigger": "tap_eyes"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -3206,6 +3212,7 @@
               "font": "word",
               "text": "teeth",
               "anchor": "center",
+              "press": {"trigger": "tap_teeth"},
               "timelines": [
                 {
                   "name": "pulse",
@@ -3548,6 +3555,7 @@
               "font": "word",
               "text": "cake",
               "anchor": "center",
+              "press": {"trigger": "tap_cake"},
               "timelines": [
                 {
                   "name": "pulse",

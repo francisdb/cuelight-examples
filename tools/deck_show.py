@@ -10,9 +10,10 @@ determinism slide keeps a frame and meets it again, the scrub slide
 drives a small scene from one time value that plays and rewinds.
 
 The host only says `next` and `prev` (and `slide_1` to jump home); each
-slide knows which slide comes before and after it, so a keyboard or a
-click maps straight onto those two events. The events slide also listens
-for `coin` and `jackpot` and reads the `credits` variable.
+slide knows which slide comes before and after it. The show maps the
+arrow keys, Space, Page Up and Down, Home and a press anywhere onto those
+events. The events slide also listens for `coin` and `jackpot` and reads
+the `credits` variable.
 
 Needs the fonts from tools/deck_fetch.sh, the sounds from
 tools/deck_sounds.py, and the gallery's thumbnails in site/thumbnails.
@@ -811,6 +812,11 @@ show = {
     "$schema": SCHEMA, "format": 1, "name": "deck", "size": [W, H], "background": PAPER,
     "fonts": FONTS,
     "variables": {"credits": 0},
+    # A key or a press anywhere turns the page; each slide routes `next`
+    # and `prev` itself.
+    "input": {"keys": {"ArrowRight": "next", "ArrowLeft": "prev", " ": "next", "PageDown": "next", "PageUp": "prev",
+                       "Home": "slide_1"},
+              "press": "next"},
     "values": values,
     "layers": layers,
     "scenes": scenes,

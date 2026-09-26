@@ -21,13 +21,14 @@ shows its point instead of only saying it.
 | Part | How it works |
 | --- | --- |
 | Slides | a scene each, `slide_1` to `slide_9`. Every element enters by a held timeline with its own `delay`, so a slide builds itself |
-| Navigation | the host sends `next` and `prev`. Each slide routes them: a timeline of no length whose `on_end` fires the slide before or after it, so keys or a click map straight onto two events |
+| Navigation | the arrow keys, Space, Page Up and Down, Home and a press anywhere fire `next`, `prev` and `slide_1` (`input`). Each slide routes them: a timeline of no length whose `on_end` fires the slide before or after it |
 | Code | each line is SVG artwork whose text is set in DM Mono from the show's own `assets/fonts`, a coloured `tspan` per token, one `vector` layer a line |
 | Chrome | the progress bar grows from the previous slide's share to this one's; the page number and the wordmark sit on every slide |
 
 ## Driving it
 
-The host sends `next` and `prev`, and `slide_1` to go back to the start.
+The host sends `next` and `prev`, and `slide_1` to go back to the start;
+in a player the arrow keys, Space and a click do the same.
 The events slide also listens for `coin` and `jackpot`, and reads the
 `credits` variable.
 
