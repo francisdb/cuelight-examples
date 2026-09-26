@@ -11,6 +11,7 @@
     "button": {"file": "Oxanium-Bold", "size": 24, "color": "#2A1B05"},
     "banner": {"file": "Oxanium-Bold", "size": 72, "color": "#FBE8A6"}
   },
+  "input": {"keys": {" ": "spin", "Enter": "spin"}},
   "variables": {
     "reel_1": "C", "reel_2": "C", "reel_3": "C",
     "credits": "00250", "bet": 5, "win": "0000"
@@ -122,7 +123,7 @@
     },
 
     {
-      "name": "button", "type": "group", "x": 838, "y": 510,
+      "name": "button", "type": "group", "x": 838, "y": 510, "press": {"trigger": "spin"},
       "timelines": [
         {"name": "press", "trigger": "spin", "tracks": [
           {"property": "scale", "keys": [{"t": 0.0, "v": 1}, {"t": 0.08, "v": 0.88, "ease": "quad_out"}, {"t": 0.34, "v": 1, "ease": "back_out"}]}

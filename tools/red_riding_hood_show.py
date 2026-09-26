@@ -479,9 +479,11 @@ def lay_out(lines, drop_cap=True):
 
 
 def pulse(layers, trigger):
-    """The red word jumps a little when its trigger fires."""
+    """The red word jumps a little when its trigger fires, and a press on
+    it fires that trigger."""
     for layer in layers:
         if layer["font"] == "word":
+            layer["press"] = {"trigger": trigger}
             layer["timelines"] = [tl("pulse", "scale", [(0, 1), (0.18, 1.3, "quad_out"), (0.6, 1, "back_out")],
                                      trigger=trigger)]
     return layers
