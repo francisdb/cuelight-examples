@@ -7,7 +7,7 @@ how close the camera is.
 
 | Part | How it works |
 | --- | --- |
-| The board | one `vector` of a 16 by 16 board, 1600 units across, drawn twice. It is wider than the canvas's diagonal, so however far it turns or zooms out there is no corner to see past |
+| The board | a two-by-two SVG tile repeated across 1700 units (`repeat`), 17 squares a side, drawn twice. It is wider than the canvas's diagonal, so however far it turns or zooms out there is no corner to see past, and being vector artwork its squares stay sharp at every zoom |
 | Turning | each copy carries a looping `rotation` timeline, one going 0 to 90 degrees over 23 seconds and the other 90 to 0 over 37. A quarter turn maps a checkerboard onto itself, so those loops have no seam, and the two periods do not divide each other, so the pair never quite repeats |
 | Breathing | the near copy also loops its own `scale` between 1 and 1.35, which multiplies with everything above it |
 | The second board | drawn over the first with `"blend": "multiply"` and a bound opacity, so it darkens the light squares and leaves the dark ones alone. The two boards cut triangles out of each other as they turn |
@@ -18,7 +18,7 @@ how close the camera is.
 | The corners | a square filled with a radial gradient from clear to dark, squashed to the canvas with `scale_y`, so the dark follows an ellipse into the corners. It and the board reach past the canvas (`overflow`): the board was already drawn far larger than the canvas, and the vignette, four canvases wide, holds its darkest colour past its edge, so a screen of another shape shows the board fading into the dark instead of flat bars |
 
 It needs cuelight `main` with rotation, uneven scale, inherited group
-transforms, blend modes and vector artwork.
+transforms, blend modes and tiled vector artwork.
 
 ## Running
 
@@ -38,14 +38,10 @@ Everything under `assets/` is committed and free to redistribute.
 
 | Asset | Origin | License |
 | --- | --- | --- |
-| `board.svg`, `knight.svg`, `shadow.svg` | Made for this show, drawn by [`tools/checkerboard_art.py`](../tools/checkerboard_art.py) | MIT, as this repository |
+| `checker.svg`, `knight.svg`, `shadow.svg` | Made for this show, drawn by [`tools/checkerboard_art.py`](../tools/checkerboard_art.py) | MIT, as this repository |
 
 ## What would make it better
 
-- A way to tile a pattern. The board is 128 rectangles written out one by
-  one, because a show cannot say "this square, repeated". A tiling fill,
-  or a layer that repeats its child on a grid, would make it four lines
-  and would serve star fields and backgrounds as well.
 - Perspective, so the board could lie flat and recede instead of facing
   the viewer. Rotation and scale are affine, so the board can only spin
   in its own plane.

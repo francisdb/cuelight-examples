@@ -3,16 +3,15 @@
 
     tools/checkerboard_art.py checkerboard/assets
 
-board.svg is a 17 by 17 checkerboard of 100 unit squares, 1700 across,
-which is wider than the canvas's diagonal so it still covers the screen
-when it is turned and zoomed out. The count is odd on purpose: it puts
-the middle of a square at the centre the board turns about, and the four
-neighbours of a square are all the same colour, so a quarter turn leaves
-the same picture. With an even count the centre lands where four squares
-meet, colours alternate around it, and every square changes colour on a
-quarter turn. The squares are written out one by one:
-cuelight has no way to tile a pattern, so a board is as many rectangles
-as it has dark squares.
+checker.svg is two squares by two, 100 units each, light top-left, which
+the show tiles across a board of 17 by 17 squares, 1700 across: wider
+than the canvas's diagonal, so it still covers the screen when it is
+turned and zoomed out. The count is odd on purpose: it puts the middle
+of a square at the centre the board turns about, and the four neighbours
+of a square are all the same colour, so a quarter turn leaves the same
+picture. With an even count the centre lands where four squares meet,
+colours alternate around it, and every square changes colour on a
+quarter turn.
 
 knight.svg is the piece that stands in front of it, a flat silhouette
 with a lighter face, drawn as paths so it stays sharp at any size.
@@ -32,22 +31,16 @@ PIECE_EDGE = "#0A0D14"
 SHADOW = "#05070C"
 
 SQUARE = 100
-SQUARES = 17
-BOARD = SQUARE * SQUARES
 
 
-def board():
-    rects = [f'<rect x="0" y="0" width="{BOARD}" height="{BOARD}" fill="{LIGHT}"/>']
-    for row in range(SQUARES):
-        for col in range(SQUARES):
-            if (row + col) % 2:
-                rects.append(
-                    f'<rect x="{col * SQUARE}" y="{row * SQUARE}" '
-                    f'width="{SQUARE}" height="{SQUARE}" fill="{DARK}"/>'
-                )
+def checker():
+    tile = 2 * SQUARE
     return (
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {BOARD} {BOARD}" '
-        f'width="{BOARD}" height="{BOARD}">\n' + "\n".join(rects) + "\n</svg>\n"
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {tile} {tile}" width="{tile}" height="{tile}">\n'
+        f'<rect width="{tile}" height="{tile}" fill="{LIGHT}"/>\n'
+        f'<rect x="{SQUARE}" width="{SQUARE}" height="{SQUARE}" fill="{DARK}"/>\n'
+        f'<rect y="{SQUARE}" width="{SQUARE}" height="{SQUARE}" fill="{DARK}"/>\n'
+        "</svg>\n"
     )
 
 
@@ -103,10 +96,10 @@ def shadow():
 def main():
     out = Path(sys.argv[1])
     out.mkdir(parents=True, exist_ok=True)
-    (out / "board.svg").write_text(board())
+    (out / "checker.svg").write_text(checker())
     (out / "knight.svg").write_text(knight())
     (out / "shadow.svg").write_text(shadow())
-    print(f"board, knight and shadow in {out}")
+    print(f"checker, knight and shadow in {out}")
 
 
 if __name__ == "__main__":
