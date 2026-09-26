@@ -691,7 +691,7 @@
               "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 70, "y": 159,
               "justify": "right", "text": "",
               "display": {
-                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
               },
               "bindings": [{"property": "text", "variable": "score_1"}]
             }
@@ -757,7 +757,7 @@
               "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 664, "y": 159,
               "justify": "right", "text": "",
               "display": {
-                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
               },
               "bindings": [{"property": "text", "variable": "score_2"}]
             }
@@ -823,7 +823,7 @@
               "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 70, "y": 709,
               "justify": "right", "text": "",
               "display": {
-                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
               },
               "bindings": [{"property": "text", "variable": "score_3"}]
             }
@@ -889,7 +889,7 @@
               "name": "digits", "type": "digits", "digits": 7, "size": [266, 58.9], "x": 664, "y": 709,
               "justify": "right", "text": "",
               "display": {
-                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+                "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
               },
               "bindings": [{"property": "text", "variable": "score_4"}]
             }
@@ -952,7 +952,7 @@
           "name": "digits", "type": "digits", "digits": 2, "size": [64, 49.6], "x": 330, "y": 809, "justify": "right",
           "text": "",
           "display": {
-            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
           },
           "bindings": [{"property": "text", "variable": "credits"}]
         }
@@ -973,7 +973,7 @@
           "name": "digits", "type": "digits", "digits": 2, "size": [64, 49.6], "x": 610, "y": 809, "justify": "right",
           "text": "",
           "display": {
-            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 1}}
+            "segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904", "glow": {"size": 0.2, "strength": 0.5}}
           },
           "bindings": [{"property": "text", "variable": "ball"}]
         }

@@ -95,12 +95,12 @@
     },
     {
       "name": "rim", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 224, "text": "",
-      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 1}}},
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 0.7}}},
       "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
     },
     {
       "name": "rim_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 224, "text": "SEGMENTS",
-      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 1}}}
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.1, "strength": 0.7}}}
     },
     {
       "name": "label_halo", "type": "digits", "digits": 8, "size": [69, 12], "x": 24, "y": 280, "text": "GLOW .25",
@@ -108,12 +108,12 @@
     },
     {
       "name": "halo", "type": "digits", "digits": 8, "size": [200, 40], "x": 180, "y": 266, "text": "",
-      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 1}}},
+      "display": {"segments": {"style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 0.5}}},
       "bindings": [{"property": "text", "variable": "score", "format": "thousands"}], "justify": "right"
     },
     {
       "name": "halo_alpha", "type": "digits", "digits": 8, "size": [200, 40], "x": 410, "y": 266, "text": "SEGMENTS",
-      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 1}}}
+      "display": {"segments": {"style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "glow": {"size": 0.25, "strength": 0.5}}}
     },
     {
       "name": "label_all", "type": "digits", "digits": 11, "size": [95, 12], "x": 24, "y": 322, "text": "ALL AT ONCE",
@@ -124,7 +124,7 @@
       "display": {
         "segments": {
           "style": "numeric7", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10, "thickness": 0.16,
-          "glow": {"size": 0.25, "strength": 1}
+          "glow": {"size": 0.1, "strength": 0.7}
         }
       },
       "justify": "right", "bindings": [{"property": "text", "variable": "score", "format": "thousands"}]
@@ -134,7 +134,7 @@
       "display": {
         "segments": {
           "style": "alpha14", "fill": "#FF5820", "unlit": "#2A0E05", "slant": 10, "thickness": 0.16,
-          "glow": {"size": 0.25, "strength": 1}
+          "glow": {"size": 0.1, "strength": 0.7}
         }
       }
     }

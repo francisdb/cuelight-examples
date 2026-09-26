@@ -124,7 +124,7 @@ def display(name, x, y, digits, variable, cell=38):
         {"name": "digits", "type": "digits", "digits": digits, "size": [cell * digits, cell * 1.55], "x": x + 12,
          "y": y + 9, "justify": "right", "text": "",
          "display": {"segments": {"style": "numeric7", "fill": "#FF5A1E", "unlit": "#260904",
-                                  "glow": {"size": 0.2, "strength": 1}}},
+                                  "glow": {"size": 0.2, "strength": 0.5}}},
          "bindings": [{"property": "text", "variable": variable}]},
     ]}
 
